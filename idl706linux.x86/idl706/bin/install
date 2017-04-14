@@ -1,0 +1,429 @@
+#!/bin/sh 
+#
+#       $Id: //depot/idl/IDL_70/idldir/bin/unix/install#3 $
+#
+# install
+#
+# This shell script carries out the steps required to install IDL
+# or an IDL based product once the main directory has been unpacked.
+# It expects to be run from the ITT directory.
+#
+
+# Make sure whoami is found on Solaris
+PATH="$PATH:/usr/ucb"
+USER=`whoami`
+LANDMARK=resource/fonts/hersh1.chr
+SET_LINKS=1
+
+# Establish the name (upper and lower case) and the version.
+NAME="IDL"
+PROD_VERSION=706
+IDL_VERSION=706
+IDLDIR_VERS=idl${IDL_VERSION}
+IDLDIR=idl
+ITTDIR=`pwd`
+
+if [ "$1" = "NOT_INTERACTIVE" ]; then
+   NOT_INTERACTIVE=1
+else
+   NOT_INTERACTIVE=
+fi
+
+PRODUCT=`echo $NAME | tr [A-Z] [a-z]`
+if [ "$PRODUCT" != "idl" ]; then
+   LAYERED=1
+fi
+
+IDLBIN=${ITTDIR}/${IDLDIR}/bin
+IDLBIN_VERS=${ITTDIR}/${IDLDIR_VERS}/bin
+
+PRODUCTBIN=${ITTDIR}/${IDLDIR}/products/${PRODUCT}/bin
+PRODUCTBIN_VERS=${ITTDIR}/${IDLDIR_VERS}/products/${PRODUCT}${PROD_VERSION}/bin
+PRODUCT_VERSION=${PRODUCT}${PROD_VERSION}
+
+ENVI_PRODUCT=envi
+ENVI_VERSION=46
+ENVI_BIN=${ITTDIR}/${IDLDIR}/products/${ENVI_PRODUCT}/bin
+ENVI_BIN_VERS=${ITTDIR}/${IDLDIR_VERS}/products/${ENVI_PRODUCT}${ENVI_VERSION}/bin
+ENVI_PRODUCTBIN=${ITTDIR}/${IDLDIR}/products/${ENVI_PRODUCT}//bin
+ENVI_PRODUCTBIN_VERS=${ITTDIR}/${IDLDIR_VERS}/products/${ENVI_PRODUCT}${ENVI_VERSION}/bin
+ENVI_PRODUCT_VERSION=${ENVI_PRODUCT}${ENVI_VERSION}
+
+ZOOM_PRODUCT=envizoom
+ZOOM_VERSION=46
+ZOOM_PRODUCT_VERSION=${ZOOM_PRODUCT}${ZOOM_VERSION}
+ZOOM_PRODUCTBIN=${ITTDIR}/${IDLDIR}/products/${ZOOM_PRODUCT}//bin
+ZOOM_PRODUCTBIN_VERS=${ITTDIR}/${IDLDIR_VERS}/products/${ZOOM_PRODUCT}${ZOOM_VERSION}/bin
+
+
+if [ "$1" = "LICENSE" ]; then
+  cat  ${IDLDIR_VERS}/help/copyrights/license.txt | more
+  echo ""
+  if [ `sh $IDLBIN_VERS/yesno "Do you accept all of the terms of the preceding license agreement"` = 0 ]; then exit 1; fi
+fi
+
+
+if [ \( "$PRODUCT" = "envi" \) -o \( "$PRODUCT" = "eon" \) ]; then
+# Defines product links for ENVI
+ENVI_LINK1=envi
+ENVI_LINK1_VERSION=envi${ENVI_VERSION}
+ENVI_LINK2=envi_rt
+ENVI_LINK2_VERSION=envi_rt${ENVI_VERSION}
+ENVI_LINK3=envihelp
+ENVI_LINK3_VERSION=envihelp${ENVI_VERSION}
+ENVI_LINK4=envi_tut
+ENVI_LINK4_VERSION=envi_tut${ENVI_VERSION}
+ENVI_LINK5=enviman
+ENVI_LINK5_VERSION=enviman${ENVI_VERSION}
+ENVI_LINK6=envizoom
+ENVI_LINK6_VERSION=envizoom${ZOOM_VERSION}
+ENVI_LINK7=envizoom_help
+ENVI_LINK7_VERSION=envizoom_help${ZOOM_VERSION}
+fi
+
+# Preserve the file modes in the source tar files
+umask 000
+
+if [ ! -f $ITTDIR/$IDLDIR_VERS/$LANDMARK ]; then
+  echo "
+    The current directory must be set to the ITT directory.
+    Change the default to the ITT directory and re-run
+    this script.
+        "
+  exit 1
+fi
+
+echo "
+    This script installs Unix $NAME version $PROD_VERSION. The current
+    directory is assumed to be the ITT directory under
+    which $NAME is to be installed.
+
+    Current directory: " $ITTDIR "
+    Current login: $USER
+"
+
+if [ "$USER" != root ]; then
+  echo "
+    If this installation is into a public directory,
+    you should login as root to do this installation.
+"
+fi
+
+if [ "$NOT_INTERACTIVE" != "1" ]; then
+  if [ `sh $IDLBIN_VERS/yesno "Do you wish to continue"` = 0 ]; then exit 1; fi
+fi
+
+if [ -d idl$IDL_VERSION ]; then
+   rm -f idl
+   ln -s idl$IDL_VERSION idl
+fi
+
+if [ -d ${IDLDIR_VERS}/products/$PRODUCT_VERSION  ]; then
+   rm -f $PRODUCT
+   rm -f ${PRODUCT}${PROD_VERSION}
+   ln -s ${IDLDIR_VERS}/products/${PRODUCT}${PROD_VERSION} ${PRODUCT}${PROD_VERSION}
+   ln -s ${IDLDIR}/products/${PRODUCT} $PRODUCT
+fi
+
+if [ -d ${IDLDIR_VERS}/products/$ENVI_PRODUCT_VERSION  ]; then
+   rm -f $ENVI_PRODUCT
+   rm -f ${ENVI_PRODUCT}${ENVI_VERSION}
+   ln -s ${IDLDIR_VERS}/products/${ENVI_PRODUCT}${ENVI_VERSION} ${ENVI_PRODUCT}${ENVI_VERSION}
+   ln -s ${IDLDIR}/products/${ENVI_PRODUCT} $ENVI_PRODUCT
+fi
+
+if [ -d ${IDLDIR_VERS}/products/$ZOOM_PRODUCT_VERSION  ]; then
+   rm -f $ZOOM_PRODUCT
+   rm -f ${ZOOM_PRODUCT}${ZOOM_VERSION}
+   ln -s ${IDLDIR_VERS}/products/${ZOOM_PRODUCT}${ZOOM_VERSION} ${ZOOM_PRODUCT}${ZOOM_VERSION}
+   ln -s ${IDLDIR}/products/${ZOOM_PRODUCT} $ZOOM_PRODUCT
+fi
+
+
+
+# Symbolic links.
+
+
+  if [ "$ENVI_LINK1" != "" ]; then
+     ENVI_LINK1_LN="
+           ln -s \$ITT/$ENVI_PRODUCT_VERSION/bin/$ENVI_LINK1    LOCAL_DIR/$ENVI_LINK1_VERSION
+           ln -s \$ITT/$ENVI_PRODUCT/bin/$ENVI_LINK1    LOCAL_DIR/$ENVI_LINK1
+"
+  fi
+  if [ "$ENVI_LINK2" != "" ]; then
+     ENVI_LINK2_LN="
+           ln -s \$ITT/$ENVI_PRODUCT_VERSION/bin/$ENVI_LINK2    LOCAL_DIR/$ENVI_LINK2_VERSION
+           ln -s \$ITT/$ENVI_PRODUCT/bin/$ENVI_LINK2    LOCAL_DIR/$ENVI_LINK2
+"
+  fi
+  if [ "$ENVI_LINK3" != "" ]; then
+     ENVI_LINK3_LN="
+           ln -s \$ITT/$ENVI_PRODUCT_VERSION/bin/$ENVI_LINK3    LOCAL_DIR/$ENVI_LINK3_VERSION
+           ln -s \$ITT/$ENVI_PRODUCT/bin/$ENVI_LINK3    LOCAL_DIR/$ENVI_LINK3
+"
+  fi
+  if [ "$ENVI_LINK4" != "" ]; then
+     ENVI_LINK4_LN="
+           ln -s \$ITT/$ENVI_PRODUCT_VERSION/bin/$ENVI_LINK4    LOCAL_DIR/$ENVI_LINK4_VERSION
+           ln -s \$ITT/$ENVI_PRODUCT/bin/$ENVI_LINK4    LOCAL_DIR/$ENVI_LINK4
+"
+  fi
+  if [ "$ENVI_LINK5" != "" ]; then
+     ENVI_LINK5_LN="
+           ln -s \$ITT/$ENVI_PRODUCT_VERSION/bin/$ENVI_LINK5    LOCAL_DIR/$ENVI_LINK5_VERSION
+           ln -s \$ITT/$ENVI_PRODUCT/bin/$ENVI_LINK5    LOCAL_DIR/$ENVI_LINK5
+"
+  fi
+
+  if [ "$ENVI_LINK6" != "" ]; then
+     ENVI_LINK6_LN="
+           ln -s \$ITT/$ZOOM_PRODUCT_VERSION/bin/$ENVI_LINK6    LOCAL_DIR/$ENVI_LINK6_VERSION
+           ln -s \$ITT/$ZOOM_PRODUCT/bin/$ENVI_LINK6    LOCAL_DIR/$ENVI_LINK6
+"
+  fi
+
+  if [ "$ENVI_LINK7" != "" ]; then
+     ENVI_LINK7_LN="
+           ln -s \$ITT/$ZOOM_PRODUCT_VERSION/bin/$ENVI_LINK7    LOCAL_DIR/$ENVI_LINK7_VERSION
+           ln -s \$ITT/$ZOOM_PRODUCT/bin/$ENVI_LINK7    LOCAL_DIR/$ENVI_LINK7
+"
+  fi
+
+
+IDL_LN="
+           ln -s \$ITT/${IDLDIR_VERS}/bin/idl    LOCAL_DIR/idl$IDL_VERSION
+           ln -s \$ITT/${IDLDIR}/bin/idl  LOCAL_DIR/idl
+
+           ln -s \$ITT/${IDLDIR_VERS}/bin/idlde    LOCAL_DIR/idlde$IDL_VERSION
+           ln -s \$ITT/${IDLDIR}/bin/idlde  LOCAL_DIR/idlde
+
+           ln -s \$ITT/${IDLDIR_VERS}/bin/idlrpc    LOCAL_DIR/idlrpc$IDL_VERSION
+           ln -s \$ITT/${IDLDIR}/bin/idlrpc  LOCAL_DIR/idlrpc
+
+           ln -s \$ITT/${IDLDIR_VERS}/bin/idlhelp    LOCAL_DIR/idlhelp$IDL_VERSION
+           ln -s \$ITT/${IDLDIR}/bin/idlhelp  LOCAL_DIR/idlhelp
+
+           ln -s \$ITT/${IDLDIR_VERS}/bin/idlman    LOCAL_DIR/idlman$IDL_VERSION
+           ln -s \$ITT/${IDLDIR}/bin/idlman  LOCAL_DIR/idlman
+
+           ln -s \$ITT/${IDLDIR_VERS}/bin/idldemo    LOCAL_DIR/idldemo$IDL_VERSION
+           ln -s \$ITT/${IDLDIR}/bin/idldemo    LOCAL_DIR/idldemo
+
+           ln -s \$ITT/${IDLDIR_VERS}/bin/ittlicense    LOCAL_DIR/ittlicense$IDL_VERSION
+           ln -s \$ITT/${IDLDIR}/bin/ittlicense    LOCAL_DIR/ittlicense
+"
+
+if [ "$NOT_INTERACTIVE" != "1" ]; then
+echo "
+    There are 3 ways to create the symbolic links or define
+    the environment variables necessary to run $NAME:
+
+    1) Allow this script to install $NAME in the ITT VIS recommended
+       manner:
+
+           - If the itt directory tree (of which $NAME is a
+             subdirectory) is not located in /usr/local/itt,
+             create a symbolic link called /usr/local/itt that points
+             at it.
+
+           - Create symbolic links in /usr/local/bin for $NAME and
+             related commands. To run $NAME, users must put
+             /usr/local/bin in their execution paths. At most sites,
+             this is already the case.
+
+    2) You can manually create the symbolic links using the commands:
+
+           setenv  ITT  $ITTDIR
+
+           ln -s \$ITT    /usr/local/itt $ENVI_LINK1_LN $ENVI_LINK2_LN  $ENVI_LINK3_LN $ENVI_LINK4_LN  $ENVI_LINK5_LN $ENVI_LINK6_LN $ENVI_LINK7_LN $IDL_LN
+
+
+      where LOCAL_DIR is the path of a directory on your system
+      that commonly appears in users' paths.
+
+    3) Files named ${PRODUCT}_setup and ${PRODUCT}_setup.ksh are
+       automatically created by the installation script.  These
+       files contain appropriate definitions for ${NAME}-related
+       environment variables and aliases.  If you choose this
+       option, you must have your users set up their accounts
+       as shown below:
+
+           Have your C-shell users add the line:
+
+               source $ITTDIR/$PRODUCT/bin/${PRODUCT}_setup
+
+           to their .cshrc files.
+
+           Have your Korn shell users add the line:
+
+               . $ITTDIR/$PRODUCT/bin/${PRODUCT}_setup.ksh
+
+           to their .profile files.
+
+           Have your Bash shell users add the line:
+
+               . $ITTDIR/$PRODUCT/bin/${PRODUCT}_setup.bash
+
+           to their .bashrc files.
+" | more
+
+if [ `sh $IDLBIN_VERS/yesno "Create the symbolic links described in option 1 above"` = 0 ]; then
+    echo "
+    Symbolic links were not created.
+
+    After the installation script exits, you must follow
+    the instructions as described in (2) or (3) above."
+    SET_LINKS=0
+fi
+fi 	# ! NOT_INTERACTIVE
+
+
+if [ $SET_LINKS = "1" ]; then
+  echo " "
+  # If the system lacks /usr/local or /usr/local/bin, then create them.
+  # If we're not root, then don't bother
+  if [ "$USER" = root ]; then
+    for DIR in local local/bin; do
+      if [ ! -d /usr/$DIR ]; then
+        echo "System lacks directory /usr/$DIR. Creating..."
+        mkdir /usr/$DIR
+        chmod 775 /usr/$DIR
+      fi
+    done
+  fi
+
+
+  STATUS=0
+
+
+
+  # Link ITT directory to /usr/local/itt. If we are already there,
+  # the symbolic link will fall harmlessly inside the itt
+  # directory where we'll find and remove it.
+  if [ "$ITTDIR" != "/usr/local/itt" ]; then    # This if-stmt is not foolproof
+    $IDLBIN_VERS/make_link $ITTDIR /usr/local/itt $NOT_INTERACTIVE
+    if [ $? != 0 ]; then STATUS=1; fi
+    if [ -w $ITTDIR/itt ]; then rm -f $ITTDIR/itt; fi
+  fi
+
+  # Set the ENVI links if they exist
+  if [ "$ENVI_LINK1" != "" ]; then
+     $IDLBIN_VERS/make_link $ENVI_PRODUCTBIN_VERS/$ENVI_LINK1 /usr/local/bin/$ENVI_LINK1_VERSION $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+     $IDLBIN_VERS/make_link $ENVI_PRODUCTBIN/$ENVI_LINK1 /usr/local/bin/$ENVI_LINK1 $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+  fi
+
+  if [ "$ENVI_LINK2" != "" ]; then
+     $IDLBIN_VERS/make_link $ENVI_PRODUCTBIN_VERS/$ENVI_LINK2 /usr/local/bin/$ENVI_LINK2_VERSION $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+     $IDLBIN_VERS/make_link $ENVI_PRODUCTBIN/$ENVI_LINK2 /usr/local/bin/$ENVI_LINK2 $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+  fi
+
+  if [ "$ENVI_LINK3" != "" ]; then
+     $IDLBIN_VERS/make_link $ENVI_PRODUCTBIN_VERS/$ENVI_LINK3 /usr/local/bin/$ENVI_LINK3_VERSION $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+     $IDLBIN_VERS/make_link $ENVI_PRODUCTBIN/$ENVI_LINK3 /usr/local/bin/$ENVI_LINK3 $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+  fi
+
+  if [ "$ENVI_LINK4" != "" ]; then
+     $IDLBIN_VERS/make_link $ENVI_PRODUCTBIN_VERS/$ENVI_LINK4 /usr/local/bin/$ENVI_LINK4_VERSION $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+     $IDLBIN_VERS/make_link $ENVI_PRODUCTBIN/$ENVI_LINK4 /usr/local/bin/$ENVI_LINK4 $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+  fi
+
+  if [ "$ENVI_LINK5" != "" ]; then
+     $IDLBIN_VERS/make_link $ENVI_BIN_VERS/$ENVI_LINK5 /usr/local/bin/$ENVI_LINK5_VERSION $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+     $IDLBIN_VERS/make_link $ENVI_BIN/$ENVI_LINK5 /usr/local/bin/$ENVI_LINK5 $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+  fi
+
+  if [ "$ENVI_LINK6" != "" ]; then
+     $IDLBIN_VERS/make_link $ZOOM_PRODUCTBIN_VERS/$ENVI_LINK6 /usr/local/bin/$ENVI_LINK6_VERSION $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+     $IDLBIN_VERS/make_link $ZOOM_PRODUCTBIN/$ENVI_LINK6 /usr/local/bin/$ENVI_LINK6 $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+  fi
+
+  if [ "$ENVI_LINK7" != "" ]; then
+     $IDLBIN_VERS/make_link $ZOOM_PRODUCTBIN_VERS/$ENVI_LINK7 /usr/local/bin/$ENVI_LINK7_VERSION $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+     $IDLBIN_VERS/make_link $ZOOM_PRODUCTBIN/$ENVI_LINK7 /usr/local/bin/$ENVI_LINK7 $NOT_INTERACTIVE
+     if [ $? != 0 ]; then STATUS=1; fi
+  fi
+
+
+  $IDLBIN_VERS/make_link $IDLBIN_VERS/idl /usr/local/bin/idl$IDL_VERSION $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN_VERS/idl /usr/local/bin/idl$IDL_VERSION $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN/idl /usr/local/bin/idl $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN_VERS/idlde /usr/local/bin/idlde$IDL_VERSION $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN/idlde /usr/local/bin/idlde $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN_VERS/idldemo /usr/local/bin/idldemo$IDL_VERSION $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN/idldemo /usr/local/bin/idldemo $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN_VERS/idlhelp /usr/local/bin/idlhelp$IDL_VERSION $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN/idlhelp /usr/local/bin/idlhelp $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN_VERS/idlman /usr/local/bin/idlman$IDL_VERSION $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN/idlman /usr/local/bin/idlman $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN_VERS/idlrpc /usr/local/bin/idlrpc$IDL_VERSION $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN/idlrpc /usr/local/bin/idlrpc $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN_VERS/ittlicense /usr/local/bin/ittlicense$IDL_VERSION $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+  $IDLBIN_VERS/make_link $IDLBIN/ittlicense /usr/local/bin/ittlicense $NOT_INTERACTIVE
+  if [ $? != 0 ]; then STATUS=1; fi
+
+
+  if [ "$STATUS" != "0" ]; then
+    echo "
+    Not all symbolic links were successfully installed.
+    Here are your options:
+
+        1) Correct the problem that caused this failure and
+           re-execute install. (It is OK to execute install more
+           than once). Install was run as:
+
+               $0
+
+        2) Manually create the missing symbolic links.
+
+        3) Have all $NAME users on your system use the ${PRODUCT}_setup
+           file as described above.
+
+    "
+  fi
+fi
+
+echo "
+
+$NAME Installation Complete."
+

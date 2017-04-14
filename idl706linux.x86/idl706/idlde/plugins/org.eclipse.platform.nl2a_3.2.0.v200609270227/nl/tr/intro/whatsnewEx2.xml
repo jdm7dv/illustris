@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="org.eclipse.ui.workbench" name="Güncellemeler ve Eclipse.org" alt-style="css/whatsnew.properties" style="css/whatsnew.css" path="whatsnew/@">
+  	   <group style-id="content-group" id="content-group">
+       		<link style-id="content-link" label="Yeni Güncellemeler" url="http://org.eclipse.ui.intro/runAction?pluginId=org.eclipse.platform&amp;class=org.eclipse.platform.internal.LaunchUpdateIntroAction" id="updates">
+          		<text>Eclipse.org adresinden en son güncellemeleri alın</text>
+       		</link>
+       		<link style-id="content-link" label="Eclipse topluluğu" url="http://www.eclipse.org" id="eclipse">
+          		<text>Eclipse.org sitesinde, topluluğa katılın, makaleleri ve haberleri okuyun</text>
+       		</link>
+			<group id="rss-news" label="Latest News" expandable="true" expanded="true">
+				<contentProvider id="rss-viewer" pluginId="org.eclipse.platform" class="org.eclipse.platform.internal.EclipseRSSViewer">
+				</contentProvider>
+			</group>
+       </group>
+  	</extensionContent>
+</introContent>

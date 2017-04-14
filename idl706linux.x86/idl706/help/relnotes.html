@@ -1,0 +1,2056 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    
+    <meta name="copyright" content="Copyright (c) ITT Visual Information Solutions 2008. This software is classified as EAR99 under U.S. Export Control laws and regulations. This page is made available under license. For full details see the Legal Notices topic in the help system that contains this page." />
+
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.5.4089.0" />
+    <meta name="TEMPLATEBASE" content="EclipseTemplate1.0" />
+    <meta name="LASTUPDATED" content="09/19/08 15:15:16" />
+    <meta name="keywords" content="" />
+    <title>IDL 7.0.6 Release Notes</title>
+    <link rel="StyleSheet" href="catalog.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="document.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript" src="../org.eclipse.help/livehelp.js"> </script>
+    <script type="text/javascript" language="JavaScript1.2" src="../com.rsi.idl.doc.base/scripts/doIDL.js"> </script>
+    <style>
+      td, th {
+         padding-left: 5px;
+      }
+
+      .cSymbol {
+         font-size:larger;
+      }
+
+      .pCellBody {
+         margin: 0px;
+      }
+
+      td[colspan="2"] {
+         background-color:#F2F2F2;
+      }
+
+      td[colspan="2"] p.pCellBody {
+         padding-bottom: 10px;
+      }
+
+      .warnbox {
+         background-color: #FF9966;
+         margin-right: 15%;
+         padding: 0.5em;
+         padding-right: 1.5em;
+         font-family: Arial, Verdana, Helvetica, sans-serif;
+         font-size: small;
+         text-align: left;
+         white-space: normal;
+      }
+
+      .warnbox a { color: #3366CC }
+
+      .wardbox li { margin-bottom: 1em; }
+
+    </style>
+<link rel="previous" title="Previous" href="Obsolete_IDE_Preferences.html" />
+<link rel="next" title="Next" href="Hardware_and_Operating_System_Requirements.html" />
+
+  </head>
+
+  <body onload="javascript:showTopicInContents(window.location.href)">
+  <div id="main">
+
+<a name="wp1051987"> </a><h1 class="pManualTitle">
+IDL 7.0.6 Release Notes
+</h1><a name="wp1051988"> </a><p class="pBody">
+IDL 7.0.6 is a cumulative release that incorporates all of the
+features previously released as updates to IDL 7.0. If you have
+installed IDL 7.0.3 or IDL 7.0.4 (Macintosh only), you already have
+all of the features included in IDL 7.0.6. The IDL 7.0.6 installation
+includes both core IDL and the IDL Workbench.
+</p>
+
+<p class="warnbox">
+<b>Warning</b><br />
+Support for Secure Socket Layer (SSL) communication and other strong
+data encryption technologies has been removed from IDL 7.0.6. This
+change means that the IDLnetURL, IDLnetOGCWCS, and IDLnetOGCWMS
+objects can not use SSL encryption in IDL 7.06. Support for the MrSID
+file format has also been removed. Existing IDL programs that rely on
+SSL encryption or MrSID functionality will not work with IDL 7.0.6.<br /><br />
+If you have an earlier version of IDL 7.0, ITT Visual Information
+Solutions recommends that you do <b>not</b> upgrade to IDL 7.0.6.<br
+/><br />
+If you are a new IDL customer or if you must install IDL 7.0.6 for
+any reason, be sure to read the <a href="#706notes">Special Notes on
+Installing and Running IDL 7.0.6</a>, below.<br /><br />
+Visit <a href="http://www.ittvis.com/IDL" >www.ittvis.com/IDL</a> for additional information. </p>
+<a name="wp1043346"> </a><p class="pBody">
+The information found in these release notes is separated into the following sections:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+
+<a name="wp1043350"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1036856">New Features in IDL 7.0</a></li></div>
+<a name="wp1052034"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1052009">New Features in IDL 7.0.6</a></li></div>
+<a name="wp1043354"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1052138">Backward-Compatibility Issues in IDL 7.0.6</a></li></div>
+<a name="wp1052220"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1041246">Backward-Compatibility Issues in IDL 7.0</a></li></div>
+<a name="wp1052106"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1052092">Problems Corrected in IDL 7.0.6</a></li></div>
+<a name="wp1052084"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1052066">Problems Corrected in IDL 7.0.4</a></li></div>
+<a name="wp1050187"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1052063">Problems Corrected in IDL 7.0.3</a></li></div>
+<a name="wp1036850"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1048976">Problems Corrected in IDL 7.0</a></li></div>
+<a name="wp1044055"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1039266">Known Problems in IDL 7.0</a></li></div>
+<a name="wp1051846"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1051226">Known Problems in IDL 7.0.3</a></li></div>
+<a name="wp1052059"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1052040">Known Problems in IDL 7.0.4</a></li></div>
+<a name="wp1049840"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1051219">Documentation Errata in IDL 7.0</a></li></div>
+</ul></div>
+<div class="warnbox">
+<a name="706notes"> </a><h2 class="pHeading2">
+Special Notes on Installing and Running IDL 7.0.6
+</h2>
+<p class="pBody">
+The IDL Workbench relies on the presence of version 5.0 of the Java
+Runtime Environment (JRE) in your operating system's path. In many
+cases, you will already have a JRE installed independent of IDL; if
+you do and if the IDL Workbench can locate the appropriate executable
+file, you do not need to take any additional action.
+</p>
+<p class="pBody">
+If you attempt to start the IDL Workbench and receive an error dialog
+that looks like:
+<pre>
+   A Java Runtime Environment (JRE) or Java Development Kit (JDK)
+   must be available in order to run Idlde. No Java virtual machine
+   was found after searching the following locations:
+   <i>list of locations searched</i>
+</pre>
+take the following steps:
+</p>
+<ol>
+<li>Download and install the Java Runtime Environment version
+5.0 update 11.  The JRE is a free download available directly from Sun
+Microsystems at:<br /><br />
+<a href="http://java.sun.com/products/archive/j2se/5.0_11/index.html">http://java.sun.com/products/archive/j2se/5.0_11/index.html</a><br /><br />
+<b>Note:</b> If your system already has version 5.0 update 11 (or later) of
+the JRE, proceed to step 3 to configure IDL to use the installed
+version.
+</li>
+<li>In many cases, the JRE installation process will place the
+required files in your system path, where they are available to IDL.
+In this situation, the IDL Workbench will now start without errors,
+and you do not need to take any additional action.<br /><br />
+If you attempt to start the IDL Workbench and receive the same error
+dialog, proceed to step 3.
+</li>
+<li>Modify the IDL Workbench initialization file to use the JRE
+installed on your system. You will need to modify the IDL Workbench
+<code>.ini</code> file located in the
+<code>idlde</code> subdirectory of your IDL 7.0.6 installation.
+Do one of the following:<br /><br />
+<ul>
+<li><b>Windows Systems</b><br />
+Open the <code>idlde.ini</code> file and add the following two lines
+at the beginning of the file:
+<pre>
+   -vm
+   C:\Program Files\Java\jre1.5.0_11\bin
+</pre>
+where the second line is the directory that contains the file
+<code>javaw.exe</code> on your system.<br />
+<b>Note:</b> If you are using ENVI+IDL, make the same modification to
+the <code>envi_idl.ini</code> file located in the same directory.
+</li>
+<li><b>Macintosh Systems</b><br />
+The Macintosh Operating system supplies its own version of the JRE. No
+additional configuration should be necessary.
+</li>
+<li><b>Linux Systems</b><br />
+Open the <code>idlde.linux.x86.ini</code> file and add the following
+two lines at the beginning of the file:
+<pre>
+   -vm
+   /usr/java/jre/bin
+</pre>
+where the second line is the directory that contains the file
+<code>javaws</code> on your system.
+</li>
+<li><b>Solaris Systems</b><br />
+Open the <code>idlde.solaris2.sparc.ini</code> file and add the
+following two lines at the beginning of the file:
+<pre>
+   -vm
+   /usr/java/jre/bin
+</pre>
+where the second line is the directory that contains the file
+<code>javaws</code> on your system.
+</li>
+</ul>
+</ol>
+After installing and configuring the JRE, the IDL Workbench should
+work as expected.
+<br /><br />
+</p>
+</div>
+<a name="wp1036856"> </a><h2 class="pHeading2">
+New Features in IDL 7.0
+</h2><a name="wp1044461"> </a><p class="pBody">
+For information on new features in this release, see the <span style="font-style: italic">What&#39;s New in IDL 7.0 </span>manual. <span style="font-style: italic">What&#39;s New</span> is included in the IDL online help system under the heading &quot;About IDL&quot;.
+</p>
+<a name="wp1044467"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+<a name="wp1052009"> </a><h2 class="pHeading2">
+New Features in IDL 7.0.6
+</h2><a name="wp1052015"> </a><p class="pBody">
+For information on new features in this release, see the <span style="font-style: italic">New Features in IDL 7.0.6 </span>topic in the IDL online help system under the heading &quot;About IDL.&quot;
+</p>
+<a name="wp1052136"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+<a name="wp1052138"> </a><h2 class="pHeading2">
+Backward-Compatibility Issues in IDL 7.0.6
+</h2><div class="pSmartList1"><ul class="pSmartList1">
+
+<a name="wp1052142"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1041247">All Platforms</a></li></div>
+</ul></div>
+
+
+                                                          <a name="wp1052156"> </a><h3 class="pHeading3">
+All Platforms
+</h3><a name="wp1052198"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1052159table1052157">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1052159"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1052161"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052163"> </a><p class="pCellBody">
+<b class="cBold">52055</b>
+</p>
+</td>
+    <td><a name="wp1052419"> </a><p class="pCellBody">
+<b class="cBold">Signed integers returned by READ_TIFF</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052170"> </a><p class="pCellBody">
+<b style="font-weight: normal" class="cBold">In IDL versions prior to 7.0.6, the READ_TIFF routine incorrectly returned signed 32-bit integers for TIFF files that contained unsigned 32-bit integers. As of version 7.0.6, READ_TIFF correctly returns unsigned 32-bit integers.</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052690"> </a><p class="pCellBody">
+<b class="cBold">52363</b>
+</p>
+</td>
+    <td><a name="wp1052692"> </a><p class="pCellBody">
+<b class="cBold">Change in rendered font size of IDLgrText objects</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052686"> </a><p class="pCellBody">
+<b style="font-weight: normal" class="cBold">IDL 7.0.6 updates the library that renders IDLgrText objects. The new library corrects several long-standing errors in rendering the text strings; the result is that rendered text may appear slightly smaller than in previous releases.</b>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1052017"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+<a name="wp1041246"> </a><h2 class="pHeading2">
+Backward-Compatibility Issues in IDL 7.0
+</h2><div class="pSmartList1"><ul class="pSmartList1">
+
+<a name="wp1041250"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1041247">All Platforms</a></li></div>
+<a name="wp1049861"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1045738">Windows Platforms</a></li></div>
+<a name="wp1045728"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1048934">UNIX Platforms</a></li></div>
+</ul></div>
+
+
+                                                          <a name="wp1041247"> </a><h3 class="pHeading3">
+All Platforms
+</h3><a name="wp1043786"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1043775table1043773">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1043775"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1043777"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1043779"> </a><p class="pCellBody">
+<b class="cBold">44008</b>
+</p>
+</td>
+    <td><a name="wp1043781"> </a><p class="pCellBody">
+<b class="cBold">Export Bridges: IDL Error State and Successful Method Return</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047004"> </a><p class="pCellBody">
+If your client creates an instance of a COM/Java Export Bridge wrapper object, and calls an object method whose code throws an error, the wrapped method will return an error unless the referenced code resets the internal IDL error state.
+</p>
+<a name="wp1047005"> </a><p class="pCellBody">
+In this circumstance, it is best if the wrapped code catches its own error, handles it, and resets the IDL error state. You can reset the IDL error state in the error handling catch block by calling the MESSAGE procedure:
+</p>
+<a name="wp1047006"> </a><p class="pCellBody">
+<code class="cCode">MESSAGE, /RESET</code>
+</p>
+<a name="wp1043783"> </a><p class="pCellBody">
+This procedure call sets the !ERROR_STATE system variable back to the &quot;success&quot; state. 
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047250"> </a><p class="pCellBody">
+<b class="cBold">49528</b>
+</p>
+</td>
+    <td><a name="wp1047252"> </a><p class="pCellBody">
+<b class="cBold">!PATH Seems to Change on its own</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047267"> </a><p class="pCellBody">
+By default, the IDL Workbench manages the value of !PATH so that files in your project directories are found. The consequences of this automatic management may be unexpected, especially if you also modify the value of !PATH manually. See &quot;IDL Path Management&quot; in the IDL online help system for a detailed explanation.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047212"> </a><p class="pCellBody">
+<b class="cBold">n/a</b>
+</p>
+</td>
+    <td><a name="wp1047214"> </a><p class="pCellBody">
+<b class="cBold">PREF_MIGRATE Routine Not Called Automatically</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047208"> </a><p class="pCellBody">
+Beginning with IDL 7.0, PREF_MIGRATE is no longer called automatically the first time IDL is run. You can still use PREF_MIGRATE to manually migrate IDL system preferences. IDL Workbench preferences are managed separately, by the workbench itself. For more on the difference between system and workbench preferences, see &quot;IDL System Preferences&quot; in the <i>IDL Reference Guide</i>.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1049738"> </a><p class="pCellBody">
+<b class="cBold">n/a</b>
+</p>
+</td>
+    <td><a name="wp1049740"> </a><p class="pCellBody">
+<b class="cBold">New Process for Debugging Shared Library Code</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1049792"> </a><p class="pCellBody">
+Beginning with IDL 7.0, when the IDL Workbench is running there are two processes to which you can connect your debugger: the IDL Workbench (<code class="cCode">idlde</code>) and the IDL out-of-process server (<code class="cCode">idl_opserver</code>). The <code class="cCode">idl_opserver</code> is the IDL process that runs the IDL interpreter and loads shared libraries (DLMs). To debug your shared library code, you need to attach your debugger (gdb, Visual Studio, <i>etc</i>.) to the <code class="cCode">idl_opserver</code> process. On Windows, using Visual Studio, you can select <b class="cBold">Attach to Process</b> and choose the <code class="cCode">idl_opserver.exe</code> process. On Unix, using <code class="cCode">gdb</code> or <code class="cCode">dbx</code>, you can use the <code class="cCode">ps</code> command to retrieve the ID of the <code class="cCode">idl_opserver</code> process, and then attach your debugger to that process ID.
+</p>
+<a name="wp1049825"> </a><p class="pCellBody">
+If you are <i>not</i> using the IDL Workbench, continue to connect to the <code class="cCode">idl</code> process.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1040130"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+
+
+                                                          <a name="wp1045738"> </a><h3 class="pHeading3">
+Windows Platforms
+</h3><a name="wp1049031"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1049034table1049032">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1049034"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1049036"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1049038"> </a><p class="pCellBody">
+<b class="cBold">n/a</b>
+</p>
+</td>
+    <td><a name="wp1049040"> </a><p class="pCellBody">
+<b class="cBold">Location of the IDL Workbench Executable (idlde.exe) has changed in IDL 7.0</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1049051"> </a><p class="pCellBody">
+The location of the idlde.exe file has changed. In IDL 6.4 the default location was: <code class="cCode">C:\Program Files\ITT\IDL64\bin\bin.x86\idlde.exe</code>
+</p>
+<a name="wp1049042"> </a><p class="pCellBody">
+In IDL 7.0 the default location is: <code class="cCode">C:\Program Files\ITT\IDL70\idlde\idlde.exe &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</code>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1051796"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+
+
+                                                          <a name="wp1048934"> </a><h3 class="pHeading3">
+UNIX Platforms
+</h3><a name="wp1048967"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1048937table1048935">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1048937"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1048939"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1048941"> </a><p class="pCellBody">
+<b class="cBold">n/a</b>
+</p>
+</td>
+    <td><a name="wp1048943"> </a><p class="pCellBody">
+<b class="cBold">IDL Installation Can Fail on Linux 64-bit Systems That Do Not Contain 32-Bit Compatibility Libraries</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048945"> </a><p class="pCellBody">
+IDL may not install correctly on a pure 64-bit Linux system. If installation fails, install your platform&#39;s 32-bit compatibility libraries.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1048949"> </a><p class="pCellBody">
+<b class="cBold">48917<br />49373</b>
+</p>
+</td>
+    <td><a name="wp1048951"> </a><p class="pCellBody">
+<b class="cBold">Breakpoints in Files Opened via UNIX Links</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048953"> </a><p class="pCellBody">
+To improve performance, IDL always compiles the first version of a file it finds in its path. If you open a file that has been linked using the UNIX <code class="cCode">ln</code> command in the editor and set a breakpoint, then compile from a version of the same file with a different path, IDL will not assume that the two files are the same. As a result, IDL will not stop at the breakpoint set in the linked file.
+</p>
+<a name="wp1048954"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> Make sure that the full path to the file in which you set the breakpoint is the same as the full path to the compiled file. If you use the IDL Workbench, compiling using the Workbench menus or toolbars will ensure that the same path is used for compilation and debugging.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1048958"> </a><p class="pCellBody">
+<b class="cBold">49251</b>
+</p>
+</td>
+    <td><a name="wp1048960"> </a><p class="pCellBody">
+<b class="cBold">IDL Workbench Does Not Automatically Run in Background</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048962"> </a><p class="pCellBody">
+In IDL 7.0, when the IDL Workbench (idlde) is run from a terminal window, the window is not available for other commands while the Workbench is running. 
+</p>
+<a name="wp1048963"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> To run the IDL Workbench in the background, add an ampersand (&amp;) to the terminal command: 
+</p>
+<a name="wp1048964"> </a><p class="pCellBody">
+<code class="cCode">idlde &amp;</code>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1048979"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+<a name="wp1052092"> </a><h2 class="pHeading2">
+Problems Corrected in IDL 7.0.6
+</h2><a name="wp1052616"> </a><p class="pBody">
+IDL 7.0.6 incorporates all of the fixes included in IDL 7.0.4. In addition, the following problems were corrected:</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1052619table1052617">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1052619"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1052621"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052623"> </a><p class="pCellBody">
+<b class="cBold">31321</b>
+</p>
+</td>
+    <td><a name="wp1052625"> </a><p class="pCellBody">
+<b class="cBold">QUERY_DICOM Causes Segmentation Fault with non-DICOM Files</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052627"> </a><p class="pCellBody">
+Attempting to read some non-DICOM files with the QUERY_DICOM routine would cause IDL to exit with a segmentation fault. QUERY_DICOM now behaves properly for non-DICOM files.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052631"> </a><p class="pCellBody">
+<b class="cBold">50397</b>
+</p>
+</td>
+    <td><a name="wp1052633"> </a><p class="pCellBody">
+<b class="cBold">HEAP_GC Incorrectly Frees Pointers and Objects in Temporary Variables</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052635"> </a><p class="pCellBody">
+The HEAP_GC routine now checks temporary variables for object references and pointers before freeing heap variables,
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052670"> </a><p class="pCellBody">
+<b class="cBold">51514</b>
+</p>
+</td>
+    <td><a name="wp1052672"> </a><p class="pCellBody">
+<b class="cBold">IDL-Java Bridge now Configured Automatically</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052666"> </a><p class="pCellBody">
+The IDL-Java connectivity bridge is now automatically configured to use the Java Runtime Environment (JRE) included with IDL. If the IDLJAVAB_LIB_LOCATION environment variable is not set when IDL starts, it is set to point to the included JRE. If the IDLJAVAB_LIB_LOCATION environment variable is set when IDL starts the value is not changed.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1052093"> </a><p class="pBody">
+
+</p>
+<a name="wp1052095"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+<a name="wp1052066"> </a><h2 class="pHeading2">
+Problems Corrected in IDL 7.0.4
+</h2><a name="wp1050680"> </a><p class="pBody">
+IDL 7.0.4 incorporates all of the fixes included in IDL 7.0.3, and allows IDL to run in 64-bit mode on Intel-based Macintoshes. In addition, the following problems were corrected:</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1052228table1052226">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1052228"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1052230"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052232"> </a><p class="pCellBody">
+<b class="cBold">49844</b>
+</p>
+</td>
+    <td><a name="wp1052234"> </a><p class="pCellBody">
+<b class="cBold">Creation of Semaphores Fails under Mac OS X 10.5</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052378"> </a><p class="pCellBody">
+In IDL 7.0, creation of semaphores (using the SEM_CREATE routine) failed under Macintosh OS X 10.5 (Leopard) if semaphore names were longer than 24 characters. This restriction has been lifted in IDL 7.0.4.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052240"> </a><p class="pCellBody">
+<b class="cBold">51198<br />51412</b>
+</p>
+</td>
+    <td><a name="wp1052242"> </a><p class="pCellBody">
+<b class="cBold">CURSOR/RDPIX Procedures not Working Correctly on OS X</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052251"> </a><p class="pCellBody">
+Due to a problem in Macintosh OS X version 10.5 (Leopard), in IDL 7.0, the CURSOR and RDPIX procedures did not function correctly on machines running that version of the operating system. This problem has been corrected in IDL 7.0.4.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1052075"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+<a name="wp1052063"> </a><h2 class="pHeading2">
+Problems Corrected in IDL 7.0.3
+</h2><a name="wp1051994"> </a><p class="pBody">
+IDL 7.0.3 is an update to the IDL Workbench, adding several new features and fixing a number of problems with the initial (IDL 7.0) release.
+</p>
+<a name="wp1050681"> </a><p class="pBody">
+Because IDL 7.0.3 is an IDL Workbench-only update, fixes apply to all platforms unless otherwise noted.</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1050699table1050697">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1050699"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1050701"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050730"> </a><p class="pCellBody">
+<b class="cBold">n/a</b>
+</p>
+</td>
+    <td><a name="wp1050732"> </a><p class="pCellBody">
+<b class="cBold">IDL Workbench: Code Parser Speed Improvement</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050734"> </a><p class="pCellBody">
+IDL 7.0.3 includes a patch to the IDL Workbench that speeds up the initial parsing of IDL code in IDL's path. This update was previously released via the IDL Workbench update mechanism.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1051927"> </a><p class="pCellBody">
+ <b class="cBold">48331<br />49528<br />49685<br />49860<br />51634<br />51635<br />51636<br />51648<br />51722</b>
+</p>
+</td>
+    <td><a name="wp1051929"> </a><p class="pCellBody">
+<b class="cBold">Problems with Automatic Path Management in the IDL Workbench</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1051923"> </a><p class="pCellBody">
+The IDL Workbench 7.0.3 update modifies the way the IDL Workbench manages IDL's search path for managed projects. The key changes are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+
+<a name="wp1051938"> </a><div class="pSmartList1"><li>The IDL Workbench no longer changes the value of the IDL_PATH preference.</li></div>
+<a name="wp1051939"> </a><div class="pSmartList1"><li>The IDL Workbench no longer overwrites the value of the !PATH system variable. If you change the value of the !PATH system variable, the IDL Workbench will <b class="cBold">add</b> entries for managed projects at the end of the path specification as described below, but it will not remove any entries.</li></div>
+<a name="wp1051940"> </a><div class="pSmartList1"><li>If a workbench project has the <b class="cBold">Update IDL path when project is opened or closed</b> preference set, the project is considered to be a <i>managed project</i>. For managed projects:</li></div>
+<a name="wp1051941"> </a><p class="pIndentedRelative">If the managed project is open, the IDL Workbench will ensure that the project directory is included in the list of directories specified by the !PATH system variable. If the directory is not present in !PATH, it will be added <i>at the end</i> of the path specification.</p><a name="wp1051942"> </a><p class="pIndentedRelative">If the managed project is closed, the IDL Workbench will remove the project directory from the list of directories specified by the !PATH system variable <i>unless</i> the project directory is also specified by the IDL_PATH preference.</p></ul></div>
+<a name="wp1051962"> </a><p class="pCellBody">
+For details, see in <a href="../com.rsi.idl.doc.wb/IDL_Path_Management.html" >IDL Path Management</a> in the IDL online help.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1051919"> </a><p class="pCellBody">
+ <b class="cBold">49897</b>
+</p>
+</td>
+    <td><a name="wp1051921"> </a><p class="pCellBody">
+<b class="cBold">Some items on the</b> File<b class="cBold">&#160;</b>&#8594;<b class="cBold">&#160;</b>New<b class="cBold"> menu are missing in the Debug perspective</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1051915"> </a><p class="pCellBody">
+Several menu items are missing from the <b class="cBold">File&#160;</b>&#8594;<b style="font-weight: bold" class="cBold">&#160;</b><b style="font-weight: bold" class="cBold">New</b> menu when the IDL Workbench is in the Debug perspective. This has been corrected in IDL 7.0.3, but you must select <b class="cBold">Window&#160;</b>&#8594;<b style="font-weight: bold" class="cBold">&#160;</b><b style="font-weight: bold" class="cBold">Reset Perspective</b> once after updating to 7.0.3 to view the menu change.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050703"> </a><p class="pCellBody">
+<b class="cBold">49898</b>
+</p>
+</td>
+    <td><a name="wp1050705"> </a><p class="pCellBody">
+<b class="cBold"> Executing an example from the IDL help system fails if using Safari</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050707"> </a><p class="pCellBody">
+IDL 7.0 allows the user to execute blocks of code from within the help system. On Macintosh systems using the Safari browser to display help content, code blocks containing more than a single line would not execute correctly. This has been corrected in IDL 7.0.1.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050758"> </a><p class="pCellBody">
+<b class="cBold">49779</b>
+</p>
+</td>
+    <td><a name="wp1050760"> </a><p class="pCellBody">
+<b class="cBold">Undefined variables or other runtime errors do not trigger the Debug perspective switch</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050851"> </a><p class="pCellBody">
+Attempting to run an IDL program that contains an undefined variable generates the correct error in the Console view, but does not trigger the &quot;perspective switch&quot; dialog. This has been corrected in IDL 7.0.3.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050806"> </a><p class="pCellBody">
+<b class="cBold">50199</b>
+</p>
+</td>
+    <td><a name="wp1050808"> </a><p class="pCellBody">
+<b class="cBold">Unable to correctly paste text into the command line with text already present</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050887"> </a><p class="pCellBody">
+If you paste text onto the end of text that already exists in the command line, IDL ignores the original text. This has been corrected in IDL 7.0.3. Additionally, you can now drag text to the command line and specify the insertion point of the new text.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050798"> </a><p class="pCellBody">
+<b class="cBold">50209</b>
+</p>
+<a name="wp1050809"> </a><p class="pCellBody">
+<b class="cBold">50210</b>
+</p>
+<a name="wp1050810"> </a><p class="pCellBody">
+<b class="cBold">50212</b>
+</p>
+</td>
+    <td><a name="wp1050800"> </a><p class="pCellBody">
+<b class="cBold">When building a main project that includes references to external projects, the final .sav file does not include the compiled routines from the external projects</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050940"> </a><p class="pCellBody">
+In several situations, building a project with external project references would result in a .<code class="cCode">sav</code> file that did not contain the routines from the referenced projects.
+</p>
+<a name="wp1051215"> </a><p class="pCellBody">
+This problem has been corrected in IDL 7.0.3. Specifically, the project build process has been changed so that referenced projects are built first, and the compiled code is written to intermediate .<code class="cCode">sav</code> files. The main project restores the referenced project .<code class="cCode">sav</code> files before it compiles its own code, so that the main project .<code class="cCode">sav</code> file contains code from both the main project and from the referenced project .<code class="cCode">sav</code> files.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050790"> </a><p class="pCellBody">
+<b class="cBold">50258</b>
+</p>
+</td>
+    <td><a name="wp1050792"> </a><p class="pCellBody">
+<b class="cBold">During a project build, too little status information is sent to the Console view</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050786"> </a><p class="pCellBody">
+In IDL 7.0.3, more status updates are sent to the Console view during the project build process.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050782"> </a><p class="pCellBody">
+<b class="cBold">50820</b>
+</p>
+</td>
+    <td><a name="wp1050784"> </a><p class="pCellBody">
+<b class="cBold">Keyboard input to an Editor view is disabled after a copy of the view is made with the </b>Window&#160;<b style="font-family: Symbol; font-weight: normal" class="cBold">&#8594;</b>&#160;New Editor<b class="cBold"> command</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050778"> </a><p class="pCellBody">
+If an Editor view is open and active, and you select <b class="cBold">Window&#160;</b>&#8594;<b style="font-weight: bold" class="cBold">&#160;</b><b style="font-weight: bold" class="cBold">New Editor</b>, a copy of the Editor view is created. If you close the new Editor view, focus returns to the previous Editor view. However, keyboard input to this view is disabled. This has been corrected in IDL 7.0.3.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050774"> </a><p class="pCellBody">
+<b class="cBold">50981</b>
+</p>
+</td>
+    <td><a name="wp1051117"> </a><p class="pCellBody">
+<b class="cBold">Some non-English invocations of the IDL Workbench do not recognize the command history recall buffer file</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1051127"> </a><p class="pCellBody">
+French and Japanese invocations of the IDL Workbench cannot read the <code class="cCode">~/.idl/itt/rbuf/history</code> file. This has been corrected in IDL 7.0.3.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1050712"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+<!-- No output from CellBody (Empty) paragraph -->
+<a name="wp1048976"> </a><h2 class="pHeading2">
+Problems Corrected in IDL 7.0
+</h2><div class="pSmartList1"><ul class="pSmartList1">
+
+<a name="wp1041354"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1038558">Windows Platforms</a></li></div>
+<a name="wp1048822"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1049971">Macintosh Platforms</a></li></div>
+</ul></div>
+<a name="wp1048991"> </a><p class="pBody">
+
+</p>
+
+
+                                                          <a name="wp1038558"> </a><h3 class="pHeading3">
+Windows Platforms
+</h3><a name="wp1046930"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1046919table1046917">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1046919"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1046921"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1048783"> </a><p class="pCellBody">
+<b class="cBold">46881</b>
+</p>
+</td>
+    <td><a name="wp1048785"> </a><p class="pCellBody">
+<b class="cBold">License Wizard Does Not Run on Solaris with Java Desktop</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048775"> </a><p class="pCellBody">
+In IDL 6.4, Solaris Java Desktop did not correctly run the License Wizard after IDL installation. This problem has been corrected.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1048795"> </a><p class="pCellBody">
+<b class="cBold">47474</b>
+</p>
+</td>
+    <td><a name="wp1048797"> </a><p class="pCellBody">
+<b class="cBold"> IDL crashes when attempting graphics operations on some Linux distributions</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048799"> </a><p class="pCellBody">
+On some linux systems, IDL 6.4 crashed when a attempting graphics operations on certain Linux distributions when direct rendering is enabled. This may include rendering the IDL splash screen when starting IDL. The problem was due to a conflict with DRI drivers and has been corrected.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1048829"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+
+
+                                                          <a name="wp1049971"> </a><h3 class="pHeading3">
+Macintosh Platforms
+</h3><a name="wp1049993"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1049974table1049972">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1049974"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1049976"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1049978"> </a><p class="pCellBody">
+<b class="cBold">42012</b>
+</p>
+</td>
+    <td><a name="wp1049980"> </a><p class="pCellBody">
+<b class="cBold">Errors When Running the ITTLicense Application</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1049982"> </a><p class="pCellBody">
+In IDL 6.4, sometimes the ITTLicense application failed to start the license server automatically at boot time. This is a permissions problem. Now IDL issues a warning message if the user does not have permission to write to the installation directory when attempting to install the license manager.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1049986"> </a><p class="pCellBody">
+<b class="cBold">47331</b>
+</p>
+</td>
+    <td><a name="wp1049988"> </a><p class="pCellBody">
+<b class="cBold">Missing Manifest Files </b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1049990"> </a><p class="pCellBody">
+In IDL 6.4, a line was inadvertently left out of the <code class="cCode">manifest_rt.txt</code> file. This problem has been corrected.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1049927"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+<a name="wp1039266"> </a><h2 class="pHeading2">
+Known Problems in IDL 7.0
+</h2><div class="pSmartList1"><ul class="pSmartList1">
+
+<a name="wp1041378"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1039397">All Platforms</a></li></div>
+<a name="wp1041390"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1039371">Windows Platforms</a></li></div>
+<a name="wp1041397"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1039599">UNIX Platforms</a></li></div>
+<a name="wp1041404"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1039697">Macintosh Platforms</a></li></div>
+</ul></div>
+
+
+                                                          <a name="wp1039397"> </a><h3 class="pHeading3">
+All Platforms
+</h3><a name="wp1039422"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1042260table1039401">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1042260"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1042262"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052463"> </a><p class="pCellBody">
+<b class="cBold">n/a</b>
+</p>
+</td>
+    <td><a name="wp1052465"> </a><p class="pCellBody">
+<b class="cBold">File Permission Errors During Upgrade Installation</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052467"> </a><p class="pCellBody">
+If you are upgrading an existing IDL installation, you may observe error messages when installing IDL if you run the upgrade installation program as a user with different file system permissions than the user who initially installed IDL. For example, on a UNIX system you might see errors that look like:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+tar: ./license/readme.txt: Cannot open file: File exists<a name="wp1052489"> </a>
+<!-- No output from CellCode (Empty) paragraph -->
+</pre></div>
+<a name="wp1052490"> </a><p class="pCellBody">
+These errors occur when the user installing the upgrade does not have permission to replace the existing file. The errors can be safely ignored, because the original and updated files are identical.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042264"> </a><p class="pCellBody">
+<b class="cBold">40768</b>
+</p>
+</td>
+    <td><a name="wp1042266"> </a><p class="pCellBody">
+<b class="cBold">Firewall Can Catch Socket Communication between IDL and the Help System</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048076"> </a><p class="pCellBody">
+IDL and its help systems (both the current help viewer and the older IDL Assistant help viewer) communicate via sockets, and some firewalls might question this communication. IDL is not trying to access the Internet; the communication is strictly between IDL and its locally installed help systems. If prompted to allow or deny the communication, you should allow it; otherwise, you will not be able to see or use IDL&#39;s online help. You might need to configure your firewall software to allow the communication.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042282"> </a><p class="pCellBody">
+<b class="cBold">42545</b>
+</p>
+</td>
+    <td><a name="wp1042284"> </a><p class="pCellBody">
+<b class="cBold">WIDGET_TREE Drop Event Can Cause IDL to Crash if an Error Exists in the DRAG_NOTIFY Callback Routine</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1042286"> </a><p class="pCellBody">
+A tree widget can be configured to support drag and drop functionality. This functionality includes a callback to either the default callback routine, which provides information about where a node can be dropped, or a callback to a custom callback routine that is specified using the DRAG_NOTIFY keyword. In either case, the parent WIDGET_TREE function calls the child callback routine and the IDL processing focus switches to the callback routine. If there is an error (such as an undefined variable) in the custom callback routine, IDL may freeze or crash since the error halts execution in the child routine and IDL is unable to return to the calling function.
+</p>
+<a name="wp1042287"> </a><p class="pCellBody">
+<b class="cBold">Workaround</b>: Handle potential problems in the callback routine by including CATCH statements in the code you are developing. See the documentation topic &quot;Responding to Drag Notifications (Callbacks)&quot; for more information.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042300"> </a><p class="pCellBody">
+<b class="cBold">43054</b>
+</p>
+</td>
+    <td><a name="wp1042302"> </a><p class="pCellBody">
+<b class="cBold">Java Export Bridge: Hardware Rendering Not Supported By All Video Cards</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1042304"> </a><p class="pCellBody">
+When running IDL applications through the Java Export Bridge, some video cards on some systems experience problems that prevent them from rendering graphics properly. As a result, the Java Export Bridge creates applications that use IDL's built-in (software) renderer by default. Even systems that use hardware rendering successfully when running IDL itself can experience the problem when running the Java Export Bridge.
+</p>
+<a name="wp1042305"> </a><p class="pCellBody">
+<b class="cBold">Workaround</b>: If you know that the target system for your application will display graphics properly using hardware rendering, you can explicitly set the renderer in the Init method for your application. Since a graphical application must inherit (directly or indirectly) from the IDLgrWindow class, you can set the RENDERER property equal to 0 to force the use of hardware (OpenGL) rendering if it is available. Note that the RENDERER property is not exported by the Export Bridge Assistant; the value must be hard-coded in your IDL object code.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042309"> </a><p class="pCellBody">
+<b class="cBold">43116</b>
+</p>
+</td>
+    <td><a name="wp1042311"> </a><p class="pCellBody">
+<b class="cBold">Text Annotations Added During Macro Creation Are Incorrectly Placed or Missing</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1042313"> </a><p class="pCellBody">
+The iTools let you create a macro that records the operations that occur within a visualization window. If you add a text annotation during macro recording and close the annotation operation by clicking on the view instead of pressing the Enter key, an additional translation event is added to the macro. This causes the text annotation to be incorrectly placed when you run the macro. 
+</p>
+<a name="wp1042314"> </a><p class="pCellBody">
+<b class="cBold">Workaround</b>: Always close the creation of a text annotation by pressing the Enter key (instead of by clicking on the view) when recording a macro in an iTool window.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042390"> </a><p class="pCellBody">
+<b class="cBold">43599</b>
+</p>
+</td>
+    <td><a name="wp1042392"> </a><p class="pCellBody">
+<b class="cBold">A 32-bit Application Cannot be Built On 64-Bit Linux</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1042394"> </a><p class="pCellBody">
+It is not possible to use 32-bit libraries on a 64-bit Linux machine to build a 32-bit Callable IDL application.
+</p>
+<a name="wp1042403"> </a><p class="pCellBody">
+<b class="cBold">Workaround</b>: Build a 32-bit application on a 32-bit machine. Then you can execute that application on a 64-bit system that contains 32-bit compatibility libraries.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042335"> </a><p class="pCellBody">
+<b class="cBold">43733</b>
+</p>
+</td>
+    <td><a name="wp1042337"> </a><p class="pCellBody">
+<b class="cBold">Connectivity Bridges: Dialog Windows May Appear Behind the Main Application Interface</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1042339"> </a><p class="pCellBody">
+Dialog windows that are launched from a child IDL_IDLBridge process, or other background process such as an Export Connectivity Bridge wrapper object may appear behind the current application interface and be completely hidden. The background process has no way to force a dialog to appear in the foreground. 
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042983"> </a><p class="pCellBody">
+<b class="cBold">43808</b>
+</p>
+</td>
+    <td><a name="wp1042985"> </a><p class="pCellBody">
+<b class="cBold">Export Bridges: IDL Error Codes May Change Between Releases</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1042979"> </a><p class="pCellBody">
+Both the COM and Java Export Bridges allow you to catch and respond to errors generated by IDL. Errors are returned from IDL in the form of error codes, corresponding to the value of the !ERROR_STATE.CODE system variable field.
+</p>
+<a name="wp1042996"> </a><p class="pCellBody">
+The code used to designate a specific IDL error condition can change from one release of IDL to another. As a result, COM or Java code you write that reacts to a specific error code value may behave differently with different IDL releases.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042940"> </a><p class="pCellBody">
+<b class="cBold">43850</b>
+</p>
+</td>
+    <td><a name="wp1042942"> </a><p class="pCellBody">
+<b class="cBold">Java Export Bridge: Error if Non-Drawable Object Instantiated First</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1042936"> </a><p class="pCellBody">
+If you create a Java application that incorporates <i>both</i> drawable and non-drawable IDL wrapper objects, instantiating the non-drawable object before the drawable object will cause a runtime error that looks something like:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Exception in thread &quot;main&quot; java.lang.UnsatisfiedLinkError: Native Library 
+<i>path_to_your_AWT_library</i> already loaded in another classloader<a name="wp1042949"> </a>
+&#160;<a name="wp1042962"> </a>
+</pre></div>
+<a name="wp1042958"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> Create an instance of a drawable wrapper object first. This will initialize the Java export bridge correctly, allowing both drawable and non-drawable wrapper objects to execute properly.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047434"> </a><p class="pCellBody">
+<b class="cBold">48165</b>
+</p>
+</td>
+    <td><a name="wp1047436"> </a><p class="pCellBody">
+<b class="cBold"> Deleting Linked Folders Does Not Update !path or IDL_PATH</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047430"> </a><p class="pCellBody">
+When a linked folder is deleted from a project, the folder is not removed from the <code class="cCode">!path</code> system variable and the <code class="cCode">IDL_PATH</code> system preference.
+</p>
+<a name="wp1048056"> </a><p class="pCellBody">
+<b class="cBold">Workaround: </b>Remove these items manually from your path settings.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047426"> </a><p class="pCellBody">
+<b class="cBold">48550</b>
+</p>
+</td>
+    <td><a name="wp1047428"> </a><p class="pCellBody">
+<b class="cBold">The STATUS Keyword for EXIT Does Not Work in IDL 7.0 Workbench</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047869"> </a><p class="pCellBody">
+The EXIT procedure quits the IDL Workbench and exits back to the operating system. IDL does not correctly return the exit status set by the STATUS keyword.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047903"> </a><p class="pCellBody">
+<b class="cBold">49236</b>
+</p>
+</td>
+    <td><a name="wp1047905"> </a><p class="pCellBody">
+<b style="font-weight: bold" class="cBold">Deleting a Project or a Directory Within a Project While the Project Is Open Causes Exceptions when the Workbench</b><span style="font-weight: normal"> </span><b class="cBold">Exits</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047901"> </a><p class="pCellBody">
+When a project file or a directory within a project is deleted (for example, from Windows Project Explorer), while the project is open may result in a warning message while the Workbench is still running, and an exception on exiting the Workbench.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1040155"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+
+
+                                                          <a name="wp1039371"> </a><h3 class="pHeading3">
+Windows Platforms
+</h3><a name="wp1039532"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1047316table1039501">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1047316"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1047318"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047320"> </a><p class="pCellBody">
+<b class="cBold">40851</b>
+</p>
+</td>
+    <td><a name="wp1047322"> </a><p class="pCellBody">
+<b class="cBold">WIDGET_DRAW WHEEL_EVENTS Can Arrive Out of Sequence of Other Draw-Widget Events</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047324"> </a><p class="pCellBody">
+The draw widget delivers scroll-wheel events to the IDL event queue when it gets the wheel event from Windows. The draw widget cannot know whether events are arriving late from Windows. This is not an IDL problem.
+</p>
+<a name="wp1047325"> </a><p class="pCellBody">
+If you want to take advantage of the scroll-wheel functionality, you might want to ensure that you have a robust scroll-wheel-enabled mouse driver. Check your mouse&#39;s documentation for more information.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047343"> </a><p class="pCellBody">
+<b class="cBold">42359</b>
+</p>
+</td>
+    <td><a name="wp1047345"> </a><p class="pCellBody">
+<b class="cBold">Incompatibility Between IDL and Microsoft Intelli-Mouse with Fingerprint Reader</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047347"> </a><p class="pCellBody">
+If you are using the Microsoft Intelli-Mouse with Fingerprint Reader on the system that runs IDL, IDL may close unexpectedly in some cases.
+</p>
+<a name="wp1047348"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> Shut down the Digital Personal Password manager software that comes with the Microsoft Intelli-Mouse.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047373"> </a><p class="pCellBody">
+<b class="cBold">46816</b>
+</p>
+</td>
+    <td><a name="wp1047375"> </a><p class="pCellBody">
+<b class="cBold">Installation Program Failures: Error 1719</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047377"> </a><p class="pCellBody">
+On some systems, the IDL installation program may exit with the following error:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Error 1719.Windows Installer service could not be accessed.  Contact your 
+support personnel to verify that it is properly registered and enabled.<a name="wp1047378"> </a>
+&#160;<a name="wp1050586"> </a>
+</pre></div>
+<a name="wp1047379"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b>
+</p>
+<a name="wp1047380"> </a><p class="pCellBody">
+Restart the IDL installer. If installation still fails, reboot the computer and restart the installer.
+</p>
+<a name="wp1047381"> </a><p class="pCellBody">
+<b class="cBold">Background:</b>
+</p>
+<a name="wp1047382"> </a><p class="pCellBody">
+This error occurs when the Microsoft installer engine is older than the version required by the IDL installation package. In this situation, the IDL installer updates the installer engine. In some cases, the installation procedure may be able to proceed; in others a restart of the installer or of the operating system may be required.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047386"> </a><p class="pCellBody">
+<b class="cBold">47445</b>
+</p>
+</td>
+    <td><a name="wp1047388"> </a><p class="pCellBody">
+<b class="cBold">Object Creation Failure with Embedded License </b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047390"> </a><p class="pCellBody">
+Attempting to create an export object with an embedded license fails when no printer is set up.
+</p>
+<a name="wp1047627"> </a><p class="pCellBody">
+<b class="cBold">Workaround</b>: Install and set up a printer before running IDL.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047861"> </a><p class="pCellBody">
+<b class="cBold">48454</b>
+</p>
+</td>
+    <td><a name="wp1047863"> </a><p class="pCellBody">
+<b class="cBold">WIDGET_TIMER Can Cause Applications To Freeze Until An Event Is Sent To The Application</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047864"> </a><p class="pCellBody">
+WIDGET_TIMER events fail after 10 events. This problem happens in the following cases:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+
+<a name="wp1048113"> </a><div class="pSmartList1"><li>Timer events are chained together by setting the next timer within the handling of the current timer and before the &quot;work&quot; section of the event handler is performed.</li></div>
+<a name="wp1048118"> </a><div class="pSmartList1"><li>The next timer goes off during the current timer event processing (for example, during a lengthy calculation).</li></div>
+</ul></div>
+<a name="wp1048119"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> Chain timer events by setting the next timer after any computations are completed. For smoother performance, set the next timer based on how long the computations take to execute, which accounts for variances in machine speed. For example, to fire the timer once every second, set the next timer to <code class="cCode">1.0 - (</code><code style="font-style: oblique" class="cCodeItalic">time to perform computation</code><code style="font-style: normal" class="cCode">)</code>, or to <code class="cCode">0.0</code> if the value is negative.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047938"> </a><p class="pCellBody">
+<b class="cBold">49389</b>
+</p>
+</td>
+    <td><a name="wp1047940"> </a><p class="pCellBody">
+<b class="cBold">Windows and Dialogs opened by IDL Can Display Behind the Workbench</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047951"> </a><p class="pCellBody">
+If the last window opened by IDL displays behind the Workbench, then all subsequent windows and dialogs will open behind the Workbench. If a window is brought into the foreground and dismissed, the next window or dialog that is opened appears in front of the Workbench.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047981"> </a><p class="pCellBody">
+<b class="cBold">49522</b>
+</p>
+</td>
+    <td><a name="wp1047983"> </a><p class="pCellBody">
+<b class="cBold">CVS Cheat Sheets Show Up In IDL Workbench Cheat Sheet List</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048240"> </a><p class="pCellBody">
+Selecting <b class="cBold">Cheat Sheets</b> from the Workbench *Help* menu shows a &quot;Team/CVS&quot; category containing two CVS-related cheat sheets. CVS functionality is not included in the IDL Workbench by default, and these cheat sheets will not function properly. If you later install the CVS plug-ins, these cheat sheets will function normally.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1048503"> </a><p class="pCellBody">
+49604
+</p>
+</td>
+    <td><a name="wp1048505"> </a><p class="pCellBody">
+Workbench Fails to Stop on Breakpoints When IDL is Busy (Blocking)
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048507"> </a><p class="pCellBody">
+When a program containing breakpoints is run while IDL is busy (when a lengthy command is being executed, or when a widget application is blocking, for example), IDL does not stop at the set breakpoints. When IDL is no longer busy, running the program with breakpoints successfully stops at the set breakpoints. (Related to ID 49641.)
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1048018"> </a><p class="pCellBody">
+<b class="cBold">49641</b>
+</p>
+</td>
+    <td><a name="wp1048020"> </a><p class="pCellBody">
+<b class="cBold">Updating Edited Variable Values While IDL is Busy or Blocking is Slow </b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048035"> </a><p class="pCellBody">
+If you edit a variable value using the IDL Workbench Variables view while IDL is busy (when a lengthy command is being executed, or when a widget application is blocking, for example), it may appear that the variable is not being updated. The new variable value is displayed when IDL is no longer busy. (Related to ID 49604.) 
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1051878"> </a><p class="pCellBody">
+<b class="cBold">51466</b>
+</p>
+</td>
+    <td><a name="wp1051880"> </a><p class="pCellBody">
+<b class="cBold"> Copying and renaming the first project in the Project Explorer crashes IDL</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1051867"> </a><p class="pCellBody">
+On 64-bit Windows systems with only one project in the Project Explorer view, copying the project, then pasting the copied project in to the Project Explorer, and then renaming the pasted project causes IDL to crash. The changes to the Project Explorer are lost.
+</p>
+<a name="wp1051889"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> If you have only one project in the Project Explorer, create a new project rather than copying the existing project, then copy the files from the first project into the new project.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1040160"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+
+
+                                                          <a name="wp1039599"> </a><h3 class="pHeading3">
+UNIX Platforms
+</h3><a name="wp1039628"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1039602table1039600">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1039602"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1039604"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1039606"> </a><p class="pCellBody">
+<b class="cBold">30564</b>
+</p>
+</td>
+    <td><a name="wp1039608"> </a><p class="pCellBody">
+<b class="cBold">DIALOG_PRINTERSETUP Causes IDL to Hang When Called from Modal Widget </b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1039611"> </a><p class="pCellBody">
+This is a known problem with no known workarounds except to use DIALOG_PRINTERSETUP with a non-model widget.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1045929"> </a><p class="pCellBody">
+<b class="cBold">41964</b>
+</p>
+</td>
+    <td><a name="wp1045931"> </a><p class="pCellBody">
+<b class="cBold">IDL Does Not Run in Security Enhanced Linux</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1045933"> </a><p class="pCellBody">
+Some recent versions of Linux implement mandatory access control in the Linux kernel using the Linux Security Modules framework. IDL will not run in such an environment without a modification to the security context for the IDL binaries.
+</p>
+<a name="wp1045934"> </a><p class="pCellBody">
+<b class="cBold">Workaround</b>: Either disable SELinux or make a modification to the default security context for IDL. See <a href="http://www.ittvis.com/services/techtip.asp?ttid=3092" >Tech Tip 3092</a> for details. 
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1045939"> </a><p class="pCellBody">
+<b class="cBold">42609</b>
+</p>
+</td>
+    <td><a name="wp1045941"> </a><p class="pCellBody">
+<b class="cBold">WIDGET_BUTTON Bitmaps Not Found in Resource Directory</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1045943"> </a><p class="pCellBody">
+Using the VALUE keyword of WIDGET_BUTTON lets you specify the name of a bitmap image file to be used as the button label. On UNIX, this bitmap file is not being located in the <i style="font-style: oblique">IDL_DIR</i><code style="font-style: normal" class="cCode">/resource/bitmaps</code> directory and causes a &quot;Can't open bitmap file&quot; error. This occurs when only the name of the file (and not a complete path) is given. On Windows, a bitmap file identified by name only is correctly located.
+</p>
+<a name="wp1045944"> </a><p class="pCellBody">
+<b class="cBold">Workaround</b>: Always specify the complete path to the bitmap file. For example, to use the <code class="cCode">arrow.bmp</code> file, you could use FILEPATH as follows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&#160;&#160;&#160;bmpath = FILEPATH(&#39;arrow.bmp&#39;, SUBDIRECTORY=[&#39;resource&#39;, &#39;bitmaps&#39;])<a name="wp1045945"> </a>
+&#160;&#160;&#160;b = WIDGET_BUTTON( tlb, VALUE=bmpath, /BITMAP)<a name="wp1045946"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042474"> </a><p class="pCellBody">
+<b class="cBold">42641</b>
+</p>
+</td>
+    <td><a name="wp1042476"> </a><p class="pCellBody">
+<b class="cBold">Error May Occur After First Launch of IDL Assistant with Root Privileges</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1042493"> </a><p class="pCellBody">
+If you receive the following error after the first use of the IDL Assistant (the online-help viewer), &quot;QSetting::sync: filename is null/empty,&quot; the problem is most likely due to file permissions.
+</p>
+<a name="wp1043413"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> Change the ownership on the .<code class="cCode">qt</code> and .<code class="cCode">assistant</code> folders and files in your home directory: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&#160;&#160;&#160;chown -R <i>&lt;user&gt;</i> .qt<a name="wp1042478"> </a>
+&#160;&#160;&#160;chown -R <i>&lt;user&gt;</i> .assistant<a name="wp1042510"> </a>
+&#160;<a name="wp1050517"> </a>
+</pre></div>
+<a name="wp1043420"> </a><p class="pCellBody">
+where <code class="cCodeItalic">&lt;user&gt;</code> is your user name.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1042446"> </a><p class="pCellBody">
+<b class="cBold">43301</b>
+</p>
+</td>
+    <td><a name="wp1042448"> </a><p class="pCellBody">
+<b class="cBold">Upper Left Corner of Tree Widget is Never Valid Drop Zone</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1042450"> </a><p class="pCellBody">
+When the ability to drag and drop tree widget nodes has been enabled, the UNIX tree widget does not recognize the upper left corner of the widget as a valid drop zone. This area typically extends over the icons of the first two nodes (but not the labels). This is a vendor issue. You can drop items onto the first two nodes by moving the mouse cursor over the labels instead of the icons. 
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1046067"> </a><p class="pCellBody">
+<b class="cBold">46672</b>
+</p>
+</td>
+    <td><a name="wp1046069"> </a><p class="pCellBody">
+<b class="cBold">Using WAIT with IDLffMJPEG2000 on Solaris 10 causes IDL to freeze</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1046063"> </a><p class="pCellBody">
+On Solaris 10 systems, using a WAIT statement in code that calls IDLffMJPEG2000 object methods may cause IDL to freeze.
+</p>
+<a name="wp1046086"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b>
+</p>
+<a name="wp1046087"> </a><p class="pCellBody">
+Use a widget timer to generate WIDGET_TIMER events in place of WAIT to control the flow of execution. For an example using a widget timer to control the frame rate of displayed frames, see <code style="font-style: oblique" class="cCodeItalic">IDL_DIR</code><code style="font-style: normal" class="cCode">/examples/doc/objects/mj2_timer_doc.pro</code>, where <code class="cCodeItalic">IDL_DIR</code> is the location of your IDL installation. For additional information, see &quot;Controlling Playback Rate&quot; in the &quot;Animations&quot; chapter of the <i>Using IDL</i> manual.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047639"> </a><p class="pCellBody">
+<b class="cBold">47348</b>
+</p>
+</td>
+    <td><a name="wp1047641"> </a><p class="pCellBody">
+<b class="cBold">Unable To Create Exported IDL object in Virtual Machine Mode on Solaris When LANG Environment Variable is Set to C</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047635"> </a><p class="pCellBody">
+The IDL Virtual Machine does not start when called from a java program or the command line because the splash screen cannot be displayed when the LANG environment variable is set to C.
+</p>
+<a name="wp1048254"> </a><p class="pCellBody">
+<b class="cBold">Workaround: </b>Unset the <b class="cBold">LANG</b> environment variable before using Java to run your exported IDL code. Note that other programs (including IDL) may rely on the value of the ~LANG~ environment variable, so removing it permanently from your environment may have unwanted side effects.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1048382"> </a><p class="pCellBody">
+<b class="cBold">49527</b>
+</p>
+</td>
+    <td><a name="wp1048384"> </a><p class="pCellBody">
+<b class="cBold">IDL Interpreter Suspends on OBJ_NEW(&#39;idlgrwindow&#39;) Until IDLgrWindow is Partially Visible (Redhat Enterprise 4)</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048378"> </a><p class="pCellBody">
+When OBJ_NEW(&#39;idlgrwindow&#39;) is run from the Workbench, if a new window displays beneath the Workbench window, then the command line is desensitized until the Workbench is moved or minimized to make the IDLgrWindow at least partially visible.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047843"> </a><p class="pCellBody">
+<b class="cBold">49610</b>
+</p>
+</td>
+    <td><a name="wp1047845"> </a><p class="pCellBody">
+<b class="cBold">Closing the Workbench While It Is Iconified Causes It To Lock Up (Solaris)</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047852"> </a><p class="pCellBody">
+When at least one IDL process is running and the Workbench is iconified (minimized) and then closed from the icon, the Workbench hangs until all process are manually killed.
+</p>
+<a name="wp1048006"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> Use the IDL Workbench menu or the IDL EXIT command to shut down the IDL Workbench.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050403"> </a><p class="pCellBody">
+<b class="cBold">49848</b>
+</p>
+</td>
+    <td><a name="wp1050405"> </a><p class="pCellBody">
+<b class="cBold">The DICOM Storage Service Does Not Start from the IDL Workbench</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050394"> </a><p class="pCellBody">
+Attempts to start the DICOM Network Storage service by entering
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DICOMEX_NET, /SYSTEM<a name="wp1050395"> </a>
+<!-- No output from CellCode (Empty) paragraph -->
+</pre></div>
+<a name="wp1050397"> </a><p class="pCellBody">
+in the IDL Workbench Command Line view fail.
+</p>
+<a name="wp1050399"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> Start the DICOM Network Storage service from the IDL command-line version.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1040165"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+
+
+                                                          <a name="wp1039697"> </a><h3 class="pHeading3">
+Macintosh Platforms
+</h3><a name="wp1039721"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1047761table1039698">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1047761"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1047763"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047765"> </a><p class="pCellBody">
+<b class="cBold">41410</b>
+</p>
+</td>
+    <td><a name="wp1047767"> </a><p class="pCellBody">
+<b class="cBold">Click-Through Focus Problem on Mac OS X 10.4 (Tiger)</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047769"> </a><p class="pCellBody">
+In some instances, focus can remain stuck on a window, despite subsequent window commands. For example, if you type these consecutive commands at the IDL command line: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+PLOT, FINDGEN(99)<a name="wp1047770"> </a>
+ZOOM<a name="wp1047771"> </a>
+</pre></div>
+<a name="wp1047772"> </a><p class="pCellBody">
+the plot window does not get focus after the ZOOM command. The command locks up IDL because any attempt to click on the plot window, in order to tell ZOOM where to zoom, is thwarted because the window manager is swallowing the focus click.
+</p>
+<a name="wp1047773"> </a><p class="pCellBody">
+<b class="cBold">Workaround</b>: Change the X11 start-up parameters. Do the following: 
+</p>
+<a name="wp1047774"> </a><p class="pCellBody">
+1.	Open an X11 terminal window.
+</p>
+<a name="wp1047775"> </a><p class="pCellBody">
+2.	Enter the following at the shell prompt: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&#160;&#160;&#160;defaults write com.apple.x11 wm_click_through -bool true<a name="wp1047776"> </a>
+</pre></div>
+<a name="wp1047777"> </a><p class="pCellBody">
+3.	Quit X11. 
+</p>
+<a name="wp1047778"> </a><p class="pCellBody">
+The new default will not take effect until after you restart X11, but it will persist from that point (i.e., you will not have to make the change again). 
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047782"> </a><p class="pCellBody">
+<b class="cBold">41916</b>
+</p>
+</td>
+    <td><a name="wp1047784"> </a><p class="pCellBody">
+<b class="cBold">Errors When Starting the DICOM Service</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047786"> </a><p class="pCellBody">
+If you install the DICOM Network Services module, the installer allows you to specify that the DICOM service be started automatically at boot time. If you encounter an error that looks like: 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&#160;&#160;&#160;dicomexstorscp_install error<a name="wp1047787"> </a>
+&#160;&#160;&#160;There was an error encountered running<a name="wp1047788"> </a>
+&#160;&#160;&#160;idl_7.0/bin/dicomexstorscp_install.<a name="wp1047789"> </a>
+</pre></div>
+<a name="wp1047790"> </a><p class="pCellBody">
+then your Administrator group may not have permission to modify items in the appropriate StartupItems directory.
+</p>
+<a name="wp1047791"> </a><p class="pCellBody">
+<b class="cBold">Workaround</b>:
+</p>
+<a name="wp1047792"> </a><p class="pCellBody">
+1.	Log in as root. 
+</p>
+<a name="wp1047793"> </a><p class="pCellBody">
+2.	Open a terminal window. 
+</p>
+<a name="wp1047794"> </a><p class="pCellBody">
+3.	Enter the following commands:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&#160;&#160;&#160;cd ~<a name="wp1047795"> </a>
+&#160;&#160;&#160;touch .profile<a name="wp1047796"> </a>
+</pre></div>
+<a name="wp1047800"> </a><p class="pCellBody">
+4.	Change to the directory where ITT Visual Information Solutions products are installed (by default, <code class="cCode">/Applications/itt</code>):
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&#160;&#160;&#160;cd /Applications/itt<a name="wp1047801"> </a>
+</pre></div>
+<a name="wp1047802"> </a><p class="pCellBody">
+5.	Enter the following command:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&#160;&#160;&#160;./idl70/bin/dicomexstorscp_install<a name="wp1047803"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047807"> </a><p class="pCellBody">
+<b class="cBold">47334</b>
+</p>
+</td>
+    <td><a name="wp1047809"> </a><p class="pCellBody">
+<b class="cBold">Java Bridge: Macintosh uses a different version of Java demo_world example </b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047813"> </a><p class="pCellBody">
+A java incompatibility on Macintosh causes the demo_world example to work incorrectly. The program (located in <code style="font-style: oblique" class="cCodeItalic">ITT_DIR</code><code style="font-style: normal" class="cCode">\IDL70\resource\bridges\import\java\examples\) </code>should allow a user to click and drag to change the focus of the globe, but does not work on Macintosh. 
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047817"> </a><p class="pCellBody">
+<b class="cBold">47668</b>
+</p>
+</td>
+    <td><a name="wp1047819"> </a><p class="pCellBody">
+<b class="cBold">Drag and drop </b><b class="cBold">.pro</b><b class="cBold"> file from Navigator to Editor does not open the file</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1047821"> </a><p class="pCellBody">
+In some cases, dragging a file with the .pro extension from the Navigator to the IDL Workbench Editor is unsuccessful. 
+</p>
+<a name="wp1047822"> </a><p class="pCellBody">
+<b class="cBold">Workaround: </b>Open .pro files from within the IDL Workbench. If installed in Applications, double-clicking on a file it will open it in the Workbench.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1047826"> </a><p class="pCellBody">
+<b class="cBold">48280</b>
+</p>
+</td>
+    <td><a name="wp1047828"> </a><p class="pCellBody">
+<b class="cBold">CDF Routines Read Data Incorrectly on Intel-based Macintosh</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1048276"> </a><p class="pCellBody">
+The version of the CDF library included with IDL 7.0 does not correctly adjust for the little-endian byte ordering used by Intel-based Macintoshes.
+</p>
+<a name="wp1048277"> </a><p class="pCellBody">
+In some cases, this may result in IDL on an Intel-based Macintosh reading the data in a CDF file incorrectly.
+</p>
+<a name="wp1048279"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> The CDF libraries are maintained by CDF users at the Goddard Space Flight Center. A patched library is available from Goddard at <a href="http://cdf.gsfc.nasa.gov/html/cdf_patch_for_idl6x_new.html" >http://cdf.gsfc.nasa.gov/html/cdf_patch_for_idl6x_new.html</a>
+</p>
+<a name="wp1048283"> </a><p class="pCellBody">
+Note that this patch works for IDL 7.0 as well as for IDL 6.4.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050356"> </a><p class="pCellBody">
+<b class="cBold">49844</b>
+</p>
+</td>
+    <td><a name="wp1050358"> </a><p class="pCellBody">
+<b class="cBold">Creation of Semaphores Fails under Mac OS X 10.5</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050341"> </a><p class="pCellBody">
+Creation of semaphores (using the SEM_CREATE routine) fails under Macintosh OS X 10.5 (Leopard).
+</p>
+<a name="wp1050342"> </a><p class="pCellBody">
+Under Macintosh OS X, semaphore names must be 24 characters or fewer. When IDL creates a semaphore, it appends the name supplied in the call to SEM_CREATE to the path to the temporary directory. Under Macintosh OS X 10.5, the temporary directory is not <code class="cCode">/tmp</code>, but a directory with a name like <code class="cCode">/var/folders/zz/zzzivhrRnAuee+++-Q++++L+/-Tmp-</code>.
+</p>
+<a name="wp1050343"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> Temporarily modify the value of the IDL_TMPDIR preference to be <code class="cCode">&#39;/tmp&#39;</code>. Your code would look something like this:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+old_tmp_dir = PREF_GET(&#39;IDL_TMPDIR&#39;)<a name="wp1050344"> </a>
+PREF_SET, &#39;IDL_TMPDIR&#39;, &#39;/tmp&#39;, /COMMIT<a name="wp1050345"> </a>
+...<a name="wp1050346"> </a>
+code that uses semaphores<a name="wp1050347"> </a>
+...<a name="wp1050348"> </a>
+PREF_SET, &#39;IDL_TMPDIR&#39;, old_tmp_dir, /COMMIT<a name="wp1050349"> </a>
+<!-- No output from CellCode (Empty) paragraph -->
+</pre></div>
+<a name="wp1050351"> </a><p class="pCellBody">
+Note that you will need to surround all code dealing with semaphores with these statements.
+</p>
+<!-- No output from CellBody (Empty) paragraph -->
+<a name="wp1052397"> </a><p class="pCellBody">
+<b class="cBold">NOTE: This problem is fixed in IDL 7.0.4.</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050390"> </a><p class="pCellBody">
+<b class="cBold">49848</b>
+</p>
+</td>
+    <td><a name="wp1050392"> </a><p class="pCellBody">
+<b class="cBold">The DICOM Storage Service Does Not Start from the IDL Workbench</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050428"> </a><p class="pCellBody">
+Attempts to start the DICOM Network Storage service by entering
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DICOMEX_NET, /SYSTEM<a name="wp1050429"> </a>
+&#160;<a name="wp1050430"> </a>
+</pre></div>
+<a name="wp1050431"> </a><p class="pCellBody">
+or
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+IDLffDicomExCfg::StorageScpService(&quot;Start&quot;)<a name="wp1050432"> </a>
+&#160;<a name="wp1050433"> </a>
+</pre></div>
+<a name="wp1050434"> </a><p class="pCellBody">
+in a program run from within the IDL Workbench or in the IDL Workbench Command Line view fail.
+</p>
+<a name="wp1050386"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> Start the DICOM Network Storage service from the IDL command-line version or the DICOMNetworkServices applescript.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1050377"> </a><p class="pCellBody">
+<b class="cBold">49849</b>
+</p>
+</td>
+    <td><a name="wp1050379"> </a><p class="pCellBody">
+<b class="cBold">Starting the DICOM Storage Service Displays Numerous Error Messages</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1050369"> </a><p class="pCellBody">
+Starting the DICOM Network Storage service displays numerous error messages in the IDL terminal window. The errors look like:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+The process has forked and you cannot use this CoreFoundation functionality 
+safely. You MUST exec().<a name="wp1050370"> </a>
+Break on 
+__THE_PROCESS_HAS_FORKED_AND_YOU_CANNOT_USE_THIS_COREFOUNDATION_FUNCTIONALITY
+___ YOU_MUST_EXEC__() to debug.P<a name="wp1050371"> </a>
+<!-- No output from CellCode (Empty) paragraph -->
+</pre></div>
+<a name="wp1050373"> </a><p class="pCellBody">
+<b class="cBold">Workaround:</b> You can safely disregard these error messages.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1044340"> </a><p class="pCellBody">
+<span style="text-decoration: underline"><a href="relnotes.html">back to top</a></span> 
+</p>
+<a name="wp1051226"> </a><h2 class="pHeading2">
+Known Problems in IDL 7.0.3
+</h2><div class="pSmartList1"><ul class="pSmartList1">
+
+<a name="wp1051689"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1051388">All Platforms</a></li></div>
+<a name="wp1051693"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1051799">Macintosh Platforms</a></li></div>
+</ul></div>
+
+
+                                                          <a name="wp1051388"> </a><h3 class="pHeading3">
+All Platforms
+</h3><a name="wp1051461"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1051529table1051463">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1051529"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1051531"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1051533"> </a><p class="pCellBody">
+<b class="cBold">51318</b>
+</p>
+<a name="wp1051630"> </a><p class="pCellBody">
+<b class="cBold">51320</b>
+</p>
+<a name="wp1051649"> </a><p class="pCellBody">
+<b class="cBold">51322</b>
+</p>
+</td>
+    <td><a name="wp1051535"> </a><p class="pCellBody">
+<b class="cBold">Formatter preferences for keywords, system variables, and structure and class names are ignored by the Source&#160;</b>&#8594;<b style="font-weight: bold" class="cBold">&#160;</b><b style="font-weight: bold" class="cBold">Format command</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1051573"> </a><p class="pCellBody">
+The keyword, system variable, and structure and class name formatting preferences set on the <b class="cBold">IDL&#160;</b>&#8594;<b style="font-weight: bold" class="cBold">&#160;</b><b style="font-weight: bold" class="cBold">Formatter</b> preference page are not applied when the code is highlighted and the <b class="cBold">Source&#160;</b>&#8594;<b style="font-weight: bold" class="cBold">&#160;</b><b style="font-weight: bold" class="cBold">Format</b> command is selected.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+
+
+                                                          <a name="wp1051799"> </a><h3 class="pHeading3">
+Macintosh Platforms
+</h3><a name="wp1051348"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1051248table1051246">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1051248"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1051250"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1051252"> </a><p class="pCellBody">
+<b class="cBold">51478</b>
+</p>
+</td>
+    <td><a name="wp1051254"> </a><p class="pCellBody">
+<b class="cBold">The </b>Ctrl-Space<b class="cBold"> method of accessing Content Assist does not work on the IDLDoc preferences page on Macintosh platforms</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1051405"> </a><p class="pCellBody">
+For Macintosh platforms, when editing in the Routine Comments and File Comments tabs on the IDLdoc preferences page, typing <b class="cBold">Ctrl</b>-<b class="cBold">Space</b> does not activate Content Assist. This appears to be an Eclipse bug for Macintosh platforms, and Eclipse bug 229696 has been filed.
+</p>
+<a name="wp1051431"> </a><p class="pCellBody">
+You can still access Content Assist by clicking <b class="cBold">Insert Variable</b>, or right-clicking inside the editor and selecting <b class="cBold">Insert Variable</b> from the context menu.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1051374"> </a><p class="pCellBody">
+<a href="relnotes.html">back to top</a>
+</p>
+<a name="wp1052040"> </a><h2 class="pHeading2">
+Known Problems in IDL 7.0.4
+</h2><div class="pSmartList1"><ul class="pSmartList1">
+
+<a name="wp1052546"> </a><div class="pSmartList1"><li><a href="relnotes.html#wp1052536">All Platforms</a></li></div>
+</ul></div>
+
+
+                                                          <a name="wp1052536"> </a><h3 class="pHeading3">
+All Platforms
+</h3><a name="wp1052530"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1052517table1052515">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1052517"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1052519"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052583"> </a><p class="pCellBody">
+<b class="cBold">n/a</b>
+</p>
+</td>
+    <td><a name="wp1052585"> </a><p class="pCellBody">
+<b class="cBold">Third-party IDL Workbench Plug-ins are not Present After Upgrade</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052592"> </a><p class="pCellBody">
+IDL 7.0.4 is installed in a location separate from any previous IDL installation. As a result, if you have installed third-party IDL Workbench plug-ins in your existing IDL installation, they will not be available after the IDL 7.0.4 upgrade is installed. You will need to reinstall the third-party plug-ins to use them with IDL 7.0.4.
+</p>
+<a name="wp1052603"> </a><p class="pCellBody">
+Additionally, if you install IDL 7.0.4 and then start the IDL Workbench using the same workspace used with the older IDL version, you may see an error stating that the workbench layout could not be restored. This error reflects the fact that the third-party plug-ins are no longer available to the IDL Workbench. The error will appear only the first time you start the IDL Workbench, and only if you are using the same workspace as used with the previous IDL version.
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1052523"> </a><p class="pCellBody">
+<b class="cBold">n/a</b>
+</p>
+</td>
+    <td><a name="wp1052525"> </a><p class="pCellBody">
+<b class="cBold">Preferences are not Automatically Migrated from Previous IDL Version</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1052527"> </a><p class="pCellBody">
+If you are upgrading IDL from a previous version, IDL system preferences you may have set in the previous version are not automatically migrated to the new version. The PREF_MIGRATE routine provides a graphical user interface that allows you to move preferences from a previous IDL version to the current version. To use the preference migration facility, simply enter
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+PREF_MIGRATE<a name="wp1052566"> </a>
+<!-- No output from CellCode (Empty) paragraph -->
+</pre></div>
+<a name="wp1052567"> </a><p class="pCellBody">
+at the IDL command prompt.
+</p>
+<a name="wp1052570"> </a><p class="pCellBody">
+IDL Workbench preferences you may have set using a previous version of IDL will be used by the new version if you are using the same IDL workspace. (When you create a new workspace, the IDL Workbench always loads the default workbench preferences.) 
+</p>
+<a name="wp1052578"> </a><p class="pCellBody">
+See &quot;About IDL System Preferences&quot; in the IDL Help system for additional information.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1052048"> </a><p class="pBody">
+
+</p>
+<a name="wp1052050"> </a><p class="pCellBody">
+<a href="relnotes.html">back to top</a>
+</p>
+<a name="wp1051219"> </a><h2 class="pHeading2">
+Documentation Errata in IDL 7.0
+</h2><a name="wp1049953"> </a><p class="pBody">
+</p>
+<div>
+<table border="0" cellpadding="4" cellspacing="1" id="wp1049942table1049940">
+  <caption></caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1049942"> </a><div class="pCellHeading">
+ID
+</div>
+</th>
+    <th><a name="wp1049944"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td><a name="wp1049946"> </a><p class="pCellBody">
+<b class="cBold">n/a</b>
+</p>
+</td>
+    <td><a name="wp1049948"> </a><p class="pCellBody">
+<b class="cBold">Macintosh OSX version support</b>
+</p>
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2">    <td colspan="2" rowspan="1"><a name="wp1049950"> </a><p class="pCellBody">
+The IDL 7.0 version support information lists Macintosh OS X version 10.5 as a supported platform. A problem in Apple's X11 implementation in version 10.5 means that IDL 7.0 and later require OS X 10.5.1 or later. (IDL also runs on OS X version 10.4.x as described in the version support information. This problem has been corrected in IDL 7.0.4.
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>
+<a name="wp1049954"> </a><p class="pBody">
+
+</p>
+<a name="wp1049956"> </a><p class="pCellBody">
+<a href="relnotes.html">back to top</a>
+</p>
+<a name="wp1044613"> </a><p class="pBody">
+&#160;
+</p>
+<!-- No output from CellBody (Empty) paragraph -->
+<!-- No output from CellBody (Empty) paragraph -->
+<!-- No output from CellBody (Empty) paragraph -->
+
+  </div>
+
+  <div id="footer_shadow">
+  </div>
+
+  <div id="footer">
+     <img src="images/pixel.png" border="0" height="20" width="4" /><script type="text/javascript">commentMail("relnotes.html", "com.rsi.idl.doc.wn", "IDL 7.0.6");</script><img src="images/pixel.png" border="0" height="20" width="9" /><script type="text/javascript">prevNext("Obsolete_IDE_Preferences.html", "relnotes.html", "Hardware_and_Operating_System_Requirements.html");</script>
+  </div>
+
+</body>
+</html>

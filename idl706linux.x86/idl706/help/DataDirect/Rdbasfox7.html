@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>Data Types</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp558466"> </a><h1 class="pNewHTMLPageNoNum">
+Data Types
+</h1>
+<hr /><a name="wp510464"> </a><p class="pBody">
+<a  href="Rdbasfox7.html#wp554711">Table&#160;9-2</a> shows how dBASE data types map to the standard ODBC data types. These dBASE data types can be used in a Create Table statement. See <a  href="sqlflat.html#wp521745">&quot;SQL for Flat-File Drivers&quot;</a> for the syntax of the Create Table statement.
+</p>
+<a name="wp514642"> </a><p class="pBody">
+<a  href="Rdbasfox7.html#wp554761">Table&#160;9-3</a> shows how the additional FoxPro 3.0 data types map to the ODBC data types.
+</p>
+<a name="wp510466"> </a><p class="pBody">
+NOTE: A few products can create dBASE files with numbers that do not conform to the precision and scale of the Number column. For example, these products can store 100000 in a column declared as NUMBER(5,2). When this occurs, the dBASE driver displays error 1244, <code class="cCode">Unsupported decimal format</code>. To remedy this situation, multiply the nonconforming column by 1, which converts it to the Float data type. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT BADCOL * 1 FROM BADFILE<a name="wp510468"> </a>
+</pre></div>
+<a name="wp554704"> </a><p class="pBody">
+<code class="cCode">BADCOL * 1</code> is evaluated as an expression and is returned as a float value.
+</p>
+<a name="wp588572"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp554711"> </a><div class="pTableTitleBold">
+Table 9-2.  dBASE Data Types&#160;
+</div>
+</caption>
+  <tr align="left">    <td><a name="wp554715"> </a><div class="pCellHeading">
+dBASE
+</div>
+</td>
+    <td><a name="wp554717"> </a><div class="pCellHeading">
+ODBC
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554719"> </a><div class="pCellBody">
+Binary<span style="vertical-align: super">1</span>
+</div>
+</td>
+    <td><a name="wp554721"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554723"> </a><div class="pCellBody">
+Char<span style="vertical-align: super">2</span>
+</div>
+</td>
+    <td><a name="wp554725"> </a><div class="pCellBody">
+SQL_CHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554727"> </a><div class="pCellBody">
+Date
+</div>
+</td>
+    <td><a name="wp554729"> </a><div class="pCellBody">
+SQL_TYPE_DATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554731"> </a><div class="pCellBody">
+Float<span style="vertical-align: super">3</span>
+</div>
+</td>
+    <td><a name="wp554733"> </a><div class="pCellBody">
+SQL_DECIMAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554735"> </a><div class="pCellBody">
+General<span style="vertical-align: super">4</span>
+</div>
+</td>
+    <td><a name="wp554737"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554739"> </a><div class="pCellBody">
+Logical
+</div>
+</td>
+    <td><a name="wp554741"> </a><div class="pCellBody">
+SQL_BIT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554743"> </a><div class="pCellBody">
+Memo
+</div>
+</td>
+    <td><a name="wp554745"> </a><div class="pCellBody">
+SQL_LONGVARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554747"> </a><div class="pCellBody">
+Numeric
+</div>
+</td>
+    <td><a name="wp554749"> </a><div class="pCellBody">
+SQL_DECIMAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td colspan="2" rowspan="1"><a name="wp554751"> </a><div class="pCellBody">
+<span style="vertical-align: super">1</span> dBASE V only
+</div>
+<a name="wp554752"> </a><div class="pCellBody">
+<span style="vertical-align: super">2</span> 254 characters maximum (1024 for Clipper)
+</div>
+<a name="wp554753"> </a><div class="pCellBody">
+<span style="vertical-align: super">3 </span>dBASE IV and V only
+</div>
+<a name="wp554754"> </a><div class="pCellBody">
+<span style="vertical-align: super">4</span> FoxPro and dBASE V only
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp554792"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp554761"> </a><div class="pTableTitleBold">
+Table 9-3.  Additional FoxPro 3.0 Data Types
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp554765"> </a><div class="pCellHeading">
+FoxPro 3.0
+</div>
+</th>
+    <th><a name="wp554767"> </a><div class="pCellHeading">
+ODBC
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp554769"> </a><div class="pCellBody">
+Character (binary)
+</div>
+</td>
+    <td><a name="wp554771"> </a><div class="pCellBody">
+SQL_CHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554773"> </a><div class="pCellBody">
+Currency
+</div>
+</td>
+    <td><a name="wp554775"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554777"> </a><div class="pCellBody">
+Datetime
+</div>
+</td>
+    <td><a name="wp554779"> </a><div class="pCellBody">
+SQL_TYPE_TIMESTAMP
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554781"> </a><div class="pCellBody">
+Double
+</div>
+</td>
+    <td><a name="wp554783"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554785"> </a><div class="pCellBody">
+Integer
+</div>
+</td>
+    <td><a name="wp554787"> </a><div class="pCellBody">
+SQL_INTEGER
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp554789"> </a><div class="pCellBody">
+Memo (binary)
+</div>
+</td>
+    <td><a name="wp554791"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp607892"> </a><p class="pBody">
+See <a  href="Rstart9.html#wp596069">&quot;Retrieving Data Type Information&quot;</a> for more information about data types.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

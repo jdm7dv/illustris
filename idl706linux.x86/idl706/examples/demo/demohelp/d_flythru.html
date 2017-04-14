@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:54">
+    <title>Flythrough</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_filter.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_forecast.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004339"> </a><h2 class="pHeading1">
+Flythrough
+</h2>  
+
+<a name="wp1004341"> </a><p class="pBody">
+This demonstrates draping a texture map (image) on a surface as well as interactive and automated exploration of the resulting visualization. In this example, the texture map is a satellite image acquired in the vicinity of Los Angeles, California. The surface is a digital elevation model (DEM or DTM) of the associated topography. You can directly manipulate the visualization with your mouse, navigate through a simulated fly-through session, and record your flight path for later playback. Not limited to the Earth Sciences, texture draped surface visualizations are useful for exploring many types of multidimensional data. In addition, your own data may be displayed instead of the default scene. See the example at the end of this file for details.
+</p>  
+
+<a name="wp1004342"> </a><p class="pBody">
+IDL's advanced graphics system is built to provide maximum performance and flexibility for complex visualizations such as this. For enhanced interactive performance, this system supports OpenGL-based hardware rendering.
+</p>  
+
+<a name="wp1004343"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004344"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004345"> </a><p class="pBody">
+Select Quit to exit the Flythrough Demo and return to the demo system.
+</p>  
+
+<a name="wp1004346"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1004347"> </a><p class="pBody">
+Select &quot;About Flythrough&quot; for information about the Flythrough demo (this file).
+</p>  
+
+<a name="wp1004348"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1004349"> </a><h4 class="pHeading3">
+Start button
+</h4>  
+
+<a name="wp1004350"> </a><p class="pBody">
+Initiates the flythrough. Movement is simulated by translating the surface object towards the eye. The user can direct the movement by positioning the cursor over the view. Up/down movement with the cursor controls pitch, left/right movement simulates banked turns. Note that the middle mouse button (or an emulated middle mouse button, for those with two buttons) can be used to start and stop the flythrough. See the &quot;Running IDL&quot; section of &quot;Using IDL&quot; for details on middle mouse button emulation. 
+</p>  
+
+<a name="wp1004351"> </a><p class="pBody">
+The translations and rotations which make up each step of the interactive flight sequence are stored as transformation matrices. The transformations for each flight are appended to form a saved path which can be replayed. See the &quot;Replay Path&quot; and &quot;Clear Path&quot; buttons below. 
+</p>  
+
+<a name="wp1004352"> </a><h4 class="pHeading3">
+Stop button
+</h4>  
+
+<a name="wp1004353"> </a><p class="pBody">
+Stops the flythrough by stopping the translations of the model towards the eye. The flythrough can be resumed by selecting Start or by clicking the middle mouse button (or emulated middle button). This is useful if you want to change several of the controls during a flythrough. 
+</p>  
+
+<a name="wp1004354"> </a><h4 class="pHeading3">
+Reset button
+</h4>  
+
+<a name="wp1004355"> </a><p class="pBody">
+Resets the orientation to the initial location by setting the model transformations to the original transformations. 
+</p>  
+
+<a name="wp1004356"> </a><h4 class="pHeading3">
+Replay Path button
+</h4>  
+
+<a name="wp1004357"> </a><p class="pBody">
+Steps through the model transformation of the last flight or flights since startup or the last use of the &quot;Clear Path&quot; button. Note that this is not an animation of static images. The transformations matrices of a flight are stored during the flight and used to manipulate the surface object again to replay the flight. If the last path ended with a crash the path can be replayed, but the replay will cycle continuously rather than stopping at the crash. 
+</p>  
+
+<a name="wp1004358"> </a><h4 class="pHeading3">
+Clear Path button
+</h4>  
+
+<a name="wp1004359"> </a><p class="pBody">
+Clears the saved path. The transformations of the next flight will become the beginning of a new path which can be replayed. 
+</p>  
+
+<a name="wp1004360"> </a><h4 class="pHeading3">
+Airspeed slider
+</h4>  
+
+<a name="wp1004361"> </a><p class="pBody">
+Regulates the speed by altering the amount of translation toward the eye position.
+</p>  
+
+<a name="wp1004362"> </a><h4 class="pHeading3">
+Pitch Sensitivity slider
+</h4>  
+
+<a name="wp1004363"> </a><p class="pBody">
+Regulates the amount of pitch change for the same amount of cursor movement in the Y direction.
+</p>  
+
+<a name="wp1004364"> </a><h4 class="pHeading3">
+Roll Sensitivity slider
+</h4>  
+
+<a name="wp1004365"> </a><p class="pBody">
+Regulates the amount of roll change for the same amount of cursor movement in the X direction.
+</p>  
+
+<a name="wp1004366"> </a><h4 class="pHeading3">
+Ignore Crashes check box
+</h4>  
+
+<a name="wp1004367"> </a><p class="pBody">
+When checked this setting prevents the flight from stopping when the flight passes through the surface. The default is to stop the flight when passing through the surface.
+</p>  
+
+<a name="wp1004368"> </a><h4 class="pHeading3">
+Joystick display
+</h4>  
+
+<a name="wp1004369"> </a><p class="pBody">
+This small display is a visual aide which represents a top-down view of a joystick which is controlling the flight. The position of the joystick is controlled by the position of the cursor within the main display. 
+</p>  
+
+<a name="wp1004370"> </a><h4 class="pHeading3">
+Surface Controls button
+</h4>  
+
+<a name="wp1004371"> </a><p class="pBody">
+Displays a floating control panel with optional settings for the display of the surface. The controls are described below.
+</p>  
+
+<a name="wp1004372"> </a><h4 class="pHeading3">
+Texture Map check box
+</h4>  
+
+<a name="wp1004373"> </a><p class="pBody">
+If checked the display will show an image draped on the digital elevation model. If not checked the display will show the shaded surface and surface paths. 
+</p>  
+
+<a name="wp1004374"> </a><h4 class="pHeading3">
+Bilinear Interp. check box
+</h4>  
+
+<a name="wp1004375"> </a><p class="pBody">
+If checked, the texture map will use Bilinear sampling. If not checked, the texture map will use nearest neighbor sampling. 
+</p>  
+
+<a name="wp1004376"> </a><h4 class="pHeading3">
+Grid at Z=0 check box
+</h4>  
+
+<a name="wp1004377"> </a><p class="pBody">
+If selected, display a reference grid at Z=0.
+</p>  
+
+<a name="wp1004378"> </a><h4 class="pHeading3">
+Center Box check box
+</h4>  
+
+<a name="wp1004379"> </a><p class="pBody">
+If selected, display a reference box at the center of the screen. Note that if the cursor is near this box the flight will continue forward. Moving the cursor away from this box during flight will change the pitch or initiate banked turns. 
+</p>  
+
+<a name="wp1004380"> </a><h4 class="pHeading3">
+Vertical Exag. slider
+</h4>  
+
+<a name="wp1004381"> </a><p class="pBody">
+Alters the vertical exaggeration of the Z dimension of the surface.
+</p>  
+
+<a name="wp1004382"> </a><h4 class="pHeading3">
+Done button
+</h4>  
+
+<a name="wp1004383"> </a><p class="pBody">
+Closes the Surface Controls control panel.
+</p>  
+
+<a name="wp1004384"> </a><h3 class="pHeading2">
+Custom Data
+</h3>  
+
+
+<a name="wp1004385"> </a><p class="pBody">
+Run this demo from the command line to supply your own data (surface and image). For example:
+</p>  
+
+<div class="pPreformatted"><pre class="pPreformatted">
+; note that surface and image dimensions need not agree  
+; the image is scaled to fit the surface.  
+tmpSurface=DIST(50)  
+tmpImage=BYTSCL(SIN(DIST(40)))  
+d_flythru, SURFACE=tmpSurface, IMAGE=tmpImage  
+</pre>
+</div>
+<a name="wp1005641"> </a><p class="pBody">
+
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

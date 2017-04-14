@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:06:36" />
+  <title>Configuring Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp624716"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Data Sources
+</h1>
+<hr /><a name="wp641816"> </a><p class="pBody">
+When you configure a data source, you store default connection values in a data source definition that is used each time you connect to the data source. You can change these defaults by modifying the definition or you can override the defaults at the time of connection by using a connection string.
+</p>
+<a name="wp630556"> </a><p class="pBody">
+If you choose to use a connection string, you must use specific connection string attributes. See <a  href="Rase5.html#wp625074">Table&#160;7-1</a> for a complete description of driver connection string attributes and their values.
+</p>
+<a name="wp641828"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunix12.gif" height="38" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, data sources are configured and modified by editing the system information file (by default, odbc.ini) and storing default connection values there. See <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a> for detailed information about editing the system information file. See <a  href="unixenviron.html#wp518848"><a  href="unixenviron.html#wp518848">&quot;The UNIX Environments&quot;</a> </a>for detailed information about the specific steps necessary to configure the UNIX environment and connect with the driver.
+</p>
+<a name="wp630552"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp630580"> </a><p class="pBody">
+<a  href="Rase5.html#wp625074">Table&#160;7-1</a> lists driver connection string attributes that must be used in the system information file. Note that only the long name of the attribute can be used in the file.
+</p>
+<a name="wp641847"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinb13.gif" height="30" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, data sources are configured and modified through the ODBC Administrator using a driver Setup dialog box. Default connection values are specified through the options on the tabs of the Setup dialog box and are stored in the Windows Registry. Connection string attributes that override these options have the same names as the options unless noted otherwise. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp624755"> </a><p class="pBody">
+<b class="cBold">To configure a Sybase data source:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp624756"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources.</li></div><a name="wp624757"> </a><div class="pSmartList1"><li>If you are configuring an existing data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC Sybase Wire Protocol Driver Setup dialog box.</li></div><a name="wp624758"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add</b> to display a list of installed drivers. Select the Sybase Wire Protocol driver and click <b class="cBold">Finish</b> to display the ODBC Sybase Wire Protocol Driver Setup dialog box.
+</p>
+<a name="wp624767"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: The General tab displays the only fields that are required for creating a data source. The fields on all other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp624769"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply.</b></li></div><a name="wp624770"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Type a string that identifies this Sybase data source configuration. Examples include &quot;Accounting&quot; or &quot;Sys11-Serv1.&quot;
+</p>
+<a name="wp624771"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: Type an optional long description of a data source name. For example, &quot;My Accounting Database&quot; or &quot;System 11 on Server number&#160;1.&quot;
+</p>
+<a name="wp624775"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Network Library Name</b>: Select the name of the network library. This specifies which network protocol to use. The values are Winsock and NamedPipes. The default is Winsock. This option has no effect on UNIX; on UNIX, TCP/IP is used.
+</p>
+<a name="wp640180"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Network Address</b>: Type the network address. The value you specify depends on which network protocol is chosen under Network Library Name and on the Sybase server
+</p>
+<a name="wp640197"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you have chosen Winsock for the Network Library Name, specify an IP address as follows: <code><em>IP address</em></code>, <code><em>port_number</em></code>. For example, you might enter <code class="cCode">199.226.224.34, 5000</code>. If your network supports named servers, you can specify an address as: <code><em>servername</em></code>, <code><em>port_number</em></code>. For example, you might enter <code class="cCode">Sybaseserver, 5000</code>.
+</p>
+<a name="wp640200"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you have chosen NamedPipes as the network protocol, you must specify the pipe address of the server. For example, <code class="cCode">\\machine1\sybase\pipe\query</code>.
+</p>
+<a name="wp633904"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This connection option is mutually exclusive to the Interfaces File and Server Name connection options.
+</p>
+<a name="wp624778"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Name</b>: Type the name of the database to which you want to connect by default. If you do not specify a value, the default is the database defined by the system administrator for each user.
+</p>
+<a name="wp624779"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Database.
+</p>
+<a name="wp624783"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Interfaces File</b>: Type the path name of the Interfaces file. If you do not specify a value in the Interfaces File field, but do specify a value in the Server Name field, then the driver looks for the path name of the Interfaces file in the Registry under HKEY_LOCAL_MACHINE\SOFTWARE\DataDirect\InterfacesFile. If this Registry value is empty, then the driver attempts to open the SQL.INI file found in the same directory as the driver and use it as the Interfaces file.
+</p>
+<a name="wp633933"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: If you specified a value in the Network Address field on this tab, this field is disabled. When specifying connection information, you specify either a network address or an Interfaces file and server name.
+</p>
+<a name="wp624787"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Server Name</b>: Type the name of the section in the Interfaces file that contains the network connection information for the Sybase server you want to access. The section name typically is the host name of the server that contains the Sybase server you want to access.
+</p>
+<a name="wp633939"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: If you specified a value in the Network Address field on this tab, this field is disabled. When specifying connection information, you specify either a network address or an Interfaces file and server name.
+</p>
+<a name="wp624788"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is InterfacesFileServerName.
+</p>
+<a name="wp624798"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab to specify data source settings.</li></div><a name="wp624807"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp624817"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Cursor Positioning for raiserror:</b> Select a value of 0 or 1 that specifies when the error is returned and where the cursor is positioned when raiserror is encountered.
+</p>
+<a name="wp624818"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0 (the default), raiserror is handled separately from surrounding statements. The error is returned when raiserror is processed via SQLExecute, SQLExecDirect, or SQLMoreResults. The result set is empty.
+</p>
+<a name="wp624819"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 (Microsoft compatible), raiserror is handled with the next statement. The error is returned when the next statement is processed; the cursor is positioned on the first row of the subsequent result set. This could result in multiple raiserrors being returned on a single execute.
+</p>
+<a name="wp624820"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is RaiseErrorPositionBehavior.
+</p>
+<a name="wp624821"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Default Buffer Size for Long Columns (in Kb)</b>: Type an integer value that specifies the maximum length of data fetched from a TEXT or IMAGE column. The value must be in multiples of 1024 (for example, 1024, 2048). The default is 1024 KB. You will need to increase this value if the total size of any long data exceeds 1 MB.
+</p>
+<a name="wp624822"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option also applies to binding long parameters in chunks. The driver truncates any data passed in a Long/LOB SQL_DATA_AT_EXEC parameter to the size specified.
+</p>
+<a name="wp624823"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="Rase6.html#wp625534">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp624832"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Distributed Transaction Model</b>: Select a model to use for distributed transaction support&#8212;either XA Protocol or Native&#160;OLE.
+</p>
+<a name="wp642362"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Initialization String</b>: Enter a semicolon-separated list of Sybase language commands that will be issued immediately after connection.
+</p>
+<a name="wp642497"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Report Codepage Conversion Errors</b>: Select the method by which the driver handles code page conversion errors.
+</p>
+<a name="wp642498"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0 - Ignore Errors (the default), if the driver encounters code page conversion errors (a character cannot be converted from one character set to another), it substitutes 0x1A for each character that cannot be converted and does not return a warning or error. 
+</p>
+<a name="wp642499"> </a><p class="pBodyIndent12pxBeforeAfter">
+Error and Warning apply both to all ODBC API calls that could cause a conversion error and to all code page conversions to/from the database and to/from the application. The error or warning returned is, <code class="cCode">Code page conversion error encountered</code>. In the case of parameter data conversion errors, the driver adds the following sentence: <code class="cCode">Error in parameter </code><code><em>x</em></code>, where <code><em>x</em></code> is the parameter number. The standard rules for returning specific row and column errors for bulk operations still apply.
+</p>
+<a name="wp642500"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 - Return Error, if the driver encounters code page conversion errors, it returns an error instead of substituting 0x1A for unconverted characters.
+</p>
+<a name="wp642501"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 2 - Return Warning, if the driver encounters code page conversion errors, it substitutes 0x1A for each character that cannot be converted and returns a warning.
+</p>
+<a name="wp624836"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">XA Open String Parameters</b>: Type <code class="cCode">-L</code><code><em>trace_filename</em></code>, where <code><em>trace_filename</em></code> specifies the name of two trace files that will be created. The first trace file will trace all XA call activities and will be named exactly as you specified. The second trace file will contain tracing of any enlistment and unenlistment procedures and will be named as you specified with a &quot;driver&quot; extension. For example, if you specify XAtrace as the file name, the driver will create two trace files&#8212;XAtrace and XAtrace.driver.
+</p>
+<a name="wp643646"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Using Threads</b>: Select this check box to ensure that the driver works with multi-threaded applications. You can clear this check box when using the driver with single-threaded applications. Turning off this setting avoids additional processing required for ODBC thread-safety standards.
+</p>
+<a name="wp642688"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="Rase6.html#wp625534">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp640554"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Enable Quoted Identifiers</b>: Select this check box to enable quoted identifiers. When selected, double quotes can only be used for identifiers, such as column and table names. Character strings must be enclosed in single quotes, for example:
+</p>
+<a name="wp640555"> </a><p class="pSyntaxEmbed">
+SELECT &quot;au_id&quot;
+</p>
+<a name="wp640556"> </a><p class="pSyntaxEmbed">
+FROM &quot;authors&quot;
+</p>
+<a name="wp640557"> </a><p class="pSyntaxEmbed">
+WHERE &quot;au_lname&quot; = &#39;O&#39;&#39;Brien&#39;
+</p>
+<a name="wp624838"> </a><p class="pBodyIndent12pxBeforeAfter">
+When not selected, applications that use quoted identifiers encounter errors when they generate SQL statements with quoted identifiers. By default, the check box is not selected.
+</p>
+<a name="wp624839"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Enable Describe Parameter:</b> Select this check box to enable the SQLDescribeParam function, which allows an application to describe parameters in SQL statements and in stored procedure calls. To use this option, the Prepare Method option on the Performance tab must be set to 0 or 1, and the SQL statement must not include long parameters. This option should be selected when using Microsoft Remote Data Objects (RDO) to access data.
+</p>
+<a name="wp624840"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is EnableDescribeParam.
+</p>
+<a name="wp624854"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Tightly Coupled Distributed Transactions</b>: Select this check box to use tightly coupled distributed transactions when connected to a Sybase version 12 or higher server and to ensure that multiple connections within the same distributed transaction do not obey each other&#8217;s locks.
+</p>
+<a name="wp624855"> </a><p class="pBodyIndent12pxBeforeAfter">
+When this check box is not selected, the overall performance of the driver is better, but multiple connections within the same distributed transaction may hang each other because the connections do not obey each other&#8217;s locks.
+</p>
+<a name="wp624856"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option is valid only when the driver is enlisted in a distributed transaction and when it is connected to a Sybase version 12 or higher database. Otherwise, this option is ignored.
+</p>
+<a name="wp624858"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Truncate Time Type Fractions</b>: Select this check box to cause the driver to set fractional seconds to zero when converting from SQL_TYPE_TIME to SQL_C_TYPE_TIMESTAMP, SQL_C_CHAR, or SQL_C_WCHAR. By default, the check box is not selected.
+</p>
+<a name="wp638450"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This only applies to the 12.5.1 or higher Time data type.
+</p>
+<a name="wp624859"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Translate: </b>Click <b class="cBold">Translate</b> to display the Select Translator dialog box, which lists the translators specified in the ODBC Translators section of the Registry. DataDirect provides a translator named &quot;OEM to ANSI&quot; that translates your data from the IBM PC character set to the ANSI character set. 
+</p>
+<a name="wp624860"> </a><p class="pBodyIndent12pxBeforeAfter">
+Select a translator; then, click <b class="cBold">OK</b> to close this dialog box and perform the translation.
+</p>
+<a name="wp624862"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Connection</b> tab to specify data source settings.</li></div><a name="wp624871"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp624873"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database List</b>: Type the databases that appear in the logon dialog box. Separate the names with commas.
+</p>
+<a name="wp624874"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Default Logon ID</b>: Type the default logon ID used to connect to your Sybase database. This ID is case-sensitive. A logon ID is required only if security is enabled for the database you are connecting to. Your ODBC application may override this value or you can override this value in the logon dialog box or connection string.
+</p>
+<a name="wp624875"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is LogonID.
+</p>
+<a name="wp624876"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Workstation ID</b>: Type the workstation ID used by the client.
+</p>
+<a name="wp624877"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Name</b>: Type the name used by Sybase to identify your application.
+</p>
+<a name="wp624879"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Charset</b>: Type the name of a character set. This character set must be installed on the Sybase server. The default is the setting on the Sybase server. For this driver to return Unicode SQL types, this option must be set to UTF-8. Refer to the Sybase server documentation for a list of valid character set names.
+</p>
+<a name="wp624880"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Language</b>: Type the national language. This language must be installed on the Sybase server. The default is English.
+</p>
+<a name="wp642875"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Password Encryption</b>: Select this check box to encrypt the user&#39;s password as the driver sends it to the Sybase server. Note that the Sybase server must have password encryption enabled (version 12.0 and higher). The specific encryption used is the algorithm required by the Sybase server and is completely implemented within the driver itself. This encryption capability in the driver is used only for the password at connect time and only when sending it across the network to the server.
+</p>
+<a name="wp624886"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Performance</b> tab to specify performance data source settings.</li></div><a name="wp624895"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp624896"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Select Method:</b> Select a value of 0 or 1 that determines whether database cursors are used for Select statements. When set to&#160;0, the default, database cursors are used. In some cases performance degradation can occur when performing large numbers of sequential Select statements because of the amount of overhead associated with creating database cursors.
+</p>
+<a name="wp640719"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1, Select statements are run directly without using database cursors, and the data source is limited to one active statement.
+</p>
+<a name="wp624897"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="Rase6.html#wp625534">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp624901"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Prepare Method:</b> Select a value of 0, 1, 2, or 3 that determines whether stored procedures are created on the server for calls to SQLPrepare.
+</p>
+<a name="wp624902"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0, stored procedures are created for every call to SQLPrepare. This setting can result in decreased performance when processing statements that do not contain parameters.
+</p>
+<a name="wp624903"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 (the initial default), the driver creates stored procedures only if the statement contains parameters. Otherwise, the statement is cached and run directly at the time of SQLExecute. 
+</p>
+<a name="wp624904"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 2, stored procedures are never created. The driver caches the statement, executes it directly at the time of SQLExecute, and reports any syntax or similar errors at the time of SQLExecute.
+</p>
+<a name="wp624905"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 3, stored procedures are never created. This is identical to value 2 except that any syntax or similar errors are returned at the time of SQLPrepare instead of SQLExecute. Use this setting only if you must have syntax errors reported at the time of SQLPrepare.
+</p>
+<a name="wp624906"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="Rase6.html#wp625534">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp624910"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Fetch Array Size</b>: Type the number of rows the driver retrieves when fetching from the server. This is not the number of rows given to the user. The default is 50 rows.
+</p>
+<a name="wp624911"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="Rase6.html#wp625534">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp624916"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Packet Size</b>: Type a value of -1, 0, or <em class="cEmphasis">x</em> that determines the number of bytes per network packet transferred from the database server to the client. The correct setting of this attribute can improve performance.
+</p>
+<a name="wp624917"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to -1, the driver computes the maximum allowable packet size on the first connect to the data source and saves the value in the Registry.
+</p>
+<a name="wp624918"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0, the default, the driver uses the default packet size as specified in the Sybase server configuration.
+</p>
+<a name="wp624919"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to <em class="cEmphasis">x</em>, an integer from 1 to 1024, the driver uses a packet size represented by <em class="cEmphasis">x</em> times 512 bytes. For example, &quot;6&quot; means to set the packet size to 6 * 512 bytes (3072 bytes).
+</p>
+<a name="wp624920"> </a><p class="pBodyIndent12pxBeforeAfter">
+To take advantage of this connection attribute, you must configure the Sybase server for a maximum network packet size greater than or equal to the value you specified for PacketSize. For example:
+</p>
+<a name="wp624921"> </a><p class="pSyntaxEmbed">
+sp_configure &quot;maximum network packet size&quot;, 5120
+</p>
+<a name="wp624922"> </a><p class="pSyntaxEmbed">
+reconfigure
+</p>
+<a name="wp624923"> </a><p class="pSyntaxEmbed">
+Restart Sybase Server
+</p>
+<a name="wp624924"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: The ODBC specification identifies a connect option, SQL_PACKET_SIZE, that offers this same functionality. To avoid conflicts with applications that may set both, the Packet Size option and the ODBC connect option have been defined as mutually exclusive. If Packet Size is specified, you receive a message, <code class="cCode">Driver Not Capable</code> if you attempt to call SQL_PACKET_SIZE. If you do not set Packet Size, then application calls to SQL_PACKET_SIZE are accepted by the driver.
+</p>
+<a name="wp624925"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="Rase6.html#wp625534">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp624929"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Connection Cache Size</b>: Type a value that determines the number of connections that the connection cache can hold. The default setting is 1. To set the connection cache, you must set the Select Method option to 1- Direct. Increasing the connection cache may increase performance of some applications but requires additional database resources.
+</p>
+<a name="wp640839"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is CursorCacheSize.
+</p>
+<a name="wp640841"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Failover</b> tab to specify Failover data source settings.</li></div><a name="wp624940"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp643773"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Load Balancing</b>: Select this check box to allow the driver to use client load balancing in its attempts to connect to primary and alternate database servers. In this case, the driver attempts to connect to the database servers in random order. See <a  href="Rstart5.html#wp583520"><a  href="Rstart5.html#wp583520">&quot;Using Client Load Balancing&quot;</a> </a>for more information.
+</p>
+<a name="wp643778"> </a><p class="pBodyIndent12pxBeforeAfter">
+If this check box is not selected (the default), client load balancing is not used and the driver connects to each database server based on its sequential order (primary server first, then, alternate servers in the order they are specified).
+</p>
+<a name="wp643779"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This option has no effect unless alternate servers are defined for the Alternate Servers connection option.&#160;&#160;&#160;&#160;
+</p>
+<a name="wp637312"> </a><p class="pBodyIndent12pxBeforeAfter">
+The Load Balancing option is an optional setting that you can use in conjunction with connection failover. See <a  href="Rase10.html#wp634725">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</p>
+<a name="wp643788"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Alternate Servers</b>: Type a list of alternate database servers to which the driver will try to connect if the primary database server is unavailable. Specifying a value for this option enables connection failover for the driver.&#160;See <a  href="Rstart4.html#wp583803"><a  href="Rstart4.html#wp583803">&quot;Using Connection Failover&quot;</a></a> for a discussion of connection failover.
+</p>
+<a name="wp633660"> </a><p class="pBodyIndent12pxBeforeAfter">
+The value you specify must be in the form of a string that defines the physical location of each alternate server. All of the other required connection information for each alternate server is the same as what is defined for the primary server connection. 
+</p>
+<a name="wp633997"> </a><p class="pBodyIndent12pxBeforeAfter">
+For the Sybase Wire Protocol driver, you must specify the network address of each alternate database server or the section in the Interfaces file that contains the network connection information for the Sybase database server you want to access (InterfacesFileServerName). The string has the format:
+</p>
+<a name="wp633661"> </a><p class="pSyntaxEmbed">
+({NetworkAddress=<code><em>addressvalue</em></code> | InterfacesFileServerName=<code><em>sectionvalue</em></code>}[, . . .])
+</p>
+<a name="wp633662"> </a><p class="pSyntaxEmbed">
+The following three example Alternate Servers values define two alternate database servers for connection failover:
+</p>
+<a name="wp633977"> </a><p class="pSyntaxEmbed">
+(InterfacesFileServerName=Accounting, InterfacesFileServerName=HR)
+</p>
+<a name="wp633876"> </a><p class="pSyntaxEmbed">
+(NetworkAddress=\\MySybaseASE\Query, <br />NetworkAddress=\\MySybaseASE2\Query)
+</p>
+<a name="wp633878"> </a><p class="pSyntaxEmbed">
+(NetworkAddress=&quot;MySybaseASE, 4200&quot;, <br />NetworkAddress=&quot;255.125.1.11, 4200&quot;)
+</p>
+<a name="wp633884"> </a><p class="pBodyIndent12pxBeforeAfter">
+Notice in the last example that the network address is enclosed in quotation marks. This is because it contains a comma and might be mistaken for the next alternate server in the list.
+</p>
+<a name="wp624960"> </a><p class="pBodyIndent12pxBeforeAfter">
+IMPORTANT: The alternate database servers specified for the Sybase Wire Protocol driver must be using the same network protocol as specified for the primary database server. On UNIX, only TCP/IP is supported, In Windows, the driver supports both Named Pipes and TCP/IP. 
+</p>
+<a name="wp624961"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: The Alternate Servers connection option and the HA Failover connection option are mutually exclusive. If you enter a value for the Alternate Servers, HA Failover is not available. 
+</p>
+<a name="wp637730"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="Rase10.html#wp634725">&quot;Configuring Connection Failover&quot;</a> for information about other connection options that you can set for this feature.
+</p>
+<a name="wp643801"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Connection Retry Count:</b> Type a value to specify the number of times the driver tries to connect to the primary server and, if configured, to the alternate servers after the initial unsuccessful attempt. See <a  href="Rstart6.html#wp592469"><a  href="Rstart6.html#wp592469">&quot;Using Connection Retry&quot;</a></a> for more information about this feature.
+</p>
+<a name="wp643806"> </a><p class="pBodyIndent12pxBeforeAfter">
+Valid values are integers from 0 to 65535. When set to 0 (the default), the driver does not try to connect after the initial unsuccessful attempt.
+</p>
+<a name="wp643807"> </a><p class="pBodyIndent12pxBeforeAfter">
+If a connection is not established during the retry attempts, the driver returns an error that is generated by the last server to which it tried to connect.
+</p>
+<a name="wp643808"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option and the Connection Retry Delay connection option, which specifies the wait interval between attempts, can be used in conjunction with connection failover. &#160;&#160;&#160;
+</p>
+<a name="wp637746"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="Rase10.html#wp634725">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</p>
+<a name="wp641892"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Connection Retry Delay</b>: Type a value to specify the number of seconds that the driver waits after the initial unsuccessful connection attempt before retrying a connection to the primary server and, if specified, to the alternate servers. 
+</p>
+<a name="wp641893"> </a><p class="pBodyIndent12pxBeforeAfter">
+Valid values are integers from 0 to 65535. The default value is 3 (seconds). When set to 0, there is no delay between retries.
+</p>
+<a name="wp641894"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This option has no effect unless the Connection Retry Count connection option is set to an integer value greater than 0.
+</p>
+<a name="wp641895"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option and the Connection Retry Count connection option, which specifies the number of times the driver tries to connect after the initial unsuccessful attempt, are used in conjunction with connection failover. &#160;&#160;&#160;
+</p>
+<a name="wp633648"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="Rase10.html#wp634725">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</p>
+<a name="wp637433"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">HA Failover Server Connection Information/Network Address</b>: Type the network address of the High Availability (HA) Failover server to be used in the event of a connection loss. The driver detects the dropped connection and automatically reconnects to the HA Failover server specified by this attribute. This option is valid only for Sybase version 12 or higher servers that have the High Availability Failover feature enabled.
+</p>
+<a name="wp637435"> </a><p class="pBodyIndent12pxBeforeAfter">
+The value you specify depends on which network protocol is chosen for the Network Library Name option and on the Sybase server.
+</p>
+<a name="wp640954"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you have chosen Winsock for the Network Library Name, specify an IP address as follows: <code><em>IP address</em></code>, <code><em>port_number</em></code>. For example, you might enter <code class="cCode">199.226.224.34, 5000</code>. If your network supports named servers, you can specify an address as: <code><em>servername</em></code>, <code><em>port_number</em></code>. For example, you might enter <code class="cCode">Sybaseserver, 5000</code>.
+</p>
+<a name="wp640739"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you have chosen NamedPipes as the network protocol, you must specify the pipe address of the HA Failover server. For example, <code class="cCode">\\machine1\sybase\pipe\query</code>.
+</p>
+<a name="wp637438"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: HA Failover and Alternate Servers for Failover are mutually exclusive. If you enter a value for the HA Failover Network Address, Alternate Servers for Failover is not available. 
+</p>
+<a name="wp640940"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is FailoverNetworkAddress.
+</p>
+<a name="wp625018"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the driver Setup dialog box. A logon dialog box appears; see <a  href="Rase4.html#wp625026">&quot;Connecting to a Data Source Using a Logon Dialog Box&quot;</a> for details. Note that the information you enter in the logon dialog box during a test connect is not saved.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp625022"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a <code class="cCode">Connection Established</code> message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp625023"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp639240"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: If you are configuring alternate servers for use with the connection failover feature, be aware that the Test Connect button tests only the primary server, not the alternate servers.
+</p>
+</ul></div>
+<a name="wp625024"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

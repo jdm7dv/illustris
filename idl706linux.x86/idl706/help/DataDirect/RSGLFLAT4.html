@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:36" />
+  <title>Insert Statement</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp511435"> </a><h1 class="pNewHTMLPageNoNum">
+Insert Statement
+</h1>
+<hr /><a name="wp511439"> </a><p class="pBody">
+The SQL Insert statement is used to add new records to a database table. With it, you can specify either of the following options:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp512509"> </a><div class="pSmartList1"><li>A list of values to be inserted as a new record</li></div><a name="wp512510"> </a><div class="pSmartList1"><li>A Select statement that copies data from another table to be inserted as a set of new records</li></div></ul></div>
+<a name="wp511441"> </a><p class="pBody">
+The form of the Insert statement is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+INSERT INTO <span style="font-style: italic">table_name</span> [(<span style="font-style: italic">col_name</span>, ...)] <a name="wp512511"> </a>
+{VALUES (<span style="font-style: italic">expr</span>, ...) | <code><em>select_statement</em></code>}<a name="wp511443"> </a>
+</pre></div>
+<a name="wp511445"> </a><p class="pBody">
+<em class="cEmphasis">table_name</em> may be a simple table name or a full pathname. A simple table name is preferred for portability to other SQL data sources.
+</p>
+<a name="wp511447"> </a><p class="pBody">
+<em class="cEmphasis">col_name</em> is an optional list of column names giving the name and order of the columns whose values are specified in the Values clause. If you omit <em class="cEmphasis">col_name</em>, the value expressions (<em class="cEmphasis">expr</em>) must provide values for all columns defined in the file and must be in the same order that the columns are defined for the file.
+</p>
+<a name="wp511449"> </a><p class="pBody">
+<em class="cEmphasis">expr</em> is the list of expressions giving the values for the columns of the new record. Usually, the expressions are constant values for the columns. Character string values must be enclosed in single or double quotation marks, date values must be enclosed in braces {}, and logical values that are letters must be enclosed in periods (for example, .T. or .F.).
+</p>
+<a name="wp514809"> </a><p class="pBody">
+An example of an Insert statement that uses a list of expressions&#160;is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+INSERT INTO emp (last_name, first_name, emp_id, salary, hire_date)<a name="wp515027"> </a>
+VALUES (&#39;Smith&#39;, &#39;John&#39;, &#39;E22345&#39;, 27500, {4/6/1999})<a name="wp514627"> </a>
+</pre></div>
+<a name="wp514628"> </a><p class="pBody">
+Each Insert statement adds one record to the database table. In this case a record has been added to the employee database table, EMP. Values are specified for five columns. The remaining columns in the table are assigned a blank value, meaning Null.
+</p>
+<a name="wp511992"> </a><p class="pBody">
+<em class="cEmphasis">select_statement</em> is a query that returns values for each <em class="cEmphasis">col_name</em> value specified in the column name list. Using a Select statement instead of a list of value expressions lets you select a set of rows from one table and insert it into another table using a single Insert statement.
+</p>
+<a name="wp512014"> </a><p class="pBody">
+An example of an Insert statement that uses a Select statement is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+INSERT INTO emp1 (first_name, last_name, emp_id, dept, salary)<a name="wp512015"> </a>
+SELECT first_name, last_name, emp_id, dept, salary from emp<a name="wp514815"> </a>
+WHERE dept = &#39;D050&#39;<a name="wp514816"> </a>
+</pre></div>
+<a name="wp512519"> </a><p class="pBody">
+In this type of Insert statement, the number of columns to be inserted must match the number of columns in the Select statement. The list of columns to be inserted must correspond to the columns in the Select statement just as it would to a list of value expressions in the other type of Insert statement. That is, the first column inserted corresponds to the first column selected; the second inserted to the second, etc.
+</p>
+<a name="wp512520"> </a><p class="pBody">
+The size and data type of these corresponding columns must be compatible. Each column in the Select list should have a data type that the ODBC driver accepts on a regular Insert/Update of the corresponding column in the Insert list. Values are truncated when the size of the value in the Select list column is greater than the size of the corresponding Insert list column.
+</p>
+<a name="wp512521"> </a><p class="pBody">
+The Select statement is evaluated before any values are inserted. This query cannot be made on the table into which values are inserted.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

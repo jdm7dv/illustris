@@ -1,0 +1,80 @@
+
+
+
+                  WELCOME TO WIDGETS DEMO
+
+   
+   This demo builds a widget application that uses
+   at least one instance of each type of widget
+   available in IDL.
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+       Select "Quit" to close the "Widgets"
+       application.
+   
+   About Menu:
+       Select "About Widgets" to display this text.
+
+
+   FEATURES OF THE WIDGET DEMO
+   ---------------------------
+
+   The following widgets are included in the widget
+   demo application:
+       
+   <<Style Droplist>>
+       Select "Shaded", "Wire", or "Lego solid" from
+       the list to change the appearance of the surface
+       displayed in the draw widget.
+
+   <<Surface Color List>>
+       Select an item in the list to change the color
+       of the surface displayed in the draw widget.
+       The "Texture Map" option displays an image
+       draped on the surface using the TEXTURE_MAP
+       property of the surface.  The color values of
+       the image are based on the data value of the
+       surface and a color table.
+
+   <<Rotation Sliders>>
+       Change the position of the sliders to rotate the
+       surface displayed in the draw widget around any
+       one of the three axes.  Note that the surface
+       can also be rotated by dragging the left mouse
+       button within the draw widget.
+
+   <<Editable Text Widget>>
+       Click in the text field and use normal editing
+       procedures to change the text.
+
+   <<Message Popup Button>>
+       Click on the "Message Popup" button to display a
+       modal dialog message window. Click "OK" to dismiss
+       the dialog.
+
+   <<Table Widget>>
+       The table widget displays the values of each
+       element in the data array that is rendered in
+       the draw widget.
+
+       You can edit the values in the table widget by
+       clicking in a table cell, deleting the existing
+       value, and entering a new value.  Notice how
+       the surface displayed in the draw widget
+       changes as you alter values in the draw widget.
+
+   <<Draw Widget>>
+       A shaded surface rendering of the data shown in
+       the table widget is displayed in the draw widget.
+       Most of the widget controls discussed above affect
+       the look of the displayed surface. In addition,
+       you can rotate the surface directly by positioning
+       the mouse in the draw widget, holding down the left
+       mouse button, and dragging the mouse. Notice that
+       the values of the rotation sliders are updated as
+       you rotate the surface interactively.
+

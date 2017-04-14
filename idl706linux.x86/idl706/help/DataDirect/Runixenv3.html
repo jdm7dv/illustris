@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:44" />
+  <title>The ivtestlib Tool</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp530423"> </a><h1 class="pNewHTMLPageNoNum">
+The ivtestlib Tool
+</h1>
+<hr /><a name="wp530424"> </a><p class="pBody">
+The second step in preparing to use a driver is to test load it. The ivtestlib tool is provided to help diagnose configuration problems in the UNIX environment (such as environment variables not correctly set or missing database client components). This tool is installed in the bin subdirectory in the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> installation directory. It attempts to load a specified ODBC driver and prints out all available error information if the load fails. 
+</p>
+<a name="wp530425"> </a><p class="pBody">
+On HP-UX, for example, if a driver is installed in /opt/odbc, the command:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ivtestlib /opt/odbc32v50/lib/ivora20.sl<a name="wp535281"> </a>
+</pre></div>
+<a name="wp533268"> </a><p class="pBody">
+attempts to load the Oracle Wire Protocol driver. If the driver cannot be loaded, ivtestlib returns an error message explaining why.
+</p>
+<a name="wp530428"> </a><p class="pBody">
+NOTE: On Solaris, AIX, and Linux, the full path to the driver does not have to be specified for ivtestlib. The HP-UX version of ivtestlib, however, requires the full path.
+</p>
+<a name="wp559645"> </a><p class="pBody">
+Also, you can use ivtestlib to check the version strings of the ODBC drivers on UNIX. See <a  href="Rstart8.html#wp584370">&quot;Version String Information&quot;</a>.
+</p>
+<a name="wp532092"> </a><p class="pBody">
+The next step is to configure a data source through the system information file.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

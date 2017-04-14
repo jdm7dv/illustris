@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:15:58" />
+  <title>Create and Drop Index Statements</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp511716"> </a><h1 class="pNewHTMLPageNoNum">
+Create and Drop Index Statements
+</h1>
+<hr /><a name="wp510386"> </a><p class="pBody">
+The Btrieve driver supports SQL statements to create and delete indexes. 
+</p>
+<a name="wp510388"> </a><h3 class="pHeading2">
+Create Index
+</h3>
+<a name="wp510394"> </a><p class="pBody">
+The Create Index statement for Btrieve files has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE [UNIQUE] INDEX <code><em>index_name</em></code> ON <code><em>table_name</em></code><span style="font-style: italic"> </span>([<code><em>field_name</em></code><span style="font-style: italic"> 
+</span>[ASC | DESC] [,<code><em>field_name</em></code> <a name="wp527366"> </a>
+[ASC | DESC]]...)<a name="wp527370"> </a>
+</pre></div>
+<a name="wp527367"> </a><p class="pBody">
+Unique means that Btrieve does not let you insert two records with the same index values.
+</p>
+<a name="wp510400"> </a><p class="pBody">
+<em class="cEmphasis">index_name</em> is the name of the index.
+</p>
+<a name="wp510402"> </a><p class="pBody">
+<em class="cEmphasis">table_name</em> is the name of the table on which the index is to be created.
+</p>
+<a name="wp510404"> </a><p class="pBody">
+ASC tells Btrieve to create the index in ascending order. DESC tells Btrieve to create the index in descending order. By default, indexes are created in ascending order. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE INDEX lname ON emp (last_name)<a name="wp510408"> </a>
+</pre></div>
+<a name="wp510410"> </a><h3 class="pHeading2">
+Drop Index
+</h3>
+<a name="wp524844"> </a><p class="pBody">
+The form of the Drop Index statement is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP INDEX <em class="cEmphasis">table_name</em>.<em class="cEmphasis">index_name</em><a name="wp524845"> </a>
+</pre></div>
+<a name="wp524846"> </a><p class="pBody">
+<em class="cEmphasis">table_name</em> is the name of the table from which the index is to be dropped.
+</p>
+<a name="wp510422"> </a><p class="pBody">
+<em class="cEmphasis">index_name</em> is the name of the index.
+</p>
+<a name="wp510424"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP INDEX emp.lname<a name="wp510426"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

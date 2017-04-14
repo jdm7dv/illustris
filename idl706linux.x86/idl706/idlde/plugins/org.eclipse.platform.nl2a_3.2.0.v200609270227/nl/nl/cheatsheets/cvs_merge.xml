@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="CVS-vertakkingen samenvoegen">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      In dit hulpblad vindt u de stappen waarmee u wijzigingen in een CVS-vertakking
+kunt samenvoegen met een andere vertakking of met HEAD. Wanneer u hulp nodig
+hebt, klikt u op het pictogram (?).
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Informatie over vertakking en versie vaststellen">
+    <description>
+Eerst bepaalt u <b>welke</b> twee vertakkingen u wilt samenvoegen, in welke
+<b>versie</b> de vertakking van de content is gemaakt en welke vertakking de
+<b>doelvertakking</b> van de samenvoeging is.
+Als u over deze informatie beschikt, gaat u verder met de volgende stap.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Een project uitchecken">
+    <description>
+Voordat u een project kunt samenvoegen, moet u het project dat u wilt
+samenvoegen <b>uitchecken</b> en overbrengen naar uw werkgebied. U kunt dit
+doen via de importwizard, door uw repository toe te voegen vanuit het
+perspectief CVS-repositoryverkenner. Voor hulp drukt u op de knop (?).
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="De bestemming in het werkgebied laden">
+    <description>
+Klik in de navigator met de rechtermuisknop op het project en selecteer Vervangen door &gt;
+Andere vertakking of versie. Selecteer de doelvertakking. De nieuwste content
+van de vertakking wordt nu in het werkgebied geladen.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Informatie samenvoegen">
+    <description>
+      Klik in de navigator met de rechtermuisknop nogmaals op het project en
+selecteer <b>Team</b> &gt; <b>Samenvoegen</b> en voer de stappen in de wizard
+uit. In de wizard geeft u de details van de samenvoeging op.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Werken met de samenvoegingseditor">
+    <description>
+      Met de samenvoegingseditor voegt u de wijzigingen handmatig samen. In deze stap worden de vereiste wijzigingen in het werkgebied geladen. 
+Nadat alle wijzigingen zijn samengevoegd en als u tevreden bent over het
+resultaat, gaat u verder met de volgende stap.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="De wijzigingen vastleggen">
+    <description>
+Klik met de rechtermuisknop op <b>Team</b> &gt; <b>Synchroniseren met
+repository</b> en leg vervolgens alle wijzigingen vast in de repository. In
+deze stap wordt de overdracht van de wijzigingen van het werkgebied naar de
+CVS-repository afgerond.
+    </description>
+  </item>
+
+</cheatsheet>

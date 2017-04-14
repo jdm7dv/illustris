@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Ανάληψη ελέγχου έργου CVS">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Σε αυτό το φύλλο υποδείξεων παρουσιάζεται η μέθοδος αναζήτησης έργων σε χώρους αποθήκευσης CVS καθώς και ο τρόπος ανάληψης ελέγχου ενός έργου. Αν χρειαστείτε βοήθεια σε οποιοδήποτε βήμα, πατήστε το εικονίδιο (?) που εμφανίζεται στα δεξιά της οθόνης.
+    </description>
+  </intro>
+
+  <item
+      title="Άνοιγμα της προοπτικής εξερεύνησης των χώρων αποθήκευσης CVS"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+Από το κύριο μενού, επιλέξτε "Παράθυρο &gt; Άνοιγμα προοπτικής &gt; Άλλο...". Στη συνέχεια επιλέξτε την προοπτική <b>Εξερεύνηση χώρων αποθήκευσης CVS</b>.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="Προσθήκη χώρου αποθήκευσης CVS"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+      Στην προβολή "Χώροι αποθήκευσης CVS", πατήστε το κουμπί <b>Προσθήκη χώρου αποθήκευσης CVS</b> που εμφανίζεται στη γραμμή εργαλείων. Καταχωρήστε τη θέση και τις πληροφορίες εξακρίβωσης στοιχείων για το χώρο αποθήκευσης. Για παράδειγμα, για το χώρο αποθήκευσης <b>eclipse</b> καταχωρήστε τις ακόλουθες πληροφορίες:<br/>
+      <br/>
+      Υπολογιστής: dev.eclipse.org<br/>
+      Διαδρομή χώρου αποθήκευσης: /home/eclipse<br/>
+      Χρήστης: anonymous<br/>
+      Τύπος σύνδεσης: pserver<br/>
+      <br/>
+      Χρησιμοποιήστε τις προεπιλεγμένες τιμές στα υπόλοιπα πεδία και πατήστε το κουμπί "Ολοκλήρωση".
+    </description>
+  </item>
+
+  <item
+      title="Εντοπισμός έργου"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+      Αναπτύξτε τον κόμβο <b>HEAD</b> που εμφανίζεται κάτω από το χώρο αποθήκευσης που προστέθηκε προηγουμένως και εντοπίστε το έργο για το οποίο θέλετε να αναλάβετε τον έλεγχο (π.χ. ο πρωτογενής κώδικας για την προβολή του φύλλου υποδείξεων βρίσκεται στο org.eclipse.ui.cheatsheets).
+    </description>
+  </item>
+
+  <item
+      title="Ανάληψη ελέγχου έργου"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+      Πατήστε το έργο για το οποίο θέλετε να αναλάβετε τον έλεγχο με το δεξί κουμπί του ποντικιού και επιλέξτε <b>Ανάληψη ελέγχου</b>. Με αυτήν την ενέργεια πραγματοποιείται λήψη της πιο πρόσφατης έκδοσης του έργου στο χώρο εργασίας που χρησιμοποιείτε.
+    </description>
+  </item>
+
+  <item
+      title="Προβολή στο χώρο εργασίας"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+      Για να εμφανίσετε τα περιεχόμενα του έργου στο χώρο εργασίας που χρησιμοποιείτε, ενεργοποιήστε την προοπτική <b>Πόρος</b> από το μενού "Παράθυρο &gt; Άνοιγμα προοπτικής &gt; Πόρος". Το έργο και τα περιεχόμενά του εμφανίζονται στην προβολή <b>Πλοήγηση</b>. Σε αυτό το σημείο μπορείτε να εκτελέσετε τις εργασίες που θέλετε στο έργο.
+    </description>
+  </item>
+
+</cheatsheet>

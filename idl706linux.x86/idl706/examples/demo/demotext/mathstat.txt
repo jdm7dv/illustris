@@ -1,0 +1,127 @@
+
+
+    WELCOME TO THE MATHEMATICS AND STATISTICS DEMO 
+
+
+   IDL's mathematics and statistics tools are designed
+   for use in a wide variety of disciplines. This demo
+   introduces 6 features.
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+      Select "Quit" to exit the Mathematics and 
+      Statistics Demo and return to the IDL Demo
+      main screen.
+
+   About Menu:
+      Select "About mathematics and statistics" for
+      information about the Mathematics and Statistics
+      Demo.
+
+
+   FEATURES
+   --------
+
+   <<Integration>> radio button
+
+      The INT_TABULATED function uses a fifth-order 
+      Newton-Cotes integration formula and 
+      neighborhood spline curve-fitting to produce 
+      integrations of tabulated data (discrete 
+      points). This is one of the most accurate 
+      integration techniques available.
+
+      area = INT_TABULATED(time, amplitude)
+
+      You can also use IDL to integrate functions 
+      that have algebraic singularities and asymptotic
+      behavior.
+
+      <<Generate new data>> button
+         Creates a new set of data.
+
+   <<Solving Equations>> radio button
+
+      Dozens of "Numerical Recipes" library routines 
+      for performing complex mathematical computations
+      are integrated into IDL.
+
+      For example, the NR_NEWT function solves systems
+      of non-linear equations. Multiple solutions can
+      be found by starting the NR_NEWT algorithm at 
+      different initial values. The black markers show
+      the locations of the initial guesses. The white 
+      markers show the solutions to the non-linear
+      system of equations.  The solutions lie on the 
+      intersection of the three surfaces:
+
+      z = -(x*x - y - 4) (Bottom surface - blue)
+      z = 0              (Middle surface - green)
+      z = x*x + y*y - 8  (Top surface - red)
+
+      The Numerical Recipes algorithms are used by 
+      permission and are taken from the book 
+      "Numerical Recipes in C, The Art of Scientific
+      Computing" (second edition) by: William H. Press,
+      Saul A. Teukolsky, William T. Vetterling, and
+      Brian P. Flannery.
+
+
+   <<Minimization>> radio button
+
+      The IDL Numerical Recipies routine NR_POWELL can 
+      be used to find the local minimum of a function 
+      of 'n' variables. In this demo, clicking on the 
+      plot identifies the nearest local minimum of the 
+      function:
+
+      y=SIN(SIN(x^2)-COS(x))+COS(SIN(x)+SIN(x)^2)']
+
+
+   <<Linear regression>> radio button
+
+      The "Method of Least Absolute Deviation" (the 
+      plot on the right) is used to accurately fit a 
+      curve through data. This curve fitting method, 
+      unlike "least-square" fitting (the plot on the 
+      left) is not adversely affected by outlying 
+      points.
+
+      <<Number of Points Above>> slider
+         Sets the number of outliers above the 
+         main cluster.
+
+      <<Number of Points Below>> slider
+         Sets the number of outliers below the
+         main cluster.
+ 
+   <<Polynomial Fit>> radio button
+
+      The "POLY_FIT" function fits a least-square 
+      polynomial curve through scattered data points.
+
+      <<Number of points>> slider
+         Sets the number of data points.
+
+      <<Degree>> slider
+         Sets the polynomial degree.
+
+   <<Surface Fit>> radio button
+       The MIN_CURVE_SURF function can be used to fit a
+       minimum curvature surface through irregularly-
+       gridded 3D data.
+
+       <<Number of Points>>
+          Sets the number of data points.
+
+
+
+
+
+
+
+
+

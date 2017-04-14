@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:59">
+    <title>Principal Components Analysis</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_orbit.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_animate.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004933"> </a><h2 class="pHeading1">
+Principal Components Analysis
+</h2>  
+
+<a name="wp1004935"> </a><p class="pBody">
+Principal Components Analysis attempts to describe relationships and associations among the variables (the columns) of multivariate data. When dealing with a large number of variables standard analysis methods are excessively time-consuming. In such circumstances, a reduction in the number of variables is required. Simply choosing a subset of the original variables may result in the loss of essential information. An alternative procedure is to construct a number of new variables from the original variables. 
+</p>  
+
+<a name="wp1004936"> </a><p class="pBody">
+Principal Components Analysis is a method of data reduction which aims to create a small number of derived variables that can be used in place of the large number of original variables. The derived variables are uncorrelated (containing unique data) and are used in the subsequent analyses with virtually no loss of accuracy. 
+</p>  
+
+<a name="wp1004937"> </a><p class="pBody">
+An example of the call to the function PCOMP is shown below.
+</p>  
+
+<div class="pPreformatted"><pre class="pPreformatted">
+newVariables = PCOMP(array, $  
+&#160;&#160;&#160;&#160;&#160;COEFFICIENTS = eigenvectors, $  
+&#160;&#160;&#160;&#160;&#160;EIGENVALUES = eigenvalues, $  
+&#160;&#160;&#160;&#160;&#160;VARIANCES = variances, $  
+&#160;&#160;&#160;&#160;&#160;NVARIABLES = nvariables, $  
+&#160;&#160;&#160;&#160;&#160;/COVARIANCE, /STANDARDIZE)  
+</pre>
+</div>
+<a name="wp1004945"> </a><p class="pBody">
+The reference for the data used in the demo is shown below.
+</p>  
+
+<a name="wp1004947"> </a><p class="pBody">
+Statistical Methods For Medical Investigations
+</p>  
+
+<a name="wp1004948"> </a><p class="pBody">
+Brian S. Everitt
+</p>  
+
+<a name="wp1004949"> </a><p class="pBody">
+ISBN: 0-470-23383-4
+</p>  
+
+<a name="wp1004950"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004951"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004952"> </a><p class="pBody">
+Select Quit to exit the Demo and return to the IDL Demo main screen.
+</p>  
+
+<a name="wp1011657"> </a><h4 class="pHeading3">
+Options Menu
+</h4>  
+
+<a name="wp1011661"> </a><p class="pBody">
+The Options Menu features are described below in the Features section.
+</p>  
+
+<a name="wp1004953"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1004954"> </a><p class="pBody">
+Select &quot;About Principal Components Analysis&quot; for information about the Principal Components Analysis demo.
+</p>  
+
+<a name="wp1004955"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1004956"> </a><h4 class="pHeading3">
+Show Eigenvalues
+</h4>  
+
+<a name="wp1004957"> </a><p class="pBody">
+Displays a plot of the eigenvalues for the analysis.
+</p>  
+
+<a name="wp1004958"> </a><h4 class="pHeading3">
+Show Significant Components
+</h4>  
+
+<a name="wp1011665"> </a><p class="pBody">
+Displays a plot of principle components for the analysis.
+</p>  
+
+<a name="wp1011664"> </a><h4 class="pHeading3">
+Show Variances
+</h4>  
+
+<a name="wp1004959"> </a><p class="pBody">
+Displays the variances of the first through fifth derived variables.
+</p>  
+
+<a name="wp1011666"> </a><h4 class="pHeading3">
+Style
+</h4>  
+
+<a name="wp1011701"> </a><p class="pBody">
+Sets the plot visualization style. Choose from:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1011671"> </a><div class="pSmartList1"><li>Net</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1011685"> </a><div class="pSmartList1"><li>Flat</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1011686"> </a><div class="pSmartList1"><li>Gouroud-Default</li></div>  
+
+</ul></div>
+<a name="wp1011702"> </a><p class="pBody">
+The default style is Gouroud-Default.
+</p>  
+
+<a name="wp1011667"> </a><h4 class="pHeading3">
+Background
+</h4>  
+
+<a name="wp1011695"> </a><p class="pBody">
+Sets the background color. Choose from:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1011678"> </a><div class="pSmartList1"><li>Gray</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1011687"> </a><div class="pSmartList1"><li>White </li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1011688"> </a><div class="pSmartList1"><li>Biege</li></div>  
+
+</ul></div>
+<a name="wp1011696"> </a><p class="pBody">
+The default background color is white.
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

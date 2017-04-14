@@ -1,0 +1,204 @@
+
+
+
+
+      VOLUME RENDERING DEMO
+
+
+This program shows two separate visualizations
+using IDL's volume rendering capabilities.
+
+1.) "Dual Volume PET MRI" visulaization.  The Dual
+Volume PET MRI visualization includes both
+registered positron emission tomography (PET) and
+magnetic resonance imaging (MRI) scans of a human
+brain.  The demonstration modulates the values of
+one of the scans by the values of the other scan.
+The resolution of the PET and MRI brain data is 1mm
+in the X, Y and Z dimensions.
+
+The PET and MRI data sets were provided by Dr.
+Hanna Damasio and Dr. Thomas Grabowski, Department
+of Neurology, Division of Behavioral and Neurology
+and Cognitive Neuroscience, University of Iowa
+College of Medicine.
+
+2.)  Electron Probability Density visualization.
+The Electron Probability Density visualization is a
+quantum mechanics calculation of a one-electron
+orbital of a four-iron, eight-sulfur cluster found
+in many natural proteins. The data is the squared
+magnitude of the wave-function 'psi' at each
+point.  This is the probability density of the
+electron at that point.  The atoms are arranged in
+a cube of alternating iron and sulfur atoms, with
+sulfurs and methyl (CH3) groups on the iron
+corners. This orbital, the highest occupied
+molecular orbital [HOMO], has high intensity
+joining two irons across a face diagonal.  It is
+level 28a or level number 213.
+
+The quantum mechanics data is from Louis Noodleman
+and David Case, Scripps Clinic, La Jolla,
+California.
+
+MENU OPTIONS
+------------
+
+File Menu:
+
+    Select "Quit" to exit the demo and return to the
+    main IDL Demo screen.
+
+
+Options Menu:
+
+    Select "Wire box" to display (or hide) a
+    rectangular box drawn around the rendered
+    volume.
+
+    Select "Solid plane" to display (or hide) a
+    plane intersecting the rendered volume.
+
+    Select "Axes lines" to display (or hide) three
+    orthogonal lines, one red, one green, and one
+    blue.  The lines intersect at the center of the
+    volume.  The red line represents the X axis,
+    green represents Y, and blue represents Z.
+
+    Select "3D Cursor" to display (or hide) a set
+    of orthogonal lines drawn through the rendered
+    volume  The intersection of these lines can be
+    moved by clicking the right mouse button on a
+    rendered volume.  (If you only have one
+    mouse-button, and you are on a Macintosh
+    computer, hold down the Command key while
+    pressing the mouse button to simulate a "right"
+    mouse-button press.) The new intersection will
+    be shown the next time a volume is rendered.
+
+About Menu:
+
+    Select "About volumes" to display this text.
+
+CONTROL FEATURES OF THE VOLUME RENDERING DEMO
+---------------------------------------------
+
+<<Dual Volume PET MRI>> and 
+<<Electron Potential Cloud>>  
+    Click one of these buttons to select either a
+    human brain or an electron probability cloud.
+
+<<Render>> Button
+    Click on this button to execute rendering
+    computations and display the current volume.
+    If "Auto-Render" is on, this button will be
+    grayed out.
+
+<<Auto-Render>> Button
+    Select this option to have rendering executed
+    automatically after each change you make to the
+    volume or view.  If "Auto render" is off, you
+    must manually click the "Render" button to see
+    changes you have made to a volume or view.  If
+    "Auto-Render" is on, the "Render" button will be
+    grayed out.
+
+<<Gradient Shading>> Button
+    A light object (i.e. an IDLgrLight) is shining
+    directional light (parallel rays) on the
+    rendered volumes in this demonstration
+    program.  To see the effect of this light,
+    turn gradient shading on.  Local gradients
+    (computed at each voxel in the current volume)
+    will reflect the light.  When "Gradient Shading"
+    is turned off, no effect from directional light
+    can be seen.
+
+    Note: Because normals must be computed for all
+    voxels in a lighted view, enabling gradient
+    shading increases the rendering time.
+
+<<PET Colors>> or <<Colors>> Droplist Depending on
+    which of the "Dual Volume PET MRI" and "Electron
+    Probability Density" volumes you have selected,
+    a "PET Colors" droplist or a "Colors" droplist
+    will be visible.  Select from the current
+    (visible) droplist to apply a color table to the
+    current volume.
+
+<<PET opacities>> or <<Opacities>> Depending on
+    which of the two volumes, "Dual Volume PET MRI"
+    and "Electron Probability Density", you have
+    selected, a "PET Opacities" droplist or an
+    "Opacities" droplist will be visible.  Select
+    from the current (visible) droplist to apply an
+    opacity table to the current volume.
+
+<<Rendering Quality>> Radio buttons
+    Select "medium (faster)" or "high" to effect the
+    speed and accuracy of rendering.
+
+<<Left Mouse-Button Action>>
+    Select from this list of options to change how
+    left-click-and-dragging in the graphic will
+    change the view.  
+
+<<Cutting Plane %>>
+    Move the "Cutting Plane %" slider to cut away
+    part of the volume in the volume's X dimension.
+    The slider value shows a percentage of the
+    distance from the current volume's front to the
+    current volume's back.
+
+Left-Click-and-dragging on the graphic.
+    To change your view of the volume, position the
+    mouse pointer in the graphics area, hold down
+    the left mouse button, and drag the mouse.  The
+    current Left Mouse-Button Action will be applied
+    as you drag.  If you have the "Auto-Render"
+    feature turned off, you will need to click the
+    "Render" button to see the volume after you have
+    changed your view.
+
+    Tip: If you have the "rotate in screen Z" Left
+    Mouse-Button Action selected, click and drag in
+    a motion arcing about the center of the graphics
+    area for consistent rotation speed.  The farther
+    from the center you make your arc, the slower
+    the rotation.
+
+Right-clicking on the graphic.
+    When the current volume is rendered, you can
+    select voxels on the volume's exterior with the
+    right mouse button.  (If you only have one
+    mouse-button, and you are on a Macintosh
+    computer, hold down the Command key while
+    pressing the mouse button to simulate a "right"
+    mouse-button press.) The x-position, y-position,
+    z-position, and voxel value for the currently
+    selected voxel are displayed in the lower right
+    panel beneath the graphics area.
+
+HOTKEYS:
+
+    You can use your keyboard to select from the
+    <<Left Mouse-Button Action>> menu.  To select
+    one of the rotation constraints type:
+
+       X, 
+       Y,
+       Z,
+       R,
+       G or
+       B
+
+    To select "Scale" from the <<Left Mouse-Button
+    Action>> menu, type:
+
+       S
+
+    To select "Rotate Unconstrained"  from the <<Left
+    Mouse-Button>> Action menu, type:
+
+       U

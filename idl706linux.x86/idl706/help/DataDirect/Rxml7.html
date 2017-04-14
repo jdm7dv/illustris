@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>Configuring Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp555528"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Data Sources
+</h1>
+<hr /><a name="wp592431"> </a><p class="pBody">
+When you configure a data source, you store default connection values in a data source definition that is used each time you connect to the data source. You can change these defaults by modifying the definition or you can override the defaults at the time of connection by using a connection string.
+</p>
+<a name="wp592000"> </a><p class="pBody">
+If you choose to use a connection string, you must use specific connection string attributes. See <a  href="Rxml9.html#wp548260">Table&#160;16-2</a> for a complete description of driver connection string attributes and their values.
+</p>
+<a name="wp592325"> </a><p class="pBody">
+Data sources are configured and modified through the ODBC Administrator using a driver Setup dialog box. Default connection values are specified through the options on the tabs of the Setup dialog box and are stored in the Windows Registry. Connection string attributes that override these options have the same names as the options unless noted otherwise. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp579483"> </a><p class="pBody">
+<b class="cBold">To configure an XML data source:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp510225"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources.</li></div><a name="wp512599"> </a><div class="pSmartList1"><li>If you are configuring an existing data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC XML Driver Setup dialog box.</li></div><a name="wp512595"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add</b> to display a list of installed drivers. Select the XML driver and click <b class="cBold">Finish</b> to display the ODBC XML Driver Setup dialog box.
+</p>
+<a name="wp510235"> </a><p class="pBodyRelative">
+NOTE: The General tab displays only fields that are required for creating a data source. The fields on all other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp542405"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply.</b></li></div><a name="wp510237"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Type a string that identifies this XML data source configuration. Examples include &quot;Accounting&quot; or &quot;XML Files.&quot;
+</p>
+<a name="wp510239"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: Type an optional long description of a data source name. For example, &quot;My Accounting Files&quot; or &quot;My XML Files in the Accounting Directory.&quot;
+</p>
+<a name="wp535732"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Location Names</b>: The text box displays all existing location names defined for the data source you are configuring. The location names listed in the text box are used for connections according to the order that they are displayed. If you want to change the order or precedence, use the Up and Down buttons.
+</p>
+<a name="wp558792"> </a><p class="pBodyIndent12pxBeforeAfter">
+To define a location, click <b class="cBold">Add</b>. The Configure Location dialog box appears.
+</p>
+<a name="wp558416"> </a><div class="pSmartList1"><li>On the General tab of the Configure Location dialog box, provide the following required information; then, click <b class="cBold">Apply.</b></li></div><a name="wp558474"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Location Name</b>: Type a name for the location you are defining, for example, Loc1.
+</p>
+<a name="wp558486"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Location Type</b>: Select a location type. See <a  href="Rxml5.html#wp556366">&quot;Defining Locations&quot;</a> for the definition of each type.
+</p>
+<a name="wp558482"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Location</b>: Either type or select the location. See <a  href="Rxml5.html#wp556366">&quot;Defining Locations&quot;</a> for valid values for each type of location.
+</p>
+<a name="wp512040"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab of the Configure Location dialog box to specify additional information about the location you are defining.</li></div><a name="wp521189"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply</b>.
+</p>
+<a name="wp537972"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Table Hint</b>: This field is valid only for Folder and HTML Document location types. Type a string that specifies an Extensible Sylesheet Language (XSL) pattern to identify the table or rowset nodes in an XML file. See <a  href="Rxml10.html#wp565825">&quot;Using Hints for Tabular-Formatted XML Documents&quot;</a> for details.
+</p>
+<a name="wp583131"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is <span style="font-style: italic">location_name</span>.Table Hint.
+</p>
+<a name="wp537973"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Row Hint</b>: This field is valid only for Folder and HTML Document location types. Type a string that specifies an XSL pattern to identify the nodes that make up the rows in the rowset. See <a  href="Rxml10.html#wp565825">&quot;Using Hints for Tabular-Formatted XML Documents&quot;</a> for details.
+</p>
+<a name="wp583193"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is <span style="font-style: italic">location_name</span>.Row Hint.
+</p>
+<a name="wp531200"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Validate Schema</b>: Select this check box to enable the validation of the XML document against its schema. By default, this check box is not selected. To process an XML document even if the document is not valid, clear the check box.
+</p>
+<a name="wp583199"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is <span style="font-style: italic">location_name</span>.Validate Schema.
+</p>
+<a name="wp543160"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Resolve External References</b>: Select this check box to enable the resolution of external references, such as DTDs, Schemas, Entities, and Notations. By default, this check box is not selected. Clearing this box allows the document to be processed, even if the XML parser cannot locate the external references.
+</p>
+<a name="wp583204"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is <span style="font-style: italic">location_name</span>.Resolve External.
+</p>
+<a name="wp545440"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Flush Every Change</b>: This check box is valid only for Folder location types. Select this check box to write the document to disk after every change. By default, this check box is selected. When this check box is not selected, the driver does not write the document to disk after every insert, update, or delete operation. Clearing this check box can improve performance.
+</p>
+<a name="wp543203"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Require User ID/Password:</b> Select this check box to specify whether a User ID and password are required to establish a connection to the location you are defining. By default, this check box is not selected. When this check box is not selected, no user ID and password are required to establish a connection to the location. You must select this check box if the location you are defining is password-protected; otherwise, the connection will fail. Selecting this check box causes a <a  href="Rxml8.html#wp536091">Logon dialog box</a> to appear when connecting with the driver.
+</p>
+<a name="wp583216"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is <span style="font-style: italic">location_name</span>.Require Passwd.
+</p>
+<a name="wp543204"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">User ID:</b> Type the default user ID used to establish a connection to the location you are defining. This field is enabled, but not required, when the Use Required User ID/Password check box is selected. If you do not specify a user ID and you selected the Require User ID/Password check box, the driver will prompt you for a User ID at connection time.
+</p>
+<a name="wp583221"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is <span style="font-style: italic">location_name</span>.User ID.
+</p>
+<a name="wp558529"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Password</b>: Type the password used to establish a connection to the location you are defining. This field is enabled, but not required, when the Use Required User ID/Password check box is selected. If you do not specify a password and you selected the Require User ID/Password check box, the driver will prompt you for a password at connection time.
+</p>
+<a name="wp543161"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Table Creation</b>: This group is valid only for Folder location types. Select one of these options to determine the style of XML that is generated when a new table is created. By default, DataDirect Format is selected.
+</p>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp531206"> </a><div class="pSmartList2Rel"><li><b class="cBold">Data Island Format</b>: This option causes new tables to be created with the Internet Explorer 5 Data Island XML style.</li></div>
+<a name="wp531208"> </a><div class="pSmartList2Rel"><li><b class="cBold">ADO Format</b>: This option causes new tables to be created with the ADO 2.5 XML style.</li></div>
+<a name="wp545449"> </a><div class="pSmartList2Rel"><li><b class="cBold">DataDirect Format:</b> This option causes new tables to be created with the DataDirect Format (the default). This format conforms to the W3C recommendation for XML schema, working draft April 07, 2000.</li></div>
+</ul></div>
+<a name="wp583226"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="Rxml3.html#wp582226">&quot;Common Tabular Formats for XML Documents&quot;</a> for a description of each of these formats.
+</p>
+<a name="wp591057"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is <span style="font-style: italic">location_name</span>.Create Type.
+</p>
+<a name="wp531210"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Delete Linked Schema</b>: This check box is valid only for Folder location types. Select this check box to specify whether externally linked schema files are deleted when a table is deleted. The XML document for the table contains a link to this external schema file. If multiple XML documents are linked to the same schema file, the schema file should not be deleted when a table is deleted. By default, this check box is not selected.
+</p>
+<a name="wp583234"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is <span style="font-style: italic">location_name</span>.Delete Schema.
+</p>
+<a name="wp558537"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Max Rows to Scan</b>: This option is valid only for XML Document location types. Type an integer that represents the maximum number of rows to scan when the XML driver is determining the data type of each column. During the scan, the driver inspects each column value in the row of a table and adjusts the data type determination for each column based on the corresponding value. The more sample column values it encounters, the more accurate the determination is.
+</p>
+<a name="wp558668"> </a><p class="pBodyIndent12pxBeforeAfter">
+By default, the value is 0, which means all rows in the table are scanned. Limiting the number of rows can reduce the amount of time it takes to determine the column information on very large documents. However, because less information is available, the determination of the data types can be incorrect.
+</p>
+<a name="wp583239"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is <span style="font-style: italic">location_name</span>.Scan Rows.
+</p>
+<a name="wp558798"> </a><div class="pSmartList1"><li>Click <b class="cBold">Close</b> to return to the ODBC XML driver Setup dialog box.</li></div><a name="wp558840"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab of the ODBC XML driver Setup dialog box to specify data source settings.</li></div><a name="wp558921"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply</b>.
+</p>
+<a name="wp592979"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Logging</b>: Select this check box to enable logging. The log file logs the SQL execution plan. By default, this check box is not selected. If you select the check box, a log file is created in the current directory. The default log file name is \Integrator.txt.
+</p>
+<a name="wp593101"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">International Sort Order</b>: Select this check box to use international sort order as defined by your operating system when you issue a Select statement with an Order By clause. This order is always alphabetic, regardless of case; the letters are sorted as &quot;A, b, C.&quot; See your operating system documentation concerning the sorting of accented characters.
+</p>
+<a name="wp593102"> </a><p class="pBodyIndent12pxBeforeAfter">
+If this check box is cleared (the default), ASCII sort order is used. This order sorts items alphabetically with uppercase letters preceding lowercase letters. For example, &quot;A, b, C&quot; is sorted as &quot;A, C, b.&quot;
+</p>
+<a name="wp593105"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Schema Mode</b>: From the drop-down box, select one of the following options:
+</p>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp593106"> </a><div class="pSmartList2Rel"><li>Show Virtual Schemas Only. This option returns &quot;XML&quot; in the Schema Name column when a SQLTables or SQLColumns operation is performed when connected to a data source. For example:</li></div>
+<a name="wp593128"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp593109"> </a><div class="pCellHeading">
+Schema Name
+</div>
+</th>
+    <th><a name="wp593111"> </a><div class="pCellHeading">
+Table Name
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp593113"> </a><div class="pCellBody">
+XML
+</div>
+</td>
+    <td><a name="wp593115"> </a><div class="pCellBody">
+TAB1A
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593117"> </a><div class="pCellBody">
+XML
+</div>
+</td>
+    <td><a name="wp593119"> </a><div class="pCellBody">
+TAB1B
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593121"> </a><div class="pCellBody">
+XML
+</div>
+</td>
+    <td><a name="wp593123"> </a><div class="pCellBody">
+TAB2A
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593125"> </a><div class="pCellBody">
+XML
+</div>
+</td>
+    <td><a name="wp593127"> </a><div class="pCellBody">
+TAB2B
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp593129"> </a><div class="pSmartList2Rel"><li>Show Manufactured Schemas Only. This option returns the manufactured schema names in the Schema Name column when a SQLTables or SQLColumns operation is performed when connected to a data source. The Location names you define for a data source are manufactured into a schema name by adding a # symbol after the Location names. For example:</li></div>
+<a name="wp593151"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp593132"> </a><div class="pCellHeading">
+Schema Name
+</div>
+</th>
+    <th><a name="wp593134"> </a><div class="pCellHeading">
+Table Name
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp593136"> </a><div class="pCellBody">
+LOC1#
+</div>
+</td>
+    <td><a name="wp593138"> </a><div class="pCellBody">
+TAB1A
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593140"> </a><div class="pCellBody">
+LOC1#
+</div>
+</td>
+    <td><a name="wp593142"> </a><div class="pCellBody">
+TAB1B
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593144"> </a><div class="pCellBody">
+LOC2#
+</div>
+</td>
+    <td><a name="wp593146"> </a><div class="pCellBody">
+TAB2A
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593148"> </a><div class="pCellBody">
+LOC2#
+</div>
+</td>
+    <td><a name="wp593150"> </a><div class="pCellBody">
+TAB2B
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp593152"> </a><div class="pSmartList2Rel"><li>Show Both Virtual and Manufactured Schemas. This option returns both virtual and manufactured schema names when a SQLTables or SQLColumns operation is performed when connected to a data source. For example, the information from both of the preceding tables would be returned.</li></div>
+</ul></div>
+<a name="wp592340"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Report Codepage Conversion Errors</b>: Select the method by which the driver handles code page conversion errors.
+</p>
+<a name="wp592341"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0 - Ignore Errors (the default), if the driver encounters code page conversion errors (a character cannot be converted from one character set to another), it substitutes 0x1A for each character that cannot be converted and does not return a warning or error. 
+</p>
+<a name="wp592342"> </a><p class="pBodyIndent12pxBeforeAfter">
+Error and Warning apply both to all ODBC API calls that could cause a conversion error and to all code page conversions to/from the database and to/from the application. The error or warning returned is, <code class="cCode">Code page conversion error encountered</code>. In the case of parameter data conversion errors, the driver adds the following sentence: <code class="cCode">Error in parameter </code><code><em>x</em></code>, where <code><em>x</em></code> is the parameter number. The standard rules for returning specific row and column errors for bulk operations still apply.
+</p>
+<a name="wp592343"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 - Return Error, if the driver encounters code page conversion errors, it returns an error instead of substituting 0x1A for unconverted characters.
+</p>
+<a name="wp592344"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 2 - Return Warning, if the driver encounters code page conversion errors, it substitutes 0x1A for each character that cannot be converted and returns a warning.
+</p>
+<a name="wp535800"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Options</b> tab to specify data source connection values. </li></div><a name="wp535969"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Driver Options</b>: Type configuration options specific to the XML driver.
+</p>
+<a name="wp542382"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the Setup window.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp542383"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a &quot;connection established&quot; message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp542384"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message. Click <b class="cBold">OK</b>.</li></div>
+</ul></div>
+<a name="wp535900"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,31 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/clouds#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file defines variables used in the examples in 
+; Chapter 11, "Plotting Multi-dimensional Arrays", of _Using IDL_.
+
+; Restore cloud data into the IDL variables "clouds" and "rain".
+
+RESTORE, FILEPATH('clouds3d.dat', SUBDIR=['examples','data'])
+
+; Create the contour surface polygons (v and p) at density 0.1,
+; from clouds. Show the low side.
+
+SHADE_VOLUME, clouds, 0.1, v, p, /LOW
+
+; Obtain the dimensions of the volume. Variables S(1), S(2),
+; and S(3) now contain the number of columns, rows, and slices
+; in the volume.
+
+s = SIZE(clouds)
+
+; Use SCALE3 to establish the three-dimensional transformation
+; matrix. Rotate 45 degrees about the z-axis. 
+
+SCALE3, XRANGE=[0,S(1)], YRANGE=[0,S(2)], ZRANGE=[0,S(3)], AX=0, AZ=45
+
+; Render and display the polygons.
+
+TV, POLYSHADE(v, p, /T3D)

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:30:00">
+    <title>Region of Interest Segmentation</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_reconstr.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_slice.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1011369"> </a><h2 class="pHeading1">
+Region of Interest Segmentation
+</h2>  
+
+<a name="wp1011371"> </a><p class="pBody">
+This procedure illustrates IDL's ability to find &quot;objects&quot; in an image. The user creates the definition of an object based on certain criteria, including the &quot;fuzziness&quot; of the edge-enhanced image, and the size of the related contour.
+</p>  
+
+<a name="wp1011372"> </a><p class="pBody">
+In this example, the default values have been defined to allow us to search for small galaxies in the field of view. A galaxy will generally have a less well-defined border than a star, so we look for objects with &quot;fuzzy&quot; edges. Specifying contour lengths also allows us to discriminate a range of perimeters of potential objects.
+</p>  
+
+<a name="wp1011373"> </a><p class="pBody">
+Object identification proceeds through three general steps:
+</p>  
+
+
+<a name="wp1011374"> </a><p class="pIndentedRelative">1) Edge enhancement,</p>  
+
+<a name="wp1011375"> </a><p class="pIndentedRelative">2) Contouring, and </p>  
+
+<a name="wp1011376"> </a><p class="pIndentedRelative">3) Segmentation.</p>  
+<a name="wp1011377"> </a><p class="pBody">
+This procedure was authored by the Professional Services Group of ITT Visual Information Solutions. The source code to the demonstration routine can be customized to return information about individual objects. These data can in turn be fed into further processing and refinement steps. For those desiring a larger implementation, the Professional Services Group can be contacted (psg@ittvis.com) for consulting and custom coding.
+</p>  
+
+<a name="wp1011378"> </a><h3 class="pHeading2">
+About the Data
+</h3>  
+
+
+<a name="wp1011379"> </a><p class="pBody">
+This image is a composite of three optical CCD images taken with the 0.9 meter telescope at Kitt Peak National Observatory on Sept. 1, 1995. The image shows Abell 115, a cluster of galaxies that is known for the very large, bright elliptical cD galaxy near its center and its asymmetric X-ray emission.
+</p>  
+
+<a name="wp1011380"> </a><p class="pBody">
+Three images were taken of the central region of the cluster, each through a different colored filter. Several hundred galaxies have been detected and, by measuring their relative brightness in the three images, the data can help us determine how the galaxies in this cluster evolved.
+</p>  
+
+<a name="wp1011381"> </a><p class="pBody">
+These data are courtesy of Kathy Romer, Anne Metevier and Melville Ulmer (Northwestern University), with additional thanks to the Illinois Space Grant Consortium's Northwestern University High School and Undergraduate Research Program.
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

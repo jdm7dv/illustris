@@ -1,0 +1,48 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/cntour05#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a contour plot that is sized to match
+; the image data. This example is from Chapter 11, "Plotting
+; Multi-dimensional Arrays", of _Using IDL_.
+
+; Restore variables elev, X, and Y.
+
+@cntour01
+
+; Set missing data points to a large value.
+
+elev(WHERE(elev EQ 0)) = 1E6	
+
+; REBIN down to a 72 x 92 matrix.
+
+new = REBIN(elev, 360/5, 460/5)	
+
+; Scale image intensities.
+
+image = BYTSCL(elev, MIN=2658, MAX=4241)	
+
+;Get size of plot window in device pixels.
+
+PX = !X.WINDOW * !D.X_VSIZE	
+PY = !Y.WINDOW * !D.Y_VSIZE
+
+; Get the size of the image.
+
+SZ = SIZE(image)
+
+; Display the image with its lower-left corner at the origin of the plot 
+; window.
+
+TVSCL, image, PX(0), PY(0)
+
+; Write the contours over the image, being sure to use the exact axis 
+; styles so that the contours fill the plot window. Inhibit erasing.
+
+CONTOUR, new, X, Y, XSTYLE = 1, YSTYLE = 1, $
+    POSITION = [PX(0), PY(0), PX(0) + SZ(1) - 1, PY(0) + SZ(2) - 1], $
+    LEVELS = 2750 + FINDGEN(6) * 250., $ MAX_VALUE = 5000, $
+    TITLE='Maroon Bells Region', SUBTITLE = '250 meter contours', $
+    XTITLE = 'UTM Coordinates (KM)', /NOERASE, /DEVICE
+

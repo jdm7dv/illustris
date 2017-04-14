@@ -1,0 +1,145 @@
+
+       WELCOME TO THE IMAGE PROCESSING DEMO
+
+
+   Image processing can improve the way an image
+   looks.  Image-processed data, or a processed
+   image helps you distinguish and recognize more
+   subtle characteristics of the original image.
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+      Select "Quit" to exit the Image Processing
+      Demo and return to the IDL Demo main screen.
+
+   About Menu:
+      Select "About image processing" for
+      information about the Image Processing Demo.
+
+
+   FEATURES
+   --------
+      IDL offers several ways to process an image,
+      some of which are introduced below:
+
+
+      o  Zooming
+         
+         Smaller sub-sections of large datasets can
+         be manipulated. The image shown here is an
+         aerial view of New York City. A section of
+         lower Manhattan is enlarged using the
+         REBIN function on a subscripted section of
+         the original image array.
+
+         To reposition the zooming area, click your
+         mouse on the area you would like to see
+         more closely.
+
+
+      o  Fourier filtering
+
+         IDL's Fast Fourier Transform (FFT)
+         function can process vectors and 2D array
+         in either forward or reverse.
+
+         <<Filter width>> slider
+         Selects the filter width. A higher filter
+         width gives the filtered image higher
+         resolution.
+
+
+      o  Pixel scaling
+
+         The BYTSCL (byte scale) command scales
+         pixel values into the range of available
+         colors.
+
+         <<Minimum>> slider
+         You can specify the minimum byte value
+         allowed in the reconstructed image.
+
+         <<Maximum>> slider
+         You can specify the maximum byte value
+         allowed in the reconstructed image.
+
+
+      o  Histogram
+
+         Histogram equalization can be used to
+         change the visible contrast of an image.
+
+         <<Minimum>> slider
+         You can specify the minimum byte value
+         allowed in the reconstructed image.
+
+         <<Maximum>> slider
+         You can specify the maximum byte value
+         allowed in the reconstructed image.
+
+ 
+      o  Edges
+
+         The SOBEL function performs edge
+         enhancement on an images.
+
+         <<Smooth width>> slider
+         Sets the width of the smoothing function.
+         A higher width produces a reconstructed
+         image with lower resolution.
+
+
+      o  Dilate and Erode
+
+	 IDL's Dilate and Erode functions operate
+	 on shapes within an image.
+
+	 In this example, before we start dilating
+	 and eroding, a threshold mask is derived
+	 from the grayscale intensities in the
+	 image.  All values less than a given
+	 percent of the image's maximum intensity
+	 are masked.
+
+         <<Break Mask>>
+	 Click this button to Erode and then Dilate
+	 the shape of the mask.  This has the
+	 effect of "breaking off" details in the
+	 mask's shape.  This operation is known
+         as Binary Morphological Opening.
+
+         <<Fuse Mask>>
+	 Click this button to Dilate and then Erode
+	 the shape of the mask.  This has the
+	 effect of "fusing together" parts of the
+	 mask's shape.  This operation is known
+         as Binary Morphological Closing.
+
+	 <<Neighborhood Mins.>> 
+	 Click this button to perform grayscale
+	 erode and then grayscale dilate on the
+	 image itself, where masked.  This yields
+	 neighborhood minimums in the masked
+	 regions of the image.  Thus bridges and
+	 other details are removed.  This operation
+	 is known as Grayscale Morphological
+	 Opening.
+
+
+      o  Convolution
+
+         Convolutions may be performed on arrays of
+         1, 2, and 3 dimensions. This screen shows
+         the effects of convolving an image with a
+         kernel.
+
+         Use your left mouse button to click on the
+         squares of the kernel grid, toggling them
+         on or off.
+
+         <<CONVOLVE>> button
+         Computes and displays the convolved
+         image.

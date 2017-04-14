@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>Hierarchical-Formatted XML Document Support</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp563933"> </a><h1 class="pNewHTMLPageNoNum">
+Hierarchical-Formatted XML Document Support
+</h1>
+<hr /><a name="wp555074"> </a><p class="pBody">
+The XML driver can be configured so that it supports hierarchical-formatted documents. In this case, the driver assumes that the document that it is accessing can contain more than one table. The driver scans the document to locate all tables; the available tables are visible through a SQLTables operation. Then, the driver does a second scan to gather each table&#8217;s column information and to determine a data type for each column.
+</p>
+<a name="wp555144"> </a><p class="pBody">
+Let&#8217;s look at an example of a hierarchical document and discuss the results.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;?xml version=&quot;1.0&quot;?&gt;<a name="wp555269"> </a>
+  &lt;purchaseOrder orderDate=&quot;1999-10-20&quot;&gt;<a name="wp555270"> </a>
+    &lt;shipTo country=&quot;US&quot;&gt;<a name="wp555271"> </a>
+      &lt;name&gt;Alice Smith&lt;/name&gt;<a name="wp555272"> </a>
+      &lt;street&gt;123 Maple Street&lt;/street&gt;<a name="wp555273"> </a>
+      &lt;city&gt;Mill Valley&lt;/city&gt;<a name="wp555274"> </a>
+      &lt;state&gt;CA&lt;/state&gt;<a name="wp555275"> </a>
+      &lt;zip&gt;90952&lt;/zip&gt;<a name="wp555276"> </a>
+    &lt;/shipTo&gt;<a name="wp555277"> </a>
+    &lt;billTo country=&quot;US&quot;&gt;<a name="wp555278"> </a>
+       &lt;name&gt;Robert Smith&lt;/name&gt;<a name="wp555279"> </a>
+       &lt;street&gt;8 Oak Avenue&lt;/street&gt;<a name="wp555280"> </a>
+       &lt;city&gt;Old Town&lt;/city&gt;<a name="wp555281"> </a>
+       &lt;state&gt;PA&lt;/state&gt;<a name="wp555282"> </a>
+       &lt;zip&gt;95819&lt;/zip&gt;<a name="wp555283"> </a>
+    &lt;/billTo&gt;<a name="wp555284"> </a>
+    &lt;comment&gt;Hurry, my lawn is going wild!&lt;/comment&gt;<a name="wp555285"> </a>
+    &lt;items&gt;<a name="wp555286"> </a>
+       &lt;item partNum=&quot;872-AA&quot;&gt;<a name="wp555287"> </a>
+          &lt;productName&gt;Lawnmower&lt;/productName&gt;<a name="wp555288"> </a>
+          &lt;quantity&gt;1&lt;/quantity&gt;<a name="wp555289"> </a>
+          &lt;USPrice&gt;148.95&lt;/USPrice&gt;<a name="wp555290"> </a>
+          &lt;comment&gt;Confirm this is electric&lt;/comment&gt;<a name="wp555291"> </a>
+       &lt;/item&gt;<a name="wp555292"> </a>
+       &lt;item partNum=&quot;926-AA&quot;&gt;<a name="wp555293"> </a>
+          &lt;productName&gt;Baby Monitor&lt;/productName&gt;<a name="wp555294"> </a>
+          &lt;quantity&gt;1&lt;/quantity&gt;<a name="wp555295"> </a>
+          &lt;USPrice&gt;39.98&lt;/USPrice&gt;<a name="wp555296"> </a>
+          &lt;shipDate&gt;1999-05-21&lt;/shipDate&gt;<a name="wp555297"> </a>
+       &lt;/item&gt;<a name="wp555298"> </a>
+    &lt;/items&gt;<a name="wp555299"> </a>
+  &lt;/purchaseOrder&gt;<a name="wp555524"> </a>
+</pre></div>
+<a name="wp555525"> </a><p class="pBody">
+First, the XML driver returns two tables: &#8220;purchaseOrder&#8221; and &#8220;items.&#8221; Two tables are returned because two items are found for a single purchase order. The XML driver found commonality of child elements.
+</p>
+<a name="wp555569"> </a><p class="pBody">
+Second, the XML driver determines which columns are in a specific table. An <code class="cCode">_ID</code> column, which is essentially a primary key, is automatically generated for each table. If a table is determined to be a child of another table, then it is given a second generated column. The name of this column is prefixed with the parent table&#8217;s name and ends with <code class="cCode">_ID</code>, for example, <code class="cCode">_purchaseOrder_ID</code>. 
+</p>
+<a name="wp555570"> </a><p class="pBody">
+Consider the previous example document. The items table will receive two generated columns, <code class="cCode">_ID</code> and _<code class="cCode">purchaseOrder_ID</code>, which are assigned an integer data type. The purchaseOrder table receives only the <code class="cCode">_ID </code>column, because it does not have a parent table.
+</p>
+<a name="wp555572"> </a><p class="pBody">
+The tables returned from the example file include the following columns:
+</p>
+<a name="wp570127"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp555577"> </a><div class="pCellHeading">
+Table
+</div>
+</td>
+    <td colspan="2" rowspan="1"><a name="wp555579"> </a><div class="pCellHeading">
+Columns
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp555583"> </a><div class="pCellBody">
+items
+</div>
+</td>
+    <td><a name="wp555585"> </a><div class="pCellBody">
+_ID
+</div>
+<a name="wp555586"> </a><div class="pCellBody">
+_purchaseOrder_ID
+</div>
+<a name="wp555587"> </a><div class="pCellBody">
+partNum
+</div>
+<a name="wp555588"> </a><div class="pCellBody">
+productName
+</div>
+<a name="wp555844"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp555919"> </a><div class="pCellBody">
+quantity
+</div>
+<a name="wp555920"> </a><div class="pCellBody">
+USPrice
+</div>
+<a name="wp555921"> </a><div class="pCellBody">
+comment
+</div>
+<a name="wp555593"> </a><div class="pCellBody">
+shipDate
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp555595"> </a><div class="pCellBody">
+purchaseOrder
+</div>
+</td>
+    <td><a name="wp555597"> </a><div class="pCellBody">
+_ID
+</div>
+<a name="wp555598"> </a><div class="pCellBody">
+orderDate
+</div>
+<a name="wp555599"> </a><div class="pCellBody">
+shipTo_country
+</div>
+<a name="wp555600"> </a><div class="pCellBody">
+shipTo_name
+</div>
+<a name="wp555601"> </a><div class="pCellBody">
+shipTo_street
+</div>
+<a name="wp555602"> </a><div class="pCellBody">
+shipTo_city
+</div>
+<a name="wp555603"> </a><div class="pCellBody">
+shipTo_state
+</div>
+<a name="wp555604"> </a><div class="pCellBody">
+shipTo_zip
+</div>
+</td>
+    <td><a name="wp555886"> </a><div class="pCellBody">
+billTo_country
+</div>
+<a name="wp555887"> </a><div class="pCellBody">
+billTo_name
+</div>
+<a name="wp555888"> </a><div class="pCellBody">
+billTo_street
+</div>
+<a name="wp555889"> </a><div class="pCellBody">
+billTo_city
+</div>
+<a name="wp555890"> </a><div class="pCellBody">
+billTo_state
+</div>
+<a name="wp555891"> </a><div class="pCellBody">
+billTo_zip
+</div>
+<a name="wp555612"> </a><div class="pCellBody">
+comment
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp555551"> </a><h3 class="pHeading2">
+Column Data Types
+</h3>
+<a name="wp555972"> </a><p class="pBody">
+The XML driver determines the column data types by inspecting the column values. The data type determination limits its data types to a subset of the DataDirect Format data types, as listed in the following table. For a complete list of DataDirect Format data types, see <a  href="Rxml11.html#wp546598">Table&#160;16-5</a>.
+</p>
+<a name="wp570131"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp560621"> </a><div class="pCellHeading">
+Data Type
+</div>
+</td>
+    <td><a name="wp560623"> </a><div class="pCellHeading">
+Sample Values
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560625"> </a><div class="pCellBody">
+wvchar
+</div>
+</td>
+    <td><a name="wp560627"> </a><div class="pCellBody">
+&#8220;Foo&#8221;, &#8220;best320&#8221;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560629"> </a><div class="pCellBody">
+varbinary
+</div>
+</td>
+    <td><a name="wp560631"> </a><div class="pCellBody">
+&#8220;27AB2F9C&#8221;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560633"> </a><div class="pCellBody">
+int
+</div>
+</td>
+    <td><a name="wp560635"> </a><div class="pCellBody">
+&#8220;34&#8221;,&#8221;-7000&#8221;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560637"> </a><div class="pCellBody">
+unsignedint
+</div>
+</td>
+    <td><a name="wp560639"> </a><div class="pCellBody">
+&#8220;0&#8221;, &#8220;123456789&#8221;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560641"> </a><div class="pCellBody">
+long
+</div>
+</td>
+    <td><a name="wp560643"> </a><div class="pCellBody">
+&#8220;-12345678012345&#8221;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560645"> </a><div class="pCellBody">
+unsignedlong
+</div>
+</td>
+    <td><a name="wp560647"> </a><div class="pCellBody">
+&#8220;123456789012345&#8221;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560649"> </a><div class="pCellBody">
+boolean
+</div>
+</td>
+    <td><a name="wp560651"> </a><div class="pCellBody">
+&#8220;true&#8221;, &#8220;false&#8221;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560653"> </a><div class="pCellBody">
+date
+</div>
+</td>
+    <td><a name="wp560655"> </a><div class="pCellBody">
+1963-12-19
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560657"> </a><div class="pCellBody">
+time
+</div>
+</td>
+    <td><a name="wp560659"> </a><div class="pCellBody">
+10:09:58
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560661"> </a><div class="pCellBody">
+timeinstant
+</div>
+</td>
+    <td><a name="wp560663"> </a><div class="pCellBody">
+1963-12-19T10:09:58
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560665"> </a><div class="pCellBody">
+decimal
+</div>
+</td>
+    <td><a name="wp560667"> </a><div class="pCellBody">
+1245.678
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

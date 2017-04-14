@@ -1,0 +1,75 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/cntour03#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a PostScript file of a contour plot
+; overlaid with an image. This example is from Chapter 11,
+; "Plotting Multi-dimensional Arrays", of _Using IDL_.
+
+; Restore variables elev, X, and Y.
+
+@cntour01
+
+; Set missing data points to a large value.
+
+elev(WHERE(elev EQ 0)) = 1E6	
+
+; REBIN down to a 72 x 92 matrix.
+
+new = REBIN(elev, 360/5, 460/5)	
+
+; Store the current graphics device.
+
+old_dev=!D.NAME
+
+; Set the current graphics device to PostScript.
+
+SET_PLOT, 'ps'
+
+; Use hardware fonts.
+
+!P.FONT=0
+
+; Open a file in the current directory to contain the PostScript plot.
+
+DEVICE, file='marbells.ps', /ENCAP
+
+; Scale the range of valid elevations into intensities.
+
+image = BYTSCL(elev, MIN=2658, MAX=4241)	
+
+; Before displaying the image, use the CONTOUR command to create
+; the appropriate plot window. The plot window must be created
+; before re-sizing the image data. Use the NODATA keyword to inhibit
+; actually drawing the contour plot.
+
+CONTOUR, new, X, Y, LEVELS = 2750 + FINDGEN(6) * 250., $
+     MAX_VALUE = 5000, XSTYLE = 1, YSTYLE = 1, TITLE='Maroon Bells Region', $
+     SUBTITLE = '250 meter contours', XTITLE = 'UTM Coordinates (KM)', /NODATA
+
+; Display the image with its lower-left corner at the origin of the plot 
+; window and with its size scaled to fit the plot window.
+
+TVSCL, image, !X.WINDOW(0), !Y.WINDOW(0), $
+    XSIZE = !X.WINDOW(1) - !X.WINDOW(0), $
+    YSIZE = !Y.WINDOW(1) - !Y.WINDOW(0), /NORM
+
+; Write the contours over the image, being sure to use the exact axis 
+; styles so that the contours fill the plot window. Inhibit erasing.
+
+CONTOUR, new, X, Y, LEVELS = 2750 + FINDGEN(6) * 250., $
+     MAX_VALUE = 5000, XSTYLE = 1, YSTYLE = 1, TITLE='Maroon Bells Region', $
+     SUBTITLE = '250 meter contours', XTITLE = 'UTM Coordinates (KM)', /NOERASE
+
+; Close the PostScript file.
+
+DEVICE, /CLOSE
+
+; Use vector fonts.
+
+!P.FONT=1
+
+; Set the current graphics device back to its original setting.
+
+SET_PLOT, old_dev

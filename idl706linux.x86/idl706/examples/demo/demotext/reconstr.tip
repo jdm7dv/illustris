@@ -1,0 +1,7 @@
+2 3
+welcome|IDL supports a wide variety of filters and
+showing|reconstruction parameters. Old and new
+interact|images can be displayed simultaneously.
+selecto|Select the number of angles to use.
+click|Choose a type of filter, kernel size, and
+numer|interpolation. Then click "Reconstruct".

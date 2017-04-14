@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:29:55" />
+  <title>Connecting to a Data Source Using a Connection String</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp601055"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Connection String
+</h1>
+<hr /><a name="wp603790"> </a><p class="pBody">
+If your application requires a connection string for connecting to a database, you must specify the data source name that tells the driver where to find the default connection information. Optionally, you may specify <em class="cEmphasis">attribute=value</em> pairs in the connection string to override the default values stored in the data source definition.
+</p>
+<a name="wp603791"> </a><p class="pBody">
+The connection string has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=<code><em>data_source_name</em></code>[;<code><em>attribute=value</em></code>[;<code><em>attribute=value</em></code>]...]<a name="wp603792"> </a>
+</pre></div>
+<a name="wp603797"> </a><p class="pBody">
+<a  href="Rdb26.html#wp650333">Table&#160;3-1</a> gives the long and short names for each attribute, as well as a description. You can specify either long or short names in the connection string.
+</p>
+<a name="wp603798"> </a><p class="pBody">
+The defaults listed in the table are initial defaults that apply when no value is specified in either the data source definition or in the connection string. If you specified a value for the attribute when configuring the data source, that value is the default.
+</p>
+<a name="wp601061"> </a><p class="pBody">
+An example of a connection string for DB2 on UNIX is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=DB2MVS;LOC=TESTMVSDB2;UID=JOHN;PWD=XYZZY<a name="wp601062"> </a>
+</pre></div>
+<a name="wp601204"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp650333"> </a><div class="pTableTitleBold">
+Table 3-1.  DB2 Wire Protocol Connection String Attributes&#160;
+</div>
+</caption>
+  <tr align="left">    <td><a name="wp650338"> </a><div class="pCellBody">
+AddStringTo<br />CreateTable	 (ASCT)
+</div>
+</td>
+    <td><a name="wp650340"> </a><div class="pCellBody">
+A string that is automatically added to all Create Table statements. This attribute is primarily for users who need to add an &quot;in database&quot; clause.
+</div>
+<a name="wp650341"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Add to Create Table.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650344"> </a><div class="pCellBody">
+AlternateServers	 (ASRV)
+</div>
+</td>
+    <td><a name="wp654449"> </a><div class="pCellBody">
+A list of alternate database servers to which the driver will try to connect if the primary database server is unavailable. Specifying a value for this connection string attribute enables connection failover for the driver. See <a  href="Rstart4.html#wp583803"><a  href="Rstart4.html#wp583803">&quot;Using Connection Failover&quot;</a></a> for a discussion of connection failover.
+</div>
+<a name="wp650355"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp653786"> </a><div class="pCellBody">
+The value you specify must be in the form of a string that defines connection information for each alternate server. For the DB2 Wire Protocol driver, you must specify the IP address and port number of each alternate server. The string has the format:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+(IPAddress=<code><em>ipvalue</em></code>;TcpPort=<code><em>portvalue</em></code>[, . . .])<a name="wp650356"> </a>
+</pre></div>
+<a name="wp650357"> </a><div class="pCellBody">
+For example, the following AlternateServers value defines two alternate database servers for connection failover:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+AlternateServers=(IpAddress=123.456.78.90;TcpPort=5177,
+IpAddress=223.456.78.90;TcpPort=5178)<a name="wp650358"> </a>
+</pre></div>
+<a name="wp650362"> </a><div class="pCellBody">
+See <a  href="Rdb210.html#wp649379">&quot;Configuring Connection Failover&quot;</a> for information about other connection options that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650373"> </a><div class="pCellBody">
+ApplicationUsing<br />Threads (AUT)
+</div>
+</td>
+    <td><a name="wp651580"> </a><div class="pCellBody">
+ApplicationUsingThreads={0 | 1}. Determines whether or not the driver works with multi-threaded applications. 
+</div>
+<a name="wp651581"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver is thread-safe and is ensured to work with multi-threaded applications. 
+</div>
+<a name="wp651582"> </a><div class="pCellBody">
+When using the driver with single-threaded applications, you can set this option to 0 to avoid additional processing required for ODBC thread-safety standards.&#160;&#160;&#160;
+</div>
+<a name="wp650383"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Rdb27.html#wp652286">&quot;Performance Considerations&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650387"> </a><div class="pCellBody">
+AlternateID	 (AID)
+</div>
+</td>
+    <td><a name="wp650389"> </a><div class="pCellBody">
+Changes the current schema to a user-specified value at connect time. It sets the default qualifier for unqualified object names in SQL statements. If the attempt to change the current schema fails, the connection fails and you receive the message, <code class="cCode">Invalid value for Alternate ID</code>. DB2 permissions must be set to SYSADM. (Not valid for AS/400 V4R5 and V5R1.)
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650392"> </a><div class="pCellBody">
+CatalogSchema (CS)
+</div>
+</td>
+    <td><a name="wp650394"> </a><div class="pCellBody">
+The DB2 schema to use for Catalog functions. The value must be the name of a valid DB2 schema. If you do not specify a value for this attribute, the driver uses SYSIBM when connected to OS/390, QSYS2 when connected to AS/400, and SYSCAT when connected to Windows/UNIX.
+</div>
+<a name="wp650395"> </a><div class="pCellBody">
+The initial default is an empty string.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650399"> </a><div class="pCellBody">
+CharsetFor65535 (CF6)
+</div>
+</td>
+    <td><a name="wp650402"> </a><div class="pCellBody">
+CharsetFor65535		={		0 | <em class="cEmphasis">IANA code page value</em>}. Specifies a character set from which to convert when fetching character columns (char, varchar, longvarchar, clob, char for bit data, varchar for bit data, longvarchar for bit data) defined with Coded Character Set Identifier (CCSID) 65535.
+</div>
+<a name="wp650403"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver returns these columns as binary columns (SQL_BINARY, SQL_VARBINARY, SQL_LONGVARBINARY) and does no conversion of the data.
+</div>
+<a name="wp650404"> </a><div class="pCellBody">
+When set to any valid IANA code page value, the driver returns these columns as character columns and assumes they are being returned in the character set specified. The driver does no conversion of data supplied in bound parameters. See <a  href="Rdb217.html#wp644769">&quot;IBM to IANA Code Page Values&quot;</a> for a table of IANA and IBM code page equivalents.
+</div>
+<a name="wp650408"> </a><div class="pCellBody">
+NOTE: All columns defined as char for bit data, varchar for bit data, and longvarchar for bit data will be affected by this option. By definition, columns created with these types have a CCSID of 65535.
+</div>
+<a name="wp650409"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Character Set for CCSID 65535.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650412"> </a><div class="pCellBody">
+Collection (COL)
+</div>
+</td>
+    <td><a name="wp650414"> </a><div class="pCellBody">
+By default, the User ID is used for Collection; otherwise, use the name that identifies a logical group of database objects. On AS/400, it is also the current Schema. These objects include the DataDirect driver packages. This attribute is valid and required only if you are connecting to DB2 on OS/390 or AS/400. Refer to the Collection description under <a  href="Rdb24.html#wp600945">&quot;Configuration of DB2 for OS/390&quot;</a> and <a  href="Rdb24.html#wp600986">&quot;Configuration of DB2 for AS/400&quot;</a> for OS/390 and AS/400, respectively.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650423"> </a><div class="pCellBody">
+ConnectionRetryCount (CRC)
+</div>
+</td>
+    <td><a name="wp652998"> </a><div class="pCellBody">
+Specifies the number of times the driver tries to connect to the primary server, and if configured, to the alternate servers after the initial unsuccessful attempt. See <a  href="Rstart6.html#wp592469"><a  href="Rstart6.html#wp592469">&quot;Using Connection Retry&quot;</a></a> for more information about this feature.
+</div>
+<a name="wp653003"> </a><div class="pCellBody">
+Valid values are integers from 0 to 65535. When set to 0 (the initial default), the driver does not try to connect after the initial unsuccessful attempt.
+</div>
+<a name="wp653004"> </a><div class="pCellBody">
+If a connection is not established during the retry attempts, the driver returns an error that is generated by the last server to which it tried to connect.
+</div>
+<a name="wp653005"> </a><div class="pCellBody">
+This attribute and the ConnectionRetryDelay connection string attribute, which specifies the wait interval between attempts, can be used in conjunction with connection failover. &#160;&#160;
+</div>
+<a name="wp650439"> </a><div class="pCellBody">
+See <a  href="Rdb210.html#wp649379">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650442"> </a><div class="pCellBody">
+ConnectionRetryDelay (CRD)
+</div>
+</td>
+    <td><a name="wp651784"> </a><div class="pCellBody">
+Specifies the number of seconds that the driver waits after the initial unsuccessful connection attempt before retrying a connection to the primary server and, if specified, to the alternate servers. 
+</div>
+<a name="wp651785"> </a><div class="pCellBody">
+Valid values are integers from 0 to 65535. The default value is 3 (seconds). When set to 0, there is no delay between retries.
+</div>
+<a name="wp651786"> </a><div class="pCellBody">
+NOTE: This attribute has no effect unless the ConnectionRetryCount connection string attribute is set to an integer value greater than 0.
+</div>
+<a name="wp651787"> </a><div class="pCellBody">
+This attribute and the ConnectionRetryCount connection string attribute, which specifies the number of times the driver tries to connect after the initial unsuccessful attempt, can be used in conjunction with connection failover. &#160;&#160;&#160;
+</div>
+<a name="wp650454"> </a><div class="pCellBody">
+See <a  href="Rdb210.html#wp649379">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650465"> </a><div class="pCellBody">
+Database (DB)
+</div>
+</td>
+    <td><a name="wp650467"> </a><div class="pCellBody">
+The name of the database to which you want to connect. This attribute is valid and required only if you are connecting to DB2 on Windows or UNIX.
+</div>
+<a name="wp650468"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Database Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650471"> </a><div class="pCellBody">
+DataSourceName (DSN)
+</div>
+</td>
+    <td><a name="wp650473"> </a><div class="pCellBody">
+A string that identifies a DB2 data source configuration. Examples include &quot;Accounting&quot; or &quot;DB2-Serv1.&quot;
+</div>
+<a name="wp650474"> </a><div class="pCellBody">
+Type a string that identifies this DB2 data source configuration. If you are creating a new data source configuration, type a unique name of up to 32 characters. If you specify the name of an existing data source definition, the new settings will replace the existing ones.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650477"> </a><div class="pCellBody">
+DefaultIsolationLevel (DIL)		
+</div>
+</td>
+    <td><a name="wp650479"> </a><div class="pCellBody">
+DefaultIsolationLevel={0 | 1 | 2 | 3 | 4}. Specifies the method by which locks are acquired and released by the system (see <a  href="locking.html#wp509899">&quot;Locking and Isolation Levels&quot;</a> for details). Valid values are:
+</div>
+<a name="wp650483"> </a><div class="pCellBody">
+0&#8212;READ_UNCOMMITTED&#8212;Allows other processes to read from the database. Only modified data is locked until the end of the transaction.
+</div>
+<a name="wp650484"> </a><div class="pCellBody">
+1&#8212;READ_COMMITTED&#8212;(The initial default) allows other processes to change a row that your application read if the cursor is not on the row that you want to change. Prevents other processes from changing records that your application has changed until your program commits them or terminates. Prevents your program from reading a modified record that has not been committed by another process.
+</div>
+<a name="wp650485"> </a><div class="pCellBody">
+2&#8212;REPEATABLE_READ&#8212;Prevents any other process from accessing data that your application has read or modified. All read or modified data is locked until the end of the transaction.
+</div>
+<a name="wp650486"> </a><div class="pCellBody">
+3&#8212;SERIALIZABLE&#8212;Prevents other processes from changing records that are read or changed by your application (including phantom records) until your program commits them or terminates. Prevents the application from reading modified records that have not been committed by another process. If your program opens the same query during a single unit of work under this isolation level, the results table will be identical to the previous table; however, it can contain updates made by your program.
+</div>
+<a name="wp650487"> </a><div class="pCellBody">
+4&#8212;NONE&#8212;Allows your program to read modified records even if they have not been committed by another person. (On AS/400, this is the only isolation level that works for collections that have journaling enabled.)
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650490"> </a><div class="pCellBody">
+DynamicSections (DS)
+</div>
+</td>
+    <td><a name="wp650492"> </a><div class="pCellBody">
+The number of statements that the DB2 Wire Protocol driver package can prepare for a single user. The initial default is 200.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650495"> </a><div class="pCellBody">
+GrantAuthid			 (GA)
+</div>
+</td>
+    <td><a name="wp650643"> </a><div class="pCellBody">
+The name of the schema to which you want to grant EXECUTE privileges for DB2 packages. The value must be a valid DB2 schema. This property is ignored if the <a  href="Rdb26.html#wp650503">GrantExecute (GE)</a> property is set to 0. 
+</div>
+<a name="wp650647"> </a><div class="pCellBody">
+The initial default is PUBLIC.
+</div>
+<a name="wp650693"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is the field that is part of Grant Execute.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650503"> </a><div class="pCellBody">
+GrantExecute			 (GE)
+</div>
+</td>
+    <td><a name="wp650505"> </a><div class="pCellBody">
+GrantExecute		={		0 | 1}. Determines which DB2 schema is granted EXECUTE privileges for DB2 packages. 
+</div>
+<a name="wp650506"> </a><div class="pCellBody">
+When set to 0, EXECUTE privileges are granted to the schema that created the DB2 packages.
+</div>
+<a name="wp650507"> </a><div class="pCellBody">
+When set to 1 (the initial default), EXECUTE privileges are granted to the schema specified by the <a  href="Rdb26.html#wp650495">GrantAuthid (GA)</a> property.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650511"> </a><div class="pCellBody">
+IANAAppCodePage (IACP)
+</div>
+<a name="wp650515"> </a><div class="pCellBody">
+<img src="images/iconunixa9.gif" height="31" width="26" border="0" hspace="0" vspace="0"/>
+</div>
+<a name="wp650516"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp651834"> </a><div class="pCellBody">
+See <a  href="appcodepage.html#wp526223"><a  href="appcodepage.html#wp526223">&quot;Values for IANAAppCodePage Connection String Attribute&quot;</a></a> for a list of valid values for this attribute. The code page that you specify must be the same as the code page used by your application. This attribute applies to UNIX only.
+</div>
+<a name="wp651836"> </a><div class="pCellBody">
+Both this Unicode driver and the Driver Manager determine the value of the application&#8217;s code page by checking for an IANAAppCodePage value in the following order:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp651837"> </a><div class="pSmartList1"><li>In the connection string</li></div><a name="wp651838"> </a><div class="pSmartList1"><li>In the DataSource section of the system information file (odbc.ini)</li></div><a name="wp651839"> </a><div class="pSmartList1"><li>In the ODBC section of the system information file (odbc.ini)</li></div></ul></div>
+<a name="wp651840"> </a><div class="pCellBody">
+If no IANAAppCodePage value is found, the driver uses the default value of 4 (ISO 8859-1 Latin-1). 
+</div>
+<a name="wp650532"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650535"> </a><div class="pCellBody">
+IpAddress			 (IP)
+</div>
+</td>
+    <td><a name="wp650537"> </a><div class="pCellBody">
+The IP (Internet Protocol) address of the machine where the catalog tables are stored. Specify the address using the machine&#39;s numeric address (for example, 123.456.78.90) or specify its address name. If you specify an address name, the driver must find this name (with the correct address assignment) in the HOSTS file on the workstation or in a DNS server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650540"> </a><div class="pCellBody">
+LoadBalancing (LB)
+</div>
+</td>
+    <td><a name="wp653010"> </a><div class="pCellBody">
+LoadBalancing={0 | 1}. Determines whether the driver uses client load balancing in its attempts to connect to primary and alternate database servers. See <a  href="Rstart5.html#wp583520"><a  href="Rstart5.html#wp583520">&quot;Using Client Load Balancing&quot;</a> </a>for more information.
+</div>
+<a name="wp653015"> </a><div class="pCellBody">
+When set to 1, the driver attempts to connect to the database servers in random order. 
+</div>
+<a name="wp653016"> </a><div class="pCellBody">
+When set to 0, (the initial default), client load balancing is not used and the driver connects to each database server based on its sequential order (primary server first, then, alternate servers in the order they are specified).
+</div>
+<a name="wp653017"> </a><div class="pCellBody">
+NOTE: This attribute has no effect unless alternate servers are defined for the AlternateServers connection string attribute.
+</div>
+<a name="wp650553"> </a><div class="pCellBody">
+The LoadBalancing connection string attribute is an optional setting that you can use in conjunction with connection failover. See <a  href="Rdb210.html#wp649379">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650559"> </a><div class="pCellBody">
+Location (LOC)
+</div>
+</td>
+    <td><a name="wp650561"> </a><div class="pCellBody">
+A path that specifies the DB2 location name. Use the name defined during the local DB2 installation. This attribute is valid and required only if you are connecting to DB2 on OS/390 or AS/400. Refer to the Location description under <a  href="Rdb24.html#wp600945">&quot;Configuration of DB2 for OS/390&quot;</a> and <a  href="Rdb24.html#wp600986">&quot;Configuration of DB2 for AS/400&quot;</a> for OS/390 and AS/400, respectively.
+</div>
+<a name="wp650568"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Location Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650571"> </a><div class="pCellBody">
+LogonID (UID)
+</div>
+</td>
+    <td><a name="wp650573"> </a><div class="pCellBody">
+The default logon ID used to connect to your DB2 database. A logon ID is required only if security is enabled on your database. If so, contact your system administrator to get your logon ID.
+</div>
+<a name="wp650574"> </a><div class="pCellBody">
+For DB2 on UNIX, normal UNIX security is used. The LogonID value is your UNIX user ID.
+</div>
+<a name="wp650575"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Default User ID.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650595"> </a><div class="pCellBody">
+PackageOwner			 (PO)
+</div>
+</td>
+    <td><a name="wp650597"> </a><div class="pCellBody">
+The AuthID assigned to the bind package. This DB2 AuthID must have authority to execute all the SQL in the package (optional).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650600"> </a><div class="pCellBody">
+Password (PWD)
+</div>
+</td>
+    <td><a name="wp650602"> </a><div class="pCellBody">
+A password used to connect to your DB2 database.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp654768"> </a><div class="pCellBody">
+ReportCodepage<br />ConversionErrors (RCCE)
+</div>
+</td>
+    <td><a name="wp654772"> </a><div class="pCellBody">
+ReportCodePageConversionErrors={0 | 1 | 2}. Provides flexibility for the way in which the driver returns error or warning messages associated with code page conversion. 
+</div>
+<a name="wp654773"> </a><div class="pCellBody">
+When set to 0 (the initial default), if the driver encounters code page conversion errors (a character cannot be converted from one character set to another), it substitutes 0x1A for each character that cannot be converted and does not return a warning or error.
+</div>
+<a name="wp654774"> </a><div class="pCellBody">
+Settings 1 and 2 apply both to all ODBC API calls that could cause a conversion error and to all code page conversions to/from the database and to/from the application. The error or warning returned is, <code class="cCode">Code page conversion error encountered</code>. In the case of parameter data conversion errors, the driver adds the following sentence: <code class="cCode">Error in parameter </code><code><em>x</em></code>, where <code><em>x</em></code> is the parameter number. The standard rules for returning specific row and column errors for bulk operations still apply.
+</div>
+<a name="wp654775"> </a><div class="pCellBody">
+When set to 1, if the driver encounters code page conversion errors, it returns an error instead of substituting 0x1A for unconverted characters.
+</div>
+<a name="wp654776"> </a><div class="pCellBody">
+When set to 2, if the driver encounters code page conversion errors, it substitutes 0x1A for each character that cannot be converted and returns a warning.
+</div>
+<a name="wp654778"> </a><p class="pBody">
+&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650605"> </a><div class="pCellBody">
+SecurityMechanism (SM)
+</div>
+</td>
+    <td><a name="wp650607"> </a><div class="pCellBody">
+SecurityMechanism={0 | 1 | 2}. Determines the security method the driver uses to authenticate the user to the DB2 server when a connection is established. 
+</div>
+<a name="wp650608"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver sends the user ID and password in clear text to the DB2 server for authentication.
+</div>
+<a name="wp650609"> </a><div class="pCellBody">
+When set to 1, the driver sends an encrypted password to the DB2 server for authentication.
+</div>
+<a name="wp650610"> </a><div class="pCellBody">
+When set to 2, the driver sends an encrypted user ID and password to the DB2 server for authentication.
+</div>
+<a name="wp650611"> </a><div class="pCellBody">
+If the specified authentication method is not supported by the DB2 server, the connection fails and the driver generates an error.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650615"> </a><div class="pCellBody">
+TcpPort (PORT)
+</div>
+</td>
+    <td><a name="wp650617"> </a><div class="pCellBody">
+The port number that is assigned to the DB2 DRDA listener process on the server host machine. Specify this port&#39;s numeric address or its name (5179 is the initial default port address). If you specify a port name, the driver must find this name (with the correct port assignment) in the SERVICES file on the workstation.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650620"> </a><div class="pCellBody">
+UseCurrentSchema (UCS)
+</div>
+</td>
+    <td><a name="wp650622"> </a><div class="pCellBody">
+UseCurrentSchema={		0 | 1}. Specifies whether results are restricted to the tables in the current catalog if a catalog function call is made either without specifying a catalog or specifying the catalog as the wildcard character %. Restricting results to tables in the current catalog improves the performance of calls that do not specify a catalog.
+</div>
+<a name="wp650623"> </a><div class="pCellBody">
+When set to 1, results returned from catalog function calls are restricted to the tables in the current catalog.
+</div>
+<a name="wp650624"> </a><div class="pCellBody">
+When set to 0 (the initial default), results returned from catalog function calls are not restricted.
+</div>
+<a name="wp650625"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Use Current Schema for Catalog Functions.
+</div>
+<a name="wp650628"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Rdb27.html#wp652286">&quot;Performance Considerations&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp650632"> </a><div class="pCellBody">
+WithHold			 (WH)		
+</div>
+</td>
+    <td><a name="wp650634"> </a><div class="pCellBody">
+WithHold		={		0 | 1}. Specifies the cursor behavior for the application used with this data source&#8212;either DB2 closes all open cursors after a commit or rollback (Delete cursors), or leaves them open (Preserve cursors).
+</div>
+<a name="wp650635"> </a><div class="pCellBody">
+When set to 1 (the initial default), the cursor behavior is Preserve (SQLGetInfo( ) returns SQL_CB_PRESERVE for SQL_COMMIT_CURSOR_BEHAVIOR).
+</div>
+<a name="wp650636"> </a><div class="pCellBody">
+When set to 0, the cursor behavior is Delete ( SQLGetInfo( ) returns SQL_CB_DELETE). For information about this function, refer to the Microsoft ODBC API. The equivalent Setup dialog box option is Database Directory.
+</div>
+<a name="wp650637"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is With Hold Cursors.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

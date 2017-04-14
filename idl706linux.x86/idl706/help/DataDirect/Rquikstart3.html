@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:15:28" />
+  <title>Connecting and Testing on UNIX</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp578795"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting and Testing on UNIX
+</h1>
+<hr /><a name="wp579233"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixa2.gif" height="38" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">The following basic information enables you to connect with and test a driver immediately after installation. The command samples assume that you are executing from within the Korn (ksh) shell. See <a  href="unixenviron.html#wp518848">&quot;The UNIX Environments&quot;</a> for detailed information about configuring the driver in UNIX environments.
+</p>
+<a name="wp579238"> </a><h3 class="pHeading2">
+Environment Setup
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp579239"> </a><div class="pSmartList1"><li>	Check your permissions: You should log in as a user with full r/w/x permissions recursively on the entire product installation directory.</li></div><a name="wp579240"> </a><div class="pSmartList1"><li>	Determine which shell you are running by executing the <code class="cCode">env</code> command.</li></div><a name="wp579241"> </a><div class="pSmartList1"><li>	Run the DataDirect Technologies setup script to set variables. Two scripts, odbc.csh and odbc.sh, are installed in the installation directory. For Korn, Borne and equivalent shells, execute odbc.sh. For a C shell, execute odbc.csh. After running the setup script, execute the env command to verify that the <em class="cEmphasis">installation_directory</em>/lib directory has been added to your shared library path.</li></div><a name="wp579242"> </a><div class="pSmartList1"><li>Set the ODBCINI environment variable. The variable should point to the path from the root directory to the system information file where your data source will reside. The system information file can have any name, but the product is installed with a default template file called odbc.ini in the installation directory. For example, if you use the default installation directory and the default system information file, you would enter:</li></div><a name="wp580273"> </a><p class="pSyntaxEmbed">
+$ ODBCINI=/opt/odbc/odbc.ini; export ODBCINI
+</p>
+</ol></div>
+<a name="wp579244"> </a><h3 class="pHeading2">
+Test Loading the Driver
+</h3>
+<a name="wp579550"> </a><p class="pBody">
+The ivtestlib tool, located in the <em class="cEmphasis">installation_directory</em>/bin directory, is a utility to verify that the driver can be loaded into memory. For example, to load a driver you would enter:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+$ ivtestlib /opt/odbc/lib/<em class="cEmphasis">driver_shared_object_name</em><a name="wp580301"> </a>
+</pre></div>
+<a name="wp582041"> </a><p class="pBody">
+where <em class="cEmphasis">driver_shared_object_name</em> is the name of the specific driver file. For example, the Oracle Wire Protocol on Solaris is ivora20.so.
+</p>
+<a name="wp582042"> </a><p class="pBody">
+An error message is returned if the load is not successful.
+</p>
+<a name="wp579248"> </a><h3 class="pHeading2">
+Configuring a Data Source in the System Information File
+</h3>
+<a name="wp579916"> </a><p class="pBody">
+In the UNIX environment, there is no ODBC Administrator. To configure a data source in the UNIX environment, you must edit the system information file (by default, odbc.ini) to which the ODBCINI variable points. The default odbc.ini installed in the installation directory is a template into which you enter your site-specific database connection information. Using a text editor, you modify the default attributes in the file as necessary based on your system (for example, your server name and port number). Consult the &quot;Connection String Attributes&quot; table of each driver  topic for specific connection attribute values. You must also edit this file to perform a translation. See <a  href="unixenviron.html#wp518848">&quot;The UNIX Environments&quot;</a> for information about editing the file.
+</p>
+<a name="wp579254"> </a><p class="pBody">
+IMPORTANT: The &quot;Connection String Attributes&quot; table of each driver  topic lists both the long and short name of the attribute. When entering attribute names into odbc.ini, you must use the long name of the attribute. The short name is not valid in the odbc.ini file.
+</p>
+<a name="wp579255"> </a><h3 class="pHeading2">
+Testing the Connection
+</h3>
+<a name="wp579256"> </a><p class="pBody">
+The product installation includes an ODBC application called example that can be used to connect to a data source and execute SQL. The application is located in the <em class="cEmphasis">installation_directory</em>/example directory.
+</p>
+<a name="wp582066"> </a><p class="pBody">
+To run the program after setting up a data source in the odbc.ini, enter <code class="cCode">example</code> and follow the prompts to enter your data source name, user name, and password. If successful, a <code class="cCode">SQL&gt;</code> prompt appears and you can type in SQL statements such as <code class="cCode">SELECT * FROM table</code>. If example is unable to connect, the appropriate error message appears.
+</p>
+<a name="wp579200"> </a><p class="pBody">
+
+</p>
+<a name="wp579186"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

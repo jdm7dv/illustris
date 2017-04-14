@@ -1,0 +1,327 @@
+------------------------------------------------------------
+Index file: <IDL_Directory>
+              examples
+                data
+------------------------------------------------------------
+
+
+This file describes the data files in this directory. Files with
+the extension "dat" may be either binary data files or IDL Restore
+files (created with the IDL SAVE procedure). If the file is a
+Restore file, the names of the variables contained therein are
+listed.
+
+File               Size                     Description
+                   (Cols,Rows,Images,Bits)
+
+abnorm.dat         64 x 64 x 15 x 8         Gated blood pool
+
+africavlc.png      540 x 560                From the EROS Data
+                                            Center, Africa land
+                                            cover characteristics
+                                            image, Distributed
+                                            Active Archive Center
+                                            web site hosted by USGS
+                                            NASA Distributed Active
+                                            Archive Center. Data
+                                            provided by the U.S.
+                                            Geological Survey's
+                                            EROS Data Center in
+                                            Sioux Falls, SD
+
+afrpolitsm.png     600 x 600                Political map of Africa
+                                            adapted from CIA's public
+                                            domain World Factbook 2000
+
+alie.dat           64 x 64 x 24 x 8         Gated blood pool
+
+ascii.dat          n/a                      Example ASCII data file
+
+ascii.txt          n/a                    ASCII format weather data
+
+avhrr.png          720 x 360                An indexed image of the
+                                            earth derived from an
+                                            AVHRR file
+
+cduskcD1400.sav    n/a                      Black Hole volume data
+                                            provided by the University
+                                            of North Carolina as part
+                                            of the Princeton Plasma
+                                            Physics Lab Visualization
+                                            Development Environments
+                                            Toolkit Showdown held in
+                                            April of 2001, Restore file
+                   30 x 30 x 15             DENSITY variable
+                   30 x 30 x 15             MASSFLUX variable
+                   30 x 30 x 15             VELOCITY variable
+
+cereb.dat          512 x 512 x 2 x 8        Brain X ray
+
+chirp.dat          512 x 1                  Sine Wave Increasing
+                                            Exponentially in Frequency
+                                            
+Clouds.jpg	   1024 x 512		    Global map with cloud data. Clouds
+                                            in red channel and gloss in green.
+                                            Reto Stöckli, NASA/Goddard Space 
+                                            Flight Center.
+                                            
+clouds3d.dat                                Volume measurements, Restore file
+                   55 x 55 x 32             CLOUDS variable
+                   55 x 55 x 32             RAIN variable
+
+continent_mask.dat 360 x 360 x 1 x 8        Mask of the World Elevation
+                                            data from the worldelv.dat file.
+                                            The oceans are set to 0, and
+                                            the continents are set to 1.
+
+convec.dat         248 x 248 x 1 x 8        Earth mantle convection
+
+ctbone157.jpg      483 x 410                CT bone scan of a human
+                                            thorax from the Labeled
+                                            Visible Human CD - Male,
+                                            version 2.0
+
+ctscan.dat         256 x 256 x 1 x 8        Cat Scan of Thorasic Cavity
+
+damp_sn.dat        512 x 1                  Damped Sine Wave with Severe
+                                            High Frequency Noise
+
+damp_sn2.dat       512 x 1                  Damped Sine Wave with Subtle
+                                            High Frequency Noise
+
+data.txt           n/a                      Index for simple binary files
+                                            in this directory, designed for
+                                            use by IDL programs. Data.txt
+                                            should not list Restore or
+                                            image format files (JPEG,
+                                            TIFF, etc.).
+                                            
+Day.jpg	           1024 x 512		    Global map with land cover, 1 km 
+                                            resolution. Reto Stöckli, 
+                                            NASA/Goddard Space Flight Center.                                            
+
+dirty_sine.dat     256 x 1                  Sine Wave with High Frequency
+                                            Noise
+
+elev_t.jpg         512 x 512                Pixel-interleaved RGB image
+                                            of a mountainous coastline
+
+elevbin.dat        64 x 64 x 1 x 8          DEM (Digital Elevation Model)
+                                            of the coastline image provided
+                                            in the elev_t.jpg file
+
+elnino.dat         500 x 1 x 1 x 24         Ocean temperature floating-point
+                                            data measured in the Eastern
+                                            Pacific over a 100 year
+                                            period. (Data uses little-
+                                            endian byte ordering.)
+
+endocell.jpg       615 x 416                Photomicrograph of cultured
+                                            endothelial cells derived from
+                                            bovine coronary venules. (Image
+                                            courtesy of Michael J.  Davis,
+                                            Ph.D., College of Medicine,
+                                            Texas A&M University) 
+
+examples.tif       500 x 300 x 1 x 8        Example TIFF file used by
+                                            examples
+
+galaxy.dat         256 x 256 x 1 x 8        Image of a Galaxy
+
+globalwinds.dat    n/a                      Save file containing wind data
+                                            used in IVECTOR examples:
+                   128 x 64                 U variable
+                   128 x 64                 V variable
+                   128                      X variable
+                    64                      Y variable
+
+glowing_gas.jpg    350 x 371                24-bit NASA Hubble Space
+                                            Telescope JPEG image of an
+                                            expanding shell of glowing gas
+                                            surrounding a hot, massive
+                                            star in Milky Way Galaxy,
+                                            known as the Bubble Nebula,
+                                            NGC 7635. (Image courtesy of
+                                            Hubble Heritage Team - AURA,
+                                            STScI, and NASA)
+
+hdf5.test.h5       n/a                      An HDF 5 files containing
+                                            mutliple data types
+
+head.dat           80 x 100 x 57 x 8        57 MRI slices of the human head
+
+head_ct.dcm        512 x 512                DICOM file of a human head
+                                            from a CAT scanner
+
+head_pt.dcm        128 x 128                DICOM file of a human head
+                                            from a PET scanner
+
+heart.dxf          n/a                      13 polylines and 1624 polygonal
+                                            faces representing a heart
+                                            (stored in the DXF file format)
+
+hurric.dat         440 x 340 x 1 x 8        Hurricane Gilbert
+
+idemosurf.dat      200 x 200 x 1 x 24       Example surface data
+
+image.tif          768 x 512                Aerial view of New York City
+
+index.txt          n/a                      This file.  Index of all files.
+
+irreg_grid1.txt    n/a                      ASCII file containing scattered
+                                            elevation (2D) data of a model
+                                            of an inlet
+
+irreg_grid2.txt    n/a                      ASCII file containing bore
+                                            hole (3D) data for a square
+                                            mile of land
+
+jet.dat            81 x 40 x 101 x 8        Plasma Jet (from Slicer)
+
+m51.dat            340 x 440 x 1 x 8        Whirlpool galaxy M51
+
+marbells.dat       n/a                      Maroon Bells elevation,
+                                            Restore file
+                   360 x 460                ELEV variable
+
+marsglobe.jpg      400 x 400                Global mosaic of Mars,
+                                            Syrtis Major region, from the
+                                            NSSDC's Photo Gallery
+
+md1107g8a.jpg      440 x 467                Cross-section of skull from
+                                            Visible Human 2.0 Male CD
+
+md5290fc1.jpg      256 x 350                Cross-section of side view
+                                            of human head and neck from
+                                            Visible Human 2.0 Male CD
+
+meteor_crater.jpg  250 x 230                Landsat 4 NASA image of
+                                            Barringer Meteor Crater outside
+                                            of Winslow, Arizona
+
+mineral.png        288 x 216                Backscattered electron image
+                                            (in compositional mode from a
+                                            scanning electron microscope)
+                                            of mineral deposits in a sample
+                                            of polished granite and gneiss.
+                                            (Image courtesy of Gregory
+                                            Rudoman, University Microscopy
+                                            Imaging Center, SUNY Stony Brook)
+
+mr_abdomen.dcm     256 x 256 x 16 x 8       Magnetic resonance images of a
+                                            human abdomen (stored in DICOM
+                                            format)
+
+mr_brain.dcm       256 x 256 x 1 x 12       Magnetic resonance image of a
+                                            human brain (stored in DICOM
+                                            format)
+
+mr_knee.dcm        256 x 256 x 1 x 12       Magnetic resonance image of a
+                                            human knee (stored in DICOM
+                                            format).
+
+muscle.jpg         652 x 444                Photomicrograph of cultured
+                                            vascular smooth muscle cells
+                                            derived from pig coronary artery
+                                            (stored in JPEG format.) (Image
+                                            courtesy of Michael J.  Davis,
+                                            Ph.D., College of Medicine,
+                                            Texas A&M University) 
+
+n_vasinfecta.jpg   410 x 300                Cultured Neocosmospora
+                                            vasinfecta, a common plant
+                                            fungal pathogen.  Image from
+                                            CDC journal, Emerging
+                                            Infectious Diseases, Vol. 7,
+                                            No. 1, Jan-Feb. 2001
+                                            
+Night.jpg	   1024 x 512		    Global map city lights, 1km 
+                                            resolution. Reto Stöckli, 
+                                            NASA/Goddard Space Flight Center.                                            
+
+num_array.xml      n/a                      Sample XML data
+
+nyny.dat           768 x 512 x 1 x 8        Aerial view of New York City
+
+ohare.jpg          3 x 5000 x 5000          JPEG image of O'Hare
+                                            International airport
+
+pdthorax124.jpg    256 x 256                MRI proton density scan of a
+                                            human thorax from the Labeled
+                                            Visible Human CD - Male,
+                                            version 2.0
+
+people.dat         192 x 192 x 2 x 8        Images of two employees
+
+people.idx         n/a                      Ascii index to images in
+                                            people.jpg
+
+people.jpg         n/a                      Images of employees
+
+planets.xml        n/a                      Sample XML data
+
+plot.txt           n/a                      Sample data for 2D
+                                            plotting examples
+
+plot_data.sav      n/a                      SAVE file containing sample
+                                            data read from plot.txt file.
+                   9-element vector         Temp variable
+                   9-element vector         Temp1 variable
+                   9-element vector         Temp2 variable
+
+r_seeberi.jpg      410 x 300                Image of human nasal polyp
+                                            showing Rhino-sporidium seeberi
+                                            organisms from CDC journal,
+                                            Emerging Infectious Diseases,
+                                            Vol. 6, No. 3, May-June 2000
+
+r_seeberi_spore.jpg 260 x 240               Rhinosporidium seeberi
+                                            sporangium from CDC journal,
+                                            Emergin Infectious Diseases,
+                                            Vol. 6, No. 3, May-June 2000
+
+rbcells.jpg        432 x 389                Photomicrograph of human red
+                                            blood cells in a slightly
+                                            hypotonic solution that
+                                            increases their volume.
+                                            (Image courtesy of Michael
+                                            J.  Davis, Ph.D., College of
+                                            Medicine, Texas A&M University) 
+
+rockland.png       320 x 461                24-bit PNG image of a
+                                            saturation composite produced
+                                            over a 24 hour period in
+                                            Rockland, Maine
+
+rose.jpg           227 x 149                24-bit JPEG image
+
+shifted_endocell.png 615 x 416              Shifted endocell.png image file
+
+sine_waves.txt     n/a                      An ASCII data file containing
+                                            data combined from the chirp.dat
+                                            file and the damp_sn.dat file
+
+states.dbf         n/a                      Database table for example
+                                            ESRI shapefile 'states'
+
+states.shp         n/a                      Example ESRI shapefile
+
+states.shx         n/a                      Index file for example
+                                            ESRI shapefile 'states'
+
+surface.dat        350 x 450 x 1 x 16       The Maroon Bells elevation data
+                                            from the marbells.dat file
+                                            stored as integer data in this
+                                            binary file
+
+test_gs.sid        n/a                      An example MrSID file                       
+us_test.dcm        640 x 480 x 1 x 8        RGB color-by-plane ultrasound
+                                            image (stored in DICOM format)
+
+vattr_example.hdf  n/a                      Scientific Data Format
+                                            (HDF) example file with
+                                            VData attributes
+
+worldelv.dat       360 x 360 x 1 x 8        World Elevation data
+
+

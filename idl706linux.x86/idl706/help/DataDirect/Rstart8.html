@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/14/04 11:47:58" />
+  <title>Version String Information</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp584370"> </a><h1 class="pNewHTMLPageNoNum">
+Version String Information
+</h1>
+<hr /><a name="wp584460"> </a><p class="pBody">
+Each driver has a version string of the format:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code><em>X</em></code>.<code><em>YY</em></code>.<code><em>ZZZZ</em></code>(B<code><em>AAAA</em></code>, U<code><em>BBBB</em></code>, F<code><em>CCCC</em></code>)<a name="wp584462"> </a>
+</pre></div>
+<a name="wp584464"> </a><p class="pBody">
+where:
+</p>
+<a name="wp584873"> </a><p class="pBody">
+<code><em>X</em></code> is the major version of the product.
+</p>
+<a name="wp584874"> </a><p class="pBody">
+<code><em>YY</em></code> is the minor version of the product.
+</p>
+<a name="wp584875"> </a><p class="pBody">
+<code><em>ZZZZ</em></code> is the build number of the driver component.
+</p>
+<a name="wp584468"> </a><p class="pBody">
+<code><em>AAAA</em></code> is the build number of the driver&#39;s bas component.
+</p>
+<a name="wp584469"> </a><p class="pBody">
+<code><em>BBBB</em></code> is the build number of the driver&#39;s utl component.
+</p>
+<a name="wp584470"> </a><p class="pBody">
+<code><em>CCCC</em></code> is the build number of a flat-file driver&#39;s flt component.
+</p>
+<a name="wp584472"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+5.0.0002 (B0001, U0002, F0001)<a name="wp584895"> </a>
+    |__|  |___|  |___|  |___|<a name="wp584473"> </a>
+   Driver  Bas    Utl    Flt<a name="wp584474"> </a>
+</pre></div>
+<a name="wp584480"> </a><p class="pBody">
+On Windows XP and 2003, you can check the version string through the properties of the driver DLL. Right-click the driver DLL and select <b class="cBold">Properties</b>. The Properties dialog box appears. On the Version tab, click <b class="cBold">File Version</b> in the Other version information list box.
+</p>
+<a name="wp584485"> </a><p class="pBody">
+On all other supported Windows platforms, you can check the version string of the drivers from the ODBC Administrator, on the About tab.
+</p>
+<a name="wp584488"> </a><p class="pBody">
+On UNIX, you can check the version string by using the ivtestlib tool shipped with the product. This tool is located in <em class="cEmphasis">install_directory</em>/bin.
+</p>
+<a name="wp584490"> </a><p class="pBody">
+Use the following command line:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ivtestlib <code><em>driver_shared_object</em></code><a name="wp584492"> </a>
+</pre></div>
+<a name="wp584494"> </a><p class="pBody">
+For example, for the Oracle driver:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ivtestlib ivora20.so<a name="wp584496"> </a>
+5.0.0001 (B0002, U0001)<a name="wp584958"> </a>
+</pre></div>
+<a name="wp584500"> </a><p class="pBody">
+Note that the Oracle driver is not a flat-file driver; therefore, there is no flt component listed in the example.
+</p>
+<a name="wp599665"> </a><p class="pBody">
+NOTE: On Solaris, AIX, and Linux, the full path to the driver does not have to be specified for ivtestlib. The HP-UX version of ivtestlib, however, requires the full path.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

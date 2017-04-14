@@ -1,0 +1,5 @@
+#Eclipse Product File
+#Mon Jan 26 17:05:15 MST 2009
+version=7.0.6
+name=%productName
+id=com.rsi.idldt.workbench

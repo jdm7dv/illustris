@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:44" />
+  <title>The System Information File (odbc.ini)</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp527615"> </a><h1 class="pNewHTMLPageNoNum">
+The System Information File (odbc.ini)
+</h1>
+<hr /><a name="wp541447"> </a><p class="pBody">
+In the UNIX environments, there is no ODBC Administrator, but the use of centralized system information file is permitted. To configure a data source, you must create a data source definition by editing the system information file. DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> installs a default version of this file, called odbc.ini, in the installation directory (see <a  href="Runixenv2.html#wp530141">&quot;ODBCINI&quot;</a> for details about relocating and renaming this file). This a plain text file that can be modified using any text editor to create data source definitions. Modify the default attributes in this file as necessary based on your system (for example, your server name and port number). Consult the &quot;Connection String Attributes&quot; table of each driver  topic for specific attribute values. 
+</p>
+<a name="wp531835"> </a><p class="pBody">
+IMPORTANT: The &quot;Connection String Attributes&quot; table of each driver  topic lists both the long and short name of the attribute. When entering attribute names into odbc.ini, you must use the long name of the attribute. The short name is not valid in the odbc.ini file.
+</p>
+<a name="wp518393"> </a><p class="pBody">
+There must be an [ODBC] section in the system information file that includes the InstallDir keyword. The value of this keyword must be the path to the installation directory under which the /lib and /messages directories are contained. The installation process automatically writes your installation directory to the default odbc.ini.
+</p>
+<a name="wp531970"> </a><p class="pBody">
+For example, if you choose the default installation directory, then the following line is written to the [ODBC] section of the default odbc.ini:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+InstallDir=/opt/odbc32v50<a name="wp535371"> </a>
+</pre></div>
+<a name="wp529933"> </a><p class="pBody">
+See <a  href="Runixenv4.html#wp529209">&quot;Sample AIX System Information File&quot;</a> for an example.
+</p>
+<a name="wp536319"> </a><h3 class="pHeading2">
+Translators
+</h3>
+<a name="wp536320"> </a><p class="pBody">
+DataDirect provides a sample translator named &quot;OEM to ANSI&quot; that provides a framework for coding a translation library.
+</p>
+<a name="wp536393"> </a><p class="pBody">
+To perform a translation, you must include the keyword TranslationSharedLibrary in the data source sections of the system information file (see <a  href="Runixenv4.html#wp529209">&quot;Sample AIX System Information File&quot;</a>). Adding the TranslationOption keyword is optional.
+</p>
+<a name="wp536335"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp536324"> </a><div class="pCellHeading">
+Keyword
+</div>
+</th>
+    <th><a name="wp536326"> </a><div class="pCellHeading">
+Definition
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp536328"> </a><div class="pCellBody">
+TranslationSharedLibrary
+</div>
+</td>
+    <td><a name="wp536330"> </a><div class="pCellBody">
+Full path of translation library
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp536332"> </a><div class="pCellBody">
+TranslationOption
+</div>
+</td>
+    <td><a name="wp536334"> </a><div class="pCellBody">
+ASCII representation of the 32-bit integer translation option
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp536336"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+[Sybase]<a name="wp536337"> </a>
+Driver=ODBCHOME/lib/ivase20.so<a name="wp536338"> </a>
+Description=DataDirect 5.0 Sybase Wire Protocol<a name="wp536339"> </a>
+TranslationSharedLibrary=ODBCHOME/lib/ivtrn20.so<a name="wp536340"> </a>
+</pre></div>
+<a name="wp553443"> </a><p class="pBody">
+See the readme.trn file in the /src/trn directory beneath the product installation directory.
+</p>
+<a name="wp529209"> </a><h3 class="pHeading2">
+Sample AIX System Information File
+</h3>
+<a name="wp543445"> </a><p class="pBody">
+The following is a sample AIX odbc.ini file that DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> installs in the installation directory. All occurrences of ODBCHOME are replaced with your installation directory path during installation of the file. Values that you must supply are enclosed by angle brackets (&lt; &gt;). If you are using the supplied odbc.ini file, you must supply these values and remove the angle brackets before that data source section will operate properly. Commented lines are denoted by the # symbol.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+[ODBC Data Sources]<a name="wp555119"> </a>
+DB2 Wire Protocol=DataDirect 5.0 DB2 Wire Protocol<a name="wp555120"> </a>
+dBase=DataDirect 5.0 dBaseFile(*.dbf)<a name="wp555121"> </a>
+FoxPro3=DataDirect 5.0 dBaseFile(*.dbf)<a name="wp535392"> </a>
+Informix Wire Protocol=DataDirect 5.0 Informix Wire Protocol<a name="wp555325"> </a>
+Informix=DataDirect 5.0 Informix<a name="wp555235"> </a>
+Oracle Wire Protocol=DataDirect 5.0 Oracle Wire Protocol<a name="wp555339"> </a>
+Oracle=DataDirect 5.0 Oracle<a name="wp547423"> </a>
+Progress OpenEdge=DataDirect 5.0 Progress OpenEdge<a name="wp535397"> </a>
+Progress SQL92=DataDirect 5.0 Progress SQL92<a name="wp545946"> </a>
+SQLServer Wire Protocol=DataDirect 5.0 SQL Server Wire Protocol<a name="wp535398"> </a>
+Sybase Wire Protocol=DataDirect 5.0 Sybase<a name="wp535399"> </a>
+Text=DataDirect 5.0 TextFile(*.*)<a name="wp535400"> </a>
+<a name="wp535401"> </a>
+[DB2 Wire Protocol]<a name="wp554868"> </a>
+Driver=ODBCHOME/lib/ivdb220<em class="cEmphasis">.</em>so<a name="wp554869"> </a>
+Description=DataDirect 5.0 DB2 Wire Protocol<a name="wp554870"> </a>
+AddStringToCreateTable=<a name="wp535405"> </a>
+AlternateID=<a name="wp535406"> </a>
+AlternateServers=<a name="wp541011"> </a>
+ApplicationUsingThreads=1<a name="wp545486"> </a>
+CatalogSchema=<a name="wp535407"> </a>
+CharsetFor65535=0<a name="wp545394"> </a>
+#Collection applies to OS/390 and AS/400 only<a name="wp545402"> </a>
+Collection=<a name="wp554996"> </a>
+ConnectionRetryCount=0<a name="wp545601"> </a>
+ConnectionRetryDelay=3<a name="wp545788"> </a>
+#Database applies to DB2 UDB only<a name="wp555023"> </a>
+Database=&lt;database_name&gt;<a name="wp545604"> </a>
+DynamicSections=200<a name="wp535409"> </a>
+GrantAuthid=PUBLIC<a name="wp535410"> </a>
+GrantExecute=1<a name="wp535411"> </a>
+IpAddress=&lt;DB2_server_host&gt;<a name="wp535412"> </a>
+LoadBalancing=0<a name="wp545795"> </a>
+#Location applies to OS/390 and AS/400 only<a name="wp555067"> </a>
+Location=&lt;location_name&gt;<a name="wp555068"> </a>
+LogonID=<a name="wp555069"> </a>
+Password=<a name="wp535416"> </a>
+PackageOwner=<a name="wp535418"> </a>
+ReportCodePageConversionErrors=0<a name="wp545097"> </a>
+SecurityMechanism=0<a name="wp535419"> </a>
+TcpPort=&lt;DB2_server_port&gt;<a name="wp545381"> </a>
+UseCurrentSchema=1<a name="wp545370"> </a>
+WithHold=1<a name="wp545345"> </a>
+<a name="wp545347"> </a>
+[dBase]<a name="wp545350"> </a>
+Driver=ODBCHOME/lib/ivdbf20.so<a name="wp535423"> </a>
+Description=DataDirect 5.0 dBaseFile(*.dbf)<a name="wp535424"> </a>
+ApplicationUsingThreads=1<a name="wp535425"> </a>
+CacheSize=4<a name="wp535426"> </a>
+CreateType=dBASE5<a name="wp535427"> </a>
+Database=ODBCHOME/demo<a name="wp535428"> </a>
+DataFileExtension=DBF<a name="wp535429"> </a>
+ExtensionCase=UPPER<a name="wp535430"> </a>
+FileOpenCache=0<a name="wp535431"> </a>
+IntlSort=0<a name="wp535432"> </a>
+LockCompatibility=dBASE<a name="wp535433"> </a>
+Locking=RECORD<a name="wp535434"> </a>
+UseLongNames=0<a name="wp535435"> </a>
+UseLongQualifiers=0<a name="wp535436"> </a>
+<a name="wp535437"> </a>
+[FoxPro3]<a name="wp535438"> </a>
+Driver=ODBCHOME/lib/ivdbf20.so<a name="wp535439"> </a>
+Description=DataDirect 5.0 dBaseFile(*.dbf)<a name="wp535440"> </a>
+ApplicationUsingThreads=1<a name="wp535441"> </a>
+CacheSize=4<a name="wp535442"> </a>
+CreateType=FoxPro30<a name="wp535443"> </a>
+Database=ODBCHOME/demo<a name="wp535444"> </a>
+DataFileExtension=DBF<a name="wp535445"> </a>
+ExtensionCase=UPPER<a name="wp535446"> </a>
+FileOpenCache=0<a name="wp535447"> </a>
+IntlSort=0<a name="wp535448"> </a>
+LockCompatibility=Fox<a name="wp535449"> </a>
+Locking=RECORD<a name="wp535450"> </a>
+UseLongNames=0<a name="wp535451"> </a>
+UseLongQualifiers=0<a name="wp535452"> </a>
+<a name="wp535453"> </a>
+[Informix Wire Protocol]<a name="wp547469"> </a>
+Driver=ODBCHOME/lib/ivifcl20.so<a name="wp547470"> </a>
+Description=DataDirect 5.0 Informix Wire Protocol<a name="wp547471"> </a>
+AlternateServers=<a name="wp547472"> </a>
+ApplicationUsingThreads=1<a name="wp547473"> </a>
+CancelDetectInterval=0<a name="wp547474"> </a>
+ConnectionRetryCount=0<a name="wp547475"> </a>
+ConnectionRetryDelay=3<a name="wp547476"> </a>
+Database=&lt;database_name&gt;<a name="wp547477"> </a>
+HostName=&lt;Informix_host&gt;<a name="wp547478"> </a>
+LoadBalancing=0<a name="wp547479"> </a>
+LogonID=<a name="wp547480"> </a>
+Password=<a name="wp547481"> </a>
+PortNumber=&lt;Informix_server_port&gt;<a name="wp547482"> </a>
+ServerName=&lt;Informix_server&gt;<a name="wp547484"> </a>
+TrimBlankFromIndexName=1<a name="wp547485"> </a>
+<a name="wp547486"> </a>
+[Informix]<a name="wp535454"> </a>
+#In the following line, replace &lt;AIX_driver_file&gt; with<a name="wp537466"> </a>
+#ivinf20.so on AIX 4.3.x or with ivinf5120.so on AIX 5L<a name="wp537419"> </a>
+Driver=ODBCHOME/lib/&lt;AIX_driver_file&gt;<a name="wp537472"> </a>
+Description=DataDirect 5.0 Informix<a name="wp535456"> </a>
+ApplicationUsingThreads=1<a name="wp535457"> </a>
+CancelDetectInterval=0<a name="wp535458"> </a>
+CursorBehavior=0<a name="wp535459"> </a>
+Database=&lt;database_name&gt;<a name="wp535460"> </a>
+EnableInsertCursors=0<a name="wp535461"> </a>
+GetDBListFromInformix=1<a name="wp535462"> </a>
+HostName=&lt;Informix_host&gt;<a name="wp535463"> </a>
+LogonID=<a name="wp535464"> </a>
+Password=<a name="wp535465"> </a>
+Protocol=onsoctcp<a name="wp535466"> </a>
+ServerName=&lt;Informix_server&gt;<a name="wp535467"> </a>
+Service=&lt;Informix_service_name&gt;<a name="wp535468"> </a>
+TrimBlankFromIndexName=1<a name="wp535469"> </a>
+<a name="wp535470"> </a>
+[Oracle Wire Protocol]<a name="wp555722"> </a>
+Driver=ODBCHOME/lib/ivora20.so<a name="wp555723"> </a>
+Description=DataDirect 5.0 Oracle Wire Protocol<a name="wp555724"> </a>
+AlternateServers=<a name="wp547538"> </a>
+ApplicationUsingThreads=1<a name="wp547539"> </a>
+ArraySize=60000<a name="wp547540"> </a>
+CachedCursorLimit=32<a name="wp547541"> </a>
+CachedDescLimit=0<a name="wp547542"> </a>
+CatalogIncludesSynonyms=1<a name="wp547543"> </a>
+CatalogOptions=0<a name="wp547544"> </a>
+ConnectionRetryCount=0<a name="wp547545"> </a>
+ConnectionRetryDelay=3<a name="wp547546"> </a>
+DefaultLongDataBuffLen=1024<a name="wp547547"> </a>
+DescribeAtPrepare=0<a name="wp547548"> </a>
+EnableDescribeParam=0<a name="wp547549"> </a>
+EnableNcharSupport=0<a name="wp547550"> </a>
+EnableScrollableCursors=1<a name="wp547551"> </a>
+EnableStaticCursorsForLongData=0<a name="wp547552"> </a>
+EnableTimestampWithTimeZone=0<a name="wp547553"> </a>
+HostName=&lt;Oracle_server&gt;<a name="wp547554"> </a>
+LoadBalancing=0<a name="wp547555"> </a>
+LocalTimeZoneOffset=<a name="wp547556"> </a>
+LockTimeOut=-1<a name="wp547557"> </a>
+LogonID=<a name="wp547558"> </a>
+Password=<a name="wp547559"> </a>
+PortNumber=1521<a name="wp547560"> </a>
+ProcedureRetResults=0<a name="wp547561"> </a>
+ReportCodePageConversionErrors=0<a name="wp547562"> </a>
+ServiceType=0<a name="wp547563"> </a>
+ServiceName=<a name="wp547564"> </a>
+SID=ORCL<a name="wp547565"> </a>
+TimestampeEscapeMapping=0<a name="wp547566"> </a>
+UseCurrentSchema=1<a name="wp547567"> </a>
+<a name="wp547568"> </a>
+[Oracle]<a name="wp535484"> </a>
+Driver=ODBCHOME/lib/ivor820.so<a name="wp535485"> </a>
+Description=DataDirect 5.0 Oracle<a name="wp535486"> </a>
+AlternateServers=<a name="wp545513"> </a>
+ApplicationUsingThreads=1<a name="wp535487"> </a>
+ArraySize=60000<a name="wp535488"> </a>
+CatalogIncludesSynonyms=1<a name="wp535489"> </a>
+CatalogOptions=0<a name="wp535490"> </a>
+ConnectionRetryCount=0<a name="wp545610"> </a>
+ConnectionRetryDelay=3<a name="wp545780"> </a>
+DefaultLongDataBuffLen=1024<a name="wp535491"> </a>
+DescribeAtPrepare=0<a name="wp535492"> </a>
+EnableDescribeParam=0<a name="wp535493"> </a>
+EnableNcharSupport=0<a name="wp535494"> </a>
+EnableScrollableCursors=1<a name="wp535495"> </a>
+EnableStaticCursorsForLongData=0<a name="wp535496"> </a>
+EnableTimestampWithTimeZone=0<a name="wp535497"> </a>
+LoadBalancing=0<a name="wp545803"> </a>
+LocalTimeZoneOffset=<a name="wp535498"> </a>
+LockTimeOut=-1<a name="wp535499"> </a>
+LogonID=<a name="wp535500"> </a>
+OptimizeLongPerformance=0<a name="wp535501"> </a>
+Password=<a name="wp535502"> </a>
+ProcedureRetResults=0<a name="wp535503"> </a>
+ReportCodePageConversionErrors=0<a name="wp545119"> </a>
+ServerName=&lt;Oracle_server&gt;<a name="wp535504"> </a>
+TimestampEscapeMapping=0<a name="wp535505"> </a>
+UseCurrentSchema=1<a name="wp545436"> </a>
+<a name="wp535506"> </a>
+[Progress OpenEdge]<a name="wp535533"> </a>
+Driver=ODBCHOME/lib/ivpro1020.so<a name="wp535534"> </a>
+Description=DataDirect 5.0 Progress OpenEdge<a name="wp535535"> </a>
+DatabaseName=&lt;database_name&gt;<a name="wp535536"> </a>
+EnableTimestampWithTimezone=1<a name="wp546039"> </a>
+HostName=&lt;Progress_server&gt;<a name="wp546033"> </a>
+LogonID=<a name="wp535538"> </a>
+Password=<a name="wp535539"> </a>
+PortNumber=&lt;Progress_server_port&gt;<a name="wp535540"> </a>
+<a name="wp535541"> </a>
+[Progress SQL92]<a name="wp545950"> </a>
+Driver=ODBCHOME/lib/ivpro920.so<a name="wp545951"> </a>
+Description=DataDirect 5.0 Progress SQL92<a name="wp545952"> </a>
+DatabaseName=&lt;database_name&gt;<a name="wp545953"> </a>
+HostName=&lt;Progress_server&gt;<a name="wp545954"> </a>
+LogonID=<a name="wp545955"> </a>
+Password=<a name="wp545956"> </a>
+PortNumber=&lt;Progress_server_port&gt;<a name="wp545957"> </a>
+<a name="wp545959"> </a>
+[SQLServer Wire Protocol]<a name="wp535542"> </a>
+Driver=ODBCHOME/lib/ivmsss20.so<a name="wp535543"> </a>
+Description=DataDirect 5.0 SQL Server Wire Protocol<a name="wp535544"> </a>
+Address=&lt;SQLServer_host, SQLServer_server_port&gt;<a name="wp535545"> </a>
+AlternateServers=<a name="wp545533"> </a>
+AnsiNPW=Yes<a name="wp535546"> </a>
+ConnectionRetryCount=0<a name="wp545626"> </a>
+ConnectionRetryDelay=3<a name="wp545772"> </a>
+Database=&lt;database_name&gt;<a name="wp535547"> </a>
+LoadBalancing=0<a name="wp545816"> </a>
+LogonID=<a name="wp535548"> </a>
+Password=<a name="wp535549"> </a>
+QuotedId=No<a name="wp535550"> </a>
+<a name="wp535551"> </a>
+[Sybase Wire Protocol]<a name="wp535552"> </a>
+Driver=ODBCHOME/lib/ivase20.so<a name="wp535553"> </a>
+Description=DataDirect 5.0 Sybase Wire Protocol<a name="wp535554"> </a>
+AlternateServers=<a name="wp545541"> </a>
+ApplicationName=<a name="wp535555"> </a>
+ApplicationUsingThreads=1<a name="wp535556"> </a>
+ArraySize=50<a name="wp535557"> </a>
+Charset=<a name="wp535558"> </a>
+ConnectionRetryCount=0<a name="wp545642"> </a>
+ConnectionRetryDelay=3<a name="wp535559"> </a>
+CursorCacheSize=1<a name="wp545766"> </a>
+Database=&lt;database_name&gt;<a name="wp535560"> </a>
+DefaultLongDataBuffLen=1024<a name="wp535561"> </a>
+EnableDescribeParam=0<a name="wp535562"> </a>
+EnableQuotedIdentifiers=0<a name="wp535563"> </a>
+InitializationString=<a name="wp535564"> </a>
+Language=<a name="wp535565"> </a>
+LoadBalancing=0<a name="wp545820"> </a>
+LogonID=<a name="wp535566"> </a>
+NetworkAddress=&lt;Sybase_host, Sybase_server_port&gt;<a name="wp535567"> </a>
+OptimizePrepare=1<a name="wp535568"> </a>
+PacketSize=0<a name="wp535569"> </a>
+Password=<a name="wp535570"> </a>
+PasswordEncryption=0<a name="wp535571"> </a>
+RaiseErrorPositionBehavior=0<a name="wp545475"> </a>
+ReportCodePageConversionErrors=0<a name="wp545175"> </a>
+SelectMethod=0<a name="wp535572"> </a>
+TruncateTimeTypeFractions=0<a name="wp535573"> </a>
+WorkStationID=<a name="wp545462"> </a>
+<a name="wp535574"> </a>
+[Text]<a name="wp535575"> </a>
+Driver=ODBCHOME/lib/ivtxt20.so<a name="wp535576"> </a>
+Description=DataDirect 5.0 TextFile(*.*)<a name="wp535577"> </a>
+AllowUpdateAndDelete=0<a name="wp535578"> </a>
+ApplicationUsingThreads=1<a name="wp535579"> </a>
+CacheSize=4<a name="wp535580"> </a>
+CenturyBoundary=20<a name="wp535581"> </a>
+Database=ODBCHOME/demo<a name="wp535582"> </a>
+DataFileExtension=TXT<a name="wp535583"> </a>
+DecimalSymbol=.<a name="wp535584"> </a>
+Delimiter=<a name="wp535585"> </a>
+FileOpenCache=0<a name="wp535586"> </a>
+FirstLineNames=0<a name="wp535587"> </a>
+IntlSort=0<a name="wp535588"> </a>
+ScanRows=25<a name="wp535589"> </a>
+TableType=Comma<a name="wp535590"> </a>
+UndefinedTable=GUESS<a name="wp535591"> </a>
+<a name="wp535592"> </a>
+[ODBC]<a name="wp535593"> </a>
+IANAAppCodePage=4<a name="wp535594"> </a>
+InstallDir=ODBCHOME<a name="wp535595"> </a>
+Trace=0<a name="wp535596"> </a>
+TraceDll=ODBCHOME/lib/odbctrac.so<a name="wp535597"> </a>
+TraceFile=odbctrace.out<a name="wp535598"> </a>
+UseCursorLib=0<a name="wp535599"> </a>
+</pre></div>
+<a name="wp532246"> </a><p class="pBody">
+The final step is to verify that the driver connects and passes SQL.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

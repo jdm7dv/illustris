@@ -1,0 +1,20 @@
+;if art_screen ne 'Visualization' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Return to Main Screen"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L} 
+;if art_screen ne 'Visualization' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Visualization"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:2D Plotting Demo"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+d_plot2dEvent, {WIDGET_SLIDER, ID: demo_find_wid("d_plot2d:sine_period"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), VALUE:           9L, DRAG:        0}
+d_plot2dEvent, {WIDGET_SLIDER, ID: demo_find_wid("d_plot2d:sine_period"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), VALUE:          10L, DRAG:        0}
+d_plot2dEvent, {WIDGET_SLIDER, ID: demo_find_wid("d_plot2d:sine_period"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), VALUE:          11L, DRAG:        0}
+d_plot2dEvent, {WIDGET_SLIDER, ID: demo_find_wid("d_plot2d:sine_period"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), VALUE:          12L, DRAG:        0}
+d_plot2dEvent, {WIDGET_SLIDER, ID: demo_find_wid("d_plot2d:sine_period"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), VALUE:          13L, DRAG:        0}
+widget_control, demo_find_wid("d_plot2d:radio"), set_value=1
+d_plot2dEvent, {ID: demo_find_wid("d_plot2d:radio"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), SELECT:           1L, VALUE:        1}
+widget_control, demo_find_wid("d_plot2d:radio"), set_value=3
+d_plot2dEvent, {ID: demo_find_wid("d_plot2d:radio"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), SELECT:           1L, VALUE:        3}
+d_plot2dEvent, {WIDGET_BUTTON, ID: demo_find_wid("d_plot2d:generate"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), SELECT:            1L}
+d_plot2dEvent, {WIDGET_BUTTON, ID: demo_find_wid("d_plot2d:generate"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), SELECT:            1L}
+d_plot2dEvent, {WIDGET_LIST, ID: demo_find_wid("d_plot2d:polarcolors"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), INDEX:           5L, CLICKS:            1L}
+d_plot2dEvent, {WIDGET_LIST, ID: demo_find_wid("d_plot2d:polarcolors"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), INDEX:           1L, CLICKS:            1L}
+d_plot2dEvent, {WIDGET_LIST, ID: demo_find_wid("d_plot2d:polarcolors"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb"), INDEX:           5L, CLICKS:            1L}
+art_screen = 'Visualization'
+d_plot2dEvent, {WIDGET_KILL_REQUEST, ID: demo_find_wid("d_plot2d:tlb"), TOP: demo_find_wid("d_plot2d:tlb"), HANDLER: demo_find_wid("d_plot2d:tlb") }
+;demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Return to Main Screen"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}

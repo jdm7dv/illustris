@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>Using Hints for Tabular-Formatted XML Documents</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp565825"> </a><h1 class="pNewHTMLPageNoNum">
+Using Hints for Tabular-Formatted XML Documents
+</h1>
+<hr /><a name="wp543795"> </a><p class="pBody">
+The XML driver supports table and row hints. You can specify a table hint, a row hint, or both, when configuring an XML data source or using a connection string.
+</p>
+<a name="wp542860"> </a><p class="pBody">
+Table hints should be specified so that they resolve to a single node. If a table hint resolves to a set of nodes, the first node in the set is used as the table node. The context of the table hint is always the root node of the XML document. 
+</p>
+<a name="wp542861"> </a><p class="pBody">
+Row hints define the &quot;row&quot; element and specify whether the rowset is element-based or attribute-based. If a table hint is supplied, the context of the row node is the node to which the table hint resolves; otherwise, the context is the root node of the XML document. The column mode identifier specifies whether the columns of a row are child nodes or attributes of the row node.
+</p>
+<a name="wp542862"> </a><p class="pBody">
+When working with hints, keep in mind that the XML driver assumes that the row nodes are the immediate children of the table node.
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp542863"> </a><div class="pSmartList1"><li>If only a table hint is specified, the row nodes are the children of the node to which the hint resolves. It is assumed that all of the child nodes have the same name. </li></div><a name="wp542932"> </a><div class="pSmartList1"><li>If only a row hint is specified, the table node is the parent of the node to which the hint resolves. If the row hint resolves to a set of nodes, the nodes in that set must all have the same parent. </li></div><a name="wp542864"> </a><div class="pSmartList1"><li>If both a table hint and a row hint are specified, the row hint is taken to be relative to the node to which the table hint resolves. </li></div></ul></div>
+<a name="wp542866"> </a><p class="pBody">
+The column mode identifier has the format:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+\column <em class="cEmphasis">mode</em><a name="wp542867"> </a>
+</pre></div>
+<a name="wp542868"> </a><p class="pBody">
+where <em class="cEmphasis">mode</em> can be one of the following options:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp542869"> </a><div class="pSmartList1"><li>child: The columns are child nodes of the row node.</li></div><a name="wp542870"> </a><div class="pSmartList1"><li>attr: The columns are attributes of the row node.</li></div></ul></div>
+<a name="wp542872"> </a><p class="pBody">
+In the following examples, the columns are the children of the row nodes.
+</p>
+<a name="wp542873"> </a><h4 class="pHeading3">
+Example 1
+</h4>
+<a name="wp543011"> </a><p class="pBody">
+Table Hint:
+</p>
+<a name="wp543012"> </a><p class="pBody">
+Row Hint: //Item
+</p>
+<a name="wp543013"> </a><p class="pBody">
+The row nodes are the nodes named Item. The table node is the parent of the row nodes. Use this form only when all of the Item nodes reside under one parent. 
+</p>
+<a name="wp543020"> </a><p class="pBody">
+If some Item nodes have different parents, use a table hint or a more specific row hint to select the set of Item nodes.
+</p>
+<a name="wp543021"> </a><h4 class="pHeading3">
+Example 2
+</h4>
+<a name="wp543022"> </a><p class="pBody">
+Table Hint:
+</p>
+<a name="wp542881"> </a><p class="pBody">
+Row Hint: /Bookstore/Books/Item
+</p>
+<a name="wp542882"> </a><p class="pBody">
+The row nodes are the nodes named Item. The table node is Books, which is a child of the Bookstore node.
+</p>
+<a name="wp542883"> </a><h4 class="pHeading3">
+Example 3
+</h4>
+<a name="wp542884"> </a><p class="pBody">
+Table Hint: /Bookstore/Books
+</p>
+<a name="wp542885"> </a><p class="pBody">
+Row Hint:
+</p>
+<a name="wp542886"> </a><p class="pBody">
+The table node is Books, which is a child of the Bookstore node. The row nodes are the children of the Books node. It is assumed that all of the child nodes under the Books nodes have the same name. If the child nodes do not all have the same name, the name of the first child node encountered is used as the row node name. In that case, it would be better to specify both a table and row hint.
+</p>
+<a name="wp542887"> </a><h4 class="pHeading3">
+Example 4
+</h4>
+<a name="wp543050"> </a><p class="pBody">
+Table Hint: /Bookstore [@location = &quot;Raleigh&quot;]/Books
+</p>
+<a name="wp543051"> </a><p class="pBody">
+Row Hint: ./Item
+</p>
+<a name="wp543052"> </a><p class="pBody">
+The table node is Books, which is a child of the Bookstore node. Bookstore has a &quot;location&quot; attribute with the value Raleigh. The row nodes are the Item nodes that are children of the Books node. 
+</p>
+<a name="wp542891"> </a><h3 class="pHeading2">
+Column Mode Identifier
+</h3>
+<a name="wp542892"> </a><p class="pBody">
+The following examples illustrate the use of the optional column mode identifier.
+</p>
+<a name="wp542893"> </a><h4 class="pHeading3">
+Example 5
+</h4>
+<a name="wp542894"> </a><p class="pBody">
+Table Hint:
+</p>
+<a name="wp542895"> </a><p class="pBody">
+Row Hint: //Item \column attr 
+</p>
+<a name="wp542896"> </a><p class="pBody">
+The row nodes are named Item. The table node is the parent of the row nodes. The columns are attributes of the row node.
+</p>
+<a name="wp542897"> </a><h4 class="pHeading3">
+Example 6
+</h4>
+<a name="wp542898"> </a><p class="pBody">
+Table Hint:
+</p>
+<a name="wp542899"> </a><p class="pBody">
+Row Hint: //Item \column child 
+</p>
+<a name="wp542822"> </a><p class="pBody">
+The row nodes are the nodes named Item. The table node is the parent of the row nodes. The columns are attributes of the row node.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

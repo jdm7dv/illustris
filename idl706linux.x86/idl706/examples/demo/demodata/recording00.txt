@@ -1,0 +1,34 @@
+;if art_screen ne 'Data Analysis' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Return to Main Screen"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L} 
+;if art_screen ne 'Data Analysis' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Data Analysis"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Wavelet Demo"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          85L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          95L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          96L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          97L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          98L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          99L, DRAG:        0}
+void = 0 ; Pause.
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          98L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          97L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          96L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          95L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          85L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          75L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_BUTTON, ID: demo_find_wid("d_wavelet:twelve"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), SELECT:            1L}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          75L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          85L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          95L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          96L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          97L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          98L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          99L, DRAG:        0}
+void = 0 ; Pause
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          98L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          97L, DRAG:        0}
+;D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          96L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          95L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          85L, DRAG:        0}
+D_WAVELETEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_wavelet:compression_slider"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb"), VALUE:          75L, DRAG:        0}
+art_screen = 'Data Analysis'
+D_WAVELETEVENT, {WIDGET_KILL_REQUEST, ID: demo_find_wid("d_wavelet:tlb"), TOP: demo_find_wid("d_wavelet:tlb"), HANDLER: demo_find_wid("d_wavelet:tlb") }
+;demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Return to Main Screen"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}

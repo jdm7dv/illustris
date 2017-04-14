@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:16:47" />
+  <title>Driver Requirements</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp557143"> </a><h1 class="pNewHTMLPageNoNum">
+Driver Requirements
+</h1>
+<hr /><a name="wp557144"> </a><p class="pBody">
+This section provides the system requirements for using the Informix driver on all supported platforms.
+</p>
+<a name="wp541166"> </a><h3 class="pHeading2">
+</h3><div align="left"><img src="images/iconwinh.gif" height="31" width="27" border="0" hspace="0" vspace="0"/></div><h3 class="pHeading2">Windows
+</h3>
+<a name="wp563360"> </a><p class="pBody">
+To access supported remote Informix databases through the Informix driver, you need one of the following:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp563361"> </a><div class="pSmartList1"><li>Informix Connect for Windows platforms, version 2.<em class="cEmphasis">x</em></li></div><a name="wp563362"> </a><div class="pSmartList1"><li>Informix Client Software Development Kit for Windows platforms, version 2.<em class="cEmphasis">x</em></li></div></ul></div>
+<a name="wp563363"> </a><p class="pBody">
+Use the <b class="cBold">Setnet32</b> utility supplied by Informix to define servers and the location of the INFORMIX directory. Use <b class="cBold">Ilogin</b> to test your connection to the Informix server. The path to the ISQLT09A.DLL must be in your PATH environment variable.
+</p>
+<a name="wp552426"> </a><h3 class="pHeading2">
+</h3><div align="left"><img src="images/iconunixa6.gif" height="31" width="29" border="0" hspace="0" vspace="0"/></div><h3 class="pHeading2">UNIX (AIX, HP-UX, and Solaris)
+</h3>
+<a name="wp563366"> </a><p class="pBody">
+The environment variable INFORMIXDIR must be set to the directory where you have installed the Informix client.
+</p>
+<a name="wp563367"> </a><p class="pBody">
+For example, the following syntax is valid for C-shell users:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+setenv INFORMIXDIR /databases/informix<a name="wp563368"> </a>
+</pre></div>
+<a name="wp563369"> </a><p class="pBody">
+For Bourne- or Korn-shell users, the following syntax is valid:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+INFORMIXDIR=/databases/informix;export INFORMIXDIR<a name="wp563370"> </a>
+</pre></div>
+<a name="wp563371"> </a><p class="pBody">
+In addition, the INFORMIXSERVER variable must be set to the name of the Informix server (as defined in your $INFORMIXDIR/etc/sqlhosts file). For further details, refer to the Informix documentation.
+</p>
+<a name="wp563372"> </a><p class="pBody">
+To access supported remote Informix databases through the Informix driver, you need one of the following:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp563373"> </a><div class="pSmartList1"><li>On AIX: Informix Client Software Development Kit version 2.2 or higher; or Informix Connect version 2.2 or higher</li></div><a name="wp563374"> </a><div class="pSmartList1"><li>On HP-UX and Solaris: Informix Connect version 2.<em class="cEmphasis">x</em></li></div><a name="wp563375"> </a><div class="pSmartList1"><li>On HP-UX and Solaris: Informix Client Software Development Kit version 2.<em class="cEmphasis">x</em></li></div></ul></div>
+<a name="wp563376"> </a><p class="pBody">
+NOTE: On AIX platforms, two client drivers are installed, one for AIX 4.<em class="cEmphasis">x</em> and one for AIX 5.<em class="cEmphasis">x</em>. The installer determines the operating system at the time of installation and configures the default data source to point to the correct driver.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

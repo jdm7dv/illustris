@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:15:48" />
+  <title>Connecting to a Data Source Using a Logon Dialog Box</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp593550"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Logon Dialog Box
+</h1>
+<hr /><a name="wp593553"> </a><p class="pBody">
+Some ODBC applications display a Logon dialog box when you are connecting to a data source. In these cases, the data source name has already been specified.
+</p>
+<a name="wp608943"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwina8.gif" height="31" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">In the Logon dialog box on Windows, perform the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp621884"> </a><div class="pSmartList1"><li>In the Server field, either select a name from the drop-down list or type a server name. If you select a name, no further configuration is needed. If you type a name, it must be an advanced entry in the SQL Client Configuration utility or the network name of a server running SQL Server. This field is replaced with the data source name if you specified a DSN for the connection.</li></div><a name="wp621885"> </a><p class="pBodyIndent12pxBeforeAfter">
+To specify a named instance of SQL Server, use the format: <code><em>server_name\instance_name</em></code>. If only a server name is specified with no instance name, the driver connects to the server and uses the default named instance on the server.
+</p>
+<a name="wp621886"> </a><div class="pSmartList1"><li>Select the Use Trusted Connection check box to specify that the SQL Server Wire Protocol driver request a secure (or trusted) connection to a SQL Server running on Windows NT, Windows 2000, Windows XP, or Windows Server 2003. SQL Server uses integrated login security to establish connections using this data source, regardless of the current login security mode at the server. Any login ID or password supplied is ignored. The SQL Server system administrator must have associated your Windows network ID with a SQL Server login ID.</li></div><a name="wp608946"> </a><p class="pBodyIndent12pxBeforeAfter">
+Clear this box to specify that SQL Server use standard login security to establish connections using this data source. You must specify a login ID and password for all connection requests.
+</p>
+<a name="wp608947"> </a><div class="pSmartList1"><li>Type the SQL Server login ID to use for the connection if Use Trusted Connection is not selected. If Use Trusted Connection is selected, the Login ID field is disabled.</li></div><a name="wp608948"> </a><div class="pSmartList1"><li>Type the password to use for the connection if Use Trusted Connection is not selected. If Use Trusted Connection is selected, the Password field is disabled.</li></div><a name="wp608949"> </a><div class="pSmartList1"><li>You can click <b class="cBold">Options</b> to display the SQL Server Logon Options pane and specify the initial SQL Server database to which to connect.</li></div><a name="wp608958"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database:</b> Type the name of the database to which you want to connect by default. If you do not specify a value, the default database defined by SQL Server is used.
+</p>
+<a name="wp608959"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Language:</b> Type the national language to use for SQL&#160;Server system messages. This overrides the default language specified for the login on the server. If no language is specified, the connection uses the default language specified for the login on the server.
+</p>
+<a name="wp608960"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Name:</b> Type the name SQL Server uses to identify your application (optional).
+</p>
+<a name="wp608961"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Workstation ID:</b> Type the workstation ID used by the client (optional).
+</p>
+<a name="wp608962"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> to log on to the SQL Server database installed on the server you specified and to update the values in the Registry.</li></div></ol></div>
+<a name="wp608966"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixb9.gif" height="31" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">In the Logon dialog box on UNIX, perform the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp593590"> </a><div class="pSmartList1"><li>In the Server field, type an IP address in the following format: <code><em>IP address</em></code>, <code><em>port_number</em></code>. For example, you might enter <code class="cCode">199.226.224.34, 5000</code>. If your network supports named servers, you can specify an address as: <code><em>servername</em></code>, <code><em>port_number</em></code>. For example, you might enter <code class="cCode">SSserver, 5000</code>.</li></div><a name="wp593591"> </a><p class="pBodyIndent12pxBeforeAfter">
+To specify a named instance of SQL Server, use the format: <code><em>server_name\instance_name</em></code>. If only a server name is specified with no instance name, the driver connects to the server and uses the default named instance on the server.
+</p>
+<a name="wp621877"> </a><div class="pSmartList1"><li>In the Logon ID field, type your case-sensitive Logon ID, if required.</li></div><a name="wp593592"> </a><div class="pSmartList1"><li>In the Password field, type your case-sensitive password for the system, if required.</li></div><a name="wp593593"> </a><div class="pSmartList1"><li>In the Database field, type the case-sensitive name of the database that you want to access.</li></div><a name="wp593594"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> to log on to the SQL Server database installed on the server you specified and to update the values in the system information file.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,121 @@
+
+            THREE DIMENSIONAL GEOMETRY DEMO
+   
+   This demo shows geometric forms and molecules.
+   Choose among several different 3D objects.
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+      Select "Quit" to exit the 3D Object Demo and return 
+      to the IDL Demo main screen.
+
+   Options Menu:
+   
+      Shading
+      o  Select "Flat" to represent solid objects. 
+      o  Select "Gouraud" shading for the solid. 
+         Gouraud shading results in a more realistic 
+         appearance.
+         
+         Shading is only enabled when the Style is set 
+         to Solid.
+
+      Style
+      o  Select "Points" to display the object as a set
+         of points.
+      o  Select "Wire" to display the object with a 
+         wire-frame surface.
+      o  Select "Solid" to display the object as a 
+         solid. You can also select either "Flat" or 
+         "Gouraud" shading.
+      o  Select "Hidden Points" to display only the 
+         points located immediately in front.
+      o  Select "Hidden Wire" to display only the lines
+         of the wire-surface located immediately in 
+         front.
+   
+      Backface culling
+         Select this option (turn it "on") to only 
+         show the outside surface of the objects,
+         making inner surfaces transparent.
+
+      Vertex coloring
+         Select this option (turn it "on") to display
+         the object with predetermined colors.
+
+      Edging
+         Select this option (turn it "on") to show the
+         polygon edges of the object. This option is 
+         the most effective when viewed with the 
+         "Solid" style.
+
+      Bottom color
+         Select this option (turn it "on") to 
+         differentiate inner surfaces with a separate 
+         color.
+
+      Line thickness
+         Select the line thickness (1, 3, 5 or 7 
+         points). This option is disabled when the 
+         style is set to "Solid".
+
+      Drag quality
+         Drag quality applies only to solid surfaces.
+         o  Select "Low" to show the dragged image as 
+            a single-color wire-frame object.
+         o  Select "Medium" to show the dragged image 
+            as a "Flat" object, even if the Shading is 
+            already set to "Flat".
+         o  Select "High" to show the dragged image as
+            it is shown.
+
+         The higher the drag quality, the slower the 
+         speed of rendering the object. You may or may
+         not see a difference, depending on your 
+         machine's speed.
+
+   About Menu:   
+      Select "About 3D Geometry" for information about 
+      the 3D Geometry Demo.
+
+
+   FEATURES
+   --------
+
+   <<Seashell>> radio button
+      Shows a seashell-shaped object.
+
+   <<Knot>> radio button
+      Shows a pretzel-like knot object.
+
+   <<Teapot>> radio button
+      Shows a teapot-shaped object.   
+
+   <<Valium Molecule>> radio button
+      Shows a valium molecule.   
+
+   <<Aspartame>> radio button
+      Shows an aspartame molecule.
+
+   <<Caffeine>> radio button
+      Shows a caffeine molecule.
+
+   <<Reset Orientation>> button
+      Return the object to its initial orientation.
+
+   INTERACTIVE MOVEMENT
+      Use your left mouse button to interactively 
+      rotate (drag) the selected object. Position the 
+      cursor on the object and, while holding down the
+      left mouse button, move the cursor. Release the 
+      mouse button when you are satisfied with the 
+      position of the object. 
+ 
+      For solid objects, you can also specify the Drag
+      Quality, which affects the object's appearance
+      while it is being dragged. If you find that 
+      dragging the object is slow, lower the 
+      Drag Quality.

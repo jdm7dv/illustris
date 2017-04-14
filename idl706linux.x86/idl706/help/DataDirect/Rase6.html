@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:06:36" />
+  <title>Performance Considerations</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp625534"> </a><h1 class="pNewHTMLPageNoNum">
+Performance Considerations
+</h1>
+<hr /><a name="wp641921"> </a><p class="pBody">
+The following connection options can enhance performance. The option names found on the tabs of the driver Setup dialog box are the same as the connection string attribute names unless otherwise noted in parentheses. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp641930"> </a><p class="pBody">
+<b class="cBold">Application Using Threads (ApplicationUsingThreads)</b>: The driver coordinates operations from different threads by acquiring locks. Although locking prevents errors in the driver, it also decreases performance. If the application does not make ODBC calls from different threads, there is no reason for the driver to coordinate operations. Disabling the Application Using Threads option prevents the driver from coordinating operations and improves performance for single-threaded applications.
+</p>
+<a name="wp641931"> </a><p class="pBody">
+NOTE: If you are using a multi-threaded application, you must enable the Application Using Threads option.
+</p>
+<a name="wp625544"> </a><p class="pBody">
+<b class="cBold">Default Buffer Size for Long Columns (DefaultLongDataBuffLen)</b>: TEXT and IMAGE columns can contain very large amounts of data, however, your application may display only a limited amount of data. The buffer size should only be large enough to accommodate the maximum amount of data that you want to retrieve; otherwise, performance is reduced by transferring large amounts of data into an oversized buffer. If your application retrieves more than 1 MB of data, the buffer size should be increased accordingly. 
+</p>
+<a name="wp625545"> </a><p class="pBody">
+<b class="cBold">Fetch Array Size (ArraySize)</b>: If the Select Method connection option is set to 0 and your application fetches more than 50 rows at a time, you should set Fetch Array Size to the approximate number of rows being fetched. This reduces the number of round trips on the network, thereby increasing performance. For example, if your application normally fetches 200 rows, it is more efficient for the driver to fetch 200 rows at one time over the network than to fetch 50 rows at a time during four round trips over the network. You should use Fetch Array Size in conjunction with Select Method.
+</p>
+<a name="wp625546"> </a><p class="pBody">
+NOTE: The ideal setting for your application will vary. To calculate the ideal setting for this option, you must know the size in bytes of the rows that you are fetching and the size in bytes of your Network Packet. Then, you must calculate the number of rows that will fit in your Network Packet, leaving space for packet overhead. For example, suppose your Network Packet size is 1024 bytes and the row size is 8 bytes. Dividing 1024 by 8 equals 128; however, the ideal setting for Fetch Array Size is 127 not 128 because the number of rows times the row size must be slightly smaller than the Network Packet size.
+</p>
+<a name="wp625547"> </a><p class="pBody">
+<b class="cBold">Packet Size</b><b class="cBold"> (</b><b class="cBold">PacketSize</b><b class="cBold">)</b>: It is normally optimal for the client to use the maximum packet size that the server will allow. This reduces the total number of round trips required to return data to the client, thus improving performance.
+</p>
+<a name="wp625552"> </a><p class="pBody">
+<b class="cBold">Prepare Method (OptimizePrepare)</b>: If Prepare Method is set to 1 and your application issues calls to SQLPrepare that contain parameter markers, or if Prepare Method is set to 0, then the driver creates a stored procedure on the server at prepare time. If your application executes one of these prepared statements multiple times, performance will increase because the driver created a stored procedure on the server. This is because executing a stored procedure is faster than executing a single SQL statement; however, if a prepared statement is only executed once or is never executed, performance can decrease. This is because creating a stored procedure incurs more overhead on the server than simply executing a single SQL statement. When Prepare Method is set to 2, the driver never creates stored procedures for prepared statement. A setting of 2 should be used if your application does not execute prepared statements multiple times.
+</p>
+<a name="wp625553"> </a><p class="pBody">
+<b class="cBold">Select Method (SelectMethod)</b>: The default setting (0) of this option causes the driver to use database cursors for Select statements and allows an application to process multiple active statements per connection. An active statement is defined as a statement where all the result rows or result sets have not been fetched. This can cause high overhead on the server. If your application does not use multiple active statements, however, setting Select Method to 1 will increase performance of Select statements by allowing the server to return results without using a database cursor. If this option is set to 0, it should be used in conjunction with Fetch Array Size (ArraySize). If this option is set to 1, Fetch Array Size (ArraySize) has no effect.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

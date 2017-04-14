@@ -1,0 +1,7 @@
+2 3
+welcome|IDL includes volume rendering capabilities.
+showing|You can render both geometric and volumetric
+interact|objects together in a scene.
+selecto|Select a volume and click "Render".
+mouse|Drag left mouse-button to rotate view.  Click
+varia|right mouse-button to select voxels on exterior.

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>Alter Table Statement</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp514198"> </a><h1 class="pNewHTMLPageNoNum">
+Alter Table Statement
+</h1>
+<hr /><a name="wp514199"> </a><p class="pBody">
+The dBASE driver supports the Alter Table statement to add one or more columns to a table or to delete (drop) a single column.
+</p>
+<a name="wp514200"> </a><p class="pBody">
+The Alter Table statement has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ALTER TABLE <code><em>table_name</em></code> {ADD <code><em>column_name</em></code> <code><em>data_type </em></code>| 
+ADD(<code><em>column_name</em></code> <code><em>data_type </em></code>[, <code><em>column_name</em></code> <code><em>data_type</em></code>]... ) | 
+DROP[COLUMN] <code><em>column_name</em></code>}<a name="wp548007"> </a>
+</pre></div>
+<a name="wp514204"> </a><p class="pBody">
+<em class="cEmphasis">table_name </em>is the name of the table to which you are adding or dropping columns.
+</p>
+<a name="wp514205"> </a><p class="pBody">
+<em class="cEmphasis">column_name</em> assigns a name to the column you are adding or specifies the column you are dropping.
+</p>
+<a name="wp514206"> </a><p class="pBody">
+<em class="cEmphasis">data_type</em> specifies the native data type of each column you add.
+</p>
+<a name="wp514207"> </a><p class="pBody">
+For example, to add two columns to the emp table:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ALTER TABLE emp (ADD startdate date, dept char (10))<a name="wp514208"> </a>
+</pre></div>
+<a name="wp514209"> </a><p class="pBody">
+You cannot add columns and drop columns in a single statement, and you can drop only one column at a time. For example, to drop a column:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ALTER TABLE emp DROP startdate<a name="wp514210"> </a>
+</pre></div>
+<a name="wp514211"> </a><p class="pBody">
+The Alter Table statement fails if you attempt to drop a column upon which other objects, such as indexes or views, are dependent.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

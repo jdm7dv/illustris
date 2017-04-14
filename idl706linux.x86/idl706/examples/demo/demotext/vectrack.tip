@@ -1,0 +1,7 @@
+2 3
+welcome|Use IDL's object graphics to view a thunderstorm
+showing|simulation. View data planes as images or vectors.
+capabilities|Render the volume data as voxels or isosurfaces.
+start|Drag left button to rotate scene.  Click right mouse
+ride|button on an image plane or isosurface to view streamlines.
+speed|

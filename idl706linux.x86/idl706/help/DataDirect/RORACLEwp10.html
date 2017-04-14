@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:55:21" />
+  <title>Unicode Support</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp583962"> </a><h1 class="pNewHTMLPageNoNum">
+Unicode Support
+</h1>
+<hr /><a name="wp574962"> </a><p class="pBody">
+On both Windows and UNIX, the Oracle Wire Protocol driver automatically determines whether the Oracle database is a Unicode database.
+</p>
+<a name="wp574967"> </a><p class="pBody">
+The Oracle Wire Protocol driver maps the Oracle data types as follows:
+</p>
+<a name="wp574989"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp574970"> </a><div class="pCellHeading">
+Oracle Data Type
+</div>
+</th>
+    <th><a name="wp574972"> </a><div class="pCellHeading">
+Mapped to. . .
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp574974"> </a><div class="pCellBody">
+Char
+</div>
+</td>
+    <td><a name="wp574976"> </a><div class="pCellBody">
+SQL_WCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574978"> </a><div class="pCellBody">
+Clob
+</div>
+</td>
+    <td><a name="wp574980"> </a><div class="pCellBody">
+SQL_WLONGVARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574982"> </a><div class="pCellBody">
+Varchar2
+</div>
+</td>
+    <td><a name="wp574984"> </a><div class="pCellBody">
+SQL_WVARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp574986"> </a><div class="pCellBody">
+Long
+</div>
+</td>
+    <td><a name="wp574988"> </a><div class="pCellBody">
+SQL_WLONGVARCHAR
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp615207"> </a><p class="pBody">
+This driver supports the Unicode ODBC W (Wide) function calls, such as SQLConnectW. This allows the Driver Manager to transmit these calls directly to the driver. Otherwise, the Driver Manager would incur the additional overhead of converting the W calls to ANSI function calls, and vice versa. See <a  href="Runixenv8.html#wp545296"><a  href="Runixenv8.html#wp545296">&quot;UTF-16 Applications on UNIX&quot;</a></a> and <a  href="appcodepage.html#wp526223"><a  href="appcodepage.html#wp526223">&quot;Values for IANAAppCodePage Connection String Attribute&quot;</a></a> for related information.
+</p>
+<a name="wp615221"> </a><h3 class="pHeading2">
+Default Unicode Mapping
+</h3>
+<a name="wp615222"> </a><p class="pBody">
+The default Unicode mapping for an application&#8217;s SQL_C_WCHAR variable is:
+</p>
+<a name="wp615252"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp615225"> </a><div class="pCellHeading">
+Platform
+</div>
+</th>
+    <th><a name="wp615227"> </a><div class="pCellHeading">
+Default Unicode Mapping
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp615229"> </a><div class="pCellBody">
+Windows
+</div>
+</td>
+    <td><a name="wp615231"> </a><div class="pCellBody">
+UCS-2/UTF-16
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp615233"> </a><div class="pCellBody">
+AIX
+</div>
+</td>
+    <td><a name="wp615235"> </a><div class="pCellBody">
+UTF-8
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp615237"> </a><div class="pCellBody">
+HP-UX
+</div>
+</td>
+    <td><a name="wp615239"> </a><div class="pCellBody">
+UTF-8
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp615241"> </a><div class="pCellBody">
+Solaris
+</div>
+</td>
+    <td><a name="wp615243"> </a><div class="pCellBody">
+UTF-8
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp615245"> </a><div class="pCellBody">
+Linux
+</div>
+</td>
+    <td><a name="wp615247"> </a><div class="pCellBody">
+UTF-8
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp615253"> </a><h3 class="pHeading2">
+Connection Attribute for Unicode
+</h3>
+<a name="wp615254"> </a><p class="pBody">
+A connection attribute is available to support Unicode. This attribute determines how character data is converted and presented to an application and the database.
+</p>
+<a name="wp615264"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp615257"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp615259"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp615261"> </a><div class="pCellBody">
+SQL_ATTR_APP_WCHAR_TYPE (1061)
+</div>
+</td>
+    <td><a name="wp615263"> </a><div class="pCellBody">
+Sets the SQL_C_WCHAR type for parameter and column binding to the desired Unicode type, either SQL_DD_CP_UTF16 (default for Windows) or SQL_DD_CP_UTF8 (default for UNIX).
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp615265"> </a><p class="pBody">
+You can set this attribute before or after you connect. After this attribute is set, all conversions are made based on the character set specified.
+</p>
+<a name="wp615266"> </a><p class="pBody">
+SQLGetConnectAttr and SQLSetConnectAttr for the SQL_ATTR_APP_WCHAR_TYPE attribute return a SQL State of HYC00 for drivers that do not support Unicode.
+</p>
+<a name="wp615267"> </a><p class="pBody">
+This connection attribute and its valid values can be found in the file qesqlext.h, which is installed with the driver.&#160;&#160;&#160;
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

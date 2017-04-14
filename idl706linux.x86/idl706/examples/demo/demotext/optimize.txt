@@ -1,0 +1,53 @@
+
+
+
+          WELCOME TO THE MINIMIZATION DEMO
+
+
+
+   Optimization algorithms search and find the        
+   minimum of a function using iteration. Depending on
+   the function, a particular algorithm may converge 
+   faster than another. An algorithm may not converge
+   at all in certain circumstances, where another 
+   will.
+
+   This demo shows two methods : the 
+   Donovan-Fletcher-Powell (DFP) and the Powell.
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+      Select "Quit" to exit the Minimization Demo and 
+      return to the main IDL Demo screen.
+
+   About Menu:
+      Select "About minimization" for information 
+      about the Minimization Demo.
+
+   FEATURES
+   --------
+
+   <<Select a Surface>> button
+      Select one of three different surfaces. These 
+      surfaces are used for testing minimization
+      algorithms because they are known to produce
+      cases that exceed the bounds of the algorithms.
+
+   <<Select a Starting Point>> button
+      Select one of four different starting points.
+
+   <<Find Minimum>> button
+      Activated only after a starting point has been
+      specified, the sequence will compute and 
+      display how the 2 algorithms find the minimum.
+
+   <<Reset surface>> button
+      Reset the selected surface to display the 
+      four starting points on the initial surface.
+
+   <<Results>>
+      Displays the location of the minimum and the 
+      number of iterations that were necessary.

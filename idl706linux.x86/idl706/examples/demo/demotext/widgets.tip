@@ -1,0 +1,7 @@
+2 3
+welcome|IDL provides a user interface toolkit
+showing|consisting of "widgets" that allow a
+interact|user to control interface features.
+selecto|Change the values of the widgets
+mouse|to alter the surface displayed in
+motion|the draw widget.

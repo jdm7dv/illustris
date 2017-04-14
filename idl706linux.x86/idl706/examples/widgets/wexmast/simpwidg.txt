@@ -1,0 +1,33 @@
+About the Widget Examples Master
+
+
+The Widget Examples Master is a tool for learning to program with the
+IDL/widgets graphical user interface toolkit.  This widget application
+provides the "main menu" interface to a group of simple examples using the
+IDL/widgets.  Many of the examples illustrate the creation and management of
+just a single type of widget.  All of the basic widget types and a number of
+more complicated combinations of widgets are represented in the examples.  By
+examining the code for each of these examples, you can learn to create and
+manage almost any type of user interface made possible by the IDL Widgets.  
+
+These examples and the "Tips and Techniques", available by selecting the
+"Widget Programming Tips and Techniques" button, are intended to be a
+supplement to the IDL/widgets documentation found in the IDL User's Guide
+Addendum.  While the original documentation is fairly complete, the Simple
+Widget Examples are provided as a tool for learning by example.  Under most
+windowing systems, you can use "cut and paste" functions to easily extract
+portions of the example code for use in your own programs. 
+
+There are two sets of side-by-side buttons in the Simple Widget Examples
+window.  The set on the left, labeled "Simple Widget Examples" provides
+access to very specific examples of widgets programming.  Select the buttons
+on the left to see the simple widgets.  Select the buttons on the right to
+display a text window that shows the code for the widget in question.  The
+set of buttons on the right, labeled "Example Widget Applications" provides
+access to more elaborate widget applications.
+
+Most of the examples produce some sort of output (e.g., the value of a
+slider, the name of a menu item selected).  This output is displayed in the
+original IDL window, so ensure that this window is visible when you are
+trying the examples.
+

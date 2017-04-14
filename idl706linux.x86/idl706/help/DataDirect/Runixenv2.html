@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:44" />
+  <title>Environment Variables</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp527917"> </a><h1 class="pNewHTMLPageNoNum">
+Environment Variables
+</h1>
+<hr /><a name="wp549215"> </a><p class="pBody">
+DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers require several environment variables to be set before using the driver. The following procedures require that you have the appropriate permissions to modify your environment and to read, write and execute various files. You should log in as a user who has full r/w/x permissions recursively on the entire DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> installation directory.
+</p>
+<a name="wp528002"> </a><h3 class="pHeading2">
+Required Environment Variables
+</h3>
+<a name="wp530130"> </a><p class="pBody">
+Most of the variables can be set by executing the appropriate shell script located in the ODBC home directory.
+</p>
+<a name="wp530131"> </a><p class="pBody">
+For example, C shell (and related shell) users should execute the following command before attempting to use ODBC-enabled applications:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+% source odbc.csh<a name="wp530132"> </a>
+</pre></div>
+<a name="wp530133"> </a><p class="pBody">
+Bourne shell (and related shell) users should initialize their environment as follows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+$ . odbc.sh<a name="wp530134"> </a>
+</pre></div>
+<a name="wp530591"> </a><p class="pBody">
+Executing these scripts will set the appropriate library search path environment variable (LD_LIBRARY_PATH on Solaris and Linux, SHLIB_PATH on HP/UX, or LIBPATH on AIX).
+</p>
+<a name="wp530136"> </a><p class="pBody">
+The library search path environment variables are required to be set so that the ODBC core components and drivers can be located at the time of execution. 
+</p>
+<a name="wp535137"> </a><p class="pBody">
+Some of the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers must have environment variables set as required by the database client components used by the drivers. Consult the driver requirements in each of the individual driver sections for additional information pertaining to individual driver requirements.
+</p>
+<a name="wp530141"> </a><h3 class="pHeading2">
+ODBCINI
+</h3>
+<a name="wp531580"> </a><p class="pBody">
+UNIX permits the use of a centralized system information file that a system administrator can control. This file contains data source definitions. DataDirect Connect installs a default version of this file, called odbc.ini (see <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a> for details). The system administrator can choose to use this file name or to rename the file. In either case, the environment variable ODBCINI, recognized by all DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers, must be set to point to the fully qualified path name of the system information file.
+</p>
+<a name="wp531584"> </a><p class="pBody">
+For example, to point to the default location of the file odbc.ini in the C shell, you would set this variable as follows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+setenv ODBCINI /opt/odbc32v50/odbc.ini<a name="wp535191"> </a>
+</pre></div>
+<a name="wp530665"> </a><p class="pBody">
+In the Bourne or Korn shell, you would set it as:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ODBCINI=/opt/odbc32v50/odbc.ini;export ODBCINI<a name="wp535209"> </a>
+</pre></div>
+<a name="wp531557"> </a><p class="pBody">
+As an alternative, you can choose to make the system information file a hidden file and not set the ODBCINI variable. In this case, you would need to rename the file to .odbc.ini (to make it a hidden file) and move it to the user&#8217;s $HOME directory. 
+</p>
+<a name="wp559738"> </a><p class="pBody">
+The driver searches for the system information file in the following order:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp531325"> </a><div class="pSmartList1"><li>Check ODBCINI</li></div><a name="wp531326"> </a><div class="pSmartList1"><li>Check $HOME for .odbc.ini</li></div></ol></div>
+<a name="wp531737"> </a><p class="pBody">
+The system administrator must use one of the preceding two steps to indicate the location of the system information file or the driver will return an error.
+</p>
+<a name="wp532027"> </a><p class="pBody">
+The next step is to test load the driver.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/14/04 11:47:58" />
+  <title>Using Client Load Balancing </title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp583520"> </a><h1 class="pNewHTMLPageNoNum">
+Using Client Load Balancing 
+</h1>
+<hr /><a name="wp596204"> </a><p class="pBody">
+Client load balancing is a useful feature that is available in the following DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers: DB2 Wire Protocol, Informix Wire Protocol, Oracle Wire Protocol, Oracle, SQL Server Wire Protocol (UNIX only), and Sybase Wire Protocol.
+</p>
+<a name="wp596359"> </a><p class="pBody">
+Client load balancing helps distribute new connections in your environment so that no one server is overwhelmed with connection requests. When client load balancing is enabled, the order in which primary and alternate database servers are tried is random. For example, let us suppose that client load balancing is enabled as shown in <a  href="Rstart5.html#wp596345">Figure&#160;2-2</a>.
+</p>
+<a name="wp596345"> </a><div class="pTableTitleBold">
+Figure 2-2.  Client Load Balancing
+</div>
+<a name="wp583480"> </a><div style="color: #000000; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+</div><div align="left"><img src="images/loadbalance.gif" height="203" width="372" border="0" hspace="0" vspace="0" alt="Client Load Balancing Diagram"/></div><div style="color: #000000; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+</div>
+<a name="wp606779"> </a><p class="pBody">
+First, Database Server B is tried (<b class="cBold">1</b>). Then, Database Server&#160;C may be tried (<b class="cBold">2</b>), followed by a connection attempt to Database Server A (<b class="cBold">3</b>). In contrast, if client load balancing was not enabled in this scenario, each database server would be tried in sequential order, primary server first; then, each alternate server based on its entry order in the alternate servers list.
+</p>
+<a name="wp583481"> </a><p class="pBody">
+For details on configuring client load balancing, see the appropriate driver chapter.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

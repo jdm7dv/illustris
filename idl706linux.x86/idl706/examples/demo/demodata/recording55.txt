@@ -1,0 +1,22 @@
+;if art_screen ne 'Visualization' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Return to Main Screen"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+;if art_screen ne 'Visualization' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Visualization"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Global Mapping Demo"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+D_MAPEVENT, {WIDGET_DRAW, ID: demo_find_wid("d_map:draw"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), TYPE:       2, X:     866, Y:    1411, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_MAPEVENT, {WIDGET_DRAW, ID: demo_find_wid("d_map:draw"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), TYPE:       2, X:     354, Y:    1684, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_MAPEVENT, {WIDGET_BUTTON, ID: demo_find_wid("d_map:|View|Interpolation|Object"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), SELECT:            1L}
+D_MAPEVENT, {WIDGET_BUTTON, ID: demo_find_wid("d_map:|View|Continents|Low Res Elevations"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), SELECT:            1L}
+D_MAPEVENT, {WIDGET_DRAW, ID: demo_find_wid("d_map:draw"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), TYPE:       2, X:       7, Y:    1836, PRESS:   0B, RELEASE:   0B, CLICKS:   1953391990L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_MAPEVENT, {WIDGET_LIST, ID: demo_find_wid("d_map:proj"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), INDEX:           0L, CLICKS:            1L}
+D_MAPEVENT, {WIDGET_LIST, ID: demo_find_wid("d_map:proj"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), INDEX:           2L, CLICKS:            1L}
+D_MAPEVENT, {WIDGET_LIST, ID: demo_find_wid("d_map:proj"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), INDEX:           3L, CLICKS:            1L}
+D_MAPEVENT, {WIDGET_LIST, ID: demo_find_wid("d_map:proj"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), INDEX:           4L, CLICKS:            1L}
+D_MAPEVENT, {WIDGET_LIST, ID: demo_find_wid("d_map:proj"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), INDEX:           5L, CLICKS:            1L}
+D_MAPEVENT, {WIDGET_LIST, ID: demo_find_wid("d_map:proj"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), INDEX:           7L, CLICKS:            1L}
+D_MAPEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_map:lat"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), VALUE:           0L, DRAG:        0}
+D_MAPEVENT, {WIDGET_LIST, ID: demo_find_wid("d_map:proj"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), INDEX:           8L, CLICKS:            1L}
+D_MAPEVENT, {WIDGET_SLIDER, ID: demo_find_wid("d_map:lon"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), VALUE:         114L, DRAG:        0}
+D_MAPEVENT, {WIDGET_LIST, ID: demo_find_wid("d_map:proj"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), INDEX:          16L, CLICKS:            1L}
+;D_MAPEVENT, {WIDGET_LIST, ID: demo_find_wid("d_map:proj"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb"), INDEX:          17L, CLICKS:            1L}
+art_screen = 'Visualization'
+D_MAPEVENT, {WIDGET_KILL_REQUEST, ID: demo_find_wid("d_map:tlb"), TOP: demo_find_wid("d_map:tlb"), HANDLER: demo_find_wid("d_map:tlb") }
+;demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Return to Main Screen"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}

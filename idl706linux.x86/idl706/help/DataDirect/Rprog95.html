@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:20" />
+  <title>Connecting to a Data Source Using a Connection String</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510099"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Connection String
+</h1>
+<hr /><a name="wp529817"> </a><p class="pBody">
+If your application requires a connection string for connecting to a database, you must specify the data source name that tells the driver where to find the default connection information. Optionally, you may specify <em class="cEmphasis">attribute=value</em> pairs in the connection string to override the default values stored in the data source definition.
+</p>
+<a name="wp529818"> </a><p class="pBody">
+The connection string has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=<code><em>data_source_name</em></code>[;<code><em>attribute=value</em></code>[;<code><em>attribute=value</em></code>]...]<a name="wp529819"> </a>
+</pre></div>
+<a name="wp529824"> </a><p class="pBody">
+<a  href="Rprog95.html#wp525172">Table&#160;14-1</a> gives the long and short names for each attribute, as well as a description. You can specify either long or short names in the connection string. Connection string attribute names are the same as the option names on the driver Setup dialog box tabs unless otherwise noted. The connection string attribute name does not have spaces between the words. For example, the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em> is equivalent to the option name <em class="cEmphasis">Application Using Threads</em>.
+</p>
+<a name="wp529825"> </a><p class="pBody">
+The defaults listed in the table are initial defaults that apply when no value is specified in either the data source definition or in the connection string. If you specified a value for the attribute when configuring the data source, that value is the default.
+</p>
+<a name="wp522454"> </a><p class="pBody">
+An example of a connection string for Progress SQL92 is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=PROGRESS;DB=PAYROLL;UID=JOHN;PWD=XYZZY;HOST=LOCALHOST;
+PORT=2055<a name="wp522455"> </a>
+</pre></div>
+<a name="wp526844"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp525172"> </a><div class="pTableTitleBold">
+Table 14-1.  Progress SQL92 Connection String Attributes&#160;
+</div>
+</caption>
+  <tr align="left">    <td><a name="wp525176"> </a><div class="pCellHeading">
+Attribute
+</div>
+</td>
+    <td><a name="wp525178"> </a><div class="pCellHeading">
+Description
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp525180"> </a><div class="pCellBody">
+ArraySize (AS)
+</div>
+</td>
+    <td><a name="wp534063"> </a><div class="pCellBody">
+The number of rows the driver retrieves from the server for a fetch. This is not the number of rows given to the user. The initial default is 50 rows.
+</div>
+<a name="wp534064"> </a><div class="pCellBody">
+You should set this connection string attribute to the approximate number of rows being fetched. This reduces the number of round trips on the network, thereby increasing performance.
+</div>
+<a name="wp534065"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Fetch Array Size.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp525184"> </a><div class="pCellBody">
+DatabaseName (DB)
+</div>
+</td>
+    <td><a name="wp525186"> </a><div class="pCellBody">
+The name of the database to which you want to connect.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp525188"> </a><div class="pCellBody">
+DataSourceName (DSN)
+</div>
+</td>
+    <td><a name="wp525190"> </a><div class="pCellBody">
+A string that identifies a Progress data source configuration. Examples include &quot;Accounting&quot; or &quot;PROG-Serv1.&quot;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp525192"> </a><div class="pCellBody">
+DefaultIsolationLevel (DIL)
+</div>
+</td>
+    <td><a name="wp534078"> </a><div class="pCellBody">
+DefaultIsolationLevel={READ COMMITTED | READ UNCOMMITED | REPEATABLE READ | SERIALIZABLE}. Specifies the default isolation level for concurrent transactions. See <a  href="Rlock3.html#wp509911">&quot;Isolation Levels&quot;</a> for definitions of these values.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp525196"> </a><div class="pCellBody">
+HostName (HOST)
+</div>
+</td>
+    <td><a name="wp525198"> </a><div class="pCellBody">
+The name of the system where the database is stored.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp530694"> </a><div class="pCellBody">
+IANAAppCodePage (IACP)
+</div>
+<a name="wp530698"> </a><div class="pCellBody">
+<img src="images/iconunixd4.gif" height="31" width="26" border="0" hspace="0" vspace="0"/>
+</div>
+<a name="wp528502"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp534287"> </a><div class="pCellBody">
+See <a  href="appcodepage.html#wp526223"><a  href="appcodepage.html#wp526223">&quot;Values for IANAAppCodePage Connection String Attribute&quot;</a></a> for a list of valid values for this attribute. The code page that you specify must be the same as the code page used by your application. This attribute applies to UNIX only.
+</div>
+<a name="wp534289"> </a><div class="pCellBody">
+For this non-Unicode driver, the Driver Manager determines the value of the application&#8217;s code page by checking for an IANAAppCodePage value in the following order:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp534290"> </a><div class="pSmartList1"><li>In the connection string</li></div><a name="wp534291"> </a><div class="pSmartList1"><li>In the DataSource section of the system information file (odbc.ini)</li></div><a name="wp534292"> </a><div class="pSmartList1"><li>In the ODBC section of the system information file (odbc.ini)</li></div></ul></div>
+<a name="wp534293"> </a><div class="pCellBody">
+If no IANAAppCodePage value is found, the driver uses the default value of 4 (ISO 8859-1 Latin-1). 
+</div>
+<a name="wp532015"> </a><p class="pBody">
+&#160;&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp525200"> </a><div class="pCellBody">
+LogonID (UID)
+</div>
+</td>
+    <td><a name="wp525202"> </a><div class="pCellBody">
+The default logon ID (user name) used to connect to your Progress SQL92 database. This ID is case-sensitive.
+</div>
+<a name="wp532003"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is User ID.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp525204"> </a><div class="pCellBody">
+Password (PWD)
+</div>
+</td>
+    <td><a name="wp525206"> </a><div class="pCellBody">
+A case-sensitive password.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp525208"> </a><div class="pCellBody">
+PortNumber<br />(PORT)
+</div>
+</td>
+    <td><a name="wp525210"> </a><div class="pCellBody">
+The system port number setup for the database listener process.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

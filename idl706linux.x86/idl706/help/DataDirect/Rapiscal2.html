@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:41" />
+  <title>API Functions</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp938"> </a><h1 class="pNewHTMLPageNoNum">
+API Functions
+</h1>
+<hr /><a name="wp952"> </a><p class="pBody">
+All DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers support all ODBC Core and Level 1 functions&#8212;they are ODBC Level 1&#8211;compliant. They also support a limited set of Level 2 functions. The drivers support the functions listed in <a  href="Rapiscal2.html#wp3092">Table&#160;B-1</a> and <a  href="Rapiscal2.html#wp6716">Table&#160;B-2</a>. Any additions to these supported functions or differences in the support of specific functions are listed in the &quot;ODBC Conformance Level&quot; section in the individual driver topics.
+</p>
+<a name="wp3149"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp3092"> </a><div class="pTableTitleBold">
+Table B-1.  Function Conformance for 2.x ODBC Applications
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp3096"> </a><div class="pCellHeading">
+Core Functions
+</div>
+</th>
+    <th><a name="wp3098"> </a><div class="pCellHeading">
+Level 1 Functions
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp3100"> </a><div class="pCellBody">
+SQLAllocConnect
+</div>
+<a name="wp3101"> </a><div class="pCellBody">
+SQLAllocEnv
+</div>
+<a name="wp3102"> </a><div class="pCellBody">
+SQLAllocStmt
+</div>
+<a name="wp3103"> </a><div class="pCellBody">
+SQLBindCol
+</div>
+<a name="wp3104"> </a><div class="pCellBody">
+SQLBindParameter
+</div>
+<a name="wp3105"> </a><div class="pCellBody">
+SQLCancel
+</div>
+<a name="wp3106"> </a><div class="pCellBody">
+SQLColAttributes
+</div>
+<a name="wp3107"> </a><div class="pCellBody">
+SQLConnect
+</div>
+<a name="wp3108"> </a><div class="pCellBody">
+SQLDescribeCol
+</div>
+<a name="wp3109"> </a><div class="pCellBody">
+SQLDisconnect
+</div>
+<a name="wp3110"> </a><div class="pCellBody">
+SQLDrivers
+</div>
+<a name="wp3111"> </a><div class="pCellBody">
+SQLError
+</div>
+<a name="wp3112"> </a><div class="pCellBody">
+SQLExecDirect
+</div>
+<a name="wp3113"> </a><div class="pCellBody">
+SQLExecute
+</div>
+<a name="wp3114"> </a><div class="pCellBody">
+SQLFetch
+</div>
+<a name="wp3115"> </a><div class="pCellBody">
+SQLFreeConnect
+</div>
+<a name="wp3116"> </a><div class="pCellBody">
+SQLFreeEnv
+</div>
+<a name="wp3117"> </a><div class="pCellBody">
+SQLFreeStmt
+</div>
+<a name="wp3118"> </a><div class="pCellBody">
+SQLGetCursorName
+</div>
+<a name="wp3119"> </a><div class="pCellBody">
+SQLNumResultCols
+</div>
+<a name="wp3120"> </a><div class="pCellBody">
+SQLPrepare
+</div>
+<a name="wp3121"> </a><div class="pCellBody">
+SQLRowCount
+</div>
+<a name="wp3122"> </a><div class="pCellBody">
+SQLSetCursorName
+</div>
+<a name="wp3123"> </a><div class="pCellBody">
+SQLTransact
+</div>
+</td>
+    <td><a name="wp3125"> </a><div class="pCellBody">
+SQLColumns
+</div>
+<a name="wp3126"> </a><div class="pCellBody">
+SQLDriverConnect
+</div>
+<a name="wp3127"> </a><div class="pCellBody">
+SQLGetConnectOption
+</div>
+<a name="wp3128"> </a><div class="pCellBody">
+SQLGetData
+</div>
+<a name="wp3129"> </a><div class="pCellBody">
+SQLGetFunctions
+</div>
+<a name="wp3130"> </a><div class="pCellBody">
+SQLGetInfo
+</div>
+<a name="wp3131"> </a><div class="pCellBody">
+SQLGetStmtOption
+</div>
+<a name="wp3132"> </a><div class="pCellBody">
+SQLGetTypeInfo
+</div>
+<a name="wp3133"> </a><div class="pCellBody">
+SQLParamData
+</div>
+<a name="wp3134"> </a><div class="pCellBody">
+SQLPutData
+</div>
+<a name="wp3135"> </a><div class="pCellBody">
+SQLSetConnectOption
+</div>
+<a name="wp3136"> </a><div class="pCellBody">
+SQLSetStmtOption
+</div>
+<a name="wp3137"> </a><div class="pCellBody">
+SQLSpecialColumns
+</div>
+<a name="wp3138"> </a><div class="pCellBody">
+SQLStatistics
+</div>
+<a name="wp3139"> </a><div class="pCellBody">
+SQLTables
+</div>
+<a name="wp3140"> </a><div class="pCellHeading">
+Level 2 Functions
+</div>
+<a name="wp3141"> </a><div class="pCellBody">
+SQLBrowseConnect (all drivers except Progress)
+</div>
+<a name="wp3142"> </a><div class="pCellBody">
+SQLDataSources
+</div>
+<a name="wp3143"> </a><div class="pCellBody">
+SQLExtendedFetch (forward scrolling only)
+</div>
+<a name="wp3144"> </a><div class="pCellBody">
+SQLMoreResults
+</div>
+<a name="wp3145"> </a><div class="pCellBody">
+SQLNativeSql
+</div>
+<a name="wp3146"> </a><div class="pCellBody">
+SQLNumParams
+</div>
+<a name="wp3147"> </a><div class="pCellBody">
+SQLParamOptions
+</div>
+<a name="wp3148"> </a><div class="pCellBody">
+SQLSetScrollOptions
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp6776"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp6716"> </a><div class="pTableTitleBold">
+Table B-2.  Function Conformance for 3.x ODBC Applications
+</div>
+</caption>
+  <tr align="left">    <td><a name="wp6720"> </a><div class="pCellBody">
+SQLAllocHandle
+</div>
+<a name="wp6721"> </a><div class="pCellBody">
+SQLBindCol
+</div>
+<a name="wp6722"> </a><div class="pCellBody">
+SQLBindParameter
+</div>
+<a name="wp9365"> </a><div class="pCellBody">
+SQLBrowseConnect<br />(except for Progress)
+</div>
+<a name="wp6724"> </a><div class="pCellBody">
+SQLBulkOperations
+</div>
+<a name="wp6725"> </a><div class="pCellBody">
+SQLCancel
+</div>
+<a name="wp6726"> </a><div class="pCellBody">
+SQLCloseCursor
+</div>
+<a name="wp6727"> </a><div class="pCellBody">
+SQLColAttribute
+</div>
+<a name="wp6728"> </a><div class="pCellBody">
+SQLColumns
+</div>
+<a name="wp6729"> </a><div class="pCellBody">
+SQLConnect
+</div>
+<a name="wp6730"> </a><div class="pCellBody">
+SQLCopyDesc
+</div>
+<a name="wp6731"> </a><div class="pCellBody">
+SQLDataSources
+</div>
+<a name="wp6732"> </a><div class="pCellBody">
+SQLDescribeCol
+</div>
+<a name="wp6733"> </a><div class="pCellBody">
+SQLDisconnect
+</div>
+<a name="wp6734"> </a><div class="pCellBody">
+SQLDriverConnect
+</div>
+<a name="wp6735"> </a><div class="pCellBody">
+SQLDrivers
+</div>
+<a name="wp6736"> </a><div class="pCellBody">
+SQLEndTran
+</div>
+<a name="wp6737"> </a><div class="pCellBody">
+SQLError
+</div>
+<a name="wp6738"> </a><div class="pCellBody">
+SQLExecDirect
+</div>
+<a name="wp6739"> </a><div class="pCellBody">
+SQLExecute
+</div>
+<a name="wp6740"> </a><div class="pCellBody">
+SQLExtendedFetch
+</div>
+<a name="wp6741"> </a><div class="pCellBody">
+SQLFetch
+</div>
+<a name="wp6742"> </a><div class="pCellBody">
+SQLFetchScroll <br />(forward scrolling only)
+</div>
+<a name="wp6743"> </a><div class="pCellBody">
+SQLFreeHandle
+</div>
+<a name="wp6744"> </a><div class="pCellBody">
+SQLFreeStmt
+</div>
+<a name="wp6745"> </a><div class="pCellBody">
+SQLGetConnectAttr
+</div>
+<a name="wp6746"> </a><div class="pCellBody">
+SQLGetCursorName
+</div>
+</td>
+    <td><a name="wp6748"> </a><div class="pCellBody">
+SQLGetData
+</div>
+<a name="wp6749"> </a><div class="pCellBody">
+SQLGetDescField
+</div>
+<a name="wp6750"> </a><div class="pCellBody">
+SQLGetDescRec
+</div>
+<a name="wp6751"> </a><div class="pCellBody">
+SQLGetDiagField
+</div>
+<a name="wp6752"> </a><div class="pCellBody">
+SQLGetDiagRec
+</div>
+<a name="wp6753"> </a><div class="pCellBody">
+SQLGetEnvAttr
+</div>
+<a name="wp6754"> </a><div class="pCellBody">
+SQLGetFunctions
+</div>
+<a name="wp6755"> </a><div class="pCellBody">
+SQLGetInfo
+</div>
+<a name="wp6756"> </a><div class="pCellBody">
+SQLGetStmtAttr
+</div>
+<a name="wp6757"> </a><div class="pCellBody">
+SQLGetTypeInfo
+</div>
+<a name="wp6758"> </a><div class="pCellBody">
+SQLMoreResults
+</div>
+<a name="wp6759"> </a><div class="pCellBody">
+SQLNativeSql
+</div>
+<a name="wp6760"> </a><div class="pCellBody">
+SQLNumParens
+</div>
+<a name="wp6761"> </a><div class="pCellBody">
+SQLNumResultCols
+</div>
+<a name="wp6762"> </a><div class="pCellBody">
+SQLParamData
+</div>
+<a name="wp6763"> </a><div class="pCellBody">
+SQLPrepare
+</div>
+<a name="wp6764"> </a><div class="pCellBody">
+SQLPutData
+</div>
+<a name="wp6765"> </a><div class="pCellBody">
+SQLRowCount
+</div>
+<a name="wp6766"> </a><div class="pCellBody">
+SQLSetConnectAttr
+</div>
+<a name="wp6767"> </a><div class="pCellBody">
+SQLSetCursorName
+</div>
+<a name="wp6768"> </a><div class="pCellBody">
+SQLSetDescField
+</div>
+<a name="wp6769"> </a><div class="pCellBody">
+SQLSetDescRec
+</div>
+<a name="wp6770"> </a><div class="pCellBody">
+SQLSetEnvAttr
+</div>
+<a name="wp6771"> </a><div class="pCellBody">
+SQLSetStmtAttr
+</div>
+<a name="wp6772"> </a><div class="pCellBody">
+SQLSpecialColumns
+</div>
+<a name="wp6773"> </a><div class="pCellBody">
+SQLStatistics
+</div>
+<a name="wp6774"> </a><div class="pCellBody">
+SQLTables
+</div>
+<a name="wp6775"> </a><div class="pCellBody">
+SQLTransact
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

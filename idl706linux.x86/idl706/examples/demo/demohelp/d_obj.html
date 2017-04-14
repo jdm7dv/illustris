@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:52">
+    <title>3D Objects</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_plot2d.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_heart.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004102"> </a><h2 class="pHeading1">
+3D Objects
+</h2>  
+
+<a name="wp1004104"> </a><p class="pBody">
+This demo shows geometric forms and molecules. Choose among several different 3D objects.
+</p>  
+
+<a name="wp1004105"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004106"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004107"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit and return to the IDL Demo main screen.
+</p>  
+
+<a name="wp1004108"> </a><h4 class="pHeading3">
+Options Menu
+</h4>  
+
+<a name="wp1004109"> </a><h5 class="pHeading4">
+Shading
+</h5>  
+
+<a name="wp1004110"> </a><p class="pBody">
+Select &quot;Flat&quot; to represent solid objects.
+</p>  
+
+<a name="wp1004111"> </a><p class="pBody">
+Select &quot;Gouraud&quot; shading for the solid. Gouraud shading results in a more realistic appearance.
+</p>  
+
+<a name="wp1004112"> </a><p class="pBody">
+Shading is only enabled when the Style is set to Solid.
+</p>  
+
+<a name="wp1004113"> </a><h5 class="pHeading4">
+Style
+</h5>  
+
+<a name="wp1004114"> </a><p class="pBody">
+Select &quot;Points&quot; to display the object as a set of points.
+</p>  
+
+<a name="wp1004115"> </a><p class="pBody">
+Select &quot;Wire&quot; to display the object with a wire-frame surface.
+</p>  
+
+<a name="wp1004116"> </a><p class="pBody">
+Select &quot;Solid&quot; to display the object as a solid. You can also select either &quot;Flat&quot; or &quot;Gouraud&quot; shading.
+</p>  
+
+<a name="wp1004117"> </a><p class="pBody">
+Select &quot;Hidden Points&quot; to display only the points located immediately in front.
+</p>  
+
+<a name="wp1004118"> </a><p class="pBody">
+Select &quot;Hidden Wire&quot; to display only the lines of the wire-surface located immediately in front.
+</p>  
+
+<a name="wp1004119"> </a><h5 class="pHeading4">
+Backface culling
+</h5>  
+
+<a name="wp1004120"> </a><p class="pBody">
+Select this option (turn it &quot;on&quot;) to only show the outside surface of the objects, making inner surfaces transparent.
+</p>  
+
+<a name="wp1004121"> </a><h5 class="pHeading4">
+Vertex coloring
+</h5>  
+
+<a name="wp1004122"> </a><p class="pBody">
+Select this option (turn it &quot;on&quot;) to display the object with predetermined colors.
+</p>  
+
+<a name="wp1004123"> </a><h5 class="pHeading4">
+Edging
+</h5>  
+
+<a name="wp1004124"> </a><p class="pBody">
+Select this option (turn it &quot;on&quot;) to show the polygon edges of the object. This option is the most effective when viewed with the &quot;Solid&quot; style.
+</p>  
+
+<a name="wp1004125"> </a><p class="pBody">
+Bottom color
+</p>  
+
+<a name="wp1004126"> </a><p class="pBody">
+Select this option (turn it &quot;on&quot;) to differentiate inner surfaces with a separate color.
+</p>  
+
+<a name="wp1004127"> </a><h5 class="pHeading4">
+Line thickness
+</h5>  
+
+<a name="wp1004128"> </a><p class="pBody">
+Select the line thickness (1, 3, 5 or 7 points). This option is disabled when the style is set to &quot;Solid&quot;.
+</p>  
+
+<a name="wp1004129"> </a><h5 class="pHeading4">
+Drag quality
+</h5>  
+
+<a name="wp1004130"> </a><p class="pBody">
+Drag quality applies only to solid surfaces.
+</p>  
+
+<a name="wp1004131"> </a><p class="pBody">
+Select &quot;Low&quot; to show the dragged image as a single-color wire-frame object.
+</p>  
+
+<a name="wp1004132"> </a><p class="pBody">
+Select &quot;Medium&quot; to show the dragged image as a &quot;Flat&quot; object, even if the Shading is already set to &quot;Flat&quot;.
+</p>  
+
+<a name="wp1004133"> </a><p class="pBody">
+Select &quot;High&quot; to show the dragged image as it is shown.
+</p>  
+
+<a name="wp1004134"> </a><p class="pBody">
+The higher the drag quality, the slower the speed of rendering the object. You may or may not see a difference, depending on your machine's speed.
+</p>  
+
+<a name="wp1004135"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1004136"> </a><p class="pBody">
+Select &quot;About 3D Geometry&quot; for information about the 3D Geometry Demo.
+</p>  
+
+<a name="wp1004137"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1004138"> </a><h4 class="pHeading3">
+Seashell radio button
+</h4>  
+
+<a name="wp1004139"> </a><p class="pBody">
+Shows a seashell-shaped object.
+</p>  
+
+<a name="wp1004140"> </a><h4 class="pHeading3">
+Knot radio button
+</h4>  
+
+<a name="wp1004141"> </a><p class="pBody">
+Shows a pretzel-like knot object.
+</p>  
+
+<a name="wp1004142"> </a><h4 class="pHeading3">
+Teapot radio button
+</h4>  
+
+<a name="wp1004143"> </a><p class="pBody">
+Shows a teapot-shaped object.
+</p>  
+
+<a name="wp1004144"> </a><h4 class="pHeading3">
+Valium Molecule radio button
+</h4>  
+
+<a name="wp1004145"> </a><p class="pBody">
+Shows a valium molecule.
+</p>  
+
+<a name="wp1004146"> </a><h4 class="pHeading3">
+Aspartame radio button
+</h4>  
+
+<a name="wp1004147"> </a><p class="pBody">
+Shows an aspartame molecule.
+</p>  
+
+<a name="wp1004148"> </a><h4 class="pHeading3">
+Caffeine radio button
+</h4>  
+
+<a name="wp1004149"> </a><p class="pBody">
+Shows a caffeine molecule.
+</p>  
+
+<a name="wp1004150"> </a><h4 class="pHeading3">
+Reset Orientation button
+</h4>  
+
+<a name="wp1004151"> </a><p class="pBody">
+Return the object to its initial orientation.
+</p>  
+
+<a name="wp1004152"> </a><h3 class="pHeading2">
+Interactive Movement
+</h3>  
+
+
+<a name="wp1004153"> </a><p class="pBody">
+Use your left mouse button to interactively rotate (drag) the selected object. Position the cursor on the object and, while holding down the left mouse button, move the cursor. Release the mouse button when you are satisfied with the position of the object.
+</p>  
+
+<a name="wp1004154"> </a><p class="pBody">
+For solid objects, you can also specify the DragQuality, which affects the object's appearance while it is being dragged. If you find that dragging the object is slow, lower the Drag Quality.
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

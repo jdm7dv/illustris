@@ -1,0 +1,69 @@
+
+
+             WELCOME TO THE FORECAST DEMO
+
+
+   The Forecast Demo illustrates the fundamental 
+   principles of time-series forecasting. You can
+   specify forecasting parameters to apply towards
+   generating data.
+
+   A time-series is a sequential collection of data 
+   observations, indexed over time. Modeling a
+   time-series as a combination of past values and
+   residual white noise allows the extrapolation of
+   data for future points of time.
+
+   This process is known as FORECASTING and uses an 
+   AUTOREGRESSIVE FORECASTING MODEL of ORDER P,
+   where P represents the number of past time-series
+   values used to compute the forecast. In general, 
+   the accuracy of the forecast improves as the value 
+   of P increases. 
+
+   The SAMPLE AUTOCORRELATION function is a commonly
+   used tool to determine the accuracy of a forecasting
+   model.  The autocorrelation of a time-series measures
+   the dependence between observations as a function
+   of their time differences or LAG. An N-element
+   time-series with approximately 95% of its values
+   in the interval,
+
+   [-1.96/sqrt(N), 1.96/sqrt(N)]
+
+   is said to be STATIONARY and is the prerequisite
+   to an accurate forecast. This interval is displayed
+   with dashed lines on the plot of the SAMPLE
+   AUTOCORRELATION.
+
+   See the MATHEMATICS section of the on-line help
+   for more information.
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+      Select "Quit" to exit the Forecast Demo and return
+      to the IDL Demo main screen.
+
+   About Menu:
+      Select "About forecasting" for information about 
+      the Forecasting Demo.
+
+
+   FEATURES
+   --------
+
+   <<ORDER OF THE MODEL>> slider
+      Select the order, P, of the forecasting model.
+
+   <<NUMBER OF FORECASTS>> slider
+      Select the number of data points to forecast.
+      Each new data point is represented by a red 
+      triangle.
+
+   <<GENERATE NEW DATA>> button
+      Generate a new set of random values according to 
+      set of forecasting parameters specified with the 
+      above sliders.

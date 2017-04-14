@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="CVS-tietovaraston haarojen yhdistäminen">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Tämän muistilistan avulla voit yhdistää yhteen CVS-haaraan tehdyt muutokset toiseen haaraan
+      tai päähaaraan (HEAD). Saat lisätietoja muistilistojen käytöstä napsauttamalla oikeassa
+      yläkulmassa olevaa ohjepainiketta (?).
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Haaran tietojen ja versiotietojen määritys">
+    <description>
+      Ensimmäisessä vaiheessa tulee päättää, <b>mitkä</b> kaksi haaraa yhdistetään,
+      missä <b>versiossa</b> sisältö haarautettiin ja mihin <b>kohdehaaraan</b>
+tulokset yhdistetään. Kun olet saanut nämä tiedot, voit siirtyä seuraavaan vaiheeseen.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Projektin kuittaus ulos">
+    <description>
+      Ennen kuin haarat yhdistetään, yhdistettävä projekti täytyy <b>kuitata ulos</b> ja tuoda
+      työtilaan. Voit tehdä tämän joko ohjatun tuontitoiminnon avulla tai lisäämällä
+      tietovaraston CVS-tietovaraston tarkastelu -perspektiivistä. Saat lisätietoja napsauttamalla
+      ohjepainiketta (?).
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="Kohteen lataus työtilaan">
+    <description>
+      Napsauta projektia navigaattorissa hiiren kakkospainikkeella ja valitse vaihtoehdot Korvaa &gt;
+      Toisella haaralla tai versiolla. Valise kohdehaara. Toiminto lataa haaran viimeisimmän sisällön
+      työtilaan.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Yhdistämistiedot">
+    <description>
+      Napsauta projektia navigaattorissa uudelleen hiiren kakkospainikkeella, valitse vaihtoehdot
+<b>Työryhmä</b> &gt; <b>Yhdistä</b> ja toteuta ohjatun toiminnon vaiheet. Tässä ohjatussa toiminnossa määrität
+      yhdistämistoiminnon tiedot.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Yhdistämisen muokkausohjelman käyttö">
+    <description>
+Yhdistämisen muokkausohjelmassa voit yhdistää muutokset manuaalisesti. Tämä vaihe lataa tarvittavat muutokset työtilaan. Kun olet
+      yhdistänyt kaikki muutokset ja olet tyytyäinen tuloksiin, voit siirtyä seuraavaan vaiheeseen.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Muutosten vahvistus">
+    <description>
+      Napsauta projektia hiiren kakkospainikkeella, valitse vaihtoehdot <b>Työryhmä</b> &gt; <b>Synkronoi tietovaraston
+kanssa</b> ja vahvista kaikki muutokset tietovarastoon. Tämä vaihe viimeistelee muutosten siirron työtilasta CVS-tietovarastoon
+ja päättää yhdistämistoiminnon.
+    </description>
+  </item>
+
+</cheatsheet>

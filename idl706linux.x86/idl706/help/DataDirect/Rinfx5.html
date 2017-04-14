@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:16:47" />
+  <title>Connecting to a Data Source Using a Connection String</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510178"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Connection String
+</h1>
+<hr /><a name="wp553158"> </a><p class="pBody">
+If your application requires a connection string for connecting to a database, you must specify the data source name that tells the driver where to find the default connection information. Optionally, you may specify <em class="cEmphasis">attribute=value</em> pairs in the connection string to override the default values stored in the data source definition.
+</p>
+<a name="wp553159"> </a><p class="pBody">
+The connection string has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=<code><em>data_source_name</em></code>[;<code><em>attribute=value</em></code>[;<code><em>attribute=value</em></code>]...]<a name="wp553160"> </a>
+</pre></div>
+<a name="wp553165"> </a><p class="pBody">
+<a  href="Rinfx5.html#wp535295">Table&#160;10-1</a> gives the long and short names for each attribute, as well as a description. You can specify either long or short names in the connection string. Connection string attribute names are the same as the option names on the driver Setup dialog box tabs unless otherwise noted. The connection string attribute name does not have spaces between the words. For example, the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em> is equivalent to the option name <em class="cEmphasis">Application Using Threads</em>.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+The defaults listed in the table are initial defaults that apply 
+when no value is specified in either the data source definition or 
+in the connection string. If you specified a value for the 
+attribute when configuring the data source, that value is the 
+default.<a name="wp539448"> </a>
+</pre></div>
+<a name="wp510194"> </a><p class="pBody">
+An example of a connection string for Informix is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=INFORMIX TABLES;DB=PAYROLL<a name="wp510196"> </a>
+</pre></div>
+<a name="wp535398"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp535295"> </a><div class="pTableTitleBold">
+Table 10-1.  Informix Connection String Attributes&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp535299"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp535301"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp535309"> </a><div class="pCellBody">
+ApplicationUsing<br />Threads (AUT)
+</div>
+</td>
+    <td><a name="wp563379"> </a><div class="pCellBody">
+ApplicationUsingThreads={0 | 1}. Determines whether or not the driver works with multi-threaded applications. 
+</div>
+<a name="wp563380"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver is thread-safe and is ensured to work with multi-threaded applications. 
+</div>
+<a name="wp563381"> </a><div class="pCellBody">
+When using the driver with single-threaded applications, you can set this option to 0 to avoid additional processing required for ODBC thread-safety standards.&#160;&#160;&#160;
+</div>
+<a name="wp562682"> </a><p class="pBody">
+&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535315"> </a><div class="pCellBody">
+CancelDetect<br />Interval (CDI)
+</div>
+</td>
+    <td><a name="wp563017"> </a><div class="pCellBody">
+CancelDetectInterval={0 | 5 | 10 | 30 | 60}. A value in seconds that determines how often the driver checks whether a query has been canceled using SQLCancel.
+</div>
+<a name="wp563022"> </a><div class="pCellBody">
+If the driver determines that SQLCancel has been issued, the query is canceled. This attribute determines whether long-running queries in threaded applications are canceled if the application issues a SQLCancel. If set to 0 (the initial default), queries are not canceled even if SQLCancel is issued.
+</div>
+<a name="wp535319"> </a><div class="pCellBody">
+For example, if CancelDetectInterval is set to 5, then for every pending request, the driver checks every five seconds to see whether the application has canceled execution of the query using SQLCancel.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535321"> </a><div class="pCellBody">
+CursorBehavior (CB)
+</div>
+</td>
+    <td><a name="wp535323"> </a><div class="pCellBody">
+CursorBehavior={0 | 1}. Determines whether cursors will be preserved or closed at the end of each transaction. 
+</div>
+<a name="wp556462"> </a><div class="pCellBody">
+When set to 0, cursors will be closed at the end of each transaction. 
+</div>
+<a name="wp535325"> </a><div class="pCellBody">
+When set to 1 (the initial default), cursors will be held at the current position when the transaction ends. This value may slow the performance of your database operations.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535327"> </a><div class="pCellBody">
+Database (DB)
+</div>
+</td>
+    <td><a name="wp535329"> </a><div class="pCellBody">
+The name of the database to which you want to connect.
+</div>
+<a name="wp557085"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Database Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535331"> </a><div class="pCellBody">
+DataSourceName (DSN)
+</div>
+</td>
+    <td><a name="wp535333"> </a><div class="pCellBody">
+A string that identifies an Informix data source configuration. Examples include &quot;Accounting&quot; or &quot;INFORMIX-Serv1.&quot;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535335"> </a><div class="pCellBody">
+EnableInsert<br />Cursors (EIC)
+</div>
+</td>
+    <td><a name="wp535337"> </a><div class="pCellBody">
+EnableInsertCursors={0 | 1}. Determines whether the driver can use Insert cursors during inserts governed by parameters. 
+</div>
+<a name="wp535338"> </a><div class="pCellBody">
+When set to 0, the driver does not use Insert cursors.
+</div>
+<a name="wp535339"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver uses Insert cursors. Using Insert cursors improves performance during multiple Insert operations using the same statement. This setting enables insert data to be buffered in memory before being written to disk.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535341"> </a><div class="pCellBody">
+GetDBListFrom<br />Informix (GDBLFI)
+</div>
+</td>
+    <td><a name="wp535343"> </a><div class="pCellBody">
+GetDBListFromInformix={0 | 1}. Determines whether the driver requests the database list to be returned from the Informix server or from the database list that the user entered at driver setup. 
+</div>
+<a name="wp535344"> </a><div class="pCellBody">
+When set to 0, the driver uses the list that was entered by the user at driver setup.
+</div>
+<a name="wp535345"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver requests the database list from the Informix server. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535347"> </a><div class="pCellBody">
+HostName (HOST)
+</div>
+<a name="wp535351"> </a><div class="pCellBody">
+<img src="images/iconwina12.gif" height="27" width="27" border="0" hspace="0" vspace="0"/>
+</div>
+</td>
+    <td><a name="wp535353"> </a><div class="pCellBody">
+The name of the machine on which the Informix database resides.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp555759"> </a><div class="pCellBody">
+IANAAppCodePage (IACP)
+</div>
+<a name="wp555743"> </a><div class="pCellBody">
+<img src="images/iconunixb8.gif" height="31" width="26" border="0" hspace="0" vspace="0"/>
+</div>
+</td>
+    <td><a name="wp563325"> </a><div class="pCellBody">
+See <a  href="appcodepage.html#wp526223"><a  href="appcodepage.html#wp526223">&quot;Values for IANAAppCodePage Connection String Attribute&quot;</a></a> for a list of valid values for this attribute. The code page that you specify must be the same as the code page used by your application. This attribute applies to UNIX only.
+</div>
+<a name="wp563327"> </a><div class="pCellBody">
+For this non-Unicode driver, the Driver Manager determines the value of the application&#8217;s code page by checking for an IANAAppCodePage value in the following order:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp563328"> </a><div class="pSmartList1"><li>In the connection string</li></div><a name="wp563329"> </a><div class="pSmartList1"><li>In the DataSource section of the system information file (odbc.ini)</li></div><a name="wp563330"> </a><div class="pSmartList1"><li>In the ODBC section of the system information file (odbc.ini)</li></div></ul></div>
+<a name="wp563331"> </a><div class="pCellBody">
+If no IANAAppCodePage value is found, the driver uses the default value of 4 (ISO 8859-1 Latin-1). 
+</div>
+<a name="wp557718"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535355"> </a><div class="pCellBody">
+LogonID (UID)
+</div>
+</td>
+    <td><a name="wp535357"> </a><div class="pCellBody">
+Your user name as specified on the Informix server.
+</div>
+<a name="wp557084"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Default User Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535359"> </a><div class="pCellBody">
+Password (PWD)
+</div>
+</td>
+    <td><a name="wp535361"> </a><div class="pCellBody">
+A password.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535363"> </a><div class="pCellBody">
+Protocol (PRO)
+</div>
+<a name="wp535367"> </a><div class="pCellBody">
+<img src="images/iconwina13.gif" height="27" width="27" border="0" hspace="0" vspace="0"/>
+</div>
+</td>
+    <td><a name="wp535369"> </a><div class="pCellBody">
+Protocol={olsocspx | olsoctcp | onsocspx | onsoctcp | seipcpip | sesocspx | sesoctcp}. Specifies the protocol used to communicate with the server.
+</div>
+<a name="wp557083"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Protocol Type.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535371"> </a><div class="pCellBody">
+ServerName<br />(SRVR)
+</div>
+</td>
+    <td><a name="wp535373"> </a><div class="pCellBody">
+The name of the server running the Informix database.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535375"> </a><div class="pCellBody">
+Service (SERV)
+</div>
+<a name="wp535379"> </a><div class="pCellBody">
+<img src="images/iconwina14.gif" height="27" width="27" border="0" hspace="0" vspace="0"/><br />
+</div>
+</td>
+    <td><a name="wp535381"> </a><div class="pCellBody">
+The name of the service as it appears on the host machine. This service is assigned by the system administrator.
+</div>
+<a name="wp557082"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Service Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535383"> </a><div class="pCellBody">
+TrimBlankFrom<br />IndexName (TBFIN)
+</div>
+</td>
+    <td><a name="wp535385"> </a><div class="pCellBody">
+TrimBlankFromIndexName={0 | 1}. Determines whether the leading space should be trimmed from a system-generated index name. This option is provided to address problems with applications that cannot process a leading space in index names. 
+</div>
+<a name="wp535386"> </a><div class="pCellBody">
+When set to 0, the driver does not trim the space.
+</div>
+<a name="wp535387"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver trims the leading space. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp535389"> </a><div class="pCellBody">
+UseDefaultLogin (UDL)
+</div>
+<a name="wp535393"> </a><div class="pCellBody">
+<img src="images/iconwina15.gif" height="27" width="27" border="0" hspace="0" vspace="0"/>
+</div>
+</td>
+    <td><a name="wp535395"> </a><div class="pCellBody">
+UseDefaultLogin={0 | 1}. Determines from where the logon information is read.
+</div>
+<a name="wp535396"> </a><div class="pCellBody">
+When set to 0 (the initial default), logon information is read from the Windows Registry, the connection string, or the Logon to Informix dialog box.
+</div>
+<a name="wp535397"> </a><div class="pCellBody">
+When set to 1, the Logon ID and Password are read directly from the Informix registry. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

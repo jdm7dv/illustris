@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="org.eclipse.ui.workbench" name="Frissítések és az Eclipse.org" alt-style="css/whatsnew.properties" style="css/whatsnew.css" path="whatsnew/@">
+  	   <group style-id="content-group" id="content-group">
+       		<link style-id="content-link" label="Új frissítések" url="http://org.eclipse.ui.intro/runAction?pluginId=org.eclipse.platform&amp;class=org.eclipse.platform.internal.LaunchUpdateIntroAction" id="updates">
+          		<text>A legújabb frissítések letöltése az Eclipse.org oldalról</text>
+       		</link>
+       		<link style-id="content-link" label="Eclipse közösség" url="http://org.eclipse.ui.intro/openBrowser?url=http://www.eclipse.org" id="eclipse">
+          		<text>Csatlakozhat a közösséghez, valamint cikkeket és híreket
+olvashat az Eclipse.org webhelyen</text>
+       		</link>
+			<group id="rss-news" label="Legfrissebb hírek" expandable="true" expanded="true">
+				<contentProvider id="rss-viewer" pluginId="org.eclipse.platform" class="org.eclipse.platform.internal.EclipseRSSViewer">
+				</contentProvider>
+			</group>
+       </group>
+  	</extensionContent>
+</introContent>

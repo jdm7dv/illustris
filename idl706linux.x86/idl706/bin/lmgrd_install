@@ -1,0 +1,98 @@
+#!/bin/sh
+# This script is intended to be run by the administrator of a UNIX system
+# who desires to start the FlexLM license server at system boot time.
+# A detailed description of the actions performed by this script are
+# contained in the sys5_idl_lmgrd script.
+#
+# Usage: This script must be run in the directory that contains 
+# the 'sys5_idl_lmgrd' script (<IDL_DIR>/bin/). 
+#
+
+if [ ! -f ./sys5_idl_lmgrd ] ; then
+    echo "Cannot find sys5_idl_lmgrd."
+    echo "Please run this script from the bin subdirectory of your IDL distribution."
+    exit 1
+fi
+
+UNAME=`uname`
+case $UNAME in
+
+    "Darwin")
+	if [ ! -d /Library/StartupItems ]; then
+	    mkdir /Library/StartupItems
+	fi
+	if [ ! -d /Library/StartupItems/IDL_LMGRD ]; then
+	    mkdir /Library/StartupItems/IDL_LMGRD
+	fi
+	cp sys5_idl_lmgrd /Library/StartupItems/IDL_LMGRD/IDL_LMGRD
+	echo "{
+    Description    = \"IDL FlexLM License Manager\";
+    Provides       = (\"IDL_License_Manager\");
+    Requires       = (\"Network\", \"Resolver\");
+    OrderPreference = \"Late\";
+    Messages        = 
+	{
+	start = \"Starting the IDL FlexLM License Manager\";
+	stop = \"Stopping the IDL FlexLM License Manager\";
+	};
+}
+"> /Library/StartupItems/IDL_LMGRD/StartupParameters.plist
+	;;
+
+    "SunOS")				# Solaris
+	cp sys5_idl_lmgrd /etc/init.d
+	if [ -f /etc/rc3.d/S99sys5_idl_lmgrd ]; then
+		rm -f /etc/rc3.d/S99sys5_idl_lmgrd
+	fi
+	if [ -f /etc/rc0.d/K01sys5_idl_lmgrd ]; then
+		rm -f /etc/rc0.d/K01sys5_idl_lmgrd
+	fi
+        ln -s /etc/init.d/sys5_idl_lmgrd /etc/rc3.d/S99sys5_idl_lmgrd
+	ln -s /etc/init.d/sys5_idl_lmgrd /etc/rc0.d/K01sys5_idl_lmgrd
+	;;
+
+    "AIX")
+	echo "You must edit /etc/inittab by hand."
+	echo "Please consult the Installation Guide for further details."
+	;;
+
+
+    "IRIX"|"IRIX6"|"IRIX64")
+	cp sys5_idl_lmgrd /etc/init.d
+	if [ -f /etc/rc2.d/S99sys5_idl_lmgrd ]; then
+		rm -f /etc/rc2.d/S99sys5_idl_lmgrd
+	fi
+	if [ -f /etc/rc0.d/K01sys5_idl_lmgrd ]; then
+		rm -f /etc/rc0.d/K01sys5_idl_lmgrd
+	fi
+	ln -s /etc/init.d/sys5_idl_lmgrd /etc/rc2.d/S99sys5_idl_lmgrd
+	ln -s /etc/init.d/sys5_idl_lmgrd /etc/rc0.d/K01sys5_idl_lmgrd
+	;;
+
+    "Linux")
+	cp sys5_idl_lmgrd /etc/rc.d/init.d
+	if [ -f /etc/rc3.d/S99sys5_idl_lmgrd ]; then
+		rm -f /etc/rc3.d/S99sys5_idl_lmgrd
+	fi
+	if [ -f /etc/rc4.d/S99sys5_idl_lmgrd ]; then
+		rm -f /etc/rc4.d/S99sys5_idl_lmgrd
+	fi
+	if [ -f /etc/rc5.d/S99sys5_idl_lmgrd ]; then
+		rm -f /etc/rc5.d/S99sys5_idl_lmgrd
+	fi
+	if [ -f /etc/rc0.d/K01sys5_idl_lmgrd ]; then
+		rm -f /etc/rc0.d/K01sys5_idl_lmgrd
+	fi
+	ln -s /etc/rc.d/init.d/sys5_idl_lmgrd /etc/rc3.d/S99sys5_idl_lmgrd
+	ln -s /etc/rc.d/init.d/sys5_idl_lmgrd /etc/rc4.d/S99sys5_idl_lmgrd
+	ln -s /etc/rc.d/init.d/sys5_idl_lmgrd /etc/rc5.d/S99sys5_idl_lmgrd
+	ln -s /etc/rc.d/init.d/sys5_idl_lmgrd /etc/rc0.d/K01sys5_idl_lmgrd
+	;;
+		
+    *)
+	echo "$APPLICATION: Unable to recognize system architecture."
+	exit 1
+	;;
+
+esac
+

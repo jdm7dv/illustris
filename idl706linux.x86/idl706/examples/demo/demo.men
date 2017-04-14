@@ -1,0 +1,423 @@
+<?xml version='1.0'?>
+<!-- $Id: //depot/idl/IDL_70/idldir/examples/demo/demo.men#3 $  -->
+<!DOCTYPE IDLdemo SYSTEM 'demo.dtd'>
+
+<!--
+  IDL DEMO MENU DEFINITION FILE - DEMO.MEN
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Copyright (c) 2003-2008, ITT Visual Information Solutions  ;
+; This file may be freely copied and modified ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+This XML file contains all the information needed to create and use
+the IDL demo system harness.  Herein are specified programs, icons,
+graphics, and descriptive text.
+
+The sizes of the optional graphics elements are as follows:
+Title image:          700 x  50
+Main graphics window: 400 x 200
+'About' tab graphic:  675 x 360
+Tree bitmap icons:     16 x 16 x 3
+
+The first line below this comment should be:
+<IDLdemo>
+and the last line in the file should be:
+</IDLdemo>
+-->
+
+<IDLdemo>
+
+<TAB NAME='Features'>
+  <TEXT>IDL offers an expansive array of powerful features that make it the data visualization and analysis solution of choice for technical professionals.
+Select a category to see a list of demos and links.</TEXT>
+  <GRAPHIC>demographics,idlfeatures.bmp</GRAPHIC>
+
+  <TREE_NODE NAME='Data Access' BITMAP='..,..,resource,bitmaps,binary.bmp'>
+    <TEXT>IDL offers flexible and efficient built-in support for a wide range of data sources, file formats, data types and sizes.</TEXT>
+  </TREE_NODE>
+
+  <TREE_FOLDER NAME='Data Analysis'>
+    <TEXT>IDL includes a rich library of proven math, statistics, image processing and signal processing routines to help you analyze your data.  
+Select a subcategory to see a list of demos.</TEXT>
+
+    <TREE_NODE NAME='Math and Statistics' BITMAP='..,..,resource,bitmaps,sum.bmp'>
+      <TEXT>You can rely on IDL's complete math and statistics library including many of the best algorithms from Numerical Recipes and LAPACK.</TEXT>
+      <PROGRAM NAME='Math and Statistics Demo'>
+        <PROGRAM_FILE>d_mathstat</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Minimization'>
+        <PROGRAM_FILE>d_optimize</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Forecasting Demo'>
+        <PROGRAM_FILE>d_forecast</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Principal Components'>
+        <PROGRAM_FILE>d_pca</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Image Processing' BITMAP='..,..,resource,bitmaps,image.bmp'>
+      <TEXT>IDL was conceived 25 years ago to process medical images efficiently.  IDL's image processing technologies are state-of-the-art and remain a core strength today.</TEXT>
+      <PROGRAM NAME='iImage Demo'>
+        <PROGRAM_FILE>d_iimage</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Image Processing Demo'>
+        <PROGRAM_FILE>d_imagproc</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Wavelet Demo'>
+        <PROGRAM_FILE>d_wavelet</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='ROI Segmentation Demo'>
+        <PROGRAM_FILE>d_roi</PROGRAM_FILE>
+        <EXTRA>
+          <TAG>ASTRO</TAG>
+          <VALUE IDLTYPE='2'>1</VALUE>
+        </EXTRA>
+      </PROGRAM>
+      <PROGRAM NAME='Filtering Demo'>
+        <PROGRAM_FILE>d_filter</PROGRAM_FILE>
+        <EXTRA>
+          <TAG>filename</TAG>
+          <VALUE IDLTYPE='7'>galaxy.dat</VALUE>
+        </EXTRA>
+      </PROGRAM>
+      <PROGRAM NAME='Warping and Morphing Demo'>
+        <PROGRAM_FILE>d_people</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Signal Processing' BITMAP='..,..,resource,bitmaps,profile.bmp'>
+      <TEXT>IDL provides you with a well-rounded set of tools for processing signal data.</TEXT>
+      <PROGRAM NAME='Filtering Demo'>
+        <PROGRAM_FILE>d_filter</PROGRAM_FILE>
+        <EXTRA>
+          <TAG>filename</TAG>
+          <VALUE IDLTYPE='7'>damp_sn.dat</VALUE>
+        </EXTRA>
+      </PROGRAM>
+      <PROGRAM NAME='Wavelet Demo'>
+        <PROGRAM_FILE>d_wavelet</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Gridding and Interpolation' BITMAP='..,..,resource,bitmaps,contour.bmp'>
+      <TEXT>IDL provides you with a wide variety of algorithms for 2- and 3-dimensional gridding and interpolation so that you can choose the best method for your data.</TEXT>
+      <PROGRAM NAME='Gridding Demo'>
+        <PROGRAM_FILE>d_gridding</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Curve and Surface Fitting' BITMAP='..,..,resource,bitmaps,surface.bmp'>
+      <TEXT>IDL provides several powerful routines for linear fitting, fitting functions of more than one independent variable, and non-linear fitting.</TEXT>
+      <PROGRAM NAME='Curve Fitting Demo'>
+        <PROGRAM_FILE>d_icurvefit</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+  </TREE_FOLDER>
+
+  <TREE_FOLDER NAME='Data Visualization'>
+    <TEXT>Easily and quickly create powerful visualizations, including simple plots, image displays, interactive 3D graphics and volume displays in IDL.  
+Select a subcategory to see a list of demos and links.</TEXT>
+
+    <TREE_NODE NAME='iTools' BITMAP='demobitmaps,program.bmp'>
+      <TEXT>The iTools are a set of pre-built, point-and-click utilities for ad hoc data analysis and visualization and production of presentation quality graphics.  You can customize the tools and build your own using the iTools component framework.</TEXT>
+      <PROGRAM NAME='iContour Demo'>
+        <PROGRAM_FILE>d_icontour</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='iImage Demo'>
+        <PROGRAM_FILE>d_iimage</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='2D iPlot Demo'>
+        <PROGRAM_FILE>d_iplot2d</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='3D iPlot Demo'>
+        <PROGRAM_FILE>d_iplot3d</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='iSurface Demo'>
+        <PROGRAM_FILE>d_isurface</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='iVolume Demo'>
+        <PROGRAM_FILE>d_ivolume</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Plotting' BITMAP='..,..,resource,bitmaps,plot.bmp'>
+      <TEXT>Simple 2D plots are often key to interpreting data.  IDL's plotting tools let you to easily create a variety of custom plots.</TEXT>
+      <PROGRAM NAME='2D Plotting Demo'>
+        <PROGRAM_FILE>d_plot2d</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Time Series Demo'>
+        <PROGRAM_FILE>d_t_series</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Forecasting Demo'>
+        <PROGRAM_FILE>d_forecast</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='2D iPlot Demo'>
+        <PROGRAM_FILE>d_iplot2d</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='3D iPlot Demo'>
+        <PROGRAM_FILE>d_iplot3d</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Images' BITMAP='..,..,resource,bitmaps,image.bmp'>
+      <TEXT>IDL's powerful image display and processing tools allow you to apply color tables, find subtle features, collect ROI statistics, overlay vectors or zoom and pan large displays.</TEXT>
+      <PROGRAM NAME='Image Processing Demo'>
+        <PROGRAM_FILE>d_imagproc</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Fourier Filtering'>
+        <PROGRAM_FILE>d_filter</PROGRAM_FILE>
+        <EXTRA>
+          <TAG>filename</TAG>
+          <VALUE IDLTYPE='7'>galaxy.dat</VALUE>
+        </EXTRA>
+      </PROGRAM>
+      <PROGRAM NAME='ROI Segmentation'>
+        <PROGRAM_FILE>d_roi</PROGRAM_FILE>
+        <EXTRA>
+          <TAG>ASTRO</TAG>
+          <VALUE IDLTYPE='2'>1</VALUE>
+        </EXTRA>
+      </PROGRAM>
+      <PROGRAM NAME='Reconstruction'>
+        <PROGRAM_FILE>d_reconstr</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Warping and Morphing Demo'>
+        <PROGRAM_FILE>d_people</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='iImage Demo'>
+        <PROGRAM_FILE>d_iimage</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Contours' BITMAP='..,..,resource,bitmaps,contour.bmp'>
+      <TEXT>IDL has the functionality you expect from a sophisticated contouring package.</TEXT>
+      <PROGRAM NAME='Contouring Demo'>
+        <PROGRAM_FILE>d_contour</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='iContour Demo'>
+        <PROGRAM_FILE>d_icontour</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Vector Fields' BITMAP='..,..,resource,bitmaps,pan.bmp'>
+      <TEXT>Create vector flow diagrams, streamlines, isocontours and 3D hedgehog displays with your vector data in IDL.</TEXT>
+      <PROGRAM NAME='Matrix Data Demo'>
+        <PROGRAM_FILE>d_matrix</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Thunderstorm Demo'>
+        <PROGRAM_FILE>d_vectrack</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Mapping' BITMAP='..,..,resource,bitmaps,demo.bmp'>
+      <TEXT>IDL provides over 30 map projection types for displaying geospatial data.  IDL also includes low and high-resolution vector coastlines, rivers and political boundaries.</TEXT>
+      <PROGRAM NAME='Global Mapping Demo'>
+        <PROGRAM_FILE>d_map</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='US Census Demo'>
+        <PROGRAM_FILE>d_uscensus</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Surfaces and 3D Graphics' BITMAP='..,..,resource,bitmaps,surface.bmp'>
+      <TEXT>View and interactively manipulate surfaces plots, 3D line and scatter plots and complex polygonal meshes.  Drape images over surfaces and control lighting and shading.</TEXT>
+      <PROGRAM NAME='Object World'>
+        <PROGRAM_FILE>d_objworld2</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='3D Geometry Demo'>
+        <PROGRAM_FILE>d_obj</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Surface Demo'>
+        <PROGRAM_FILE>d_surfview</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Orbiting Satellite'>
+        <PROGRAM_FILE>d_orbit</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Environmental modeling'>
+        <PROGRAM_FILE>d_tankleak</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Hydrogen Atom'>
+        <PROGRAM_FILE>d_hydrogen</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Beating Heart Demo'>
+        <PROGRAM_FILE>d_heart</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Fly-through Demo'>
+        <PROGRAM_FILE>d_flythru</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Contouring Demo'>
+        <PROGRAM_FILE>d_contour</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Panorama Demo'>
+        <PROGRAM_FILE>d_panorama</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Line Profile Demo'>
+        <PROGRAM_FILE>d_isurface</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Light Properties Demo'>
+        <PROGRAM_FILE>d_lightproperties</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Volume Rendering' BITMAP='..,..,resource,bitmaps,volume.bmp'>
+      <TEXT>IDL lets you directly render true volumes, not just polygonal shells.  Interactively slice and dice powerful volume visualizations with convenient GUI tools.</TEXT>
+      <PROGRAM NAME='Thunderstorm Demo'>
+        <PROGRAM_FILE>d_vectrack</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Medical Volumes Demo'>
+        <PROGRAM_FILE>d_volrendr</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Slicer Demo'>
+        <PROGRAM_FILE>d_slice</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='iVolume Demo'>
+        <PROGRAM_FILE>d_ivolume</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+    <TREE_NODE NAME='Animations' BITMAP='..,..,resource,bitmaps,camera.bmp'>
+      <TEXT>IDL gives you the power to easily create and share animations such as stunning fly-throughs of virtual terrains.</TEXT>
+      <PROGRAM NAME='Fluid Dynamics Demo'>
+        <PROGRAM_FILE>d_animate</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Fly-through Demo'>
+        <PROGRAM_FILE>d_flythru</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Image Animation'>
+        <PROGRAM_FILE>d_gatedbp</PROGRAM_FILE>
+      </PROGRAM>
+      <PROGRAM NAME='Panorama Demo'>
+        <PROGRAM_FILE>d_panorama</PROGRAM_FILE>
+      </PROGRAM>
+    </TREE_NODE>
+
+  </TREE_FOLDER>
+
+  <TREE_NODE NAME='GUI Toolkit' BITMAP='..,..,resource,bitmaps,mapnet.bmp'>
+    <TEXT>IDL gives you access to a complete, cross platform GUI toolkit with a native look and feel on the host platform.  Create GUIs with code or visually, using the convenient, drag-and-drop GUIBuilder.</TEXT>
+    <PROGRAM NAME='Widget demo'>
+      <PROGRAM_FILE>d_widgets</PROGRAM_FILE>
+    </PROGRAM>
+  </TREE_NODE>
+
+  <TREE_NODE NAME='Development Environment' BITMAP='..,..,resource,bitmaps,commandline.bmp'>
+    <TEXT>The IDL development environment provides an ideal interface with built-in editing, profiling and debugging tools.</TEXT>
+  </TREE_NODE>
+
+  <TREE_NODE NAME='External Development' BITMAP='..,..,resource,bitmaps,importd.bmp'>
+    <TEXT>Seamlessly integrate IDL with applications and components written in other languages using COM/ActiveX, Java and other technologies.</TEXT>
+  </TREE_NODE>
+
+  <TREE_NODE NAME='Distribution' BITMAP='..,..,resource,bitmaps,copy.bmp'>
+    <TEXT>Wondering how you can share your IDL code with clients and colleagues?  With IDL, you can choose from a variety of distribution options to suit your needs, including the IDL Virtual Machine.  The IDL Virtual Machine is a freely distributable runtime utility for running IDL .sav file applications.</TEXT>
+  </TREE_NODE>
+
+</TAB>
+
+<TAB NAME='Industries'>
+  <TEXT>Analysts, researchers and developers in every field around the globe depend on the power of IDL every day to make critical discoveries, diagnoses and decisions based on data. 
+Select a category to see a list of demos and links.</TEXT>
+  <GRAPHIC>demographics,idlindustries.bmp</GRAPHIC>
+
+  <TREE_NODE NAME='Earth Sciences' BITMAP='..,..,resource,bitmaps,volume.bmp'>
+    <TEXT>Earth Sciences</TEXT>
+    <PROGRAM NAME='Mapping Demo'>
+      <PROGRAM_FILE>d_map</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Globe Demo'>
+      <PROGRAM_FILE>d_globe</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Fly-through'>
+      <PROGRAM_FILE>d_flythru</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Thunderstorm Demo'>
+      <PROGRAM_FILE>d_vectrack</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Orbiting Satellite'>
+      <PROGRAM_FILE>d_orbit</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Environmental Modeling Demo'>
+      <PROGRAM_FILE>d_tankleak</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Panorama Demo'>
+      <PROGRAM_FILE>d_panorama</PROGRAM_FILE>
+    </PROGRAM>
+  </TREE_NODE>
+
+  <TREE_NODE NAME='Physics and Astronomy' BITMAP='..,..,resource,bitmaps,volume.bmp'>
+    <TEXT>Physics and Astronomy</TEXT>
+    <PROGRAM NAME='Fourier Filtering'>
+      <PROGRAM_FILE>d_filter</PROGRAM_FILE>
+      <EXTRA>
+        <TAG>filename</TAG>
+        <VALUE IDLTYPE='7'>galaxy.dat</VALUE>
+      </EXTRA>
+    </PROGRAM>
+    <PROGRAM NAME='ROI Segmentation'>
+      <PROGRAM_FILE>d_roi</PROGRAM_FILE>
+      <EXTRA>
+        <TAG>ASTRO</TAG>
+        <VALUE IDLTYPE='2'>1</VALUE>
+      </EXTRA>
+    </PROGRAM>
+    <PROGRAM NAME='Hydrogen Atom'>
+      <PROGRAM_FILE>d_hydrogen</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='iVolume Demo'>
+      <PROGRAM_FILE>d_ivolume</PROGRAM_FILE>
+    </PROGRAM>
+  </TREE_NODE>
+
+  <TREE_NODE NAME='Medical' BITMAP='..,..,resource,bitmaps,volume.bmp'>
+    <TEXT>Medical</TEXT>
+    <PROGRAM NAME='Reconstruction'>
+      <PROGRAM_FILE>d_reconstr</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Image Animation'>
+      <PROGRAM_FILE>d_gatedbp</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Medical Volumes Demo'>
+      <PROGRAM_FILE>d_volrendr</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Beating Heart Demo'>
+      <PROGRAM_FILE>d_heart</PROGRAM_FILE>
+    </PROGRAM>
+  </TREE_NODE>
+
+  <TREE_NODE NAME='Engineering' BITMAP='..,..,resource,bitmaps,volume.bmp'>
+    <TEXT>Engineering</TEXT>
+    <PROGRAM NAME='Fourier Filtering'>
+      <PROGRAM_FILE>d_filter</PROGRAM_FILE>
+      <EXTRA>
+        <TAG>filename</TAG>
+        <VALUE IDLTYPE='7'>damp_sn.dat</VALUE>
+      </EXTRA>
+    </PROGRAM>
+    <PROGRAM NAME='Pressure Field Animation'>
+      <PROGRAM_FILE>d_animate</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Time Series'>
+      <PROGRAM_FILE>d_t_series</PROGRAM_FILE>
+    </PROGRAM>
+  </TREE_NODE>
+
+  <TREE_NODE NAME='Aerospace' BITMAP='..,..,resource,bitmaps,volume.bmp'>
+    <TEXT>Aerospace</TEXT>
+    <PROGRAM NAME='Fly-through Demo'>
+      <PROGRAM_FILE>d_flythru</PROGRAM_FILE>
+    </PROGRAM>
+    <PROGRAM NAME='Orbiting Satellite Demo'>
+      <PROGRAM_FILE>d_orbit</PROGRAM_FILE>
+    </PROGRAM>
+  </TREE_NODE>
+
+</TAB>
+
+<ABOUT_TAB NAME='About Us'>
+  <TEXT>ITT Visual Information Solutions is a provider of complete high-performance data visualization and analysis solutions including software, consulting and training that turn complex data into useful information.</TEXT>
+  <GRAPHIC>demographics,idlinfo.bmp</GRAPHIC>
+</ABOUT_TAB>
+
+</IDLdemo>

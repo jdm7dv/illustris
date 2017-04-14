@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:15:58" />
+  <title>Configuring Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp512773"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Data Sources
+</h1>
+<hr /><a name="wp536939"> </a><p class="pBody">
+Data sources are configured and modified through the ODBC Administrator using a driver Setup dialog box. Default connection values are specified through the options on the tabs of the Setup dialog box and are stored in the Windows Registry. Connection string attributes that override these options have the same names as the options unless noted otherwise. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp532825"> </a><p class="pBody">
+To configure a Btrieve data source on Windows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp533287"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources on the 	User DSN tab.</li></div><a name="wp533288"> </a><div class="pSmartList1"><li>If you are configuring an existing Btrieve data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC Btrieve Driver Setup dialog box.</li></div><a name="wp515023"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add.</b> A list of installed drivers appears. Select the DataDirect Btrieve driver and click <b class="cBold">Finish</b> to display the ODBC Btrieve Driver Setup dialog box.
+</p>
+<a name="wp524151"> </a><p class="pBodyRelative">
+NOTE: The General tab displays only fields that are required for creating a data source. The fields on all other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp524153"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply</b>.</li></div><a name="wp533453"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Type a string that identifies this Btrieve data source configuration. Examples include &quot;Accounting&quot; or &quot;Btrieve Files.&quot;
+</p>
+<a name="wp510256"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: Type an optional long description of a data source name. For example, &quot;My Accounting Database&quot; or &quot;Btrieve files in C:\ACCOUNTS.&quot;
+</p>
+<a name="wp510258"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Directory</b>: Type the full path name of the directory that contains the Btrieve files and the data dictionary files (.DDF). Data dictionary files describe the structure of Btrieve data. If no directory is specified, the current working directory is used.
+</p>
+<a name="wp531543"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Database.
+</p>
+<a name="wp511693"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab to specify data source settings. </li></div><a name="wp524185"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply</b>.
+</p>
+<a name="wp524186"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Default Logon ID</b>: Type the default logon ID used to connect to your Btrieve database. A logon ID is required only if security is enabled on your database. Your ODBC application may override this value or you may override this value in a connection string.
+</p>
+<a name="wp531605"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is LogonID.
+</p>
+<a name="wp510264"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">File Open Cache</b>: Type the numeric value to specify the maximum number of used file handles to cache. For example, the value 4 specifies that when a user opens and closes four tables, the tables are not actually closed. The driver keeps them open so that if another query uses one of these tables, the driver does not have to perform another open, which is expensive. The advantage of file open caching is increased performance. The disadvantage is that a user who tries to open the file exclusively may get a file locking conflict even though no one appears to have the file open. The default is 0, which means no file open caching.
+</p>
+<a name="wp510266"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Array Size:</b> Type the number of bytes in the array. This connection option enables the driver to retrieve an array of records from the Btrieve database and in most cases results in better performance for the application. The default value is 4,096 bytes, and the maximum is 65,535 bytes.
+</p>
+<a name="wp511738"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data File Extension</b>: Type a string of three or fewer characters that specifies the file extension to use for data files. The default value is DTA. This value is used for all Create Table statements. Sending a Create Table statement that uses an extension other than the one specified as the Data File Extension value causes an error.
+</p>
+<a name="wp511735"> </a><p class="pBodyIndent12pxBeforeAfter">
+In other SQL statements, such as Select or Insert, you can specify an extension other than the Data File Extension value. If you do not specify an extension value in these cases, the Data File Extension value is used.
+</p>
+<a name="wp511736"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Action for Undefined Tables</b>: Select one of the following options to indicate whether the driver should prompt the user when it encounters a table for which it has no structure information:
+</p>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp536520"> </a><div class="pSmartList2Rel"><li><b class="cBold">Prompt for Definition</b> to prompt the user</li></div>
+<a name="wp536523"> </a><div class="pSmartList2Rel"><li><b class="cBold">Return Error Condition</b> (the default) to return an error</li></div>
+</ul></div>
+<a name="wp531625"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is UndefinedTable.
+</p>
+<a name="wp536769"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">International Sort</b>: Select this check box to use international sort order as defined by your operating system when you issue a Select statement with an Order By clause. This order is always alphabetic, regardless of case; the letters are sorted as &quot;A, b, C.&quot; See your operating system documentation concerning the sorting of accented characters.
+</p>
+<a name="wp536770"> </a><p class="pBodyIndent12pxBeforeAfter">
+If this check box is cleared (the default), ASCII sort order is used. This order sorts items alphabetically with uppercase letters preceding lowercase letters. For example, &quot;A, b, C&quot; is sorted as &quot;A, C, b.&quot;
+</p>
+<a name="wp531587"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is IntlSort.
+</p>
+<a name="wp510270"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Use Long Qualifiers</b>: Select this check box to specify that the driver uses long path names. In this case, path names can be a maximum of 255 characters. If the check box is cleared (the default), path names can be a maximum of 128 characters.
+</p>
+<a name="wp537725"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Using Threads</b>: Select this check box to ensure that the driver works with multi-threaded applications. You can clear this check box when using the driver with single-threaded applications. Turning off this setting avoids additional processing required for ODBC thread-safety standards.
+</p>
+<a name="wp516766"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Define</b>: Click <b class="cBold">Define</b> to define table structure. See <a  href="Rbtrieve6.html#wp526043">&quot;Defining Table Structure&quot;</a> for step-by-step instructions.
+</p>
+<a name="wp533429"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Translate</b>:<b class="cBold"> </b>Click <b class="cBold">Translate</b> to display the Select Translator dialog box, which lists the translators specified in the ODBC translators section of the Registry. DataDirect provides a translator named &quot;OEM to ANSI&quot; that translates your data from the IBM PC character set to the ANSI character set.
+</p>
+<a name="wp533430"> </a><p class="pBodyIndent12pxBeforeAfter">
+Select a translator; then, click <b class="cBold">OK</b> to close this dialog box and perform the translation.
+</p>
+<a name="wp533431"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the driver Setup dialog box.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp533432"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a <code class="cCode">Connection established!</code> message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp533433"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message.</li></div>
+<a name="wp533434"> </a><p class="pBodyRelative">
+Verify that all required client software is properly installed. If it is not, you will see the message:
+</p>
+<a name="wp533435"> </a><p class="pSyntaxEmbed">
+Specified driver could not be loaded due to system error [xxx].
+</p>
+<a name="wp533436"> </a><p class="pBodyRelative">
+Click <b class="cBold">OK</b>.
+</p>
+</ul></div>
+<a name="wp533437"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

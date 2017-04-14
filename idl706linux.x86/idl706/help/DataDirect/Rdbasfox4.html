@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>Defining Index Attributes</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp544526"> </a><h1 class="pNewHTMLPageNoNum">
+Defining Index Attributes
+</h1>
+<hr /><a name="wp589815"> </a><p class="pBody">
+NOTE: This section does not apply to UNIX platforms. See <a  href="Rdbasfox5.html#wp589835">&quot;Defining Index Attributes on UNIX&quot;</a> for information on how to set index attributes on the UNIX platforms.
+</p>
+<a name="wp531028"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinc3.gif" height="28" width="25" border="0" hspace="0" vspace="0"/></div><p class="pBody">The Define tab of the ODBC dBASE Driver Setup dialog box allows you to define the attributes of index files. With the exception of Clipper, the family of databases that includes dBASE and FoxPro uses a multiple index file associated with a particular table (database file). This index file has a .MDX or .CDX extension and is automatically maintained by the driver. Tags within this index can be marked as unique.
+</p>
+<a name="wp530671"> </a><p class="pBody">
+Clipper uses single index files that are not automatically associated with a particular table. You can choose to have the driver maintain an index and choose whether or not the index is unique.
+</p>
+<a name="wp510407"> </a><p class="pBody">
+<b class="cBold">To define index file attributes:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp517607"> </a><div class="pSmartList1"><li>Display the ODBC dBASE Driver Setup dialog box.</li></div><a name="wp517608"> </a><div class="pSmartList1"><li>Click the <b class="cBold">Define</b> tab.</li></div><a name="wp530588"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide the following information; then, click <b class="cBold">Apply</b>.
+</p>
+<a name="wp530590"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Directory</b>: Type or select the directory name that contains the table (database file). To display a directory listing, click <b class="cBold">Browse.</b>
+</p>
+<a name="wp563708"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Table</b>: Type or select the name of the table that contains the database information. To display a directory listing, click <b class="cBold">Browse.</b>
+</p>
+<a name="wp563707"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Multiple Index File</b>: This field displays the name of any multiple index file (with a .CDX extension or .MDX extension) associated with the table you selected. This index file cannot be marked as unique, but tags within it can be.
+</p>
+<a name="wp530638"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Unique Tags</b>: This field displays tags associated with the multiple index file. To mark tags as unique, click each one; each one remains selected until you click it again. 
+</p>
+<a name="wp607991"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Single Index Files</b>: The Single Index Files group is active only if you have selected a Clipper table.
+</p>
+<a name="wp530640"> </a><p class="pBodyIndent12pxBeforeAfter">
+Select the file from the drop-down list to define the attributes of a single index file.
+</p>
+<a name="wp530618"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Maintain Index</b>: Select this check box to associate the specified single index file with the selected table.
+</p>
+<a name="wp530624"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Keep Unique</b>: Select this check box to specify that the single index file is unique.
+</p>
+<a name="wp530651"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

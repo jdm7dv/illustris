@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Pobieranie projektu CVS">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Ta ściągawka ilustruje sposób eksplorowania repozytorium CVS i pobierania
+      projektu. Aby uzyskać pomoc dla danego kroku, kliknij ikonę (?) znajdującą się
+      po prawej stronie.
+    </description>
+  </intro>
+
+  <item
+      title="Otwieranie perspektywy eksplorowania repozytorium CVS"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+      Z głównego menu wybierz opcję Okna &gt; Otwórz perspektywę &gt; Inne...,
+      a następnie wybierz perspektywę <b>Eksplorowanie repozytorium CVS</b>.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="Dodawanie repozytorium CVS"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+      W widoku repozytoriów CVS kliknij przycisk <b>Dodaj repozytorium CVS</b>
+      na pasku narzędzi. Wprowadź informacje o położeniu i uwierzytelnianiu dla
+      repozytorium. Dla przykładowego repozytorium <b>eclipse</b> wprowadź następujące
+      informacje:<br/>
+      <br/>
+      Host: dev.eclipse.org<br/>
+      Ścieżka repozytorium: /home/eclipse<br/>
+      Użytkownik: anonymous<br/>
+      Typ połączenia: pserver<br/>
+      <br/>
+      Użyj wartości domyślnych dla pozostałych ustawień i kliknij przycisk Zakończ.
+    </description>
+  </item>
+
+  <item
+      title="Znajdowanie projektu"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+      Rozwiń węzeł <b>HEAD</b> w dodanym repozytorium i znajdź projekt
+      do pobrania (np. aby znaleźć kod źródłowy dla widoku ściągawek,
+      przejdź do pakietu org.eclipse.ui.cheatsheets)
+    </description>
+  </item>
+
+  <item
+      title="Pobieranie projektu"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+      Kliknij prawym przyciskiem myszy projekt do pobrania i wybierz opcję <b>Pobierz</b>. Spowoduje to pobranie najnowszej treści z repozytorium do
+      obszaru roboczego.
+    </description>
+  </item>
+
+  <item
+      title="Wyświetlanie obszaru roboczego"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+      Aby wyświetlić projekt w obszarze roboczym, przełącz się na perspektywę <b>Zasób</b>
+      przy użyciu opcji Okna &gt; Otwórz perspektywę&gt; Zasób. Spowoduje to wyświetlenie projektu
+      w widoku <b>Nawigator</b>. Można teraz wyświetlać i pracować z treścią
+      projektu.
+    </description>
+  </item>
+
+</cheatsheet>

@@ -1,0 +1,12 @@
+Use of this software for providing LZW capability for any purpose is not 
+authorized unless user first enters into a license agreement with Unisys 
+under U.S. Patent No. 4,558,302 and foreign counterparts. For information 
+concerning licensing, please contact: 
+
+Unisys Corporation
+Welch Licensing Department - C1SW19
+Township Line & Union Meeting Roads
+P.O. Box 500
+Blue Bell, PA 19424.
+
+

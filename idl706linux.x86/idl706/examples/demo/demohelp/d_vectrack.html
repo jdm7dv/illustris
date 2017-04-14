@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:30:03">
+    <title>Thunderstorm</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_surfview.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_t_series.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1005372"> </a><h2 class="pHeading1">
+Thunderstorm
+</h2>  
+
+<a name="wp1005374"> </a><p class="pBody">
+This application demonstrates the advanced visualization and data exploration capabilities of IDL's OpenGL-based Object Graphics System. The data consists of temperature, pressure, and wind velocity samples for a simulated storm front model in three (x, y, z) spatial dimensions. This is analogous to measuring three parameters (pressure, temperature and wind velocity) in evenly spaced (x, y, z) locations of a room. Each measured parameter consists of a &quot;brick&quot; or volume of data, thus we have three &quot;bricks&quot; of data to display.
+</p>  
+
+<a name="wp1005376"> </a><p class="pBody">
+In addition to these advanced visualization capabilities, the array-based nature of IDL facilitates the analysis of complex, multidimensional data. If desired, all dimensions of complex data may be stored and processed in a single array. 
+</p>  
+
+<a name="wp1005377"> </a><p class="pBody">
+Our most sincere thanks go to Drs. Joe Klemp and Morris Weisman of the National Center for Atmospheric Research (NCAR) Boulder, Colorado who graciously provided ITT Visual Information Solutions with this data. 
+</p>  
+
+<a name="wp1005378"> </a><p class="pBody">
+The following types of visualizations can be shown.
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005379"> </a><div class="pSmartList1"><li>Images obtained from cross-sections of the data.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005380"> </a><div class="pSmartList1"><li>Vector plots of velocity at a given location.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005381"> </a><div class="pSmartList1"><li>Volume rendering of a variable throughout the data set.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005382"> </a><div class="pSmartList1"><li>Isosurfacing of a variable.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005383"> </a><div class="pSmartList1"><li>Ribbons for the display of vector data.</li></div>  
+
+</ul></div>
+<a name="wp1005384"> </a><p class="pBody">
+The data available for use in the demo:
+</p>  
+
+<a name="wp1005385"> </a><h5 class="pHeading4">
+P
+</h5>  
+
+<a name="wp1005386"> </a><p class="pBody">
+Air pressure pertubation (millibars).
+</p>  
+
+<a name="wp1005387"> </a><h5 class="pHeading4">
+T
+</h5>  
+
+<a name="wp1005388"> </a><p class="pBody">
+Potential temperature pertubation (difference from mean in degrees Kelvin.
+</p>  
+
+<a name="wp1005389"> </a><h5 class="pHeading4">
+U
+</h5>  
+
+<a name="wp1005390"> </a><p class="pBody">
+Wind field west to east (meters/second).
+</p>  
+
+<a name="wp1005391"> </a><h5 class="pHeading4">
+V
+</h5>  
+
+<a name="wp1005392"> </a><p class="pBody">
+Wind field south to north (m/sec).
+</p>  
+
+<a name="wp1005393"> </a><h5 class="pHeading4">
+W
+</h5>  
+
+<a name="wp1005394"> </a><p class="pBody">
+Wind field vertical velocity (m/sec).
+</p>  
+
+<a name="wp1005395"> </a><p class="pBody">
+(Note that the variable M shown in the visualization is a computed value based on U, V, and W.)
+</p>  
+
+<a name="wp1005396"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1005397"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1005398"> </a><p class="pBody">
+Select Quit to exit the Demo and return to the IDL Demo system.
+</p>  
+
+<a name="wp1005399"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1005400"> </a><p class="pBody">
+Select &quot;About Thunderstorm Visualization&quot; for detailed information about the Thunderstorm Demo.
+</p>  
+
+<a name="wp1005401"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1005402"> </a><h4 class="pHeading3">
+Velocity Field Planes: X, Y, Z droplists
+</h4>  
+
+<a name="wp1005403"> </a><p class="pBody">
+Control the display of velocity information for each plane. The display of velocities can be shown as vectors, as an image, or turned off. 
+</p>  
+
+<a name="wp1005404"> </a><h4 class="pHeading3">
+Velocity Field Planes: X, Y, Z, Plane sliders
+</h4>  
+
+<a name="wp1005405"> </a><p class="pBody">
+Control the location of the plane in which velocity information is to be displayed.
+</p>  
+
+<a name="wp1005406"> </a><h4 class="pHeading3">
+Vector Sampling button group
+</h4>  
+
+<a name="wp1005407"> </a><p class="pBody">
+Choose &quot;Even&quot; or &quot;Random&quot; sampling for the display of velocity vectors.
+</p>  
+
+<a name="wp1005408"> </a><h4 class="pHeading3">
+Sample Every Nth text entry field
+</h4>  
+
+<a name="wp1005409"> </a><p class="pBody">
+Set the density of the sampling for the display of velocity vectors.
+</p>  
+
+<a name="wp1005410"> </a><h4 class="pHeading3">
+Total Number of Samples text entry field
+</h4>  
+
+<a name="wp1005411"> </a><p class="pBody">
+Set the total number of velocity vectors to be displayed when using random vector sampling.
+</p>  
+
+<a name="wp1005412"> </a><h4 class="pHeading3">
+Vector Length text entry field
+</h4>  
+
+<a name="wp1005413"> </a><p class="pBody">
+Set the length of the velocity vectors.
+</p>  
+
+<a name="wp1005414"> </a><h4 class="pHeading3">
+Vrend vol droplist
+</h4>  
+
+<a name="wp1005415"> </a><p class="pBody">
+Choose the volume to be rendered. &quot;P&quot; represents air pressure perturbation in millibars. &quot;T&quot; represents potential temperature perturbation, or the difference from mean in degrees Kelvin. &quot;M&quot; represents the magnitude of the wind velocity. 
+</p>  
+
+<a name="wp1005416"> </a><h4 class="pHeading3">
+Vol Render button
+</h4>  
+
+<a name="wp1005417"> </a><p class="pBody">
+Display the volume rendering selected with the &quot;Vrend vol&quot; droplist.
+</p>  
+
+<a name="wp1005418"> </a><h4 class="pHeading3">
+Img vol droplist
+</h4>  
+
+<a name="wp1005419"> </a><p class="pBody">
+Select &quot;P&quot;, &quot;T&quot;, or &quot;M&quot; to display air pressure, temperature, or the magnitude of wind velocity when the Field Planes droplists are set to &quot;Image&quot;. 
+</p>  
+
+<a name="wp1005420"> </a><h4 class="pHeading3">
+Iso vol droplist
+</h4>  
+
+<a name="wp1005421"> </a><p class="pBody">
+Select the data set to be displayed as an isosurface, using the same settings as in the &quot;Img vol&quot; droplist.
+</p>  
+
+<a name="wp1005422"> </a><h4 class="pHeading3">
+Level slider
+</h4>  
+
+<a name="wp1005423"> </a><p class="pBody">
+Set the data value to be used for the isosurface.
+</p>  
+
+<a name="wp1005424"> </a><h4 class="pHeading3">
+IsoShow check box
+</h4>  
+
+<a name="wp1005425"> </a><p class="pBody">
+Check this box to display the isosurface.
+</p>  
+
+<a name="wp1005426"> </a><h4 class="pHeading3">
+Transparency Min. slider
+</h4>  
+
+<a name="wp1005427"> </a><p class="pBody">
+Adjust the minimum value used for transparency in the display of the field planes when the field plane display is set to &quot;Image&quot;. 
+</p>  
+
+<a name="wp1005428"> </a><h4 class="pHeading3">
+Transparency Max. slider
+</h4>  
+
+<a name="wp1005429"> </a><p class="pBody">
+Adjust the maximum value used for transparency in the display of the field planes when the field plane display is set to &quot;Image&quot;. 
+</p>  
+
+<a name="wp1005430"> </a><h4 class="pHeading3">
+Clear Streamlines button
+</h4>  
+
+<a name="wp1005431"> </a><p class="pBody">
+Remove the display of streamlines. Streamlines are created by clicking the right mouse button (or emulated right mouse button) on a field plane image or isosurface. 
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

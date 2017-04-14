@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:15:58" />
+  <title>Select Statement</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510947"> </a><h1 class="pNewHTMLPageNoNum">
+Select Statement
+</h1>
+<hr /><a name="wp510370"> </a><p class="pBody">
+You use the SQL Select statement to specify the columns and records to be read. Btrieve Select statements support all the Select statement clauses described in <a  href="sqlflat.html#wp521745">&quot;SQL for Flat-File Drivers&quot;</a>. This section describes the information that is specific to Btrieve.
+</p>
+<a name="wp511398"> </a><h3 class="pHeading2">
+Rowid Pseudo-Column
+</h3>
+<a name="wp511400"> </a><p class="pBody">
+Each Btrieve record contains a special column named Rowid. This field contains a unique number that indicates the record&#8217;s sequence in the database. You can use Rowid in Where and Select clauses.
+</p>
+<a name="wp511401"> </a><p class="pBody">
+Rowid is particularly useful when you are updating records. You can retrieve the Rowid of the records in the database along with the other field values. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT last_name, first_name, salary, rowid FROM emp<a name="wp511402"> </a>
+</pre></div>
+<a name="wp511403"> </a><p class="pBody">
+Then, you can use the Rowid of the record that you want to update to ensure that you are updating the correct record and no other. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+UPDATE emp set salary = 40000 FROM emp WHERE rowid=21<a name="wp511404"> </a>
+</pre></div>
+<a name="wp511405"> </a><p class="pBody">
+The fastest way of updating a single row is to use a Where clause with the Rowid. You cannot update the Rowid column.
+</p>
+<a name="wp511406"> </a><p class="pBody">
+Select statements that use the Rowid pseudo-column in the Where clause achieve maximum performance only for exact equality matches. If you use range scans instead of exact equality matches, a full table scan is performed. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM emp WHERE rowid=21    //fast search<a name="wp522271"> </a>
+SELECT * FROM emp WHERE rowid &lt;=25  //full table scan<a name="wp522272"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

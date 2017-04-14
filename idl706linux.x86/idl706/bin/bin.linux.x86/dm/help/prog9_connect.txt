@@ -1,0 +1,25 @@
+Logon to Progress SQL92 Driver Dialog Box
+
+HOST NAME: Type the name of the system where the database is 
+stored.
+
+PORT NUMBER: Type the system port number setup for the database listener process.
+
+DATABASE NAME: Type the name of the database you that want to 
+access.
+
+USER ID: If required, type your user ID.
+
+PASSWORD: If required, type your password for the system (case-sensitive).
+
+User ID and password are optional parameters. You can log on 
+to the database without these parameters, but you may not be 
+able to create, delete, or manipulate the data.
+
+OK
+Completes the logon and writes the values to the system 
+information.
+
+CANCEL
+Closes the dialog box without writing the values to the system information.
+

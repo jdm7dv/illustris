@@ -1,0 +1,38 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/plot07#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a bar chart used as an example in
+; Chapter 10, "Plotting", of _Using IDL_.
+
+; Compile the file plot05.pro, which contains two IDL procedures
+; named "EX_BOX" and "EX_BARGRAPH". 
+
+.r plot05.pro
+
+; Run a batch file to define the variables used in this plot.
+
+@plot01
+
+; Define tick x values: 0.2, 0.4, 0.6, 0.8.
+
+XVAL = FINDGEN(4)/5. + .2	
+
+; Make a vector of scores from first year, corresponding to the name 
+; vector from above.
+
+YVAL = [COHO(0), SOCKEYE(0), HUMPBACK(0), CHINOOK(0)]
+
+; Make the axes with no data. Force x range to [0, 1], centering xval, 
+; which also contains the tick values. Force three tick intervals making 
+; four tick marks. Specify the tick names from the names vector.
+
+PLOT, XVAL, YVAL, /YNOZERO, XRANGE = [0,1], XTICKV = XVAL, $
+    XTICKS = 3, XTICKNAME = NAMES, /NODATA, TITLE = 'Salmon Populations, 1967'	
+
+; Draw the boxes, centered over the tick marks. !Y.CRANGE(0) is the 
+; y value of the bottom x-axis.
+
+FOR I = 0, 3 DO EX_BOX, XVAL(I) - .08, !Y.CRANGE(0), $
+    XVAL(I) + 0.08, YVAL(I), 128	

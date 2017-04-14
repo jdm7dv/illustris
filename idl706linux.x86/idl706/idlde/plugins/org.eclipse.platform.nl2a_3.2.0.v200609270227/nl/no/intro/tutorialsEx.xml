@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<introContent>
+  <!-- Extension to the SDK Tutorials Page. -->
+  <extensionContent id="org.eclipse.team" name="Gruppe/CVS" alt-style="css/tutorials.properties" style="css/tutorials.css" path="tutorials/@">
+    <group label="Gruppe/CVS" id="team" style-id="content-group">
+      <link url="http://org.eclipse.ui.intro/showStandby?partId=org.eclipse.platform.cheatsheet&amp;input=org.eclipse.platform.cvs.checkout" label="Hent ut et CVS-prosjekt" id="cvs_checkout" style-id="content-link">
+        <text>Lær hvordan du kobler deg til et CVS-datalager og henter ut et prosjekt.</text>
+      </link>
+      <link url="http://org.eclipse.ui.intro/showStandby?partId=org.eclipse.platform.cheatsheet&amp;input=org.eclipse.platform.cvs.merge" label="Slå sammen CVS-grener" id="cvs_merge" style-id="content-link">
+        <text>Følg fremgangsmåten for å slå sammen endringer fra en CVS-gren til en annen gren.</text>
+      </link>
+    </group>
+  </extensionContent>
+</introContent>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="org.eclipse.ui.workbench" name="Oppdateringer og Eclipse.org" alt-style="css/whatsnew.properties" style="css/whatsnew.css" path="whatsnew/@">
+  	   <group style-id="content-group" id="content-group">
+       		<link style-id="content-link" label="Nye oppdateringer" url="http://org.eclipse.ui.intro/runAction?pluginId=org.eclipse.platform&amp;class=org.eclipse.platform.internal.LaunchUpdateIntroAction" id="updates">
+          		<text>Få de siste oppdateringene fra Eclipse.org</text>
+       		</link>
+       		<link style-id="content-link" label="Diskusjonsforum for Eclipse" url="http://org.eclipse.ui.intro/openBrowser?url=http://www.eclipse.org" id="eclipse">
+          		<text>Delta i diskusjonsforumet, les artikler og nyheter på Eclipse.org</text>
+       		</link>
+			<group id="rss-news" label="Siste nytt" expandable="true" expanded="true">
+				<contentProvider id="rss-viewer" pluginId="org.eclipse.platform" class="org.eclipse.platform.internal.EclipseRSSViewer">
+				</contentProvider>
+			</group>
+       </group>
+  	</extensionContent>
+</introContent>

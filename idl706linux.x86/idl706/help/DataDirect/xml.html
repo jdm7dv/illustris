@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>The XML Driver</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510168"> </a><h1 class="pNewHTMLPageNoNum">
+The XML Driver
+</h1>
+<hr /><a name="wp544050"> </a><p class="pBody">
+The DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> XML driver (the XML driver) supports:
+</p>
+<a name="wp592359"> </a><p class="pBody">
+Tabular- and hierarchical-formatted XML documents that can be accessed from either a local file system, a web server, or a web service. The three main types of tabular-formatted files that the driver supports are Microsoft Data Islands, ADO 2.5 persisted files, and DataDirect Format.
+</p>
+<a name="wp579838"> </a><p class="pBody">
+See <a  href="Rxml3.html#wp535575">&quot;Supported Tabular Formats for XML Documents&quot;</a> for more details. 
+</p>
+<a name="wp546987"> </a><p class="pBody">
+The XML driver runs in the Windows environments. See <a  href="Rstart3.html#wp509872">&quot;Environment-Specific Information&quot;</a> for detailed information about the Windows environments supported by this driver.
+</p>
+<a name="wp554913"> </a><p class="pBody">
+The XML driver includes a SQL Engine that provides ANSI SQL-92 support. The following table lists the SQL statements that the driver supports for the different types of file formats.
+</p>
+<a name="wp570111"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp590924"> </a><div class="pCellHeading">
+File Format
+</div>
+</th>
+    <th><a name="wp590926"> </a><div class="pCellHeading">
+Select
+</div>
+</th>
+    <th><a name="wp590928"> </a><div class="pCellHeading">
+Create/Drop
+</div>
+</th>
+    <th><a name="wp590930"> </a><div class="pCellHeading">
+Insert
+</div>
+</th>
+    <th><a name="wp590932"> </a><div class="pCellHeading">
+Update
+</div>
+</th>
+    <th><a name="wp590934"> </a><div class="pCellHeading">
+Delete
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp590936"> </a><div class="pCellBody">
+Tabular, Microsoft Data Islands
+</div>
+</td>
+    <td><a name="wp590938"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590940"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590942"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590944"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590946"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp590948"> </a><div class="pCellBody">
+Tabular, ADO 2.5 Persisted
+</div>
+</td>
+    <td><a name="wp590950"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590952"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590954"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590956"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590958"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp590960"> </a><div class="pCellBody">
+Tabular, DataDirect
+</div>
+</td>
+    <td><a name="wp590962"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590964"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590966"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590968"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590970"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp590972"> </a><div class="pCellBody">
+Tabular, other formats
+</div>
+</td>
+    <td><a name="wp590974"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590976"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp590978"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590980"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590982"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp590984"> </a><div class="pCellBody">
+Hierarchical
+</div>
+</td>
+    <td><a name="wp590986"> </a><div style="font-family: ZapfDingbats" class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp590988"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp590990"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp590992"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp590994"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp554895"> </a><p class="pBody">
+See <a  href="Rxml16.html#wp548055">&quot;SQL Supported&quot;</a> for more information.
+</p>
+<a name="wp510176"> </a><p class="pBody">
+See the README file shipped with your DataDirect product for the file name of the XML driver.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

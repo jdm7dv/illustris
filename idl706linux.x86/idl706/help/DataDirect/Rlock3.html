@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:44" />
+  <title>Isolation Levels</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp509911"> </a><h1 class="pNewHTMLPageNoNum">
+Isolation Levels
+</h1>
+<hr /><a name="wp511485"> </a><p class="pBody">
+An isolation level represents a particular locking strategy employed in the database system to improve data consistency. The higher the isolation level, the more complex the locking strategy behind it. The isolation level provided by the database determines whether a transaction will encounter the following behaviors in data consistency:
+</p>
+<a name="wp511273"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp511288"> </a><div class="pCellBody">
+Dirty reads 
+</div>
+</td>
+    <td><a name="wp511290"> </a><div class="pCellBody">
+User 1 modifies a row. User 2 reads the same row before User 1 commits. User 1 performs a rollback. User 2 has read a row that has never really existed in the database. User 2 may base decisions on false data.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp511292"> </a><div class="pCellBody">
+Non-repeatable reads
+</div>
+</td>
+    <td><a name="wp511294"> </a><div class="pCellBody">
+User 1 reads a row but does not commit. User 2 modifies or deletes the same row and then commits. User 1 rereads the row and finds it has changed (or has been deleted).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp511296"> </a><div class="pCellBody">
+Phantom reads 
+</div>
+</td>
+    <td><a name="wp511298"> </a><div class="pCellBody">
+User 1 uses a search condition to read a set of rows but does not commit. User 2 inserts one or more rows that satisfy this search condition, then commits. User 1 rereads the rows using the search condition and discovers rows that were not present before.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp509929"> </a><p class="pBody">
+Isolation levels represent the database system&#8217;s ability to prevent these behaviors. The American National Standards Institute (ANSI) defines four isolation levels: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp510175"> </a><div class="pSmartList1"><li>Read uncommitted (0)</li></div><a name="wp510176"> </a><div class="pSmartList1"><li>Read committed (1)</li></div><a name="wp510177"> </a><div class="pSmartList1"><li>Repeatable read (2)</li></div><a name="wp510180"> </a><div class="pSmartList1"><li>Serializable (3) </li></div></ul></div>
+<a name="wp510181"> </a><p class="pBody">
+In ascending order (0&#8211;3), these isolation levels provide an increasing amount of data consistency to the transaction. At the lowest level, all three behaviors can occur. At the highest level, none can occur. The success of each level in preventing these behaviors is due to the locking strategies that they employ, which are as follows:
+</p>
+<a name="wp511303"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp511306"> </a><div class="pCellBody">
+Read uncommitted (0) 
+</div>
+</td>
+    <td><a name="wp511308"> </a><div class="pCellBody">
+Locks are obtained on modifications to the database and held until end of transaction (EOT). Reading from the database does not involve any locking.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp511310"> </a><div class="pCellBody">
+Read committed (1) 
+</div>
+</td>
+    <td><a name="wp511312"> </a><div class="pCellBody">
+Locks are acquired for reading and modifying the database. Locks are released after reading but locks on modified objects are held until EOT.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp511314"> </a><div class="pCellBody">
+Repeatable read (2) 
+</div>
+</td>
+    <td><a name="wp511316"> </a><div class="pCellBody">
+Locks are obtained for reading and modifying the database. Locks on all modified objects are held until EOT. Locks obtained for reading data are held until EOT. Locks on non-modified access structures (such as indexes and hashing structures) are released after reading.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp511318"> </a><div class="pCellBody">
+Serializable (3) 
+</div>
+</td>
+    <td><a name="wp511320"> </a><div class="pCellBody">
+All data read or modified is locked until EOT. All access structures that are modified are locked until EOT. Access structures used by the query are locked until EOT.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp509947"> </a><p class="pBody">
+<a  href="Rlock3.html#wp509828">Table&#160;C-1</a> shows what data consistency behaviors can occur at each isolation level.
+</p>
+<a name="wp511255"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp509828"> </a><div class="pTableTitleBold">
+Table C-1.  Isolation Levels and Data Consistency&#160;
+</div>
+</caption>
+  <tr align="left">    <td><a name="wp509756"> </a><div class="pCellHeading">
+<br />Level
+</div>
+</td>
+    <td><a name="wp509758"> </a><div class="pCellHeading">
+<br />Dirty Read
+</div>
+</td>
+    <td><a name="wp509760"> </a><div class="pCellHeading">
+Nonrepeatable Read
+</div>
+</td>
+    <td><a name="wp509762"> </a><div class="pCellHeading">
+Phantom Read
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509772"> </a><div class="pCellBody">
+0, Read uncommitted
+</div>
+</td>
+    <td><a name="wp509774"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp509776"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp509778"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509788"> </a><div class="pCellBody">
+1, Read committed
+</div>
+</td>
+    <td><a name="wp509790"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp509792"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp509794"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509804"> </a><div class="pCellBody">
+2, Repeatable read
+</div>
+</td>
+    <td><a name="wp509806"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp509808"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp509810"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509820"> </a><div class="pCellBody">
+3, Serializable
+</div>
+</td>
+    <td><a name="wp509822"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp509824"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp509826"> </a><div class="pCellBody">
+No
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp511246"> </a><p class="pBody">
+Although higher isolation levels provide better data consistency, this consistency can be costly in terms of the concurrency provided to individual users. Concurrency is the ability of multiple users to access and modify data simultaneously. As isolation levels increase, so does the chance that the locking strategy used will create problems in concurrency. 
+</p>
+<a name="wp510183"> </a><p class="pBody">
+<em class="cEmphasis">Put another way:</em> The higher the isolation level, the more locking involved, and the more time users may spend waiting for data to be freed by another user. Because of this inverse relationship between isolation levels and concurrency, you must consider how people use the database before choosing an isolation level. You must weigh the trade-offs between data consistency and concurrency, and decide which is more important.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="org.eclipse.ui.workbench" name="Workbench" alt-style="css/overview.properties" style="css/overview.css" path="overview/@">
+  		<group style-id="content-group" id="content-group">
+			<link style-id="content-link" label="Βασικές πληροφορίες για τον πάγκο εργασίας" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.platform.doc.user/gettingStarted/intro/overview.htm" id="basics">
+          		<text>Περισσότερες πληροφορίες σχετικά με τις βασικές έννοιες γύρω από τον πάγκο εργασίας του Eclipse</text>
+       		</link>
+       		<link style-id="content-link" label="Υποστήριξη συνεργασίας" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.platform.doc.user/concepts/concepts-26.htm" id="team">
+          		<text>Περισσότερες πληροφορίες σχετικά με τον τρόπο συνεργασίας με άλλους προγραμματιστές</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+</introContent>

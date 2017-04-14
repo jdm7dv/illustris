@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>Specifying Table Names in SQL Statements</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp556517"> </a><h1 class="pNewHTMLPageNoNum">
+Specifying Table Names in SQL Statements
+</h1>
+<hr /><a name="wp556550"> </a><p class="pBody">
+When defining locations, you specify a name for the location along with a directory, or path and file name. For example, suppose you define two locations for a data source, a Folder location and an XML Document location. The Folder location is on a local filing system and the XML Document location is on a web server with a URL prefix of http://www.acme.com/xmldata. 
+</p>
+<a name="wp556551"> </a><p class="pBody">
+For example:
+</p>
+<a name="wp556552"> </a><p class="pBody">
+The Folder location: <br />c:\xmldata\xmlsample as LOC1
+</p>
+<a name="wp556553"> </a><p class="pBody">
+The XML Document location: http://www.acme.com/xmldata/doc.xml as LOC2
+</p>
+<a name="wp557973"> </a><p class="pBody">
+For complete information about how to configure locations in an XML data source, see <a  href="Rxml7.html#wp555528">&quot;Configuring Data Sources&quot;</a>.
+</p>
+<a name="wp556554"> </a><p class="pBody">
+If you connected to this data source and the data source had the &quot;Show Manufactured Schemas&quot; option set as the Schema Mode (see Schema Mode on <a  href="Rxml7.html#wp593105">page&#160;470</a>) and then you performed an unqualified SQLTables operation, you would get the following results.
+</p>
+<a name="wp570152"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp556557"> </a><div class="pCellHeading">
+Schema name
+</div>
+</td>
+    <td><a name="wp556559"> </a><div class="pCellHeading">
+Table name
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp556561"> </a><div class="pCellBody">
+LOC1#
+</div>
+</td>
+    <td><a name="wp556563"> </a><div class="pCellBody">
+FILE1
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp556565"> </a><div class="pCellBody">
+LOC1#
+</div>
+</td>
+    <td><a name="wp556567"> </a><div class="pCellBody">
+FILE2
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp556569"> </a><div class="pCellBody">
+LOC2#
+</div>
+</td>
+    <td><a name="wp556571"> </a><div class="pCellBody">
+TABLE1
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp556573"> </a><div class="pCellBody">
+LOC2#
+</div>
+</td>
+    <td><a name="wp556575"> </a><div class="pCellBody">
+TABLE2
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp556578"> </a><p class="pBody">
+Location names are fabricated into the schema name by adding a # symbol to the end of the location name.
+</p>
+<a name="wp560298"> </a><p class="pBody">
+NOTE: If you had the &quot;Show Virtual Schemas&quot; option set, the above table would have &quot;XML&quot; listed in the Schema name column.
+</p>
+<a name="wp560299"> </a><p class="pBody">
+To fully qualify a table name in a SQL statement, you could use the following:
+</p>
+<a name="wp560945"> </a><p class="pBody">
+LOC1#.FILE1<br />or<br />XML.FILE1
+</p>
+<a name="wp556580"> </a><p class="pBody">
+LOC2#.TABLE2<br />or<br />XML.TABLE2 
+</p>
+<a name="wp556581"> </a><p class="pBody">
+This design gives you a simpler table name qualifier. This is an important advantage given the complexity of URL names, and the requirement to double quote them in SQL statements. For example, the following query uses a fully qualified table name for an XML Document location:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM &#8220;http://www.acme.com/xmldata/doc.xml#TABLE2&#8221; 
+WHERE productName=&#8217;lawnmower&#8217; <a name="wp556714"> </a>
+</pre></div>
+<a name="wp556584"> </a><p class="pBody">
+Compare that to the same query using a location name:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM LOC2#.TABLE2 WHERE productName=&#8217;lawnmower&#8217; <a name="wp556545"> </a>
+</pre></div>
+<a name="wp560948"> </a><p class="pBody">
+Another example demonstrating the Folder location is as follows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM &#8220;c:\xmldata\xmlsample\FILE1.XML&#8221; WHERE 
+productName=&#8217;lawnmower&#8217; <a name="wp560954"> </a>
+</pre></div>
+<a name="wp560955"> </a><p class="pBody">
+Compare that to the same query using a location name:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM LOC1#.FILE1 WHERE productName=&#8217;lawnmower&#8217; <a name="wp560956"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

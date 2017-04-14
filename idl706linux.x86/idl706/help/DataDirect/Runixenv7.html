@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:44" />
+  <title>DSN-less Connections</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp553487"> </a><h1 class="pNewHTMLPageNoNum">
+DSN-less Connections
+</h1>
+<hr /><a name="wp553488"> </a><p class="pBody">
+Connections to a data source can be made via a connection string without referring to a data source name (DSN-less connections). This is accomplished by specifying the &quot;DRIVER=&quot; instead of the &quot;DSN=&quot; keyword in a connection string as outlined in the ODBC specification. For this to work on UNIX, a file called odbcinst.ini must exist when the driver encounters DRIVER= in a connection string.
+</p>
+<a name="wp551491"> </a><p class="pBody">
+By default, DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> installs a sample odbcinst.ini file in the same location as the sample odbc.ini file, which is in the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> installation directory. See <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a> for an explanation of the odbc.ini file. The environment variable ODBCINST, recognized by all DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers, must be set to point to the fully qualified path name of the odbcinst.ini file.
+</p>
+<a name="wp536540"> </a><p class="pBody">
+For example, to point to the default location of the file in the C shell, you would set this variable as follows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+setenv ODBCINST /opt/odbc32v50/odbcinst.ini<a name="wp536541"> </a>
+</pre></div>
+<a name="wp536543"> </a><p class="pBody">
+In the Bourne or Korn shell, you would set it as:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ODBCINST=/opt/odbc32v50/odbcinst.ini;export ODBCINST<a name="wp536544"> </a>
+</pre></div>
+<a name="wp536525"> </a><p class="pBody">
+If the ODBCINST variable is not set, the driver looks in the user&#8217;s home directory for a file named odbcinst.ini. If the driver does not find the file, it returns the message:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+HY000 - &quot;ODBCINST.INI is not available in the directory 
+pointed to by the ODBCINST environment variable (or the 
+current user&#39;s HOME directory) and therefore DSN-Less 
+connections cannot be made.&quot;<a name="wp536613"> </a>
+</pre></div>
+<a name="wp536775"> </a><p class="pBody">
+The following is a sample odbcinst.ini. All occurrences of ODBCHOME are replaced with your installation directory path during installation of the file. Commented lines are denoted by the # symbol.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+[ODBC Drivers]<a name="wp536795"> </a>
+DataDirect 5.0 DB2 Wire Protocol=Installed<a name="wp536796"> </a>
+DataDirect 5.0 dBASEFile (*.dbf)=Installed<a name="wp536797"> </a>
+DataDirect 5.0 FoxPro 3.0 Database (*.dbc)=Installed<a name="wp536798"> </a>
+DataDirect 5.0 Informix Wire Protocol=Installed<a name="wp547721"> </a>
+DataDirect 5.0 Informix=Installed<a name="wp536799"> </a>
+DataDirect 5.0 Oracle Wire Protocol=Installed<a name="wp547735"> </a>
+DataDirect 5.0 Oracle=Installed<a name="wp536801"> </a>
+DataDirect 5.0 Progress OpenEdge=Installed<a name="wp536803"> </a>
+DataDirect 5.0 Progress SQL92=Installed<a name="wp545989"> </a>
+DataDirect 5.0 SQL Server Wire Protocol=Installed<a name="wp536804"> </a>
+DataDirect 5.0 Sybase Wire Protocol=Installed<a name="wp536805"> </a>
+DataDirect 5.0 TextFile (*.*)=Installed<a name="wp536806"> </a>
+<a name="wp536807"> </a>
+[DataDirect 5.0 DB2 Wire Protocol]<a name="wp536808"> </a>
+Driver=ODBCHOME/lib/ivdb220.so<a name="wp556184"> </a>
+APILevel=1<a name="wp536809"> </a>
+ConnectFunctions=YYY<a name="wp536810"> </a>
+DriverODBCVer=3.52<a name="wp536812"> </a>
+FileUsage=0<a name="wp536813"> </a>
+SQLevel=1<a name="wp536814"> </a>
+<a name="wp536815"> </a>
+[DataDirect 5.0 dBASEFile (*.dbf)]<a name="wp536816"> </a>
+Driver=ODBCHOME/lib/ivdbf20.so<a name="wp536817"> </a>
+APILevel=1<a name="wp536818"> </a>
+ConnectFunctions=YYY<a name="wp536819"> </a>
+DriverODBCVer=3.52<a name="wp536820"> </a>
+FileUsage=1<a name="wp536821"> </a>
+FileExtns=*.dbf<a name="wp536822"> </a>
+SQLLevel=0<a name="wp536823"> </a>
+<a name="wp536824"> </a>
+[DataDirect 5.0 FoxPro 3.0 Database (*.dbc)]<a name="wp537261"> </a>
+Driver=ODBCHOME/lib/ivdbf20.so<a name="wp537262"> </a>
+APILevel=1<a name="wp537263"> </a>
+ConnectFunctions=YYY<a name="wp536828"> </a>
+DriverODBCVer=3.52<a name="wp536829"> </a>
+FileUsage=2<a name="wp536830"> </a>
+SQLLevel=0<a name="wp536831"> </a>
+<a name="wp536832"> </a>
+[DataDirect 5.0 Informix Wire Protocol]<a name="wp547758"> </a>
+Driver=ODBCHOME/lib/ivifcl20.so<a name="wp547759"> </a>
+APILevel=1<a name="wp547760"> </a>
+ConnectFunctions=YYY<a name="wp547761"> </a>
+DriverODBCVer=3.52<a name="wp547762"> </a>
+FileUsage=1<a name="wp547763"> </a>
+SQLLevel=0<a name="wp547764"> </a>
+<a name="wp547765"> </a>
+[DataDirect 5.0 Informix]<a name="wp536833"> </a>
+#In the following line, replace &lt;AIX_driver_file&gt; with<a name="wp556163"> </a>
+#ivinf20.so on AIX 4.3.x or with ivinf5120.so on AIX 5L<a name="wp556164"> </a>
+Driver=ODBCHOME/lib/&lt;AIX_driver_file&gt;<a name="wp556178"> </a>
+APILevel=1<a name="wp556170"> </a>
+ConnectFunctions=YYY<a name="wp536834"> </a>
+DriverODBCVer=3.52<a name="wp536837"> </a>
+FileUsage=0<a name="wp536838"> </a>
+SQLLevel=1<a name="wp536839"> </a>
+<a name="wp536840"> </a>
+[DataDirect 5.0 Oracle Wire Protocol]<a name="wp547783"> </a>
+Driver=ODBCHOME/lib/ivora20.so<a name="wp556190"> </a>
+APILevel=1<a name="wp556202"> </a>
+ConnectFunctions=YYY<a name="wp547784"> </a>
+DriverODBCVer=3.52<a name="wp547787"> </a>
+FileUsage=0<a name="wp547788"> </a>
+SQLLevel=1<a name="wp547789"> </a>
+<a name="wp547790"> </a>
+[DataDirect 5.0 Oracle]<a name="wp536849"> </a>
+Driver=ODBCHOME/lib/ivor820.so<a name="wp556196"> </a>
+APILevel=1<a name="wp556206"> </a>
+ConnectFunctions=YYY<a name="wp536850"> </a>
+DriverODBCVer=3.52<a name="wp536853"> </a>
+FileUsage=0<a name="wp536854"> </a>
+SQLLevel=1<a name="wp536855"> </a>
+<a name="wp536856"> </a>
+[DataDirect 5.0 Progress OpenEdge]<a name="wp536865"> </a>
+Driver=ODBCHOME/lib/ivpro1020.so<a name="wp556214"> </a>
+APILevel=1<a name="wp536866"> </a>
+ConnectFunctions=YYN<a name="wp536867"> </a>
+DriverODBCVer=3.52<a name="wp536869"> </a>
+FileUsage=0<a name="wp536870"> </a>
+SQLLevel=0<a name="wp536871"> </a>
+<a name="wp536872"> </a>
+[DataDirect 5.0 Progress SQL92]<a name="wp545997"> </a>
+Driver=ODBCHOME/lib/ivpro920.so<a name="wp556220"> </a>
+APILevel=1<a name="wp545998"> </a>
+ConnectFunctions=YYN<a name="wp545999"> </a>
+DriverODBCVer=3.52<a name="wp546001"> </a>
+FileUsage=0<a name="wp546002"> </a>
+SQLLevel=0<a name="wp546003"> </a>
+<a name="wp546004"> </a>
+[DataDirect 5.0 SQL Server Wire Protocol]<a name="wp536873"> </a>
+Driver=ODBCHOME/lib/ivmsss20.so<a name="wp556226"> </a>
+APILevel=1<a name="wp556232"> </a>
+ConnectFunctions=YYY<a name="wp536874"> </a>
+DriverODBCVer=3.52<a name="wp536877"> </a>
+FileUsage=0<a name="wp536878"> </a>
+SQLLevel=1<a name="wp536879"> </a>
+<a name="wp536880"> </a>
+[DataDirect 5.0 Sybase Wire Protocol]<a name="wp536881"> </a>
+Driver=ODBCHOME/lib/ivase20.so<a name="wp556238"> </a>
+APILevel=1<a name="wp556244"> </a>
+ConnectFunctions=YYY<a name="wp536882"> </a>
+DriverODBCVer=3.52<a name="wp536885"> </a>
+FileUsage=0<a name="wp536886"> </a>
+SQLLevel=0<a name="wp536887"> </a>
+<a name="wp536888"> </a>
+[DataDirect 5.0 TextFile (*.*)]<a name="wp536889"> </a>
+Driver=ODBCHOME/lib/ivtxt20.so<a name="wp556250"> </a>
+APILevel=1<a name="wp556256"> </a>
+ConnectFunctions=YYY<a name="wp536890"> </a>
+DriverODBCVer=3.52<a name="wp536893"> </a>
+FileExtns=*.*<a name="wp536894"> </a>
+FileUsage=1<a name="wp536895"> </a>
+SQLLevel=0<a name="wp536896"> </a>
+<a name="wp536897"> </a>
+<a name="wp536898"> </a>
+[ODBC Translators]<a name="wp536899"> </a>
+OEM to ANSI=Installed<a name="wp536900"> </a>
+<a name="wp536901"> </a>
+[ODBC Core]<a name="wp536902"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

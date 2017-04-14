@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:59:53" />
+  <title>Stored Procedure Results</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp572729"> </a><h1 class="pNewHTMLPageNoNum">
+Stored Procedure Results
+</h1>
+<hr /><a name="wp608719"> </a><p class="pBody">
+When you enable Procedure Returns Results, the driver returns result sets from stored procedures/functions. In addition, SQLGetInfo(SQL_MULT_RESULTS_SETS) will return &quot;Y&quot; and SQLGetInfo(SQL_BATCH_SUPPORT) will return SQL_BS_SELECT_PROC. If this option is enabled and you execute a stored procedure that does not return result sets, you will incur a small performance penalty.
+</p>
+<a name="wp608720"> </a><p class="pBody">
+This feature requires that stored procedures be in a certain format. First, a package must be created to define all of the cursors used in the procedure; then the procedure can be created using the new cursor. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Create or replace package GEN_PACKAGE as <a name="wp608721"> </a>
+CURSOR G1 is select CHARCOL from GTABLE2;<a name="wp608722"> </a>
+type GTABLE2CHARCOL is ref cursor return G1%rowtype;<a name="wp608723"> </a>
+end GEN_PACKAGE;<a name="wp608724"> </a>
+Create or replace procedure GEN_PROCEDURE1 (<a name="wp608725"> </a>
+  rset IN OUT GEN_PACKAGE.GTABLE2<a name="wp608726"> </a>
+  CHARCOL, icol INTEGER) as <a name="wp608727"> </a>
+begin <a name="wp608728"> </a>
+   open rset for select CHARCOL from GTABLE2<a name="wp608729"> </a>
+     where INTEGERCOL &lt;= icol order by INTEGERCOL;<a name="wp608730"> </a>
+end;<a name="wp608731"> </a>
+</pre></div>
+<a name="wp608732"> </a><p class="pBody">
+When executing the stored procedures with result sets, do not include the result set arguments in the list of procedure arguments. The previously described example would be executed as:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+{call GEN_PROCEDURE1 (?)}<a name="wp608733"> </a>
+</pre></div>
+<a name="wp608734"> </a><p class="pBody">
+where <code class="cCode">?</code> is the parameter for the icol argument.
+</p>
+<a name="wp608735"> </a><p class="pBody">
+For more information, consult your Oracle SQL manual.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

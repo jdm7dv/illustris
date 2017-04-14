@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:15" />
+  <title>Configuring Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp524948"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Data Sources
+</h1>
+<hr /><a name="wp529667"> </a><p class="pBody">
+When you configure a data source, you store default connection values in a data source definition that is used each time you connect to the data source. You can change these defaults by modifying the definition or you can override the defaults at the time of connection by using a connection string.
+</p>
+<a name="wp529412"> </a><p class="pBody">
+If you choose to use a connection string, you must use specific connection string attributes. See <a  href="Rparadox5.html#wp516157">Table&#160;12-1</a> for a complete description of driver connection string attributes and their values.
+</p>
+<a name="wp529670"> </a><p class="pBody">
+Data sources are configured and modified through the ODBC Administrator using a driver Setup dialog box. Default connection values are specified through the options on the tabs of the Setup dialog box and are stored in the Windows Registry. Connection string attributes that override these options have the same names as the options unless noted otherwise. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp524950"> </a><p class="pBody">
+<b class="cBold">To configure a Paradox data source:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp510238"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources.</li></div><a name="wp512379"> </a><div class="pSmartList1"><li>If you are configuring an existing data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC Paradox Driver Setup dialog box.</li></div><a name="wp528019"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add</b> to display a list of installed drivers. Select the Paradox driver and click <b class="cBold">Finish</b> to display the ODBC Paradox Driver Setup dialog box.
+</p>
+<a name="wp528028"> </a><p class="pBodyRelative">
+NOTE: The General tab displays only fields that are required for creating a data source. The fields on all other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp519240"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply.</b></li></div><a name="wp510250"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Type a string that identifies this Paradox data source configuration. Examples include &quot;Accounting&quot; or &quot;Paradox-Serv1.&quot;
+</p>
+<a name="wp510252"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: Type an optional long description of a data source name. For example, &quot;My Accounting Database&quot; or &quot;Paradox Files on Server number&#160;1.&quot;
+</p>
+<a name="wp510254"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Directory</b>: Type the directory in which the Paradox files are stored. If a directory is not specified, the current working directory is used. You can also specify aliases that are defined in your IDAPI configuration file, if you have one. To do this, enclose the alias name in colons. For example, to use the alias MYDATA, specify <code class="cCode">&quot;:MYDATA:&quot;</code>.
+</p>
+<a name="wp526032"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Database.
+</p>
+<a name="wp511661"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab to specify data source settings.</li></div><a name="wp511665"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp510258"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Network Directory</b>: Type the directory containing the PARADOX.NET file that corresponds to the database you have specified. If the Paradox database you are using is shared on a network, then every user who accesses it must set this value to point to the same PARADOX.NET file. If not set here, this value is determined by the NetDir setting in the Paradox section of the IDAPI configuration file. If you are not sure how to set this value, contact your network administrator.
+</p>
+<a name="wp526031"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is NetDir.
+</p>
+<a name="wp510260"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">File Open Cache</b>: Type an integer value to specify the maximum number of unused file opens to cache. For example, the value 4 specifies that when a user opens and closes four database files, the database files are not actually closed. The driver keeps them open so that if another query uses one of these database files, the driver does not have to perform another open, which is expensive. The advantage of file open caching is increased performance. The disadvantage is that a user who specifies file locking on open may get a locking conflict even though no one appears to have the file open. The default is 0, which means no file open caching.
+</p>
+<a name="wp517835"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Create Type</b>: Select the Paradox database file version used for any Create Table statements that you execute. You can specify the version from the drop-down list or leave the box blank and use the default, which is determined by the Level setting in the Paradox section of the IDAPI configuration file. The numeric values map to the major revision numbers of the Paradox family of products.
+</p>
+<a name="wp512400"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you select Create Type 7, 8, 9 &amp; 10, the Paradox driver supports database file names up to 128 characters long. For all other Create Type settings, the driver supports database file names up to 8 characters long.
+</p>
+<a name="wp529173"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">International Sort</b>: Select this check box to use international sort order as defined by your operating system when you issue a Select statement with an Order By clause. This order is always alphabetic, regardless of case; the letters are sorted as &quot;A, b, C.&quot; See your operating system documentation concerning the sorting of accented characters.
+</p>
+<a name="wp529174"> </a><p class="pBodyIndent12pxBeforeAfter">
+If this check box is cleared (the default), ASCII sort order is used. This order sorts items alphabetically with uppercase letters preceding lowercase letters. For example, &quot;A, b, C&quot; is sorted as &quot;A, C, b.&quot;
+</p>
+<a name="wp528924"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is IntlSort.
+</p>
+<a name="wp513613"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Use Long Qualifiers:</b> Select this check box to use long path names as database file qualifiers. When selected, path names can be a maximum of 255 characters. By default, the check box is not selected; therefore, path names can be a maximum of 128 characters.
+</p>
+<a name="wp530702"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Using Threads</b>: Select this check box to ensure that the driver works with multi-threaded applications. You can clear this check box when using the driver with single-threaded applications. Turning off this setting avoids additional processing required for ODBC thread-safety standards.
+</p>
+<a name="wp510735"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Translate: </b>Click <b class="cBold">Translate</b> to display the Select Translator dialog box, which lists the translators specified in the ODBC Translators section of the Registry. DataDirect provides a translator named &quot;OEM to ANSI&quot; that translates your data from the IBM PC character set to the ANSI character set.
+</p>
+<a name="wp512440"> </a><p class="pBodyIndent12pxBeforeAfter">
+Select a translator; then, click <b class="cBold">OK</b> to close this dialog box and perform the translation.
+</p>
+<a name="wp519206"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the driver Setup dialog box. Note that the information you enter in the logon dialog box during a test connect is not saved.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp519207"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a &quot;connection established&quot; message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp519208"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message.</li></div>
+<a name="wp519209"> </a><p class="pBodyRelative">
+Verify that all required client software is properly installed. If it is not, you will see the message:
+</p>
+<a name="wp519210"> </a><p class="pSyntaxEmbed">
+Specified driver could not be loaded due to system error [xxx].
+</p>
+<a name="wp519211"> </a><p class="pBodyRelative">
+Click <b class="cBold">OK</b>.
+</p>
+</ul></div>
+<a name="wp510264"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

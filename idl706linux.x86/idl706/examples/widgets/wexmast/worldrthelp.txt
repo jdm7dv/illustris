@@ -1,0 +1,84 @@
+World Rotation Tool
+
+The World Rotation Tool creates animated views of rotating map
+projections.  Images can be warped on to any of nine different
+projections.
+
+The World Rotation Tool accepts an image as an argument. 
+
+Select the "SPIN" button to create an new 
+animation.  The new animation frames will be drawn
+one by one into an animation window.  When all of 
+the frames have been drawn, the new animated "movie"
+will be shown.  Only one animation can be displayed
+at a time.  To create another animation, select 
+"End Animation" from the animation window, adjust any
+options, and select "SPIN" again.
+
+To use a different image, select the "Get a New Image"
+button.  A list of available images will appear.  Select
+one and the list of images will go away.  Adjust any options
+and select the "SPIN" button to see the new image in all of
+its animated glory.
+
+To quit the World Rotation Demo, select "Done".
+
+
+
+The World Rotation Tool options are described below:
+
+Select the type of projection to use from the "Map
+Projections" menu. The buttons below the Projections 
+menu select continent drawing, grid drawing, and bilinear 
+interpolation options.
+
+Select "Draw Continents" to draw continent outlines over 
+the map projection.
+
+Select "Draw Grid" to draw latitude and longitude lines
+over the map projection.
+
+Select "Bilinear Interpolation" to smooth the color 
+gradients in the warped image. The default is no 
+interpolation.
+
+The "Longitude Sampling" and "Latitude Sampling" sliders
+control the number of points from the original image that
+MAP_IMAGE uses make the warped image.  Higher values create
+higher resolution warped images that take longer to draw.
+
+The "Latitude to be Centered" slider controls the 
+"viewing angle" in the latitude direction. The default
+is 0 latitude. Choose 90 or -90 for polar projections.
+
+The "Rotation of North" slider controls the angle of
+rotation of the North axis. The default is 0 degrees.
+
+The "Continent Color" slider controls the color of the
+continent outlines.
+
+The "Grid Color" slider controls the color of the grid lines.
+
+The "Animation Window Size" fields control the width and
+height of the animation frames in pixels. Larger values 
+provide higher resolution, take longer to draw, and use 
+more memory.
+
+The "Number of Frames" slider selects the number of
+equally-spaced frames to use in the animation.  Larger
+numbers of frames make the animation look "smoother" but 
+also take more time and memory.
+
+The "Messages" window provides instructions and status
+messages.
+
+This super-cool widget application was created by employee
+Keith R. Crosley using the IDL/widgets graphical 
+user interface toolkit. 
+
+Keith is a documentation guy, not a 
+professional programmer. If he can write a widget, 
+you can too! Examine the file WORLDDEMO.PRO if you want
+to see the simple code that created this widget application.
+
+    August, 1991

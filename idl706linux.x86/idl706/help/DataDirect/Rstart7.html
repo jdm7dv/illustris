@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/14/04 11:47:58" />
+  <title>Binding Parameter Markers</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp583566"> </a><h1 class="pNewHTMLPageNoNum">
+Binding Parameter Markers
+</h1>
+<hr /><a name="wp583567"> </a><p class="pBody">
+An ODBC application can prepare a query that contains dynamic parameters. Each parameter in a SQL statement must be associated, or bound, to a variable in the application before the statement is executed. When the application binds a variable to a parameter, it describes that variable and that parameter to the driver. Therefore, the application must supply the following information: 
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp583568"> </a><div class="pSmartList1"><li>The data type of the variable that the application maps to the dynamic parameter.</li></div><a name="wp583569"> </a><div class="pSmartList1"><li>The SQL data type of the dynamic parameter (the data type that the database system assigned to the parameter marker). </li></div></ul></div>
+<a name="wp583570"> </a><p class="pBody">
+The two data types are identified separately using the SQLBindParameter function. You can also use descriptor APIs as described in the Descriptor section of the ODBC specification (version 3.0 or higher).
+</p>
+<a name="wp583571"> </a><p class="pBody">
+The DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> driver relies on the binding of parameters to know how to send information to the database system in its native format. If an application furnishes incorrect parameter binding information to the ODBC driver, the results will be unpredictable. For example, the statement might not be executed correctly. 
+</p>
+<a name="wp583573"> </a><p class="pBody">
+To ensure interoperability, the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> driver uses only the parameter binding information provided by the application. Some DBMSs cannot publish dynamic parameter information back to an ODBC driver. For example, both the SQL Server and Oracle databases can determine that a parameter is an integer; however, the Oracle query processor cannot publish this information back to the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> driver.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

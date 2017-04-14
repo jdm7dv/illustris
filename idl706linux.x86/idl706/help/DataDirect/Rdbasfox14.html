@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>Locking</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp514744"> </a><h1 class="pNewHTMLPageNoNum">
+Locking
+</h1>
+<hr /><a name="wp510630"> </a><p class="pBody">
+With the dBASE driver, you can build and run applications that share dBASE database files on a network. Whenever more than one user is running an application that accesses a shared database file, the applications should lock the records that are being changed. Locking a record prevents other users from locking, updating, or deleting the record.
+</p>
+<a name="wp510632"> </a><h3 class="pHeading2">
+Levels of Database Locking
+</h3>
+<a name="wp510634"> </a><p class="pBody">
+The dBASE driver supports three levels of database locking: NONE, RECORD, and FILE. You can set these levels in:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp510636"> </a><div class="pSmartList1"><li>The connection string (LCK=)</li></div><a name="wp510638"> </a><div class="pSmartList1"><li>The Setup dialog box</li></div></ul></div>
+<a name="wp510640"> </a><p class="pBody">
+No locking offers the best performance but is intended only for single-user environments.
+</p>
+<a name="wp510642"> </a><p class="pBody">
+With record or file locking, the system locks the database files during Insert, Update, Delete, or Select...For Update statements. The locks are released when the user commits the transaction. The locks prevent other users from modifying the locked objects, but they do not lock out readers.
+</p>
+<a name="wp510644"> </a><p class="pBody">
+With record locking, only records affected by the statement are locked. Record locking provides better concurrency with other users who also want to modify the database file.
+</p>
+<a name="wp510646"> </a><p class="pBody">
+With file locking, all the records in the database file are locked. File locking has lower overhead and may work better if records are modified infrequently, if records are modified primarily by one user, or if a large number of records are modified.
+</p>
+<a name="wp510648"> </a><h3 class="pHeading2">
+Using Locks on Local Files
+</h3>
+<a name="wp510652"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinb6.gif" height="29" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">If you use database locking and are accessing files locally (not on a network), run the DOS utility SHARE.EXE before running Windows 98. If you add SHARE.EXE to your AUTOEXEC.BAT file, it runs automatically each time you boot your computer.
+</p>
+<a name="wp510658"> </a><h3 class="pHeading2">
+Limit on Number of Locks
+</h3>
+<a name="wp516154"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinb7.gif" height="29" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">There is a limit on the number of locks that can be placed on a file. If you are accessing a dBASE file from a server, the limit depends on the server (refer to your server documentation).
+</p>
+<a name="wp510662"> </a><p class="pBody">
+If you are accessing a dBASE file locally, the limit depends on the buffer space allocated when SHARE.EXE was loaded (refer to your DOS documentation). If you are exceeding the number of locks available, you may want to switch to file locking.
+</p>
+<a name="wp510664"> </a><h3 class="pHeading2">
+How Transactions Affect Record Locks
+</h3>
+<a name="wp510674"> </a><p class="pBody">
+When an Update or Delete statement is run, the driver locks the records affected by that statement. The locks are released after the driver commits the changes. Under manual commit mode, the locks are held until the application commits the transaction. Under autocommit mode, the locks are held until the statement is run.
+</p>
+<a name="wp510676"> </a><p class="pBody">
+When a Select...For Update statement is run, the driver locks a record only when the record is fetched. If the record is updated, the driver holds the lock until the changes are committed. Otherwise, the lock is released when the next record is fetched.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

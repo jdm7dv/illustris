@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:16:47" />
+  <title>Configuring Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp553036"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Data Sources
+</h1>
+<hr /><a name="wp563295"> </a><p class="pBody">
+When you configure a data source, you store default connection values in a data source definition that is used each time you connect to the data source. You can change these defaults by modifying the definition or you can override the defaults at the time of connection by using a connection string.
+</p>
+<a name="wp553091"> </a><p class="pBody">
+If you choose to use a connection string, you must use specific connection string attributes. See <a  href="Rinfx5.html#wp535295">Table&#160;10-1</a> for a complete description of driver connection string attributes and their values.
+</p>
+<a name="wp563312"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixa12.gif" height="38" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, data sources are configured and modified by editing the system information file (by default, odbc.ini) and storing default connection values there. See <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a> for detailed information about editing the system information file. See <a  href="unixenviron.html#wp518848"><a  href="unixenviron.html#wp518848">&quot;The UNIX Environments&quot;</a> </a>for detailed information about the specific steps necessary to configure the UNIX environment and connect with the driver.
+</p>
+<a name="wp554512"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp559365"> </a><p class="pBody">
+<a  href="Rinfx5.html#wp535295">Table&#160;10-1</a> lists driver connection string attributes that must be used in the system information file. Note that only the long name of the attribute can be used in the file.
+</p>
+<a name="wp563351"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinb11.gif" height="30" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, data sources are configured and modified through the ODBC Administrator using a driver Setup dialog box. Default connection values are specified through the options on the tabs of the Setup dialog box and are stored in the Windows Registry. Connection string attributes that override these options have the same names as the options unless noted otherwise. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp553136"> </a><p class="pBody">
+To configure an Informix data source on Windows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp510098"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources.</li></div><a name="wp510100"> </a><div class="pSmartList1"><li>If you are configuring an existing data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC Informix Driver Setup dialog box.</li></div><a name="wp556831"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add</b> to display a list of installed drivers. Select the Informix driver and click <b class="cBold">Finish</b> to display the ODBC Informix Driver Setup dialog box.
+</p>
+<a name="wp510108"> </a><p class="pBodyRelative">
+NOTE: The General tab displays only fields that are required for creating a data source. The fields on all other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp534526"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply.</b></li></div><a name="wp510110"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Type a string that identifies this Informix data source configuration. Examples include &quot;Accounting&quot; or &quot;INFORMIX-Serv1.&quot;
+</p>
+<a name="wp510112"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: Type an optional long description of a data source name. For example, &quot;My Accounting Database&quot; or &quot;Informix&#160;files on Server number 1.&quot;
+</p>
+<a name="wp510114"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Name</b>: Type the name of the database to which you want to connect by default.
+</p>
+<a name="wp553365"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Database.
+</p>
+<a name="wp512597"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Connection</b> tab to specify connection information. If you want to configure the data source so that the logon dialog box does not appear during connection, you must specify the connection information on this tab.</li></div><a name="wp512591"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply</b>.
+</p>
+<a name="wp512614"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database List</b>: Type a list of database names that will be displayed in the Logon dialog box if <b class="cBold">Get DB List From Informix</b> on the Advanced tab is <em class="cEmphasis">not</em> selected. Separate multiple values with commas (for example, db1, db2, db3).
+</p>
+<a name="wp512618"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Default User Name</b>: Type the name of the user as specified on the Informix server.
+</p>
+<a name="wp553386"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is LogonID.
+</p>
+<a name="wp513551"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Use Default Login</b>: Select this check box to read the Logon ID and Password entries directly from the Informix registry. The check box is not selected by default; that is, logon information is read from the Windows Registry, the connection string, or the Logon to Informix dialog box.
+</p>
+<a name="wp563053"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Host Name</b>: Type the name of the machine on which the Informix database resides.
+</p>
+<a name="wp553375"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Service Name</b>: Type the name of the service as it appears on the host machine. This service is assigned by the system administrator. The name you specify appears in the Informix Server Options dialog box. 
+</p>
+<a name="wp553376"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Service.
+</p>
+<a name="wp553377"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Server Name</b>: Type the name of the Informix server as it appears in the sqlhosts file.
+</p>
+<a name="wp526933"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Protocol Type</b>: Select the protocol used to communicate with the server. The possible values are: olsocspx, olsoctcp, onsocspx, onsoctcp, seipcpip, sesocspx, sesoctcp.
+</p>
+<a name="wp553393"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Protocol.
+</p>
+<a name="wp513609"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab to specify data source settings.</li></div><a name="wp512105"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp563646"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Cancel Detect Interval</b>: Select a value other than 0 - None to allow long-running queries in threaded applications to be canceled if the application issues a SQLCancel. The value you select determines how often (in seconds) the driver checks whether a query has been canceled using SQLCancel. If the driver determines that SQLCancel has been issued, the query is canceled. For example, if you select 5, then for every pending query, the driver checks every five seconds to see whether the application has canceled execution of the query using SQLCancel. The default is 0, which means that queries are not canceled even if a SQLCancel is issued.
+</p>
+<a name="wp529571"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Cursor Behavior</b>: Select Preserve to hold the cursor at the current position when the transaction ends. Otherwise, leave this field set to Close to close the cursor at the end of the transaction. Selecting Preserve may slow the performance of your database operations.
+</p>
+<a name="wp564178"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Using Threads</b>: Select this check box to ensure that the driver works with multi-threaded applications. You can clear this check box when using the driver with single-threaded applications. Turning off this setting avoids additional processing required for ODBC thread-safety standards.
+</p>
+<a name="wp513053"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Enable Insert Cursors</b>: Select this check box to enable the driver to use Insert cursors during inserts governed by parameters. Using Insert cursors improves performance during multiple Insert operations using the same statement. This option enables insert data to be buffered in memory before being written to disk. When this check box is cleared (the default), the driver does not use Insert cursors.
+</p>
+<a name="wp512110"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Get DB List From Informix</b>: Select this check box to enable the driver to request the database list to be returned from the Informix server. When the check box is selected (the default), the driver requests the database list from the Informix server. When cleared, the driver uses the list that the user entered on the Connection tab during driver setup.
+</p>
+<a name="wp529292"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Trim Blank From Index Name</b>: Select this check box to trim the leading space from a system-generated index name (the default). This option is provided to address problems with applications that cannot process a leading space in index names.
+</p>
+<a name="wp510956"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Translate: </b>Click <b class="cBold">Translate</b> to display the Select Translator dialog box, which lists the translators specified in the ODBC Translators section of the Registry. DataDirect provides a translator named &quot;OEM to ANSI&quot; that translates your data from the IBM PC character set to the ANSI character set. 
+</p>
+<a name="wp512925"> </a><p class="pBodyIndent12pxBeforeAfter">
+Select a translator; then, click <b class="cBold">OK</b> to close this dialog box and perform the translation.
+</p>
+<a name="wp534405"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the driver Setup dialog box. A logon dialog box appears; see <a  href="Rinfx4.html#wp510148">&quot;Connecting to a Data Source Using a Logon Dialog Box&quot;</a> for details. Note that the information you enter in the logon dialog box during a test connect is not saved.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp534409"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a &quot;connection established&quot; message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp534410"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message.</li></div>
+<a name="wp534411"> </a><p class="pBodyRelative">
+Verify that all required client software is properly installed. If it is not, you will see the message:
+</p>
+<a name="wp534412"> </a><p class="pSyntaxEmbed">
+Specified driver could not be loaded due to system error [xxx].
+</p>
+<a name="wp534413"> </a><p class="pBodyRelative">
+Click <b class="cBold">OK</b>.
+</p>
+</ul></div>
+<a name="wp534372"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

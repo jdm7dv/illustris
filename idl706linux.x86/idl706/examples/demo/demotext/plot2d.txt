@@ -1,0 +1,103 @@
+
+
+
+
+        WELCOME TO THE 2-D PLOTTING DEMO
+
+
+This demonstration shows six types of two dimensional
+(X versus Y) plot. The types are:
+  
+   1) Line plot
+
+   2) Scatter plot with symbols
+
+   3) Histogram (Bar plot)
+
+   4) Polar plot
+
+   5) Log-log plot
+
+   6) Semi-log plot
+
+
+MENU OPTIONS
+------------
+
+File Menu:
+    Select "Quit" to exit the demo.
+
+About Menu:
+    Select "About 2-D Plotting" to display this
+    help text.
+
+
+FEATURES OF THE 2-D PLOTTING DEMO
+-----------------------------------
+
+In this demo, different controls appear on the
+interface when different types of plots are selected.
+The data plotted is generated automatically by the
+demo application; you can generate new data by clicking
+the "Generate New Data" button.
+
+Select a plot type from the set of radio buttons
+at the top left of the demo window.
+
+Line Plot
+    Display an X versus Y plot of a damped sine wave.
+    NOTE: you cannot change the data set for the Line
+    Plot display.
+
+    <<Period slider>>
+    Adjust this slider to change the period of the
+    sinusoidal signal.
+
+Scatter plot with symbols
+    Display the generated data set using symbols.
+
+    <<Variance slider>>
+    Generate a new data set of random values added to
+    a sine function.  The variance of the random signal
+    is set by the slider.
+
+    <<Symbols scrolling list>>
+    Select a symbol to be plotted at the data points
+    from the scrolling list.
+
+Histogram (Bar plot)
+    Display a histogram, or "bar" plot.
+
+    <<Variance slider>>
+    Generate a new data set of random values added to a
+    sine function.  The variance of the random signal is
+    set by the slider.
+
+Polar plot
+    Display a polar plot. The data coordinates are given
+    in spherical coordinates.
+
+    <<Color scrolling list>>
+    Select a color for the plot line from the list.
+
+           
+Log-log plot
+    Display a log-log plot.
+
+    <<Thickness slider>>
+    Adjust this slider to change the line thickness.
+    Line thicknesses range from 1 to 5.
+
+Semi-log plot
+    Display a semi-log plot.
+
+    <<X slider>>
+    Change the X position of the text annotation.
+
+    <<Y slider>>
+    Change the Y position of the text annotation.
+
+
+<<Generate New Data Button>>
+     Click this button to generate a new data set for
+     display in the plotting window.

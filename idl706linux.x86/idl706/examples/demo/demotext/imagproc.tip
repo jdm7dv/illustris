@@ -1,0 +1,25 @@
+2 3
+welcome|Use IDL's image processing features
+showing|to help you to find inconsistencies
+feature|or similarities within your image data.
+zoom1|Click on the image to relocate
+zoom2|the zoom window.
+blank| 
+width1|Select the filter width
+width2|with the slider.
+byte1|Select the minimum and maximum 
+byte2|byte range with the sliders.
+smooth1|Select the smoothing width; width is
+smooth2|inversely proportional to resolution.
+dlterd0|A grayscale threshold mask is shown.
+dlterd1|Click "Break Mask" to
+dlterd2|erode and dilate the mask.
+dlterd3|Click "Fuse Mask" to
+dlterd4|dilate and erode the mask.
+dlterd5|Click "Neighborhood Mins." to calculate
+dlterd6|(using erode and dilate) neighborhood 
+dlterd7|minimums for the image where masked.
+dlterd8|The resulting image has bridges and
+dlterd9|other details removed.
+conv1|Click on the grid squares to define
+conv2|the kernel.  Then click "Convolve".

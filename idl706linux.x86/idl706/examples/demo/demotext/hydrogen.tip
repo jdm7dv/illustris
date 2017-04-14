@@ -1,0 +1,10 @@
+2 3
+welcome1|IDL can be used to express and evaluate complex
+welcome1|mathematical functions. This example evaluates
+welcome3|the probability function for the hydrogen atom.
+welcome4| 
+welcome5| 
+welcome6|Initializing...
+move1|Move the n, l and m sliders to change
+move2|factors in the equation. Drag the white
+move3|wedge to change the displayed threshold.

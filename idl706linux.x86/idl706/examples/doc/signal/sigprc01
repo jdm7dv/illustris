@@ -1,0 +1,15 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc01#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates simulated signals.
+
+N = 1024                      ; number of time samples in data set
+delt = 0.02                   ; sampling interval in seconds
+
+; Simulated signals.
+U = -0.3 $                                    ;  DC component
+   + 1.0 * Sin(2*!Pi* 2.8 *delt*FIndGen(N)) $ ;  2.8  c/s component
+   + 1.0 * Sin(2*!Pi* 6.25*delt*FIndGen(N)) $ ;  6.25 c/s component
+   + 1.0 * Sin(2*!Pi*11.0 *delt*FIndGen(N))   ; 11.0  c/s component

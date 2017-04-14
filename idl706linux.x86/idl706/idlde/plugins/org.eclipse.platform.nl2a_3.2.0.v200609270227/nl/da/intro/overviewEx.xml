@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="org.eclipse.ui.workbench" name="Arbejdsbænk" alt-style="css/overview.properties" style="css/overview.css" path="overview/@">
+  		<group style-id="content-group" id="content-group">
+			<link style-id="content-link" label="Grundlæggende træk ved arbejdsbænken" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.platform.doc.user/gettingStarted/intro/overview.htm" id="basics">
+          		<text>Få mere at vide om grundlæggende begreber for Eclipse-arbejdsbænken</text>
+       		</link>
+       		<link style-id="content-link" label="Understøttelse af team" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.platform.doc.user/concepts/concepts-26.htm" id="team">
+          		<text>Find ud af, hvordan du samarbejder med andre udviklere</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+</introContent>

@@ -1,0 +1,7 @@
+2 3
+welcome|Add and manipulate 3D objects. Click right
+showing|button, or hit spacebar, to select an object.
+nowav|Click and drag left button to manipulate object.
+inter|Click right button on an object which is already
+mouse|selected to cycle through the tools (translate,
+void|rotate, scale).

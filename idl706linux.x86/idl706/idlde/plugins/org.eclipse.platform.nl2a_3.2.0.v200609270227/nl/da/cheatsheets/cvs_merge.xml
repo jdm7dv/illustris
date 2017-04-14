@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Flet CVS-grene">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Dette snydeark viser, hvordan du fletter ændringer fra én CVS-gren ind i en anden gren
+      eller ind i HEAD. Klik på(?)for at få hjælp.
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Find gren og version">
+    <description>
+Det første trin består i at finde ud af, <b>hvilke</b> to grene du vil flette, i hvilken
+      <b>version</b> indholdet blev splittet ud, og hvilken gren der skal være
+      <b>destination</b> (hvor resultatet af fletningen skal oprettes).
+      Når du har de oplysninger, kan du fortsætte til næste trin.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Tjek projektet ud">
+    <description>
+      Før du fletter grenene, skal du <b>tjekke projektet ud</b> og importere det
+      til arbejdsområdet. Du kan bruge importguiden, tilføje det fra perspektivet Stifinder til CVS-opbevaringssted,
+      eller klikke på knappen Hjælp (?).
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="Indlæs destinationen til arbejdsområdet">
+    <description>
+      Højreklik på projektet i navigatoren, og vælg Erstat med en anden gren eller version. Vælg destinationsgren.
+Nu vil grenens seneste indhold blive indlæst til arbejdsområdet.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Flet oplysninger">
+    <description>
+      Højreklik på projektet i navigatoren, vælg <b>Team</b>
+      &gt; <b>Flet</b>, og følg trinene i guiden. Du angiver, hvordan fletning skal udføres, i guiden.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Arbejd med Fleteditor">
+    <description>
+      Brug fleteditoren til manuelt at flette ændringerne. Når du har flettet alle ændringerne,
+      kan du gå videre til næste trin.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Commit ændringer">
+    <description>
+      Højreklik på projektet, vælg <b>Team</b> &gt; <b>Synkronisér med bevaringssted</b>, og commit alle ændringerne. Dette
+      trin overfører ændringerne fra arbejdsområdet til CVS, hvilket fuldfører fletningen.
+    </description>
+  </item>
+
+</cheatsheet>

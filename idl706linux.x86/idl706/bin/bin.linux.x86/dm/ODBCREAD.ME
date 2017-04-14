@@ -1,0 +1,840 @@
+     READ.ME
+     DataDirect Technologies
+     DataDirect Connect for ODBC on UNIX 
+     Edition 5.0
+     May 2004
+
+This README file contains database driver information not included in 
+the DATADIRECT CONNECT FOR ODBC REFERENCE.
+
+
+CONTENTS
+
+Edition 5.0 Features
+Deprecated Databases
+Deprecated Operating Systems
+Available DataDirect Connect for ODBC Drivers
+Required Operating System Patches
+Configuring Data Sources
+Driver Options
+Notes, Known Problems, and Restrictions
+Online Books
+Installed Files
+Third Party Vendor License Agreement 
+
+
+     Edition 5.0 Features
+
+New Database Version Support
+----------------------------
+* Informix 9.4
+
+* Oracle 10g
+
+* Progress OpenEdge Release 10 (offered as an early release in this Edition)
+
+* Sybase 12.5.1
+
+
+New Operating System Version Support
+------------------------------------
+* HP-UX IPF 11i version 2 (B.11.23)
+
+* Red Hat Linux Advanced Server 3.0
+
+* SuSE Linux 9.0
+
+* SuSE Linux Enterprise Server 8.0 (United Linux 1.0)
+
+
+General Enhancements
+--------------------
+* DSN-less connections on UNIX
+
+* Support for UTF-16/UCS-2 Unicode applications on UNIX platforms
+
+* Connection Failover and Client Load Balancing for the DB2 Wire Protocol, 
+Informix Wire Protocol, Oracle Wire Protocol, Oracle, SQL Server Wire 
+Protocol, and Sybase Wire Protocol drivers.
+
+* Performance enhancements
+
+
+DB2 Wire Protocol Driver Enhancements
+-------------------------------------
+* Autobinding of packages
+
+* Ability to change Schema used for catalog functions
+
+* Use of catalog stored procedures for newer servers for increased 
+performance
+
+* Use of native parameter arrays for bulk operations for increased 
+performance
+
+
+Oracle Wire Protocol Driver Enhancements
+----------------------------------------
+* Oracle 10g features, including support for Grid computing
+
+* RAC support
+
+
+Documentation Enhancements
+--------------------------
+* New diagnostic and troubleshooting appendix
+
+* Glossary
+
+* Enhanced UNIX documentation
+
+
+ 
+     Deprecated Databases
+
+Informix Dynamic Server with Universal Data Option 9.1.4
+Progress Versions 9.1B and 9.1C
+
+ 
+     Deprecated Operating Systems
+
+Red Hat Linux 7.1, 7.2, and 7.3
+Caldera OpenLinux 2.3 and 3.1
+SuSE Linux 7.3
+
+     Available DataDirect Connect for ODBC Drivers
+
+Drivers for all UNIX platforms have the same file name.  
+The extensions are differentiated for Solaris, HP-UX, AIX, 
+and Linux as follows:
+
+Solaris:  filename.so
+HP-UX:    filename.sl (PA-RISC)
+HP-UX:    filename.so (IPF)
+AIX:      filename.so
+Linux:    filename.so
+
+The following drivers are available:
+
+See the DATADIRECT CONNECT FOR ODBC INSTALLATION GUIDE for a complete 
+list of supported databases and client requirements.
+
+Driver
+------
+DB2 Wire Protocol (ivdb220.xx)
+
+dBASE (ivdbf20.xx)
+
+Informix (ivinf20.xx and ivinf5120.xx)
+
+Informix Wire Protocol (ivifcl20.xx)
+
+Oracle   (ivor820.xx)
+
+Oracle Wire Protocol (ivora20.xx)
+
+Progress OpenEdge (ivpro1020.xx, offered as an early release)
+
+Progress SQL92 (ivpro920.xx)
+
+SQL Server Wire Protocol (ivmsss20.xx) 
+
+Sybase Wire Protocol (ivase20.xx)
+
+Text (ivtxt20.xx)
+
+
+     Required Operating System Patches
+
+For HP-UX 11 aCC Users Only
+---------------------------
+The ODBC drivers for HP-UX 11 aCC are supported on HP-UX 11.0
+when running with HP-UX applications built using the HP aCC 
+compiler version 3.05 or higher.
+
+The ODBC drivers require certain runtime library patches. HP-UX 
+patches are publicly available from the HP Web site (www.hp.com) 
+or FTP site (ftp://i3107ffs.external.hp.com).  The required patch is:
+
+PHSS_14577
+
+HP updates the patch database regularly; therefore, the patch 
+numbers in this file may be superseded by newer versions.  If you 
+search for any of the specified patches on an HP site and receive 
+a message that a patch has been superseded, download and install 
+the replacement patch.
+
+DataDirect provides a shared library creation script called genclntsh816, 
+described in the Oracle chapter of the DATADIRECT CONNECT FOR ODBC 
+REFERENCE. This script is relevant for HP-UX 11 PA-RISC only, not for IPF.
+
+For Oracle Users Only
+---------------------
+If you are using Oracle 8.1.7, you must have the 8.1.7.1 server 
+patch installed. Otherwise, you may receive the Oracle error:
+"ORA-03120: two-task conversion routine: integer overflow"
+when fetching LOB data.
+
+
+     Configuring Data Sources
+
+Data sources are configured through the system information file 
+(typically, odbc.ini).  For details on configuring this file, see 
+the DATADIRECT CONNECT FOR ODBC REFERENCE.
+
+
+
+     Driver Options
+
+DataDirect has included non-standard options for the drivers that 
+enable you to take full advantage of packaged ODBC-enabled 
+applications requiring non-standard or extended behavior.
+
+NOTE:  These options are not available for use with the SQL Server 
+Wire Protocol driver.
+
+To use these options, we recommend that you create a separate data 
+source for each application.  Using a text editor, open the 
+system information file.  In the section for the data source 
+you created, add the string value WorkArounds (or WorkArounds2) 
+with a value of n (for example, WorkArounds=n).  The value n is 
+the cumulative value of all options added together.
+
+Note that each of these options has potential side effects related to 
+its use.  An option should only be used to address the specific problem 
+for which it was designed.  For example, WorkArounds=2 causes the 
+driver to report that database qualifiers are not supported, even when they 
+are.  As a result, applications that use qualifiers may not perform 
+properly when this option is enabled.
+
+WorkArounds=1.  If an ODBC driver reports that its 
+SQL_CURSOR_COMMIT_BEHAVIOR or SQL_CURSOR_ROLLBACK_BEHAVIOR is 0, 
+then return 1 instead and force statements to be prepared again 
+by the driver.
+
+WorkArounds=2.  Some applications cannot handle database 
+qualifiers.  If this option is on, the driver reports that 
+qualifiers are not supported.
+
+WorkArounds=8.  If an ODBC driver cannot determine the number of rows 
+affected by an INSERT, UPDATE, or DELETE, it may return -1 in 
+SQLRowCount.  Some products cannot handle this.  Turning this option 
+on causes the driver to return 1 instead.
+
+WorkArounds=16.  For SQLStatistics, if an ODBC driver reports an 
+INDEX_QUALIFIER that contains a period, some applications raise a 
+"tablename is not a valid name" error.  Turning this option on causes 
+the driver to return no INDEX_QUALIFIER.
+
+WorkArounds=32.  Turning this option on forces the driver to re-bind
+columns after calling SQLExecute for prepared statements.
+
+WorkArounds=64.  This option results in a column name of C<position> 
+where <position> is the ordinal position in the result set.  For 
+example, "SELECT col1, col2+col3 FROM table1" produces the column names 
+"col1" and C2.  SQLColAttributes/SQL_COLUMN_NAME returns <empty string> 
+for result columns that are expressions.  Use this option for applications 
+that cannot handle <empty string> column names.  
+
+WorkArounds=256.  Forces SQLGetInfo/SQL_ACTIVE_CONNECTIONS to be 
+returned as 1.
+
+WorkArounds=512.  To prevent ROWID results, this option forces the 
+SQLSpecialColumns function to return a unique index as returned from 
+SQLStatistics.
+
+WorkArounds=2048.  This option forces DATABASE= to be returned instead of 
+DB=.
+
+WorkArounds=65536.  This option strips trailing zeros from decimal 
+results.
+
+WorkArounds=131072.  This option turns all occurrences of the double 
+quote character ("") into the grave character (`). Some applications 
+always quote identifiers with double quotes. Double quoting causes 
+problems for data sources that do not return 
+SQLGetInfo/SQL_IDENTIFIER_QUOTE_CHAR = <double quote>.
+
+WorkArounds=524288.  Set this option to force the maximum precision/scale 
+settings.
+
+WorkArounds=1048576.  Some applications incorrectly specify a precision 
+of 0 for character types when the value will be SQL_NULL_DATA.  This 
+option overrides the specified precision and sets the precision to 256.
+
+WorkArounds=2097152.  Some applications incorrectly specify a precision 
+of -1 for character types.  This option overrides the specified 
+precision and sets the precision to 2000.
+
+WorkArounds=4194304.  For PowerBuilder users, this option converts all 
+catalog function arguments to uppercase unless they are quoted.
+
+WorkArounds=536870912.  This option allows for re-binding parameters 
+after calling SQLExecute for prepared statements.
+
+WorkArounds=1073741824.  If your application assumes that ORDER BY columns 
+do not have to be in the SELECT list, this workaround addresses that 
+mistaken assumption for data sources such as Informix.
+
+WorkArounds2=2.  Some applications incorrectly specify the 
+ColumnSize/DecimalDigits when binding timestamp parameters.  This 
+workaround causes the driver to ignore the ColumnSize/DecimalDigits 
+specified by the application and use the database defaults instead.
+
+WorkArounds2=4.  If your application uses the last native type 
+mapping, as returned by SQLGetTypeInfo, for a given SQL type, this 
+workaround reverses the order in which types are returned, so that 
+the application will use the most appropriate native type.
+
+WorkArounds2=8.  This workaround causes base to add the bindoffset 
+in the ARD to the pointers returned by SQLParamData.  This is to 
+work around a MSDASQL problem.
+
+WorkArounds2=16.  This workaround causes the drivers to ignore calls 
+to SQLFreeStmt(RESET_PARAMS) and only return success without taking 
+other action. It also causes parameter validation not to use the bind 
+offset when validating the charoctetlength buffer. This is to work 
+around a MSDASQL problem.
+
+WorkArounds2=24.  If you are using a DataDirect Connect for ODBC flat-file 
+driver, such as dBASE, under MSDASQL, you must use this workaround for the 
+driver to operate properly.
+
+WorkArounds2=32.  If your application requires "DSN" to be included in a 
+connection string, this workaround appends "DSN=" to a connection 
+string, if it is not already included.
+
+WorkArounds2=128.  Some applications will open extra connections if 
+SQLGetInfo(SQL_ACTIVE_STATEMENTS) does not return 0. This workaround 
+causes SQLGetInfo(SQL_ACTIVE_STATEMENTS) to return 0 to avoid the 
+overhead of these extra connections.
+
+WorkArounds2=256. Workaround for MSDASQL. Causes the drivers to return 
+Buffer Size for Long Data on calls to SQLGetData with a buffer size of 
+0 on columns whose SQL type is SQL_LONGVARCHAR or SQL_LONGVARBINARY. 
+Applications should always set this workaround when using MSDASQL and 
+retrieving long data.
+
+WorkArounds2=512. Workaround for Microsoft Query 2000. Causes the 
+flat-file drivers to return old literal prefixes and suffixes for 
+date, time, and timestamp data types. Query 2000 does not correctly 
+handle the ODBC escapes that are currently returned as literal prefix 
+and literal suffix.
+
+WorkArounds2=1024. Workaround for ADO. ADO incorrectly interprets the 
+SQLGetInfo(SQL_MULT_RESULT_SETS) to mean that the last result set 
+returned from a stored procedure is the output parameters for the 
+stored procedure. Setting this workaround causes the driver to return 
+"N" for this SQLGetInfo call.
+
+WorkArounds2=2048. Workaround for the ODBC cursor library. ODBC 3.x 
+applications which use the ODBC cursor library will get errors on 
+bindings for SQL_DATE, SQL_TIME, and SQL_TIMESTAMP columns. The cursor 
+library incorrectly rebinds these columns with the ODBC 2.x type 
+defines. The workaround causes the Connect64 for ODBC drivers to accept 
+these 2.x SQL types as valid.
+
+WorkArounds2=4096. The ODBC Driver Manager incorrectly translates 
+lengths of empty strings when a Unicode-enabled application uses a 
+non-Unicode driver. This workaround causes the Connect64 for ODBC drivers 
+to internally adjust the length of empty strings. Use this workaround 
+only if your application is Unicode enabled.
+
+
+     Notes, Known Problems, and Restrictions
+
+The following are notes, known problems, or restrictions with Edition 
+5.0 DataDirect Connect for ODBC for UNIX. 
+
+ODBC Development on UNIX Platforms
+----------------------------------
+All of the Edition 5.0 Core Components (header files, etc.) 
+needed for development of ODBC applications on UNIX are installed into 
+the /include directory created by the product installer.
+
+Please read the license.txt file in the /include directory for 
+pertinent licensing information regarding the ODBC Core Components. 
+Contact your local DataDirect sales or SupportLink representative if 
+you have any questions.
+
+Developers using programming languages other than C++:
+The ODBC 3.x Driver Manager is a C++ shared library.  The ODBC Driver 
+Manager can be used with any language that supports loading a C++ 
+shared library; however, if you are using a programming language other 
+than C++, there are additional steps you must take to ensure 
+that the C++ libraries get initialized properly when loaded by non C++ 
+compiled applications. If you are not using C++ you should consult your 
+compiler documentation for instructions on using C++ shared libraries 
+with your application. Some known issues are listed below.
+
+LANG environment setting on UNIX Platforms
+------------------------------------------
+A default installation of DataDirect Connect for ODBC on UNIX assumes that the 
+value of the LANG environment setting is en_US.  If your locale is not 
+set to en_US, then the drivers cannot return error messages properly. 
+In this case, you must create a symbolic link in the <Install 
+Dir>/locale directory that has the same value as the LANG environment 
+setting. This link must point to the <Install Dir>/locale/en_US 
+directory.
+
+ODBC Driver Manager
+-------------------
+DataDirect Connect for ODBC 5.0 drivers require the 5.0 version of the ODBC 
+Driver Manager (libodbc.xx).
+
+SQLColAttribute(s)
+------------------
+The column attributes 1001 and 1002, which were assigned as DataDirect- 
+specific attributes, were inadvertently used as system attributes by
+the Microsoft 3.0 ODBC implementation.  Applications using those 
+attributes should now use 1901 and 1902 respectively.
+
+SQLDriverConnect
+----------------
+SQLDriverConnect using options other than SQL_DRIVER_NOPROMPT is 
+supported only on systems that include the Motif libraries 
+libivmback.xx and vscnctdlg.xx.
+
+SQL_C_NUMERIC
+-------------
+Because of inconsistencies in the ODBC specification, users 
+attempting to use SQL_C_NUMERIC parameters should set the 
+precision and scale values of the corresponding structure, 
+and the descriptor fields in the APD.
+
+For AIX Users
+-------------
+The ODBC drivers for AIX are supported on AIX 4.3.3 and higher 
+operating systems with the 5.0.2.0 C++ runtime libraries. They are not 
+supported on AIX 4.20 and 4.30.  To verify whether or not your platform
+conforms to this requirement, run the following command at a command 
+prompt:
+
+lslpp -al | grep xlC.rte
+
+The result should look similar to:
+
+xlC.rte                 5.0.2.0  COMMITTED  C Set ++ Runtime
+
+If your version is not at least 5.0.2.0, you must contact IBM and
+request a maintenance-level upgrade that will update your AIX
+platform to the version of the C++ runtime libraries required.
+The AIX ODBC drivers are reentrant and can be used by 
+either reentrant or non-reentrant C++ applications on AIX 4.3. 
+
+Some IBM AIX C compilers, for example, xlc 3.1.4 do not support the use 
+of C++ build binaries.  C developers on AIX should consult their 
+compiler documentation and verify that their AIX C compiler supports 
+the use of C++ shared libraries or the application could be unstable.
+
+Unexpected behavior may occur randomly if the LIBPATH variable 
+exceeds 178 characters AND the ORACLE_HOME variable is relatively 
+long.  To resolve this, create a shorter symbolic link for 
+ORACLE_HOME.
+
+NOTE: On AIX platforms, two drivers are installed, one for AIX 4.x  
+(ivinf20.so) and one for AIX 5.x (ivinf5120.so). The installer 
+determines the operating system at the time of installation and 
+configures the default data source to point to the correct driver.
+
+For dBASE Users
+---------------
+On UNIX platforms, dBASE table names (filenames) are case-sensitive 
+and the case is retained in SQL commands.  Column names are 
+case-sensitive also, but are upper-case in SQL commands unless they 
+are quoted with the identifier quote character.
+
+For Informix Users
+------------------
+Restriction:  Some Informix error messages may contain more than one 
+error.  It is unclear whether all errors displayed will be valid.
+
+The Informix drivers support long data types only when used with 
+parameters. SQL statements that contain literal long data values 
+(text/clob, binary/blob) are not supported with the Informix drivers.
+
+If you are using connection failover with the Informix Wire Protocol driver, 
+you must specify the Database connection attribute as part of the 
+AlternateServers string.  The DATADIRECT CONNECT FOR ODBC REFERENCE documents 
+only the HostName, PortNumber, and ServerName attributes.  For example, the 
+following string defines two alternate database servers:
+
+(Database=Infdb1;HostName=Informixhost1;PortNumber=5177;
+ServerName=accounting1, Database=Infdb1;HostName=Informixhost2;
+PortNumber=5178;ServerName=accounting2)
+
+For Oracle Client Users
+-----------------------
+The following connection string attribute for the Oracle (client) driver is not 
+documented in the DATADIRECT CONNECT FOR ODBC REFERENCE:
+
+Attribute:  ClientVersion (CV)
+
+Possible values:  ClientVersion={8i | 9iR1 | 9iR2 | 10gR1}
+
+Default Value: 9iR2
+
+The driver assumes that it is connected to an Oracle server using the version of 
+Oracle client software specified by this attribute.  When set to 10gR1, the 
+driver binds all non-integer numerics as Binary Float and Binary Double.  When 
+set to any version previous to 10gR1, the driver binds non-integer numerics as 
+if connected to a 9iR2 or earlier version of the server (regardless of the 
+actual version of the server to which it is connected).  This attribute must be 
+set to the same version as the actual Oracle client software in use when 
+connecting to a 10g server with a pre-10g client; otherwise, numeric parameter 
+bindings may fail.  Because versions of the Oracle client software prior to 10g 
+R1 do not fully support the new features of the 10g database Server, some of 
+these new features do not work properly when using earlier versions of the 
+client software.
+
+For Oracle Users
+----------------
+If you are using Oracle 8.1.7, you must have the 8.1.7.1 server patch
+installed. Otherwise, you may receive the Oracle error:
+"ORA-03120: two-task conversion routine: integer overflow"
+when fetching LOB data.
+
+SQLProcedures and SQLProcedureColumns now include functions/procedures 
+from Oracle packages.  They are denoted in the result set as  
+PackageName.ProcedureName for the PROCEDURE_NAME.
+
+To use static scrollable cursors with result sets containing long 
+columns, you must set EnableStaticCursorsForLongData (ESCLD) to 1 
+(EnableStaticCursorsForLongData=1) in the data source entry of the 
+system information file (.odbc.ini) or in a connection string.  
+The default setting is 0.
+
+You must have a complete installation of the Oracle 8 client software for the 
+Oracle (client) driver to operate properly when accessing remote Oracle 8 
+servers 8.0.5 or higher and remote Oracle servers 7.3.4 or higher.  Be sure that 
+you have installed one of the following products:
+
+Oracle 8.1.6:
+     Oracle8i Client 8.1.6--Installation Type:  Programmer
+
+Oracle 8.1.7:
+     Oracle8i Client 8.1.7--Installation Type:  Programmer
+
+NOTES: 
+* On Linux, you must use the Oracle Net8 Client version 8.1.6.1.
+
+For Oracle 10g Users
+------------------------
+The DATADIRECT CONNECT FOR ODBC REFERENCE contains the following paragraph in 
+the Oracle chapter under the "Unicode Support" heading
+
+"Alternatively, on Windows, instead of the NLS_LANG environment variable, the 
+value of the HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\HOME0 registry key can be set 
+to:..."
+
+This is correct for Oracle9i version 9.2 and earlier.  For Oracle 10g, the 
+paragraph should read as follows:
+
+"Alternatively, on Windows, instead of the NLS_LANG environment variable, the 
+value of the HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\<Oracle_Home_Key> registry key 
+can be set to:...
+
+where <Oracle_Home_Key> is the Oracle home name used at the time of client 
+installation."
+
+For SQL Server Users
+--------------------
+The SQL Server Wire Protocol driver for UNIX supports 
+SQL Server 7.0 and 2000.
+
+Attempting to execute DDL statements that contain errors will cause 
+an implicit rollback of the current transaction if executing in 
+manual commit mode.  There is no warning that this has happened.  
+This is a Microsoft SQL Server limitation and there is no driver 
+workaround.
+
+NOTE:  When executing multiple statements in a stored procedure, the 
+function SQLMoreResults will ignore all statements other than Select 
+statements. Because the SQL Server Wire Protocol and Sybase Wire Protocol 
+drivers do not have a way to prepare statements, the driver will not send those 
+statements to the server until SQLExecute is called.  Prepare will not return 
+any of the normal errors that most of the drivers will return.  If, 
+however, the user requests information about result columns, the driver 
+will execute a Select statement and return warnings or errors at 
+SQLNumResultCols, SQLDescribeCol, or SQLColAttributes time.
+
+If you have problems with the catalog functions returning incorrect 
+data, you may need to upgrade your catalog stored procedures.  Make 
+sure that you have installed the latest version of the stored  
+procedures, which are available from your database vendor.  Refer to 
+your SQL Server documentation for more information.
+
+The SQL Server Wire Protocol driver does not support multiple active 
+statements on a single connection by default.  A Microsoft Knowledge 
+base document explaining how to enable multiple active statements on a 
+single connection with SQL Server through the use of server-side 
+cursors is available at the following URL:
+
+http://support.microsoft.com/support/kb/articles/q140/8/96.asp
+
+The WorkArounds listed in the Driver Options section of this readme 
+file are not available for use with the SQL Server Wire Protocol 
+driver.
+
+For Sybase Users
+----------------
+You may experience a problem using catalog stored procedures when 
+running the driver with Sybase Adaptive Server 11.5.  Contact Sybase 
+and ask for the latest version of their CSPs.
+
+For Text Users
+--------------
+Restriction:  When encountering an invalid file, you may receive 
+duplicate or too many errors from SQLError.
+
+
+     Installing and Using the Online Books
+
+You can view the Online Books with the Adobe Acrobat Reader 
+version 4.0 or higher.  For instructions about how to install and 
+use the Online Documents and Acrobat Reader, refer to the 
+DATADIRECT CONNECT FOR ODBC INSTALLATION GUIDE.
+
+Adobe Acrobat Reader is no longer distributed on the DataDirect Connect Series 
+CD. To download Acrobat Reader from the Web, go to Adobe∆s Web site at 
+http://www.adobe.com.
+
+
+     Installed Files 
+
+The file list below is dependent on driver availability for each platform. See 
+the previous section "Available DataDirect Connect ODBC Drivers" to determine 
+which drivers are installed. This file list assumes a full installation of all 
+drivers and documentation.
+
+Setup copies the following files and subdirectories to the product installation 
+directory, by default, /opt/odbc32v50:
+
+ddextu
+iculicense.txt        License agreement for ICU
+IVODBC.LIC            DataDirect ODBC driver license file
+odbc.csh              Setup script for C shell
+odbc.ini              Sample odbc.ini file
+odbcinst.ini          Sample odbcinst.ini file
+odbc.sh               Setup script for Bourne shell
+ODBCREAD.ME           This file
+ODBCFIXES.TXT         List of fixes since last release
+
+/bin:
+
+ivtestlib             Test program to check that required libraries
+                      are present and loadable
+
+/books/odbc:
+
+books.pdf               DataDirect Connect for ODBC library listing
+INDEX.PDX               Index file for full-text search
+/INDEX                  Full-text search directories and files
+/odbcig/odbcig.pdf      DataDirect Connect for ODBC Installation Guide
+/odbcref/odbcref.pdf    DataDirect Connect for ODBC Reference
+ 
+/demo:
+
+demoodbc              Standard demo executable
+demoodbc.c            Source file to the standard demo program 
+driver_connect        Demo executable that uses Motif SQLDriverConnect
+driver_connect.cc     Source file to Motif demo program
+EMP.DBF               Sample dBASE file
+EMP.DBT
+empdb2.sql            File of SQL statements to use with DB2 to
+                      populate the EMP table used by the demo
+                      programs
+empinformix.sql       File of SQL statements to use with Informix
+                      to populate the EMP table used by the demo
+                      programs
+emporacle.sql         File of SQL statements to use with Oracle
+                      to populate the EMP table used by the demo
+                      programs
+empsqlsrv.sql         File of SQL statements to use with SQL Server
+                      to populate the EMP table used by the demo
+                      programs
+empsybase.sql         File of SQL statements to use with Sybase
+                      to populate the EMP table used by the demo
+                      programs
+emptext.txt           Sample text table
+Makefile              Make script for building the demo programs
+QEDBF.INI             Schema information for the sample dBASE file
+QETXT.INI             Schema information for the sample text file
+demoodbc.txt          Short description of samples and the SQL files
+
+/example
+
+example               Example executable
+example.c             Source file for example program
+example.h             Header file for example program
+example.mak           Make file for example program
+example.txt           Short description of the program
+
+/help:
+
+drda_connect.txt      Help text for the DB2 Wire Protocol 
+                      SQLDriverConnect dialog 
+ifcl_connect.txt      Help text for the Informix Wire Protocol 
+                      SQLDriverConnect dialog
+informix_connect.txt  Help text for the Informix SQLDriverConnect
+                      dialog
+prog10_connect.txt    Help text for the Progress OpenEdge 
+                      SQLDriverConnect dialog
+
+prog9_connect.txt     Help text for the Progress SQL92 SQLDriverConnect
+                      dialog
+sqlsrv_connect.txt    Help text for the SQL Server Wire Protocol 
+                      SQLDriverConnect dialog
+oracle_connect.txt    Help text for the Oracle SQLDriverConnect dialog 
+oraclewp_connect.txt  Help text for the Oracle Wire Protocol
+                      SQLDriverConnect dialog
+tds_connect.txt       Help text for the Sybase Wire Protocol 
+                      SQLDriverConnect dialog
+
+/include:
+
+license.txt           License agreement for non-Windows ODBC SDK
+odbcinst.h            Include files
+qesqlext.h
+sql.h
+sqlext.h
+sqltypes.h
+sqlucode.h
+sqlunx.h
+
+/lib:
+
+The following /lib files have the same file name across platforms.  
+The extensions for Solaris, HP-UX, AIX, and Linux are as follows, 
+unless otherwise noted:
+
+AIX:      filename.so
+HP-UX:    filename.sl (PA-RISC)
+HP-UX:    filename.so (IPF)
+Solaris:  filename.so
+Linux:    filename.so
+
+bind20                DB2 bind utility
+ivase20.xx            Sybase Wire Protocol driver
+ivdb220.xx            DB2 Wire Protocol driver
+ivdbf20.xx            dBASE driver
+ivifcl20.xx           Informix Wire Protocol driver
+ivinf20.xx            Informix driver
+ivinf5120.xx          Informix driver [for AIX 5.x only]
+ivmsss20.xx           SQL Server Wire Protocol driver 
+ivmsssdlg20.xx
+ivor820.xx            Oracle driver
+ivora20.xx            Oracle Wire Protocol driver
+ivpro1020.xx          Progress OpenEdge driver
+ivpro920.xx           Progress SQL92 driver
+ivtrn20.xx            DataDirect sample translation shared object
+ivtxt20.xx            Text driver
+libivicu20.xx         Unicode conversion tables
+libivmback.xx         SQLDriverConnect Motif library [.a on AIX] 
+libodbc.xx            ODBC Driver Manager [.a on AIX]
+libodbcinst.xx        ODBC Installer [.a on AIX]
+odbc.so               ODBC Driver Manager (dynamically loadable) 
+                      [AIX only]
+odbccurs.xx           ODBC Cursor library 
+odbcinst.so           ODBC Installer (dynamically loadable) 
+                      [AIX only]
+odbctrac.xx           ODBC Tracing library
+vscnctdlg.xx          ODBC library for Motif operations
+
+/locale/en_US/LC_MESSAGES:
+
+ivase20.mo            Sybase Wire Protocol driver message file
+ivase20.po            Sybase Wire Protocol driver message source
+ivdb220.mo            DB2 Wire Protocol driver message file
+ivdb220.po            DB2 Wire Protocol driver message source
+ivdbf20.mo            dBASE driver message file
+ivdbf20.po            dBASE driver message source
+ivifcl20.mo           Informix Wire Protocol driver message file
+ivifcl20.po           Informix Wire Protocol driver message source
+ivinf20.mo            Informix client driver message file
+ivinf20.po            Informix client driver message source
+ivinf5120.mo          Informix client driver message file [AIX 5.x only]
+ivinf5120.po          Informix client driver message source [AIX 5.x only]
+ivmback.mo            Motif library message file
+ivmback.po            Motif library message source
+ivmsss20.mo           SQL Server Wire Protocol driver message file
+ivmsss20.po           SQL Server Wire Protocol driver message source 
+ivor820.mo            Oracle driver message file
+ivor820.po            Oracle driver message source
+ivora20.mo            Oracle Wire Protocol driver message file
+ivora20.po            Oracle Wire Protocol driver message source
+ivpro1020.mo          Progress OpenEdge driver message file
+ivpro1020.po          Progress OpenEdge driver message source
+ivpro920.mo           Progress SQL92 driver message file
+ivpro920.po           Progress SQL92 driver message source
+ivtxt20.mo            Text driver message file
+ivtxt20.po            Text driver message source
+odbc.m                ODBC Driver Manager message file
+odbc.po               ODBC Driver Manager message source 
+
+/odbchelp:
+
+help.htm              HTML help system entry file
+*.css                 Stylesheets for HTML help system
+*.html                HTML help system
+/images/*.*           Images for HTML help system
+/wwhdata/*.*          Support files for HTML help system
+/wwhelp/*.*           Support files for HTML help system
+
+/src/oracle:
+
+genclntsh816          Oracle 8.1.6 shared library creation script 
+                      [HP-UX 11 PA-RISC only]
+
+/src/trn:
+
+ivtrn20.exp           Translation shared library export file 
+                      [AIX only]
+Makefile              Make script for building translation library
+readme.trn            Short description of translation library
+translat.c            Sample translation shared library
+
+
+     Third Party Vendor License Agreement 
+
+This DataDirect product includes ICU Version 1.8.1 which is subject to the 
+following license agreement:
+
+ICU License - ICU 1.8.1 and later ICU License - ICU 1.8.1 and later
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) 1995-2003 International Business Machines Corporation and others
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, and/or sell copies of the Software, and to permit persons
+to whom the Software is furnished to do so, provided that the above
+copyright notice(s) and this permission notice appear in all copies of
+the Software and that both the above copyright notice(s) and this
+permission notice appear in supporting documentation.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL
+INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING
+FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,
+NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
+WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder
+shall not be used in advertising or otherwise to promote the sale, use
+or other dealings in this Software without prior written authorization
+of the copyright holder.
+
+------------------------------------------------------------------------
+All trademarks and registered trademarks mentioned herein are the 
+property of their respective owners.
+
+
+~~~~~~~~~~~~~~
+End of READ.ME

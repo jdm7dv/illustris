@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:06:36" />
+  <title>Connecting to a Data Source Using a Logon Dialog Box</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp625026"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Logon Dialog Box
+</h1>
+<hr /><a name="wp625029"> </a><p class="pBody">
+Some ODBC applications display a Logon dialog box when you are connecting to a data source. In these cases, the data source name has already been specified.
+</p>
+<a name="wp625039"> </a><p class="pBody">
+In the Logon dialog box, perform the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp625043"> </a><div class="pSmartList1"><li><br />
+<img src="images/iconwin9.gif" height="38" width="27" border="0" hspace="0" vspace="0"/><br />
+In the Network Library field on Windows only, select the name of the network library. This specifies which network protocol to use. Valid values are Winsock and NamedPipes.</li></div><a name="wp625044"> </a><div class="pSmartList1"><li><br />
+<img src="images/iconwina11.gif" height="38" width="27" border="0" hspace="0" vspace="0"/><br />
+In the Network Address field on Windows only, type the network address, which depends on which network protocol is chosen under Network Library and on the Sybase server. If you have chosen Winsock for the Network Library Name, specify an IP address as follows: <code><em>IP address</em></code>, <code><em>port_number</em></code>. For example, you might enter <code class="cCode">199.226.224.34, 5000</code>. If your network supports named servers, you can specify an address as: <code><em>servername</em></code>, <code><em>port_number</em></code>. For example, you might enter <code class="cCode">Sybaseserver, 5000</code>.</li></div><a name="wp625045"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you have chosen NamedPipes as the network protocol, you must specify the pipe address of the server. For example, <code class="cCode">\\machine1\sybase\pipe\query</code>.
+</p>
+<a name="wp625046"> </a><div class="pSmartList1"><li>If required, type your case-sensitive login ID.</li></div><a name="wp625047"> </a><div class="pSmartList1"><li>If required, type your case-sensitive password for the system.</li></div><a name="wp625048"> </a><div class="pSmartList1"><li>In the Database field, type the name of the database you want to access (case-sensitive). Or, on Windows, select the name from the Database drop-down list, which displays the names that you specified on the Connection tab of the ODBC Sybase Wire Protocol driver Setup dialog box.</li></div><a name="wp625050"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> to complete the logon and to update the values in the Registry.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

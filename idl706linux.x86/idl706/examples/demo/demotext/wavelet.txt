@@ -1,0 +1,96 @@
+
+
+
+          WELCOME TO THE WAVELET TOOL DEMO
+
+
+ The Wavelet tool is a widget application program
+ that graphically demonstrates the image compression
+ capabilities of Wavelet Transforms.
+
+ THE WAVELET TOOL DISPLAY
+ ------------------------
+
+ The Wavelet tool display screen includes the
+ following elements:
+
+ - A group of menus at the top of the display
+   controlling the program options.
+
+ - A 256x256 byte display of the uncompressed image.
+
+ - A 256x256 byte display of the compressed image.
+
+ - A visual display of the wavelet basis of both
+   the original image and the compressed image.
+
+ - A graph showing the ratio between actual values
+   in the wavelet basis (Y) and the percentage of
+   compression (X) that would result if the Y
+   value was used as the threshold for compression.
+
+ - An optional 256x256 byte display window that
+   displays the difference between the compressed
+   and uncompressed images. The difference image
+   has been byte scaled.
+
+
+MENU OPTIONS
+------------
+
+File Menu:
+
+    Select "Open" to select a new image. A list
+    of files will appear. Click on one of the
+    listed items to select a new image.
+
+    Select "Quit" to exit the Wavelet demo.
+
+Options Menu:
+
+    Select "4 coefficients" to compute the wavelet
+    basis using 4 Daubechies coefficients.
+
+    Select "12 coefficients" to comput the wavelet
+    basis using 12 Daubechies coefficients.
+
+    Select "20 coefficients" to comput the wavelet
+    basis using 20 Daubechies coefficients.
+
+    Select "Show difference image" to create a
+    pop-up window that shows the difference
+    between the original an compressed images.
+
+Tools Menu:
+
+    Select "XLoadCT" to activate the XLOADCT
+    routine, which allows you to select a new
+    color table for the displayed images.
+
+    Select "XPalette" to activate the XPALETTE
+    routine, which allows you to create your
+    own color table.
+
+    Select "XMNtool" to activate the XMANTOOL
+    routine, which allows you to control the
+    currently-running widget applications.
+
+About Menu:
+
+    Select "About wavelets" to display this file.
+
+
+FEATURES OF THE WAVELET DEMO
+----------------------------
+
+<<PERCENTAGE SLIDER>>
+    Adjust the slider to change the amount of
+    compression used. Higher percentage compression
+    values mean smaller data sets.
+
+    You can also adjust the compression percentage
+    by positioning the mouse pointer in the 
+    "Adjust compression" plot, holding down the
+    left mouse button, and dragging the vertical
+    line that appears in the plot.
+

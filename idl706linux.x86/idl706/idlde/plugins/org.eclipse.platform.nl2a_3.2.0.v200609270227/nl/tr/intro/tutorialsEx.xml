@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<introContent>
+  <!-- Extension to the SDK Tutorials Page. -->
+  <extensionContent id="org.eclipse.team" name="Ekip/CVS" alt-style="css/tutorials.properties" style="css/tutorials.css" path="tutorials/@">
+    <group label="Ekip/CVS" id="team" style-id="content-group">
+      <link url="http://org.eclipse.ui.intro/showStandby?partId=org.eclipse.platform.cheatsheet&amp;input=org.eclipse.platform.cvs.checkout" label="CVS projesini dışarı al" id="cvs_checkout" style-id="content-link">
+        <text>Bir CVS havuzuna bağlanmayı ve bir projeyi dışarı almayı öğrenin.</text>
+      </link>
+      <link url="http://org.eclipse.ui.intro/showStandby?partId=org.eclipse.platform.cheatsheet&amp;input=org.eclipse.platform.cvs.merge" label="CVS dallarını birleştir" id="cvs_merge" style-id="content-link">
+        <text>Bir CVS dalındaki değişiklikleri bir diğeriyle birleştirmek için izlenecek adımlar</text>
+      </link>
+    </group>
+  </extensionContent>
+</introContent>

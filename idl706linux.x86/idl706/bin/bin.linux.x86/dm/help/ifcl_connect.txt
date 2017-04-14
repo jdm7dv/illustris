@@ -1,0 +1,20 @@
+Logon to Informix Dialog Box
+
+HOST: Type the name of the system where the database is stored.
+
+PORT NUMBER: Type the system port number setup for the database listener process.
+
+SERVER NAME:  Type the name if the Informix server you want to access
+
+DATABASE: Type the name of the database you that want to access
+
+LOGON ID: If required, type your logon ID.
+
+PASSWORD: If required, type your password for the system (case-sensitive).
+
+OK
+Completes the logon and writes the values to the system information.
+
+CANCEL
+Closes the dialog box without writing the values to the system information.
+

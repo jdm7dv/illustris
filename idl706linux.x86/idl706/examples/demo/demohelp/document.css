@@ -1,0 +1,39 @@
+/* Default style for links */
+a:active  { color: #0000CC}
+a:hover   { color: #CC0033}
+a:link    { color: #3366CC}
+a:visited { color: #9999CC}
+
+/* Default style */
+html
+{
+   margin-right: 10px;
+   margin-left: 10px;
+}
+
+body
+{
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-size: small;
+  text-align: left
+}
+
+table
+{
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-size: small;
+  text-align: left
+}
+
+/* Use this style for footnote numbers */
+sup.Footnote
+{
+}
+
+/* Use this to implement features that will show up in the
+   IDL Help viewer, but not in a normal web browser that
+   understands cascading style sheets. */
+.Ignore
+{
+   display: none;
+}

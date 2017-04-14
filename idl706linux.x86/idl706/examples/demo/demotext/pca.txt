@@ -1,0 +1,66 @@
+
+
+
+       WELCOME TO THE PRINCIPAL COMPONENTS ANALYSIS DEMO
+
+PRINCIPAL COMPONENTS ANALYSIS attempts to describe
+relationships and associations among the variables (the
+columns) of multivariate data.  When dealing with a large
+number of variables standard analysis methods are
+excessively time-consuming.  In such circumstances, a
+reduction in the number of variables is required.  Simply
+choosing a subset of the original variables may result in
+the loss of essential information.  An alternative procedure
+is to construct a number of new variables from the original
+variables.
+
+PRINCIPAL COMPONENTS ANALYSIS is a method of data
+reduction which aims to create a small number of derived
+variables that can be used in place of the large number of
+original variables.  The derived variables are uncorrelated
+(containing unique data) and are used in the subsequent
+analyses with virtually no loss of accuracy.
+
+An example of the call to the function PCOMP is shown below.
+
+newVariables = PCOMP(array, $
+     COEFFICIENTS = eigenvectors, $
+     EIGENVALUES = eigenvalues, $
+     VARIANCES = variances, $
+     NVARIABLES = nvariables, $
+     /COVARIANCE, /STANDARDIZE)
+
+The reference for the data used in the demo is shown below.
+ 
+Statistical Methods For Medical Investigations
+Brian S. Everitt
+ISBN: 0-340-61431-5']], $
+
+
+   MENU OPTIONS
+   ------------
+   File Menu:
+      Select Quit to exit the Demo and return 
+      to the IDL Demo main screen.
+
+   About Menu:
+      Select "About Principal Components Analysis" for information 
+      about the Principal Components Analysi demo.
+
+
+   FEATURES
+   --------
+
+   <<Show Eigenvalues>> button
+      Displays a plot of the eigenvalues for the analysis.
+
+   <<Show Variances>> button
+      Displays the variances of the first through fifth derived variables.
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+#RSI_PRODUCT_NAME:IDL Runtime 7.0
+#RSI_FEATURE_NAME:eval_idlrt
+#RSI_PRODUCT_VERSION:7.000
+PACKAGE eval_idlrt idl_lmgrd 7.000 0C2304757D3B \
+	COMPONENTS="idl_rt:7.000 idl_wavelet:7.000 idl_dm:7.000 \
+	idl_dicomex_rw_rt:7.000 idl_dicomex_net_rt:7.000 \
+	idl_dicomex_scp:7.000"

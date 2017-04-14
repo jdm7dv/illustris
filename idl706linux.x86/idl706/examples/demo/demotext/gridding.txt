@@ -1,0 +1,70 @@
+
+        
+           WELCOME TO THE GRID DEMO
+
+
+   This demo shows the gridding of unevenly spaced data
+   and various interpolation methods.
+
+   A random set of data in 3D space is generated. The 
+   Delauney triangulation method connects the data, 
+   forming triangles. The triangulated data is then
+   interpolated to a location in a 3D grid. IDL offers
+   several interpolation techniques. 
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+      Select "Quit" to exit the Grid Demo and return 
+      to the IDL Demo main screen.
+
+   Data Menu:
+       Select "Generate new data" to create a new set 
+       of random data points (X, Y, Z).
+
+   Help Menu:
+       Select "About interpolation and gridding" for
+       information about the Grid Demo.
+
+
+   DROPLIST FEATURE
+   ----------------
+
+   <<X-Y point locations>>
+      Shows the X-Y locations of randomly-generated data 
+      points in 3D space.
+
+   <<Delauney triangulation>>
+      The random data points are connected using the 
+      Delauney triangulation method.
+
+   <<Bilinear interpolation>>
+      After the triangulation is performed, the data is 
+      interpolated linearly, generating a series of flat, 
+      interconnected surfaces. Data points located outside 
+      the outer edges of the triangulated surface are not 
+      interpolated. These points are assigned values 
+      of -20.
+
+   <<Quintic interpolation>>
+      After the triangulation is performed, the data is 
+      interpolated using the quintic method. Data points 
+      located outside the outer edges of the triangulated 
+      surface are not interpolated. These points are 
+      assigned values of -20.
+
+   <<Smooth interpolation>>
+      After the triangulation is performed, the data is 
+      interpolated using the 'Smooth' method, which 
+      computes a boxcar average, given a width. The result
+      is a smooth continuous surface, without a skirt. Data 
+      outside the triangulated surface can be extrapolated.
+
+   <<Kriging>>
+      Also known as 'Optimal interpolation', this method 
+      uses an exponential scheme. It is widely accepted by 
+      the scientific community. The result is a smooth 
+      surface. Data outside the triangulated surface can be 
+      extrapolated.

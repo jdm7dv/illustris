@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>Create and Drop Index Statements</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp514195"> </a><h1 class="pNewHTMLPageNoNum">
+Create and Drop Index Statements
+</h1>
+<hr /><a name="wp510531"> </a><p class="pBody">
+The dBASE driver supports SQL statements to create and delete indexes. 
+</p>
+<a name="wp558908"> </a><h3 class="pHeading2">
+Create Index
+</h3>
+<a name="wp558888"> </a><p class="pBody">
+The type of index you create is determined by the value of the CreateType attribute, which you set in the driver Setup dialog box (for UNIX, edit the system information file) or as a connection string attribute. The index can be:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp510535"> </a><div class="pSmartList1"><li>dBASE IV or V (.MDX)</li></div><a name="wp510537"> </a><div class="pSmartList1"><li>Clipper (.NTX)</li></div><a name="wp510541"> </a><div class="pSmartList1"><li>FoxPro (.CDX)</li></div></ul></div>
+<a name="wp510543"> </a><p class="pBody">
+The syntax for creating an index is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE [UNIQUE] INDEX <em class="cEmphasis">index_name</em> ON <em class="cEmphasis">base_table_name</em> 
+(<em class="cEmphasis">field_name</em> [ASC | DESC] [,<em class="cEmphasis">field_name</em> [ASC | DESC]]...) <a name="wp510545"> </a>
+</pre></div>
+<a name="wp510547"> </a><p class="pBody">
+<em style="font-style: italic" class="cEmphasis">index_name</em><span style="font-style: italic"> </span>is the name of the index file. For FoxPro and dBASE IV or V, this is a tag, which is required to identify the indexes in an index file. Each index for a table must have a unique name.
+</p>
+<a name="wp510549"> </a><p class="pBody">
+Unique means that the driver creates an ANSI-style unique index over the column and ensures uniqueness of the keys. Use of unique indexes improves performance. ANSI-style unique indexes are different from dBASE-style unique indexes. With ANSI-style unique indexes, you receive an error message when you try to insert a duplicate value into an indexed field. With dBASE-style unique indexes, you do not see an error message when you insert a duplicate value into an indexed field. This is because only one key is inserted in the index file.
+</p>
+<a name="wp510551"> </a><p class="pBody">
+<em class="cEmphasis">base_table_name</em> is the name of the database file whose index is to be created. The .DBF extension is not required; the driver automatically adds it if it is not present. By default, dBASE IV or V index files are named <span style="font-style: italic">base_table_name.</span>MDX and FoxPro indexes are named <span style="font-style: italic">base_table_name.</span>CDX.
+</p>
+<a name="wp510553"> </a><p class="pBody">
+<em class="cEmphasis">field_name</em> is a name of a column in the dBASE table. You can substitute a valid dBASE-style index expression for the list of field names.
+</p>
+<a name="wp510555"> </a><p class="pBody">
+ASC tells dBASE to create the index in ascending order. DESC tells dBASE to create the index in descending order. By default, indexes are created in ascending order. You cannot specify both ASC and DESC orders within a single Create Index statement. For example, the following statement is invalid:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE INDEX emp_i ON emp (last_name ASC, emp_id DESC)<a name="wp510557"> </a>
+</pre></div>
+<a name="wp510559"> </a><p class="pBody">
+<a  href="Rdbasfox11.html#wp558946">Table&#160;9-4</a> shows the attributes of the different index files supported by the dBASE driver. For each type supported, it provides the following details:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp510561"> </a><div class="pSmartList1"><li>Whether dBASE-style unique indexes are supported</li></div><a name="wp510563"> </a><div class="pSmartList1"><li>Whether descending order is supported</li></div><a name="wp510565"> </a><div class="pSmartList1"><li>The maximum size supported for key columns</li></div><a name="wp537008"> </a><div class="pSmartList1"><li>The maximum size supported for the column specification in the Create Index statement</li></div><a name="wp553188"> </a><div class="pSmartList1"><li>Whether production/structural indexes are supported</li></div></ul></div>
+<a name="wp559057"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp558946"> </a><div class="pTableTitleBold">
+Table 9-4.  dBASE-Compatible Index Summary&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp598214"> </a><div class="pCellHeading">
+<br />Create Type<br />.Extension
+</div>
+</th>
+    <th><a name="wp558962"> </a><div class="pCellHeading">
+<br />dBASE <br />UNIQUE
+</div>
+</th>
+    <th><a name="wp558964"> </a><div class="pCellHeading">
+<br /><br />DESC
+</div>
+</th>
+    <th><a name="wp558966"> </a><div class="pCellHeading">
+Max Size of Key Column
+</div>
+</th>
+    <th><a name="wp558968"> </a><div class="pCellHeading">
+Max Size of Column Specification
+</div>
+</th>
+    <th><a name="wp558970"> </a><div class="pCellHeading">
+Production/Structural Indexes
+</div>
+</th>
+    <th><a name="wp558972"> </a><div class="pCellHeading">
+Supports FOR Expressions
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp558988"> </a><p class="pBody">
+dBASE IV, V .MDX
+</p>
+</td>
+    <td><a name="wp558990"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp558992"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp558994"> </a><div class="pCellBody">
+100
+</div>
+</td>
+    <td><a name="wp558996"> </a><div class="pCellBody">
+220
+</div>
+</td>
+    <td><a name="wp558998"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp559000"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp559002"> </a><p class="pBody">
+Clipper .NTX
+</p>
+</td>
+    <td><a name="wp559004"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp559006"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp559008"> </a><div class="pCellBody">
+250
+</div>
+</td>
+    <td><a name="wp559010"> </a><div class="pCellBody">
+255
+</div>
+</td>
+    <td><a name="wp559012"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp559014"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp559016"> </a><p class="pBody">
+FoxPro .IDX*
+</p>
+</td>
+    <td><a name="wp559018"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp559020"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp559022"> </a><div class="pCellBody">
+240
+</div>
+</td>
+    <td><a name="wp559024"> </a><div class="pCellBody">
+255
+</div>
+</td>
+    <td><a name="wp559026"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp559028"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp559030"> </a><p class="pBody">
+FoxPro .CDX
+</p>
+</td>
+    <td><a name="wp559032"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp559034"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp559036"> </a><div class="pCellBody">
+240
+</div>
+</td>
+    <td><a name="wp559038"> </a><div class="pCellBody">
+255
+</div>
+</td>
+    <td><a name="wp559040"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp559042"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td colspan="7" rowspan="1"><a name="wp559044"> </a><div class="pCellBody">
+*	Compact IDX indexes have the same internal structure as a tag in a CDX file. These indexes can be created if the IDX extension is included with the index name in the Create Index statement.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp561912"> </a><h3 class="pHeading2">
+Drop Index
+</h3>
+<a name="wp559060"> </a><p class="pBody">
+The syntax for dropping an index is as follows:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP INDEX <em class="cEmphasis">table_name</em>.<em class="cEmphasis">index_name</em><a name="wp510590"> </a>
+</pre></div>
+<a name="wp510592"> </a><p class="pBody">
+<em class="cEmphasis">table_name</em> is the name of the dBASE file without the extension.
+</p>
+<a name="wp510594"> </a><p class="pBody">
+For FoxPro and dBASE IV or V, <em class="cEmphasis">index_name</em> is the tag. Otherwise, <em class="cEmphasis">index_name</em> is the name of the index file without the extension.
+</p>
+<a name="wp510596"> </a><p class="pBody">
+To drop the index EMPHIRE.MDX, issue the following statement:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP INDEX emp.emphire<a name="wp510598"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

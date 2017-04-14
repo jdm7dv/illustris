@@ -1,0 +1,123 @@
+
+
+
+       WELCOME TO THE HYDROGEN ATOM DEMO
+
+This program generates volume data that represents
+the probability density of the electron of a
+hydrogen atom. The volume data is a 3 dimensional
+array, with each cell in the array representing a
+small volume of space located at that cell's x, y,
+z location.  The value in each cell represents the
+likelyhood of finding the electron in that cell's
+space at a given instant in time.  Zero represents
+no probability, and one represents complete
+probability.
+
+The probability of finding the electron is governed
+by three quantum numbers, n, l, and m.  Although a
+full discussion of the meaning of these quantum
+numbers is beyond the scope of this message, some
+brief notes may give a little insight into their
+function:
+
+     The energy is proportional to n^2
+
+     The square of the angular momentum is
+     proportional to l(l+1)
+
+     The z component of the angular momentum is
+     proportional to m
+
+QUANTUM NUMBER CONTROLS
+-----------------------
+
+Move the n, l, and m sliders to change the quantum
+numbers used to generate the volume data.
+
+DISPLAY CONTROLS
+----------------
+
+<<Depth Cueing>> checkbox
+Check this box to make axes and isosurfaces fade
+toward the background color with distance.
+
+<<Color Smoothing>> checkbox
+Check this box to enable color interpolation.
+Trilinear interpolation is used for voxel
+projections.   Gouraud shading is used for
+surfaces.
+
+<<Data Resolution>> slider
+Move this slider to set the number of voxels to
+calculate.  For example, 35 yields a 35x35x35 voxel
+volume. 100 yields a 100x100x100 voxel volume.
+Each voxel value represents the probability of
+finding the electron in an infinitesimal volume at
+that voxel's x, y, z location, at a given instant
+in time.
+
+<<Color Table>> list
+Select color tables to be used in graphic.
+
+<<Show Voxel Projection>> checkbox
+A voxel projection is a volume display that
+typically looks like a translucent cloud.  Each
+voxel in this program's volume has color and
+opacity per its probability value.  Voxels occlude
+those that are behind them to the extent that they
+are opaque.
+
+<<Approximate Overall Opacity>> slider
+Move this slider to scale the opacities in the
+volume.  Overall opacity is an estimate of how much
+the the entire volume blots out that which is
+behind it (i.e the background).
+
+<<Show Isosurfaces>> checkbox
+Isosurfaces are sets of contiguous polygons
+enclosing voxels that exceed a given threshold.
+Check this box to show isosurfaces.  Click in the
+outlined region to the right of the colorbar to
+create new isosurface thresholds.  Drag the
+resulting wedge-shaped indicators to move
+isosurface thresholds.  Right click a wedge-shaped
+indicator to remove that isosurface threshold.
+
+<<Isosurface Style>> droplist
+Select from this list to specify how isosurface
+polygons should be drawn.  The "Perforated Surface"
+style is created using texture maps.
+
+<<Auto Refresh>> checkbox
+Check this box to have the program automatically
+update its calculations (when needed) and redraw
+the volume after each change you make with the
+mouse.
+
+<<Refresh>> button
+Click this button to update the volume and display.
+
+COLORBAR WITH MULTISLIDER 
+-------------------------
+
+When the Show Isosurfaces checkbox is checked, an
+outlined region appears to the right of the
+colorbar in the graphic.  Click in the outlined
+region to create new isosurface thresholds.  Drag
+the resulting wedge-shaped indicators to move
+isosurface thresholds.  Right click a wedge-shaped
+indicator to remove it.
+
+
+References:
+
+Quantum Theory
+David Bohm
+ISBN: 0-486-65969-0
+
+Modern Physics
+Kenneth Krane
+2nd ed. pp. 208-219
+ISBN: 0-471-82872-6
+

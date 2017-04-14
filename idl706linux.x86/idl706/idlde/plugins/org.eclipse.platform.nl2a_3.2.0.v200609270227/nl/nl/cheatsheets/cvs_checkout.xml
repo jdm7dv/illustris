@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Een CVS-project uitchecken">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+Dit hulpblad bevat informatie over navigeren in een CVS-repository en een
+project uitchecken. Wanneer u hulp nodig hebt, klikt u op het pictogram (?).
+    </description>
+  </intro>
+
+  <item
+      title="Het perspectief CVS-repositoryverkenner openen"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+Selecteer Venster &gt; Perspectief openen &gt; Overige en selecteer het
+perspectief <b>CVS-repositoryverkenner</b>.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="Een CVS-repository toevoegen"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+Klik in de view CVS-repository's op de knop <b>CVS-repository toevoegen</b> op
+de werkbalk. Geef de locatie en de verificatiegegevens van de repository op. 
+Voor de repository <b>eclipse</b> geeft u bijvoorbeeld het volgende op:<br/>
+      <br/>
+      Host: dev.eclipse.org<br/>
+      Repositorypad: /home/eclipse<br/>
+      Gebruiker: anoniem<br/>
+      Verbindingstype: pserver<br/>
+      <br/>
+Gebruik de standaardwaarden voor de overige velden en klik op Voltooien.
+    </description>
+  </item>
+
+  <item
+      title="Project zoeken"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+Vouw het knooppunt <b>HEAD</b> onder de nieuwe repository uit en zoek het
+project dat u wilt uitchecken (de broncode van het hulpblad staat
+bijvoorbeeldfor in org.eclipse.ui.cheatsheets) </description>
+  </item>
+
+  <item
+      title="Een project uitchecken"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+Klik met de rechtermuisknop op het project dat u wilt uitchecken en selecteer
+<b>Uitchecken</b>. De nieuwste content wordt dan van de repository naar uw
+werkgebied gedownload.
+    </description>
+  </item>
+
+  <item
+      title="Het werkgebied bekijken"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+Om het project in uw werkgebied te bekijken, kiest u het perspectief
+<b>Resource</b> via Venster &gt; Perspectief openen &gt; Resource. Het project
+wordt dan afgebeeld in de view <b>Navigator</b>. U kunt nu werken met de inhoud
+van het project.
+    </description>
+  </item>
+
+</cheatsheet>

@@ -1,0 +1,30 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/cntour02#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a contour plot used as an example in
+; Chapter 11, "Plotting Multi-dimensional Arrays", of _Using IDL_.
+
+; Restore variables elev, X, and Y.
+
+@cntour01
+ 
+; Set missing data points to a large value.
+
+elev(WHERE(elev EQ 0)) = 1E6	
+
+; REBIN down to a 72 x 92 matrix.
+
+new = REBIN(elev, 360/5, 460/5)	
+
+; Make the plot, specifying the contour levels, missing data value,
+; linestyles, etc. Set the STYLE keywords to 1, obtaining exact axes. 
+
+CONTOUR, new, X, Y, LEVELS = 2750 + FINDGEN(6) * 250., $
+    XSTYLE = 1, YSTYLE = 1, YMARGIN = 5, MAX_VALUE = 5000, $
+    C_LINESTYLE = [1, 0], $
+    C_THICK = [1, 1, 1, 1, 1, 3], $
+    TITLE = 'Maroon Bells Region', $
+    SUBTITLE = '250 meter contours', $
+    XTITLE = 'UTM Coordinates (KM)'	

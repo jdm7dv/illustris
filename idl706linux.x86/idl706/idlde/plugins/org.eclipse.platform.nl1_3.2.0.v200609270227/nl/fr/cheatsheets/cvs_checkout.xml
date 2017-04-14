@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Check out a CVS project">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Cet aide-mémoire présente comment parcourir un dossier CVS et réserver un projet.
+      Si vous avez besoin d'aide au cours d'une étape, cliquez sur l'icône (?) située
+      sur la droite.
+    </description>
+  </intro>
+
+  <item
+      title="Open the CVS Repository Exploring perspective"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+      A partir du menu principal, sélectionnez Fenêtre &gt; Ouvrir la perspective &gt; Autre...,
+      puis sélectionnez la perspective <b>Exploration du référentiel CVS</b>.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="Add a CVS repository"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+      Dans la vue Référentiels CVS, cliquez sur le bouton <b>Ajouter un référentiel CVS</b>
+      dans la barre d'outils. Spécifiez l'emplacement et les informations d'authentification pour
+      le référentiel. Par exemple, pour le référentiel <b>eclipse</b> , spécifier les informations
+      comme suit :<br/>
+      <br/>
+      Hôte: dev.eclipse.org<br/>
+      Chemin du référentiel : /home/eclipse<br/>
+      Utilisateur : anonymous<br/>
+      Type de connexion : pserver<br/>
+      <br/>
+      Utilisez les valeurs par défaut pour les champs restants, et cliquez sur Terminer.
+    </description>
+  </item>
+
+  <item
+      title="Locate the project"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+      Développez le noeud <b>HEAD</b> situé en dessous du référentiel ajouté, et localisez
+      le projet que vous voulez réserver (pour trouver le code source d'une vue
+      d'aide-mémoire, par exemple, celle-ci se trouve dans org.eclipse.ui.cheatsheets)
+    </description>
+  </item>
+
+  <item
+      title="Check out the project"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+      Cliquez avec le bouton droit de la souris sur le projet à réserver et sélectionnez
+      <b>Réserver</b>. Cette opération va télécharger les dernières version du contenu du
+      référentiel dans votre espace de travail.
+    </description>
+  </item>
+
+  <item
+      title="View the workspace"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+      Pour voir votre projet dans l'espace de travail, basculez vers la perspective
+     <b>Ressource</b> par le menu Fenêtre &gt; Ouvrir la perspective &gt; Ressource.
+      Votre projet apparaîtra dans la vue <b>Navigateur</b>. Vous pouvez donc maintenant
+      voir et travail avec le contenu du projet.
+    </description>
+  </item>
+
+</cheatsheet>

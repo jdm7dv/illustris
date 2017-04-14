@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="CVS projekt kiiktatása">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Ez az áttekintő megmutatja, hogyan derítsen fel egy CVS lerakatot és iktasson
+      ki egy projektet. Ha bármilyen lépésnél segítségre van szüksége, kattintson a (?) 
+      ikonra a jobb oldalon.
+    </description>
+  </intro>
+
+  <item
+      title="A CVS lerakatfelderítő perspektíva megnyitása"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+      A főmenüből válassza az &gt; Perspektíva megnyitása &gt; Egyéb...
+      lehetőséget, majd válassza ki a <b>CVS lerakatfelfedező</b> perspektívát.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="CVS lerakat hozzáadása"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+      A CVS lerakat nézetben kattintson a <b>CVS lerakat hozzáadása</b>
+      eszköztár gombra. Adja meg a lerakat hely és hitelesítési információit.
+      Például az <b>Eclipse</b> lerakathoz adja meg a
+      következőket:<br/>
+      <br/>
+      Hoszt: dev.eclipse.org<br/>
+      Lerakat útvonal: /home/eclipse<br/>
+      Felhasználó: anonymous<br/>
+      Kapcsolat típusa: pserver<br/>
+      <br/>
+      A többihez használja az alapértelmezett értékeket, majd kattintson a Befejezés gombra.
+    </description>
+  </item>
+
+  <item
+      title="Projekt keresése"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+      Bontsa ki a <b>FEJ</b> csomópontot az újonnan felvett lerakat alatt, és
+      keresse meg a kiiktatni kívánt projektet (például az áttekintő forráskódjának
+      megtalálásához ez az org.eclipse.ui.cheatsheets)
+    </description>
+  </item>
+
+  <item
+      title="A projekt kiiktatása"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+      Kattintson a jobb egérgombbal a kiiktatni kívánt projektre és válassza a
+      <b>Kiiktatás</b> lehetőséget. Ez letölti a lerakatból a munkaterületre a       legutolsó tartalmat.
+    </description>
+  </item>
+
+  <item
+      title="A munkaterület megjelenítése"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+      A projekt munkaterületen megjelenítéséhez váltson át az <b>Erőforrás</b>
+      perspektívára az Ablak &gt; Perspektíva megnyitása&gt; Erőforrás lehetőségen keresztül,
+      hogy lássa a projektet a <b>Navigátor</b> nézetben. Most már láthatja és kezelheti a
+      projekttartalmakat.
+    </description>
+  </item>
+
+</cheatsheet>

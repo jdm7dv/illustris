@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Tjek CVS-projekt ud">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Dette snydeark demonstrerer, hvordan du bruger et CVS-opbevaringssted og tjekker projekter ud. Klik på(?)for at få hjælp.
+    </description>
+  </intro>
+
+  <item
+      title="Åbn perspektivet Stifinder til CVS-opbevaringssted"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+      Vælg Vindue &gt; Åbn perspektiv &gt; Andet...,
+      og vælg så <b>Stifinder til CVS-opbevaringssted</b>.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="Tilføj et nyt CVS-opbevaringssted"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+      Klik på <b>Tilføj CVS-opbevaringssted</b> på værktøjslinien i oversigten CVS-opbevaringssteder. Angiv placering og valideringsoplysninger.
+For <b>eclipse</b>-opbevaringsstedet skal f.eks. følgende angives:<br/>
+      <br/>
+      Vært: dev.eclipse.org<br/>
+      Sti til opbevaringssted: /home/eclipse<br/>
+      Bruger: anonymous<br/>
+      Forbindelsestype: pserver<br/>
+      <br/>
+      Brug standardværdierne for de øvrige felter, og klik så på Afslut.
+    </description>
+  </item>
+
+  <item
+      title="Find et projekt"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+      Udvid <b>HEAD</b>noden under det nye opbevaringssted, og find det projekt, du vil tjekke ud.
+      Kildekoden til snydeark findes f.eks. under org.eclipse.ui.cheatsheets.
+    </description>
+  </item>
+
+  <item
+      title="Tjek projektet ud"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+      Højreklik på projektet, og vælg <b>Tjek ud</b>. Den nyeste version i opbevaringsstedet
+      overføres til arbejdsområdet.
+    </description>
+  </item>
+
+  <item
+      title="Se projektet i arbejdsområdet"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+      Hvis du vil have projektet vist i arbejdsområdet, skal du skifte perspektiv ved at vælge
+      Vindue &gt; Åbn perspektiv &gt; Ressource. Projektet vises så i oversigten
+      <b>Navigator</b>. Du kan nu arbejde med projektets indhold.
+    </description>
+  </item>
+
+</cheatsheet>

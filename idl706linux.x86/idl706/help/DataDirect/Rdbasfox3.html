@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>Configuring Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp599360"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Data Sources
+</h1>
+<hr /><a name="wp610211"> </a><p class="pBody">
+When you configure a data source, you store default connection values in a data source definition that is used each time you connect to the data source. You can change these defaults by modifying the definition or you can override the defaults at the time of connection by using a connection string.
+</p>
+<a name="wp599447"> </a><p class="pBody">
+If you choose to use a connection string, you must use specific connection string attributes. See <a  href="Rdbasfox6.html#wp533562">Table&#160;9-1</a> for a complete description of driver connection string attributes and their values.
+</p>
+<a name="wp610223"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunix7.gif" height="38" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, data sources are configured and modified by editing the system information file (by default, odbc.ini) and storing default connection values there. See <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a> for detailed information about editing the system information file. See <a  href="unixenviron.html#wp518848"><a  href="unixenviron.html#wp518848">&quot;The UNIX Environments&quot;</a> </a>for detailed information about the specific steps necessary to configure the UNIX environment and connect with the driver.
+</p>
+<a name="wp604350"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp604351"> </a><p class="pBody">
+<a  href="Rdbasfox6.html#wp533562">Table&#160;9-1</a> lists the connection values, in the form of connection string attributes, that must be used in the system information file. Note that only the long name of the attribute can be used in the file.
+</p>
+<a name="wp610238"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinb8.gif" height="30" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, data sources are configured and modified through the ODBC Administrator using a driver Setup dialog box. Default connection values are specified through the options on the tabs of the Setup dialog box and are stored in the Windows Registry. Connection string attributes that override these options have the same names as the options unless noted otherwise. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp599384"> </a><p class="pBody">
+NOTE: To configure a data source for a FoxPro 3.0 database container (DBC), see <a  href="Rdbasfox3.html#wp514284">&quot;FoxPro 3.0 DBC&quot;</a>.
+</p>
+<a name="wp523755"> </a><h3 class="pHeading2">
+dBASE
+</h3>
+<a name="wp599391"> </a><p class="pBody">
+To configure a dBASE data source on Windows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp523756"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources.</li></div><a name="wp515259"> </a><div class="pSmartList1"><li>If you are configuring an existing data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC dBASE Driver Setup dialog box.</li></div><a name="wp527061"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add</b> to display a list of installed drivers. Select the dBASE driver and click <b class="cBold">Finish</b> to display the ODBC dBASE Driver Setup dialog box.
+</p>
+<a name="wp548533"> </a><p class="pBodyRelative">
+NOTE: The General tab displays the only fields that are required for creating a data source. The fields on all other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp527067"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply</b>.</li></div><a name="wp510327"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Type a string that identifies this dBASE data source configuration. Examples include &quot;Accounting&quot; or &quot;dBASE Files.&quot;
+</p>
+<a name="wp510329"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: Type an optional long description of a data source name. For example, &quot;My Accounting Database&quot; or &quot;dBASE files in C:\ACCOUNTS.&quot;
+</p>
+<a name="wp510331"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Directory</b>: Type the path to the directory that contains the database files. If none is specified, the current working directory is used.
+</p>
+<a name="wp598176"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Database.
+</p>
+<a name="wp514363"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Create Type</b>: Select the type of table or index to be created on a Create Table or Create Index statement. The default is dBASE5.
+</p>
+<a name="wp510333"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab to specify data source settings.</li></div><a name="wp612285"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp612286"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Locking</b>: Select the level of locking for the database file. FILE locks all of the records in the table. RECORD (the default) locks only the records affected by the statement. NONE offers the best performance but is intended only for single-user environments. Refer to <a  href="Rdbasfox14.html#wp514744">&quot;Locking&quot;</a> for details.
+</p>
+<a name="wp612290"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Lock Compatibility</b>: Select the locking scheme the driver uses when locking records, either Clipper, dBASE, Fox, Q+E, or Q+EVirtual. The default is dBASE. The advantage of using a Q+E locking scheme over dBASE locking is that, on Inserts and Updates, Q+E locks only individual index tags, while dBASE locks the entire index. These values determine locking support as follows:
+</p>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp549161"> </a><div class="pSmartList2Rel"><li>Clipper specifies Clipper-compatible locking.</li></div>
+<a name="wp510343"> </a><div class="pSmartList2Rel"><li>dBASE specifies Borland-compatible locking.</li></div>
+<a name="wp549167"> </a><div class="pSmartList2Rel"><li>Fox specifies FoxPro-compatible locking.</li></div>
+<a name="wp510345"> </a><div class="pSmartList2Rel"><li>Q+E specifies that locks be placed on the actual bytes occupied by the record. Only applications that use the dBASE driver can read and write to the database. Other applications are locked out of the table completely (they cannot even read other records). This locking is compatible with earlier versions of Q+E products.</li></div>
+<a name="wp510347"> </a><div class="pSmartList2Rel"><li>Q+EVirtual specifies that locks be placed on bytes beyond the physical end-of-file. Q+EVirtual is the same as Q+E except that other applications can open the table and read the data.</li></div>
+</ul></div>
+<a name="wp510355"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are accessing a table with an application that uses the dBASE driver, your locking scheme does not have to match the Create Type. If you are accessing a table with two applications, however, and only one uses the dBASE driver, set your locking scheme to match the other application. For example, you do not have to set this value to Fox to work with a FoxPro table. But if you are using a FoxPro application simultaneously with an application using the dBASE driver on the same set of tables, set this value to Fox to ensure that your data does not become corrupted.
+</p>
+<a name="wp510371"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">File Open Cache</b>: Type an integer value to specify the maximum number of used file handles to cache. For example, the value&#160;4 specifies that when a user opens and closes four tables, the tables are not actually closed. The driver keeps them open so that if another query uses one of these tables, the driver does not have to perform another open, which is expensive. The advantage of file open caching is increased performance. The disadvantage is that a user who tries to open the file exclusively may get a locking conflict even though no one appears to have the file open. The default is 0, which means no file open caching.
+</p>
+<a name="wp510373"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Cache Size</b>: Type the number of 64 KB blocks the driver uses to cache database records. The greater the number of blocks, the better the performance. The maximum number of blocks you can set depends on the system memory available. If the cache size is greater than 0, when browsing backwards, you will not be able to see updates made by other users until you run the Select statement again. The default is 4.
+</p>
+<a name="wp510375"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data File Extension:</b> Type the file extension to use for data files. The default setting is DBF. The setting cannot be greater than three characters, and it cannot be one the driver already uses, such as MDX or CDX. The Data File Extension setting is used for all Create Table statements. Sending a Create Table using an extension other than the value specified for this option causes an error.
+</p>
+<a name="wp514502"> </a><p class="pBodyIndent12pxBeforeAfter">
+In other SQL statements, such as Select or Insert, users can specify an extension other than the one specified for this connection option. The Data File Extension value is used when no extension is specified.
+</p>
+<a name="wp608825"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">International Sort</b>: Select this check box to use international sort order as defined by your operating system when you issue a Select statement with an Order By clause. This order is always alphabetic, regardless of case; the letters are sorted as &quot;A, b, C.&quot; See your operating system documentation concerning the sorting of accented characters.
+</p>
+<a name="wp608826"> </a><p class="pBodyIndent12pxBeforeAfter">
+If this check box is cleared (the default), ASCII sort order is used. This order sorts items alphabetically with uppercase letters preceding lowercase letters. For example, &quot;A, b, C&quot; is sorted as &quot;A, C, b.&quot;
+</p>
+<a name="wp607919"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is IntlSort.
+</p>
+<a name="wp514372"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Use Long Names</b>: Select this check box to use long file names as table names. The maximum table name length is specific to the environment in which you are running (for example, in Windows 98, the maximum table name length is 128).
+</p>
+<a name="wp514390"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Use Long Qualifiers</b>: Select this check box to use long path names as table qualifiers. When you select this check box, path names can be up to 255 characters. The default length for path names is 128 characters. 
+</p>
+<a name="wp611488"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Using Threads</b>: Select this check box to ensure that the driver works with multi-threaded applications. You can clear this check box when using the driver with single-threaded applications. Turning off this setting avoids additional processing required for ODBC thread-safety standards.
+</p>
+<a name="wp580969"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Translate: </b>Click <b class="cBold">Translate</b> to display the Select Translator dialog box, which lists the translators specified in the ODBC Translators section of the Registry. DataDirect provides a translator named &quot;OEM to ANSI&quot; that translates your data from the IBM PC character set to the ANSI character set.
+</p>
+<a name="wp580974"> </a><p class="pBodyIndent12pxBeforeAfter">
+Select a translator; then, click <b class="cBold">OK</b> to close this dialog box and perform the translation.
+</p>
+<a name="wp529867"> </a><div class="pSmartList1"><li>If you use index files that have different names than their corresponding data files and you have not defined this association, click the <b class="cBold">Define</b> tab. See <a  href="Rdbasfox4.html#wp544526">&quot;Defining Index Attributes&quot;</a> for step-by-step instructions.</li></div><a name="wp554464"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the driver Setup dialog box.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp554465"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a &quot;connection established&quot; message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp554466"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message. Click <b class="cBold">OK</b>.</li></div>
+</ul></div>
+<a name="wp554460"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+<a name="wp514284"> </a><h3 class="pHeading2">
+FoxPro 3.0 DBC
+</h3>
+<a name="wp599483"> </a><p class="pBody">
+To configure a FoxPro 3.0 database container data source on Windows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp514299"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources.</li></div><a name="wp514300"> </a><div class="pSmartList1"><li>If you are configuring an existing data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC FoxPro Driver Setup dialog box.</li></div><a name="wp535778"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add</b>. A list of installed drivers appears. Select the FoxPro3.0 driver and click <b class="cBold">Finish</b> to display the ODBC FoxPro Driver Setup dialog box.
+</p>
+<a name="wp535783"> </a><p class="pBodyRelative">
+NOTE: The General tab displays only fields that are required for creating a data source. The fields on all other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp554551"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply.</b></li></div><a name="wp514312"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Type a string that identifies this FoxPro data source configuration, for example, &quot;Accounting.&quot;
+</p>
+<a name="wp514313"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: Type an optional long description of a data source name, for example, &quot;My Accounting Database.&quot;
+</p>
+<a name="wp514314"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Name</b>: Type the path to the directory that contains the database files. If none is specified, the current working directory is used. Click <b class="cBold">Select</b> to browse the available FoxPro 3.0 database containers.
+</p>
+<a name="wp598384"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Database.
+</p>
+<a name="wp514336"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Create Type</b>: You cannot change the Create Type for the FoxPro 3.0 DBC driver.
+</p>
+<a name="wp515528"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab to specify data source settings.</li></div><a name="wp514339"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp519077"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Locking</b>: Select the level of locking for the database file. FILE locks all of the records in the table. RECORD (the default) locks only the records affected by the statement. NONE offers the best performance but is intended only for single-user environments. Refer to <a  href="Rdbasfox14.html#wp514744">&quot;Locking&quot;</a> for details.
+</p>
+<a name="wp549175"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Lock Compatibility</b>: Select the locking scheme the driver uses when locking records, either Clipper, dBASE, Fox, Q+E, or Q+EVirtual. The default is Fox. These values determine locking support as follows:
+</p>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp549176"> </a><div class="pSmartList2Rel"><li>Clipper specifies Clipper-compatible locking.</li></div>
+<a name="wp549177"> </a><div class="pSmartList2Rel"><li>dBASE specifies Borland-compatible locking.</li></div>
+<a name="wp549178"> </a><div class="pSmartList2Rel"><li>Fox specifies FoxPro-compatible locking.</li></div>
+<a name="wp549179"> </a><div class="pSmartList2Rel"><li>Q+E specifies that locks be placed on the actual bytes occupied by the record. Only applications that use the dBASE driver can read and write to the database. Other applications are locked out of the table completely (they cannot even read other records). This locking is compatible with earlier versions of Q+E products.</li></div>
+<a name="wp514407"> </a><div class="pSmartList2Rel"><li>Q+EVirtual specifies that locks be placed on bytes beyond the physical end-of-file. Q+EVirtual is the same as Q+E except that other applications can open the table and read the data.</li></div>
+</ul></div>
+<a name="wp514411"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are accessing a table with an application that uses the dBASE driver, your locking scheme does not have to match the Create Type. If you are accessing a table with two applications, however, and only one uses the dBASE driver, set your locking scheme to match the other application. For example, you do not have to set this value to Fox to work with a FoxPro table. But if you are using a FoxPro application simultaneously with an application using the dBASE driver on the same set of tables, set this value to Fox to ensure that your data does not get corrupted.
+</p>
+<a name="wp514416"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">File Open Cache</b>: Type an integer value to specify the maximum number of used file handles to cache. For example, the value&#160;4 specifies that when a user opens and closes four tables, the tables are not actually closed. The driver keeps them open so that if another query uses one of these tables, the driver does not have to perform another open, which is expensive. The advantage of file open caching is increased performance. The disadvantage is that a user who specifies file locking on open may get a locking conflict even though no one appears to have the file open. The default is 0, which means no file open caching.
+</p>
+<a name="wp548386"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Cache Size</b>: Type the number of 64 KB blocks the driver uses to cache database records. The greater the number of blocks, the better the performance. The maximum number of blocks you can set depends on the system memory available. If the cache size is greater than 0, when browsing backwards, you will not be able to see updates made by other users until you run the Select statement again. The default is 4.
+</p>
+<a name="wp514418"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data File Extension:</b> Type the file extension to use for data files. The default setting is DBF. The setting cannot be greater than three characters, and it cannot be one the driver already uses, such as MDX or CDX. The Data File Extension setting is used for all Create Table statements. Sending a Create Table using an extension other than the value specified for this option causes an error.
+</p>
+<a name="wp514495"> </a><p class="pBodyIndent12pxBeforeAfter">
+In other SQL statements, such as Select or Insert, users can specify an extension other than the one specified for this attribute. The DataFileExtension value is used when no extension is specified.
+</p>
+<a name="wp607924"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">International Sort</b>: Select this check box to use international sort order as defined by your operating system when you issue a Select statement with an Order By clause. This order is always alphabetic, regardless of case; the letters from the previous example are sorted as &quot;A, b, C.&quot; See your operating system documentation concerning the sorting of accented characters.
+</p>
+<a name="wp607925"> </a><p class="pBodyIndent12pxBeforeAfter">
+If this check box is cleared (the default), ASCII sort order is used. This order sorts items alphabetically with uppercase letters preceding lowercase letters. For example, &quot;A, b, C&quot; is sorted as &quot;A, C, b.&quot;
+</p>
+<a name="wp607926"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is IntlSort.
+</p>
+<a name="wp514419"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Use Long Names</b>: Select this check box to use long file names as table names. The maximum table name length is specific to the environment in which you are running (for example, in Windows 98, the maximum table name length is 128).
+</p>
+<a name="wp514431"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Use Long Qualifiers</b>: Select this check box to use long path names as table qualifiers. When you select this check box, path names can be up to 255 characters. The default length for path names is 128 characters. 
+</p>
+<a name="wp611483"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Using Threads</b>: Select this check box to ensure that the driver works with multi-threaded applications. You can clear this check box when using the driver with single-threaded applications. Turning off this setting avoids additional processing required for ODBC thread-safety standards.
+</p>
+<a name="wp535943"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Translate: </b>Click <b class="cBold">Translate</b> to display the Select Translator dialog box, which lists the translators specified in the ODBC Translators section of the Registry. DataDirect provides a translator named &quot;OEM to ANSI&quot; that translates your data from the IBM PC character set to the ANSI character set. 
+</p>
+<a name="wp535944"> </a><p class="pBodyIndent12pxBeforeAfter">
+Select a translator; then, click <b class="cBold">OK</b> to close this dialog box and perform the translation.
+</p>
+<a name="wp554527"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the driver Setup dialog box.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp554528"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a &quot;connection established&quot; message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp554529"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message. Click <b class="cBold">OK</b>.</li></div>
+</ul></div>
+<a name="wp554513"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

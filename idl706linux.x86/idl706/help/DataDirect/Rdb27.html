@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:29:55" />
+  <title>Performance Considerations</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp652286"> </a><h1 class="pNewHTMLPageNoNum">
+Performance Considerations
+</h1>
+<hr /><a name="wp651812"> </a><p class="pBody">
+The following connection options can enhance performance. The option names found on the tabs of the driver Setup dialog box are the same as the connection string attribute names unless otherwise noted in parentheses. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp651821"> </a><p class="pBody">
+<b class="cBold">Application Using Threads (ApplicationUsingThreads)</b>: The driver coordinates operations from different threads by acquiring locks. Although locking prevents errors in the driver, it also decreases performance. If the application does not make ODBC calls from different threads, there is no reason for the driver to coordinate operations. Disabling the Application Using Threads option prevents the driver from coordinating operations and improves performance for single-threaded applications.
+</p>
+<a name="wp651822"> </a><p class="pBody">
+NOTE: If you are using a multi-threaded application, you must enable the Application Using Threads option.
+</p>
+<a name="wp645866"> </a><p class="pBody">
+<b class="cBold">Use Current Schema for Catalog Functions (UseCurrentSchema)</b>: This option speeds up applications that make unqualified catalog function calls over which the end user has no control. For example, applications such as Microsoft Access always pass &quot;no schema&quot; to a call to SQLTables. Setting this option can cause a dramatic improvement in speed when retrieving a table list because, normally, far fewer tables are returned.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

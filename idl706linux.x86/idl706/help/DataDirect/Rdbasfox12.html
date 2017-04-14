@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>Pack Statement</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510600"> </a><h1 class="pNewHTMLPageNoNum">
+Pack Statement
+</h1>
+<hr /><a name="wp510606"> </a><p class="pBody">
+When records are deleted from a dBASE file, they are not removed from the file. Instead, they are marked as having been deleted. Also, when memo fields are updated, space may be wasted in the files. To remove the deleted records and free the unused space from updated memo fields, you must use the Pack statement. It has the following form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+PACK <em class="cEmphasis">filename</em><a name="wp510608"> </a>
+</pre></div>
+<a name="wp510610"> </a><p class="pBody">
+<em class="cEmphasis">filename</em> is the name of the dBASE file to be packed. The .DBF extension is not required; the driver automatically adds the extension if it is not present. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+PACK emp<a name="wp510612"> </a>
+</pre></div>
+<a name="wp510614"> </a><p class="pBody">
+You cannot pack a file that is opened by another user, and you cannot use the Pack statement in manual commit mode.
+</p>
+<a name="wp510616"> </a><p class="pBody">
+For the specified file, the Pack statement performs the following actions:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp510618"> </a><div class="pSmartList1"><li>Removes all deleted records from the file</li></div><a name="wp510620"> </a><div class="pSmartList1"><li>Removes the entries for all deleted records from .CDX and .MDX files having the same name as the file</li></div><a name="wp510622"> </a><div class="pSmartList1"><li>Compresses unused space in the memo file (.DBT or .FPT)</li></div></ul></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

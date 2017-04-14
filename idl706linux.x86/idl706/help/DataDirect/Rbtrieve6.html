@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:15:58" />
+  <title>Defining Table Structure</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp526043"> </a><h1 class="pNewHTMLPageNoNum">
+Defining Table Structure
+</h1>
+<hr /><a name="wp526044"> </a><p class="pBody">
+Because Btrieve does not store any column information in the data file, you may need to define its structure. Tables created by the Btrieve driver or by Scalable SQL will not require this. Utilities are also available from Pervasive that will perform this operation.
+</p>
+<a name="wp510282"> </a><p class="pBody">
+<b class="cBold">To define the structure of a file:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp519475"> </a><div class="pSmartList1"><li>Display the ODBC Btrieve Driver Setup dialog box through the ODBC Administrator. Click the <b class="cBold">Advanced</b> tab; then, click <b class="cBold">Define</b> to display the Define File dialog box.</li></div><a name="wp519480"> </a><div class="pSmartList1"><li>In the Define File dialog box, select the file you want to define and click <b class="cBold">Open</b> to display the Define Table dialog box.</li></div><a name="wp518912"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Name:</b> This field displays the directory in which the file you selected in the Define File dialog box is located.
+</p>
+<a name="wp516960"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">File:</b> This field displays the name of the file that you selected in the Define File dialog box.
+</p>
+<a name="wp516980"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Table:</b> Type the name of the table to be returned by SQLTables. The name can be a maximum of 20 characters and cannot be the same as another defined table in the database. This field is required.
+</p>
+<a name="wp510294"> </a><div class="pSmartList1"><li>Specify values in the following fields to define each column. Click <b class="cBold">Add</b> to add the column name to the list box. </li></div><a name="wp516991"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Name:</b> Type the name of the column.
+</p>
+<a name="wp517191"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Type:</b> Select the data type of the column.
+</p>
+<a name="wp517256"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Length:</b> Type the length of the column, if applicable.
+</p>
+<a name="wp517193"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Scale:</b> Type the scale of the column, if applicable.
+</p>
+<a name="wp517001"> </a><div class="pSmartList1"><li>To modify an existing column definition, select the column name in the list box. Modify the values for that column name; then, click <b class="cBold">Modify</b>.</li></div><a name="wp517006"> </a><div class="pSmartList1"><li>To delete an existing column definition, select a column name in the list box and click <b class="cBold">Remove</b>.</li></div><a name="wp517007"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> to define the table.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

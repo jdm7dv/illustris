@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Intercalar ramificações CVS">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Esta folha de apontamentos demonstra como intercalar alterações entre ramificações
+      CVS ou para HEAD. Se necessitar de ajuda, pode, a qualquer momento, fazer clique no ícone (?)
+      à direita.
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Determinar informações de ramificação ou de versão">
+    <description>
+      O primeiro passo é decidir <b>quais</b> as duas ramificações que serão intercaladas,
+      em que <b>versão</b> o conteúdo foi ramificado e qual será a ramificação
+      <b>destino</b> (onde o resultado da intercalação será enviado).
+      Depois de obtida esta informação, pode passar ao passo seguinte.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Dar saída do projecto">
+    <description>
+      Antes de efectuar a intercalação, tem de <b>dar saída</b> do projecto que
+      pretende intercalar e trazê-lo para o espaço de trabalho. Pode fazê-lo através
+      do assistente de importação, acrescentando o seu repositório da perspectiva de
+      exploração de repositórios CVS, ou faça clique no botão (?) para obter ajuda.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="Carregar o destino no espaço de trabalho">
+    <description>
+      No navegador, faça clique no projecto com o botão direito do rato e seleccione
+      Substituir por &gt; Outra ramificação ou versão. Seleccione a ramificação destino. Carregará,
+      assim, o conteúdo mais recente da ramificação no espaço de trabalho.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Intercalar detalhes">
+    <description>
+      No navegador, faça mais uma vez clique no projecto com o botão direito do
+      rato e seleccione <b>Equipa</b> &gt; <b>Intercalar</b> e complete o passos indicados
+      pelo assistente. No assistente poderá especificar os detalhes da intercalação.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Trabalhar com o editor de Intercalação">
+    <description>
+      No editor de Intercalação, intercale manualmente as alterações. Este passo carrega
+      as alterações necessárias para o espaço de trabalho. Uma vez carregadas todas as alterações,
+      e quando estiver satisfeito com o resultado, passe ao passo seguinte.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Consolidar as alterações">
+    <description>
+      Faça clique no projecto com o botão direito do rato, seleccione <b>Equipa</b>
+      &gt; <b>Sincronizar com repositório</b> e consolide todas as alterações efectuadas
+      no repositório. Este passo conclui a transferência das alterações do espaço de trabalho
+      para o repositório e termina a intercalação.
+    </description>
+  </item>
+
+</cheatsheet>

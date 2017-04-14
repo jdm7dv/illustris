@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Check out a CVS project">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+In diesem Spickzettel wird beschrieben, wie ein CVS-Repository durchsucht und ein Projekt
+ausgecheckt wird. Wenn Sie für einen Schritt Hilfe benötigen, klicken Sie auf das
+Fragezeichensymbol (?) oben rechts.
+    </description>
+  </intro>
+
+  <item
+      title="Open the CVS Repository Exploring perspective"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+Wählen Sie im Hauptmenü die Option <b>Fenster &gt; Perspektive öffnen &gt; Andere</b>
+aus, und wählen Sie anschließend die Perspektive <b>CVS-Repository durchsuchen</b> aus. </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="Add a CVS repository"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+Klicken Sie in der Sicht <b>CVS-Repositorys</b> auf die Schaltfläche <b>CVS-Repository
+hinzufügen</b> in der Symbolleiste. Geben Sie die Position und die
+Authentifizierungsinformationen für das Repository ein. Geben Sie beispielsweise für das
+Repository <b>eclipse</b> die folgenden Informationen ein: <br/>
+      <br/>
+      Host: dev.eclipse.org<br/>
+      Repository-Pfad: /home/eclipse<br/>
+      Benutzer: anonymous<br/>
+      Verbindungstyp: pserver<br/>
+      <br/>
+Verwenden Sie für die restlichen Angaben die Standardwerte, und klicken Sie auf <b>Fertig
+stellen</b>.
+    </description>
+  </item>
+
+  <item
+      title="Locate the project"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+Erweitern Sie den Knoten <b>HEAD</b> im neu erstellten Repository, und suchen Sie das
+Projekt, das ausgecheckt werden soll. (Der Quellcode für diesen Spickzettel befindet sich
+beispielsweise in 'org.eclipse.ui.cheatsheets'.)
+    </description>
+  </item>
+
+  <item
+      title="Check out the project"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+Klicken Sie mit der rechten Maustaste auf das auszucheckende Projekt, und wählen Sie die
+Option <b>Check-out</b> aus. Hierdurch wird der aktuelle Inhalt des Repository in den
+Arbeitsbereich geladen.
+    </description>
+  </item>
+
+  <item
+      title="View the workspace"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+Um das Projekt im Arbeitsbereich anzuzeigen, müssen Sie über den Menüpunkt <b>Fenster
+&gt; Perspektive öffnen &gt; Ressource</b> zur Perspektive <b>Ressource</b> wechseln. Das
+Projekt wird daraufhin in der Navigatorsicht angezeigt. Sie können nun den Inhalt des
+Projekts anzeigen und ihn bearbeiten.
+    </description>
+  </item>
+
+</cheatsheet>

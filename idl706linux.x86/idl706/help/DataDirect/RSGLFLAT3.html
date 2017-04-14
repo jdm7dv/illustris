@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:36" />
+  <title>Create and Drop Table Statements</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp511393"> </a><h1 class="pNewHTMLPageNoNum">
+Create and Drop Table Statements
+</h1>
+<hr /><a name="wp511395"> </a><p class="pBody">
+The flat-file drivers support SQL statements to create and delete database files. The Create Table statement is used to create files and the Drop Table statement is used to delete files.
+</p>
+<a name="wp511397"> </a><h3 class="pHeading2">
+Create Table
+</h3>
+<a name="wp511401"> </a><p class="pBody">
+The form of the Create Table statement is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE TABLE <code><em>table_name</em></code> (<code><em>col_definition</em></code>[,<code><em>col_definition</em></code>,...])<a name="wp511403"> </a>
+</pre></div>
+<a name="wp511405"> </a><p class="pBody">
+<em class="cEmphasis">table_name</em> can be a simple table name or a full pathname. A simple table name is preferred for portability to other SQL data sources. If it is a simple table name, the file is created in the directory you specified as the database directory in the connection string. If you did not specify a database directory in the connection string, the file is created in the directory you specified as the database directory in .odbc.ini. If you did not specify a database directory in either place, the file is created in the current working directory at the time you connected to the driver.
+</p>
+<a name="wp511407"> </a><p class="pBody">
+<em class="cEmphasis">col_definition</em> is the column name, followed by the data type, followed by an optional column constraint definition. Values for column names<span style="font-style: italic"> </span>are database specific. The data type specifies a column&#8217;s data type.
+</p>
+<a name="wp511409"> </a><p class="pBody">
+The only column constraint definition currently supported by some flat-file drivers is &quot;not null.&quot; Not all flat-file tables support &quot;not null&quot; columns. In the cases where &quot;not null&quot; is not supported, this restriction is ignored and the driver returns a warning if &quot;not null&quot; is specified for a column. The &quot;not null&quot; column constraint definition is allowed in the driver so that you can write a database-independent application (and not be concerned about the driver raising an error on a Create Table statement with a &quot;not null&quot; restriction).
+</p>
+<a name="wp511411"> </a><p class="pBody">
+A sample Create Table statement to create an employee database table is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE TABLE emp (last_name CHAR(20) NOT NULL, <a name="wp511413"> </a>
+  first_name CHAR(12) NOT NULL, <a name="wp511415"> </a>
+  salary NUMERIC (10,2) NOT NULL, <a name="wp511417"> </a>
+  hire_date DATE NOT NULL)<a name="wp511419"> </a>
+</pre></div>
+<a name="wp511421"> </a><h3 class="pHeading2">
+Drop Table
+</h3>
+<a name="wp511425"> </a><p class="pBody">
+The form of the Drop Table statement is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP TABLE <span style="font-style: italic">table_name</span><a name="wp511427"> </a>
+</pre></div>
+<a name="wp511429"> </a><p class="pBody">
+<em class="cEmphasis">table_name</em> may be a simple table name (EMP) or a full pathname. A simple table name is preferred for portability to other SQL data sources. If it is a simple table name, the file is dropped from the directory you specified as the database directory in the connection string. If you did not specify a database directory in the connection string, the file is deleted from the directory you specified as the database directory in .odbc.ini. If you did not specify a database directory in either of these places, the file is dropped from the current working directory at the time you connected to the driver.
+</p>
+<a name="wp511431"> </a><p class="pBody">
+A sample Drop Table statement to delete the employee database table is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP TABLE emp<a name="wp511433"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

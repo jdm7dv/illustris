@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>Supported Tabular Formats for XML Documents</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp535575"> </a><h1 class="pNewHTMLPageNoNum">
+Supported Tabular Formats for XML Documents
+</h1>
+<hr /><a name="wp563887"> </a><p class="pBody">
+The three main XML tabular-formats that the XML driver can access are described in <a  href="Rxml3.html#wp582226">Table&#160;16-1</a>. In some instances, you may need to define hints to help the XML driver read the tabular-format of an XML document correctly. See <a  href="Rxml10.html#wp565825">&quot;Using Hints for Tabular-Formatted XML Documents&quot;</a>.
+</p>
+<a name="wp570123"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp582226"> </a><div class="pTableTitleBold">
+Table 16-1.  Common Tabular Formats for XML Documents&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp582230"> </a><div class="pCellHeading">
+Format
+</div>
+</th>
+    <th><a name="wp582232"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp582235"> </a><div class="pCellBody">
+ADO 2.5 persisted files
+</div>
+</td>
+    <td><a name="wp582237"> </a><div class="pCellBody">
+These files are identified by a unique schema namespace URL. Although ADO uses the same data types defined by XML-Data, the data types use extensions, such as adding a maximum column width for string columns. ADO 2.5 persisted files are identified by the following unique XML element:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;xml 	xmlns:s=&quot;uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882&quot; <a name="wp582238"> </a>
+&#160;&#160;&#160;&#160;xmlns:dt=&quot;uuid:C2F41010-65B3-11d1-A29F-
+00AA00C14882&quot; <a name="wp582239"> </a>
+&#160;&#160;&#160;&#160;xmlns:rs=&quot;urn:schemas-microsoft-com:rowset&quot; <a name="wp582240"> </a>
+&#160;&#160;&#160;&#160;xmlns:z=&quot;#RowsetSchema&quot;&gt;<a name="wp582241"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp582244"> </a><div class="pCellBody">
+DataDirect Format
+</div>
+</td>
+    <td><a name="wp582246"> </a><div class="pCellBody">
+This XML format conforms to the W3C recommendation for XML schema, Working Draft April 07, 2000. These files are identified by the following unique XML element (schema namespace URL):
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;table targetNamespace=&quot;http://www.merant.com/
+namespaces/datadirect/
+xmlrecordset&quot; xsi:schemaLocation=&quot;&lt;http://
+www.merant.com/namespaces/datadirect/
+xmlrecordset/EMP.xml&gt;&quot; xmlns=&quot;http://
+www.w3.org/1999/XMLSchema&quot; xmlns:xsi=&quot;http://
+www.w3.org/1999/XMLSchema-instance&quot; 
+xmlns:rs=&quot;http://www.merant.com/namespaces/
+datadirect/
+xmlrecordset&quot;&gt;<a name="wp582247"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp582254"> </a><div class="pCellBody">
+Microsoft Data Islands
+</div>
+</td>
+    <td><a name="wp582256"> </a><div class="pCellBody">
+These islands are identified by the &lt;XML&gt; tag in an HTML document. The Data Island can be embedded in the HTML document. Data Islands can include the following Schema definition and namespace:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+&lt;Schema xmlns=&quot;urn:schemas-microsoft-com:xml-data&quot;
+xmlns:dt=&quot;urn:schemas-microsoft-com:datatypes&quot;&gt;<a name="wp582257"> </a>
+</pre></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

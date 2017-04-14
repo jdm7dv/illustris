@@ -1,0 +1,9 @@
+2 3
+welcome|IDL can compute 3-dimensional isosurfaces,
+showing|which allow you to visualize different
+show2|"levels" within a data set.
+selecto|Select Element 1 or Element 2, then set
+disp1|the isosurface level via the slider. Click
+disp2|and drag to rotate the image.
+comp1|Computing new isosurface.
+comp2|Please wait.....

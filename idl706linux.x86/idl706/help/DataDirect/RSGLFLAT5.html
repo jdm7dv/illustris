@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:36" />
+  <title>Update Statement</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp511459"> </a><h1 class="pNewHTMLPageNoNum">
+Update Statement
+</h1>
+<hr /><a name="wp511463"> </a><p class="pBody">
+The SQL Update statement is used to change records in a database file. The form of the Update statement supported for flat-file drivers is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+UPDATE <span style="font-style: italic">table_name</span> SET <span style="font-style: italic">col_name</span> = <span style="font-style: italic">expr</span>, ...  <a name="wp511465"> </a>
+[ WHERE { <span style="font-style: italic">conditions</span> | CURRENT OF <span style="font-style: italic">cursor_name</span> } ]<a name="wp511467"> </a>
+</pre></div>
+<a name="wp511469"> </a><p class="pBody">
+<em class="cEmphasis">table_name</em> may be a simple table name or a full pathname. A simple table name is preferred for portability to other SQL data sources.
+</p>
+<a name="wp511471"> </a><p class="pBody">
+<em class="cEmphasis">col_name</em> is the name of a column whose value is to be changed. Several columns can be changed in one statement.
+</p>
+<a name="wp511473"> </a><p class="pBody">
+<em class="cEmphasis">expr</em> is the new value for the column. The expression can be a constant value or a subquery. Character string values must be enclosed with single or double quotation marks, date values must be enclosed by braces {}, and logical values that are letters must be enclosed by periods (for example, .T. or .F.). Subqueries must be enclosed in parentheses.
+</p>
+<a name="wp511475"> </a><p class="pBody">
+The Where clause (any valid clause described in <a  href="RSGLFLAT2.html#wp510919">&quot;Select Statement&quot;</a>) determines which records are to be updated.
+</p>
+<a name="wp511477"> </a><p class="pBody">
+The Where Current Of <em class="cEmphasis">cursor_name</em> clause can be used only by developers coding directly to the ODBC API. It causes the row at which <em class="cEmphasis">cursor_name</em> is positioned to be updated. This is called a &quot;positional update.&quot; You must first execute a Select...For Update statement with a named cursor and fetch the row to be updated.
+</p>
+<a name="wp511479"> </a><p class="pBody">
+An example of an Update statement on the employee table is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+UPDATE emp SET salary=32000, exempt=1 <a name="wp511481"> </a>
+WHERE emp_id = &#39;E10001&#39;<a name="wp511483"> </a>
+</pre></div>
+<a name="wp511485"> </a><p class="pBody">
+The Update statement changes every record that meets the conditions in the Where clause. In this case the salary and exempt status are changed for all employees having the employee ID E10001. Because employee IDs are unique in the employee table, only one record is updated.
+</p>
+<a name="wp511487"> </a><p class="pBody">
+An example using a subquery is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+UPDATE emp SET salary = (SELECT avg(salary) from emp) <a name="wp511489"> </a>
+WHERE emp_id = &#39;E10001&#39;<a name="wp511491"> </a>
+</pre></div>
+<a name="wp511493"> </a><p class="pBody">
+In this case, the salary is changed to the average salary in the company for the employee having employee ID E10001.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

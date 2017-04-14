@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:59:53" />
+  <title>Connecting to a Data Source Using a Connection String</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp572213"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Connection String
+</h1>
+<hr /><a name="wp574628"> </a><p class="pBody">
+If your application requires a connection string for connecting to a database, you must specify the data source name that tells the driver where to find the default connection information. Optionally, you may specify <em class="cEmphasis">attribute=value</em> pairs in the connection string to override the default values stored in the data source definition.
+</p>
+<a name="wp574629"> </a><p class="pBody">
+The connection string has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=<code><em>data_source_name</em></code>[;<code><em>attribute=value</em></code>[;<code><em>attribute=value</em></code>]...]<a name="wp574630"> </a>
+</pre></div>
+<a name="wp574635"> </a><p class="pBody">
+<a  href="Roracle5.html#wp572243">Table&#160;11-1</a> gives the long and short names for each attribute, as well as a description. You can specify either long or short names in the connection string. Connection string attribute names are the same as the option names on the driver Setup dialog box tabs unless otherwise noted. The connection string attribute name does not have spaces between the words. For example, the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em> is equivalent to the option name <em class="cEmphasis">Application Using Threads</em>.
+</p>
+<a name="wp574636"> </a><p class="pBody">
+The defaults listed in the table are initial defaults that apply when no value is specified in either the data source definition or in the connection string. If you specified a value for the attribute when configuring the data source, that value is the default.
+</p>
+<a name="wp572219"> </a><p class="pBody">
+An example of a connection string for Oracle is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=Accounting;SRVR=QESRVR;UID=JOHN;PWD=XYZZY<a name="wp572220"> </a>
+</pre></div>
+<a name="wp572221"> </a><p class="pBody">
+If the server name contains a semicolon, enclose it in quotation marks:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=Accounting;SRVR=&quot;QE;SRVR&quot;;UID=JOHN;PWD=XYZZY<a name="wp572222"> </a>
+</pre></div>
+<a name="wp572448"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp572243"> </a><div class="pTableTitleBold">
+Table 11-1.  Oracle Connection String Attributes&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp572247"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp572249"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp578196"> </a><div class="pCellBody">
+AlternateServers	 (ASRV)
+</div>
+</td>
+    <td><a name="wp611883"> </a><div class="pCellBody">
+A list of alternate database servers to which the driver will try to connect if the primary database server is unavailable. Specifying a value for this connection string attribute enables connection failover for the driver. See <a  href="Rstart4.html#wp583803"><a  href="Rstart4.html#wp583803">&quot;Using Connection Failover&quot;</a></a> for a discussion of connection failover.
+</div>
+<a name="wp611776"> </a><div class="pCellBody">
+&#160;
+</div>
+<a name="wp611708"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp596959"> </a><div class="pCellBody">
+The value you specify must be in the form of a string that defines the physical location of each alternate server. All of the other required connection information for each alternate server is the same as what is defined for the primary server connection. 
+</div>
+<a name="wp595036"> </a><div class="pCellBody">
+For the Oracle driver, you must specify the server name. The string has the format:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+(ServerName=<code><em>servervalue</em></code>[, . . .])<a name="wp595037"> </a>
+</pre></div>
+<a name="wp595038"> </a><div class="pCellBody">
+For example, the following AlternateServers value defines two alternate database servers for connection failover:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+AlternateServers=(ServerName=AcctBackup1, 
+ServerName=AcctBackup2)<a name="wp595039"> </a>
+</pre></div>
+<a name="wp595043"> </a><div class="pCellBody">
+See <a  href="Roracle12.html#wp594586">&quot;Configuring Connection Failover&quot;</a> for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572259"> </a><div class="pCellBody">
+ApplicationUsing<br />Threads (AUT)
+</div>
+</td>
+    <td><a name="wp572261"> </a><div class="pCellBody">
+ApplicationUsingThreads={0 | 1}. Ensures that the driver works with multi-threaded applications. 
+</div>
+<a name="wp572262"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver is thread-safe. 
+</div>
+<a name="wp572263"> </a><div class="pCellBody">
+When using the driver with single-threaded applications, you can set this option to 0 to avoid additional processing required for ODBC thread-safety standards.
+</div>
+<a name="wp572266"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Roracle6.html#wp572452">&quot;Performance Considerations&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572269"> </a><div class="pCellBody">
+ArraySize (AS)
+</div>
+</td>
+    <td><a name="wp572271"> </a><div class="pCellBody">
+The number of bytes the driver uses for fetching multiple rows. Values can be an integer from 1 to 4,294,967,296 (4GB). Larger values increase throughput by reducing the number of times the driver fetches data across the network. Smaller values increase response time, as there is less of a delay waiting for the server to transmit data.
+</div>
+<a name="wp572272"> </a><div class="pCellBody">
+The initial default is 60000.
+</div>
+<a name="wp572275"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Roracle6.html#wp572452">&quot;Performance Considerations&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572289"> </a><div class="pCellBody">
+CatalogIncludesSynonyms (CIS)
+</div>
+</td>
+    <td><a name="wp572291"> </a><div class="pCellBody">
+CatalogIncludesSynonyms={0 | 1}. Determines whether synonyms are included in calls to SQLProcedures, SQLStatistics, and SQLProcedureColumns.
+</div>
+<a name="wp607761"> </a><div class="pCellBody">
+When set to 1, synonyms are included in these calls.
+</div>
+<a name="wp607762"> </a><div class="pCellBody">
+When set to 0, synonyms are not included (a non-standard behavior) and performance is improved.
+</div>
+<a name="wp572292"> </a><div class="pCellBody">
+The initial default is 1.
+</div>
+<a name="wp572295"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Roracle6.html#wp572452">&quot;Performance Considerations&quot;</a> for details.
+</div>
+<a name="wp607767"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Catalog Functions Include Synonyms.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572298"> </a><div class="pCellBody">
+CatalogOptions (CO)
+</div>
+</td>
+    <td><a name="wp607787"> </a><div class="pCellBody">
+CatalogOptions={0 | 1}. Determines whether the result column REMARKS (for the catalog functions SQLTables and SQLColumns) and the result column COLUMN_DEF (for the catalog function SQLColumns) return actual values.
+</div>
+<a name="wp607788"> </a><div class="pCellBody">
+When set to 1, REMARKS and COLUMN_DEF return actual values.
+</div>
+<a name="wp607789"> </a><div class="pCellBody">
+When set to 0 (the initial default), REMARKS and COLUMN_DEF return SQL_NULL_DATA.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp578206"> </a><div class="pCellBody">
+ConnectionRetryCount (CRC)
+</div>
+</td>
+    <td><a name="wp611440"> </a><div class="pCellBody">
+Specifies the number of times the driver tries to connect to the primary server, and if configured, to the alternate servers after the initial unsuccessful attempt. See <a  href="Rstart6.html#wp592469"><a  href="Rstart6.html#wp592469">&quot;Using Connection Retry&quot;</a></a> for more information about this feature.
+</div>
+<a name="wp611445"> </a><div class="pCellBody">
+Valid values are integers from 0 to 65535. When set to 0 (the initial default), the driver does not try to connect after the initial unsuccessful attempt.
+</div>
+<a name="wp611446"> </a><div class="pCellBody">
+If a connection is not established during the retry attempts, the driver returns an error that is generated by the last server to which it tried to connect.
+</div>
+<a name="wp611447"> </a><div class="pCellBody">
+This attribute and the ConnectionRetryDelay connection string attribute, which specifies the wait interval between attempts, can be used in conjunction with connection failover. &#160;&#160;
+</div>
+<a name="wp595144"> </a><div class="pCellBody">
+See <a  href="Roracle12.html#wp594586">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp578216"> </a><div class="pCellBody">
+ConnectionRetryDelay (CRD)
+</div>
+</td>
+    <td><a name="wp609071"> </a><div class="pCellBody">
+Specifies the number of seconds that the driver waits after the initial unsuccessful connection attempt before retrying a connection to the primary server and, if specified, to the alternate servers. 
+</div>
+<a name="wp609072"> </a><div class="pCellBody">
+Valid values are integers from 0 to 65535. The default value is 3 (seconds). When set to 0, there is no delay between retries.
+</div>
+<a name="wp609073"> </a><div class="pCellBody">
+NOTE: This attribute has no effect unless the ConnectionRetryCount connection string attribute is set to an integer value greater than 0.
+</div>
+<a name="wp609074"> </a><div class="pCellBody">
+This attribute and the ConnectionRetryCount connection string attribute, which specifies the number of times the driver tries to connect after the initial unsuccessful attempt, can be used in conjunction with connection failover. &#160;&#160;&#160;
+</div>
+<a name="wp595158"> </a><div class="pCellBody">
+See <a  href="Roracle12.html#wp594586">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572303"> </a><div class="pCellBody">
+DataSourceName (DSN)
+</div>
+</td>
+    <td><a name="wp572305"> </a><div class="pCellBody">
+A string that identifies an Oracle data source configuration. Examples include &quot;Accounting&quot; or &quot;Oracle-Serv1.&quot;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572307"> </a><div class="pCellBody">
+DefaultLongDataBuffLen (DLDBL)
+</div>
+</td>
+    <td><a name="wp572309"> </a><div class="pCellBody">
+An integer value that specifies, in 1024-byte multiples, the maximum length of data fetched from Long/LOB columns. You need to increase this value if the total size of any Long data exceeds 1 MB.
+</div>
+<a name="wp572310"> </a><div class="pCellBody">
+This attribute also applies to binding Long parameters in chunks. The driver truncates any data passed in a Long/LOB SQL_DATA_AT_EXEC parameter to the size specified.
+</div>
+<a name="wp572311"> </a><div class="pCellBody">
+The initial default is 1024.
+</div>
+<a name="wp572312"> </a><div class="pCellBody">
+NOTE: This attribute is not used if the Optimize Long Performance option is enabled.
+</div>
+<a name="wp572315"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Roracle6.html#wp572452">&quot;Performance Considerations&quot;</a> for details.
+</div>
+<a name="wp607776"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Default Buffer Size for Long/LODB Columns (in KB).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572318"> </a><div class="pCellBody">
+DescribeAtPrepare (DAP)
+</div>
+</td>
+    <td><a name="wp572320"> </a><div class="pCellBody">
+DescribeAtPrepare={0 | 1}. Determines whether the driver describes the SQL statement at prepare time.
+</div>
+<a name="wp572321"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver does not describe the SQL statement at prepare time.
+</div>
+<a name="wp572324"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Roracle6.html#wp572452">&quot;Performance Considerations&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572327"> </a><div class="pCellBody">
+EnableDescribeParam (EDP)
+</div>
+</td>
+    <td><a name="wp572329"> </a><div class="pCellBody">
+EnableDescribeParam={0 | 1}. Determines whether the ODBC API function SQLDescribeParam is enabled, which results in all parameters being described with a data type of SQL_VARCHAR. 
+</div>
+<a name="wp572330"> </a><div class="pCellBody">
+This attribute must be set to 1 when using Microsoft Remote Data Objects (RDO) to access data. 
+</div>
+<a name="wp572331"> </a><div class="pCellBody">
+The initial default is 0.
+</div>
+<a name="wp581270"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Enable SQLDescribeParam.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572333"> </a><div class="pCellBody">
+EnableNcharSupport (ENS)
+</div>
+</td>
+    <td><a name="wp572335"> </a><div class="pCellBody">
+EnableNcharSupport={0 | 1}. Determines whether the N-Types NCHAR, NVARCHAR2, and NCLOB are supported.
+</div>
+<a name="wp608204"> </a><div class="pCellBody">
+When set to 1, these types are described as SQL_WCHAR, SQL_WVARCHAR, and SQL_WLONGVARCHAR, and are returned as supported by SQLGetTypeInfo. In addition, the &quot;normal&quot; char types (char, varchar, varchar2, long, clob) are described as SQL_CHAR, SQL_VARCHAR, and SQL_LONGVARCHAR regardless of the character set on the Oracle server.
+</div>
+<a name="wp608419"> </a><div class="pCellBody">
+NOTE: Valid only on Oracle9<em class="cEmphasis">i</em> or higher.
+</div>
+<a name="wp608262"> </a><div class="pCellBody">
+The initial default is 0.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572339"> </a><div class="pCellBody">
+EnableScrollableCursors (ESC)
+</div>
+</td>
+    <td><a name="wp572341"> </a><div class="pCellBody">
+EnableScrollableCursors={0 | 1}. Determines whether scrollable cursors are enabled for the data source.
+</div>
+<a name="wp608627"> </a><div class="pCellBody">
+When set to 1 (the initial default), both Keyset and Static cursors are enabled.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572344"> </a><div class="pCellBody">
+EnableStaticCursorsFor<br />LongData (ESCLD)
+</div>
+</td>
+    <td><a name="wp572346"> </a><div class="pCellBody">
+EnableStaticCursorsForLongData={0 | 1}. Determines whether the driver supports Long columns when using a static cursor. Using this attribute causes a performance penalty at the time of execution when reading Long data. 
+</div>
+<a name="wp572347"> </a><div class="pCellBody">
+The initial default is 0.
+</div>
+<a name="wp572348"> </a><div class="pCellBody">
+NOTE: You must set this attribute to 1 if you want to persist a result set that contains LONG data into an XML data file.
+</div>
+<a name="wp572351"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Roracle6.html#wp572452">&quot;Performance Considerations&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572354"> </a><div class="pCellBody">
+EnableTimestampWith<br />Timezone (ETWT)
+</div>
+</td>
+    <td><a name="wp572356"> </a><div class="pCellBody">
+EnableTimestampWithTimezone={0 | 1}. Determines whether the driver exposes timestamps with timezones to the application.
+</div>
+<a name="wp572357"> </a><div class="pCellBody">
+When set to 1, the driver issues an &quot;ALTER SESSION&quot; at connection time to modify NLS_TIMESTAMP_TZ_FORMAT. NLS_TIMESTAMP_TZ_FORMAT is changed to the ODBC definition of a timestamp literal with the addition of the timezone literal: &#8217;YYYY-MM-DD HH24:MI:SSXFF TZR&#8217;.
+</div>
+<a name="wp572358"> </a><div class="pCellBody">
+The initial default is 0.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572360"> </a><div class="pCellBody">
+IANAAppCodePage (IACP)
+</div>
+<a name="wp572364"> </a><div class="pCellBody">
+<img src="images/iconunixb4.gif" height="31" width="26" border="0" hspace="0" vspace="0"/>
+</div>
+<a name="wp572365"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp610244"> </a><div class="pCellBody">
+See <a  href="appcodepage.html#wp526223"><a  href="appcodepage.html#wp526223">&quot;Values for IANAAppCodePage Connection String Attribute&quot;</a></a> for a list of valid values for this attribute. The code page that you specify must be the same as the code page used by your application. This attribute applies to UNIX only.
+</div>
+<a name="wp610246"> </a><div class="pCellBody">
+Both this Unicode driver and the Driver Manager determine the value of the application&#8217;s code page by checking for an IANAAppCodePage value in the following order:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp610247"> </a><div class="pSmartList1"><li>In the connection string</li></div><a name="wp610248"> </a><div class="pSmartList1"><li>In the DataSource section of the system information file (odbc.ini)</li></div><a name="wp610249"> </a><div class="pSmartList1"><li>In the ODBC section of the system information file (odbc.ini)</li></div></ul></div>
+<a name="wp610250"> </a><div class="pCellBody">
+If no IANAAppCodePage value is found, the driver uses the default value of 4 (ISO 8859-1 Latin-1). 
+</div>
+<a name="wp583899"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp578226"> </a><div class="pCellBody">
+LoadBalancing (LB)
+</div>
+</td>
+    <td><a name="wp611464"> </a><div class="pCellBody">
+LoadBalancing={0 | 1}. Determines whether the driver uses client load balancing in its attempts to connect to primary and alternate database servers. See <a  href="Rstart5.html#wp583520"><a  href="Rstart5.html#wp583520">&quot;Using Client Load Balancing&quot;</a> </a>for more information.
+</div>
+<a name="wp611469"> </a><div class="pCellBody">
+When set to 1, the driver attempts to connect to the database servers in random order. 
+</div>
+<a name="wp611470"> </a><div class="pCellBody">
+When set to 0, (the initial default), client load balancing is not used and the driver connects to each database server based on its sequential order (primary server first, then, alternate servers in the order they are specified).
+</div>
+<a name="wp611471"> </a><div class="pCellBody">
+NOTE: This attribute has no effect unless alternate servers are defined for the AlternateServers connection string attribute.
+</div>
+<a name="wp580150"> </a><div class="pCellBody">
+The LoadBalancing connection string attribute is an optional setting that you can use in conjunction with connection failover. See <a  href="Roracle12.html#wp594586">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572378"> </a><div class="pCellBody">
+LocalTimeZoneOffset (LTZO)
+</div>
+</td>
+    <td><a name="wp608639"> </a><div class="pCellBody">
+Determines whether the driver acquires local time zone information from the operating system. The initial default value is &#8220;&#8221; (empty string), which means that the driver checks the operating system. If the information is not available from the operating system, the driver defaults to using the setting on the Oracle server.
+</div>
+<a name="wp608640"> </a><div class="pCellBody">
+Other possible values are specified as offsets from GMT in the following format: (-)HH:MM. For example, &#8220;-08:00&#8221; equals GMT minus 8 hours. The driver uses the value of the attribute to issue an &#8220;ALTER SESSION&#8221; for the local time zone at connect time.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572382"> </a><div class="pCellBody">
+LockTimeOut (LTO)
+</div>
+</td>
+    <td><a name="wp572384"> </a><div class="pCellBody">
+Determines whether Oracle should wait for a lock to be freed before raising an error when processing a Select...For Update statement. When connected to an Oracle9<em class="cEmphasis">i</em> or higher server, you can specify the number of seconds to wait by setting this attribute to an integer greater than 0.
+</div>
+<a name="wp572385"> </a><div class="pCellBody">
+When set to 0, Oracle does not wait.
+</div>
+<a name="wp572386"> </a><div class="pCellBody">
+When set to -1 (the initial default), Oracle waits forever.
+</div>
+<a name="wp572387"> </a><div class="pCellBody">
+If you are connected to an Oracle8<em class="cEmphasis">i</em> or lower server, any value greater than 0 is equivalent to the value -1.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572389"> </a><div class="pCellBody">
+LogonID (UID)
+</div>
+</td>
+    <td><a name="wp572391"> </a><div class="pCellBody">
+The default logon ID (user name) that the application uses to connect to your Oracle database. A logon ID is required only if security is enabled on your database. If so, contact your system administrator to get your logon ID.
+</div>
+<a name="wp572392"> </a><div class="pCellBody">
+You can also use OS Authentication to connect to your Oracle database. See <a  href="Roracle7.html#wp572469">&quot;OS Authentication&quot;</a> for details.
+</div>
+<a name="wp608654"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Default User Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572397"> </a><div class="pCellBody">
+OptimizeLong<br />Performance (OLP)
+</div>
+</td>
+    <td><a name="wp572399"> </a><div class="pCellBody">
+OptimizeLongPerformance={0 | 1}. Determines whether the driver fetches Long data directly into the application&#8217;s buffers rather than allocating buffers and making a copy. 
+</div>
+<a name="wp572400"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver allocates buffers for Long data.
+</div>
+<a name="wp572401"> </a><div class="pCellBody">
+When set to 1, the driver fetches Long data directly into the application&#8217;s buffers. The time an application takes to fetch Long data decreases; however, it can cause the application to be limited to one active statement per connection.
+</div>
+<a name="wp572402"> </a><div class="pCellBody">
+NOTE: This option is not valid on Oracle 7 servers. Also, if this option is set to 1, the DefaultLongDataBuffLen attribute is not used.
+</div>
+<a name="wp572405"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Roracle6.html#wp572452">&quot;Performance Considerations&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572408"> </a><div class="pCellBody">
+Password (PWD)
+</div>
+</td>
+    <td><a name="wp572410"> </a><div class="pCellBody">
+The password that the application uses to connect to your Oracle database.
+</div>
+<a name="wp572411"> </a><div class="pCellBody">
+You can also use OS Authentication to connect to your Oracle database. See <a  href="Roracle7.html#wp572469">&quot;OS Authentication&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572416"> </a><div class="pCellBody">
+ProcedureRetResults (PRR)<br />
+</div>
+</td>
+    <td><a name="wp572418"> </a><div class="pCellBody">
+ProcedureRetResults={0 | 1}. Determines whether the driver returns result sets from stored procedure functions. 
+</div>
+<a name="wp572419"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver does not return result sets from stored procedures.
+</div>
+<a name="wp572420"> </a><div class="pCellBody">
+When set to 1, the driver returns result sets from stored procedures. When set to 1 and you execute a stored procedure that does not return result sets, you will incur a small performance penalty. See <a  href="Roracle14.html#wp572729">&quot;Stored Procedure Results&quot;</a> for details.
+</div>
+<a name="wp572426"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Roracle6.html#wp572452">&quot;Performance Considerations&quot;</a> for details.
+</div>
+<a name="wp608663"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Procedure Returns Results.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp577793"> </a><div class="pCellBody">
+ReportCodepage<br />ConversionErrors (RCCE)
+</div>
+</td>
+    <td><a name="wp609095"> </a><div class="pCellBody">
+ReportCodePageConversionErrors={0 | 1 | 2}. Provides flexibility for the way in which the driver returns error or warning messages associated with code page conversion. 
+</div>
+<a name="wp609096"> </a><div class="pCellBody">
+When set to 0 (the initial default), if the driver encounters code page conversion errors (a character cannot be converted from one character set to another), it substitutes 0x1A for each character that cannot be converted and does not return a warning or error.
+</div>
+<a name="wp609097"> </a><div class="pCellBody">
+Settings 1 and 2 apply both to all ODBC API calls that could cause a conversion error and to all code page conversions to/from the database and to/from the application. The error or warning returned is, <code class="cCode">Code page conversion error encountered</code>. In the case of parameter data conversion errors, the driver adds the following sentence: <code class="cCode">Error in parameter </code><code><em>x</em></code>, where <code><em>x</em></code> is the parameter number. The standard rules for returning specific row and column errors for bulk operations still apply.
+</div>
+<a name="wp609098"> </a><div class="pCellBody">
+When set to 1, if the driver encounters code page conversion errors, it returns an error instead of substituting 0x1A for unconverted characters.
+</div>
+<a name="wp609099"> </a><div class="pCellBody">
+When set to 2, if the driver encounters code page conversion errors, it substitutes 0x1A for each character that cannot be converted and returns a warning.
+</div>
+<a name="wp604510"> </a><p class="pBody">
+&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572429"> </a><div class="pCellBody">
+ServerName (SRVR)
+</div>
+</td>
+    <td><a name="wp572431"> </a><div class="pCellBody">
+For local servers, the SQL*Net connection string has the form:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+<em class="cEmphasis">database_name</em><a name="wp572432"> </a>
+</pre></div>
+<a name="wp572433"> </a><div class="pCellBody">
+<code><em>database_name</em></code> identifies your Oracle database.
+</div>
+<a name="wp572434"> </a><div class="pCellBody">
+If the SQL*Net connection string contains semicolons, enclose it in quotation marks. See your SQL*Net documentation for more information.
+</div>
+<a name="wp572435"> </a><div class="pCellBody">
+For Oracle7 and Oracle8 remote servers, the Oracle TNS Client connection string has the following form:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+<em class="cEmphasis">TNSNAME</em><a name="wp572436"> </a>
+</pre></div>
+<a name="wp572437"> </a><div class="pCellBody">
+<code><em>TNSNAME</em></code><span style="font-style: italic"> </span>is the alias name of the Oracle Listener on your network.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp578583"> </a><div class="pCellBody">
+TimestampEscapeMapping (TEM)
+</div>
+</td>
+    <td><a name="wp578585"> </a><div class="pCellBody">
+TimestampEscapeMapping={0 | 1}. Determines how the driver maps Date, Time, and Timestamp literals.
+</div>
+<a name="wp578586"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver determines whether to use the TO_DATE or TO_TIMESTAMP function based on the version of the Oracle server to which it is connected.
+</div>
+<a name="wp578587"> </a><div class="pCellBody">
+When set to 1, the driver always uses the Oracle 8<em class="cEmphasis">x</em> TO_DATE function as if connected to an Oracle 8.<em class="cEmphasis">x</em> server.
+</div>
+<a name="wp578588"> </a><div class="pCellBody">
+When this attribute is set to 0, if the driver is connected to an 8.<em class="cEmphasis">x</em> or earlier server, it maps the Date, Time, and Timestamp literals to the TO_DATE function. If the driver is connected to a 9.<em class="cEmphasis">x</em> or later server, it maps these escapes to the TO_TIMESTAMP function.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp572439"> </a><div class="pCellBody">
+UseCurrentSchema (UCS)
+</div>
+</td>
+    <td><a name="wp572441"> </a><div class="pCellBody">
+UseCurrentSchema={0 | 1}. Specifies whether the driver returns only procedures owned by the current user when executing SQLProcedures.
+</div>
+<a name="wp572442"> </a><div class="pCellBody">
+When set to 0, the driver does not specify only the current user.
+</div>
+<a name="wp572443"> </a><div class="pCellBody">
+When set to 1 (the initial default), the call for SQLProcedures is optimized, but only procedures owned by the user are returned.
+</div>
+<a name="wp572446"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Roracle6.html#wp572452">&quot;Performance Considerations&quot;</a> for details.
+</div>
+<a name="wp608672"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Use Current Schema for SQLProcedures.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

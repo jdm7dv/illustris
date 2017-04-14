@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:54">
+    <title>Fourier Filtering</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_tankleak.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_flythru.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004302"> </a><h2 class="pHeading1">
+Fourier Filtering
+</h2>  
+
+<a name="wp1004304"> </a><p class="pBody">
+This example demonstrates some of the filtering capabilities of IDL using Fourier transformations. 
+</p>  
+
+<a name="wp1004305"> </a><p class="pBody">
+The original image is shown at the left of the display. The image at the right is displayed as selected by the droplist located below the image. The original data is processed according to the filter options shown to the left of the images. 
+</p>  
+
+<a name="wp1004306"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004307"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004308"> </a><h5 class="pHeading4">
+Open...
+</h5>  
+
+<a name="wp1004309"> </a><p class="pBody">
+You can choose from among 16 different sets of data from disciplines including astronomy, geology, and medicine. 
+</p>  
+
+<a name="wp1004310"> </a><h5 class="pHeading4">
+Quit
+</h5>  
+
+<a name="wp1004311"> </a><p class="pBody">
+Quit the Fourier Filtering Demo and return to the IDL Demo main screen.
+</p>  
+
+<a name="wp1004312"> </a><h4 class="pHeading3">
+Edit Menu
+</h4>  
+
+<a name="wp1004313"> </a><p class="pBody">
+Select &quot;Color Palette&quot; to launch the XLOADCT application. You can select different color tables to help clarify the various images. 
+</p>  
+
+<a name="wp1004314"> </a><h4 class="pHeading3">
+Help Menu
+</h4>  
+
+<a name="wp1004315"> </a><p class="pBody">
+Select &quot;About Fourier filtering&quot; for information about the Fourier Filtering demo.
+</p>  
+
+<a name="wp1004316"> </a><h3 class="pHeading2">
+Filter Options
+</h3>  
+
+
+<a name="wp1004317"> </a><h4 class="pHeading3">
+Function droplist
+</h4>  
+
+<a name="wp1004318"> </a><p class="pBody">
+Select between 3 filter functions: Butterworth, Exponential, and Ideal.
+</p>  
+
+<a name="wp1004319"> </a><h4 class="pHeading3">
+Order droplist
+</h4>  
+
+<a name="wp1004320"> </a><p class="pBody">
+Select a filter order between 1 and 6.
+</p>  
+
+<a name="wp1004321"> </a><h4 class="pHeading3">
+Type droplist
+</h4>  
+
+<a name="wp1004322"> </a><p class="pBody">
+Select the filter type: Low pass, High pass, Band pass, or Band reject.
+</p>  
+
+<a name="wp1004323"> </a><h4 class="pHeading3">
+Frequency Cutoff slider
+</h4>  
+
+<a name="wp1004324"> </a><p class="pBody">
+Select the frequency cutoff of the filter.
+</p>  
+
+<a name="wp1004325"> </a><h4 class="pHeading3">
+Bandwidth slider
+</h4>  
+
+<a name="wp1004326"> </a><p class="pBody">
+Select the frequency bandwidth of the filter. This option is only enabled when the filter type is set to Band pass or Band reject.
+</p>  
+
+<a name="wp1004327"> </a><h3 class="pHeading2">
+Plot View Options
+</h3>  
+
+
+<a name="wp1004328"> </a><p class="pBody">
+The droplist located under the display to the right consists of the following options:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004329"> </a><div class="pSmartList1"><li>Original signal</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004330"> </a><div class="pSmartList1"><li>Log power spectrum</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004331"> </a><div class="pSmartList1"><li>Filter plot</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004332"> </a><div class="pSmartList1"><li>Filter intensity image</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004333"> </a><div class="pSmartList1"><li>Filter cross section</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004334"> </a><div class="pSmartList1"><li>Shaded surface of filter</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004335"> </a><div class="pSmartList1"><li>Log filtered power spectrum</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004336"> </a><div class="pSmartList1"><li>Filtered signal</li></div>  
+
+</ul></div>
+<a name="wp1004337"> </a><p class="pBody">
+Filter intensity image, Filter cross section, and Shaded surface of a filter are enabled only when viewing an image data set. 
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

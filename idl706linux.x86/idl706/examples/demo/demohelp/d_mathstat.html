@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:57">
+    <title>Math and Statistics</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_map.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_matrix.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004740"> </a><h2 class="pHeading1">
+Math and Statistics
+</h2>  
+
+<a name="wp1004742"> </a><p class="pBody">
+IDL's mathematics and statistics tools are designed for use in a wide variety of disciplines. This demo introduces 6 features. 
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004743"> </a><div class="pSmartList1"><li>Integration</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004744"> </a><div class="pSmartList1"><li>Solving Equations</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004745"> </a><div class="pSmartList1"><li>Minimization</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004746"> </a><div class="pSmartList1"><li>Linear Regression</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004747"> </a><div class="pSmartList1"><li>Polynomial Fit</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004748"> </a><div class="pSmartList1"><li>Surface Fit</li></div>  
+
+</ul></div>
+<a name="wp1004749"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004750"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004751"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit the Mathematics and Statistics Demo and return to the IDL Demo main screen. 
+</p>  
+
+<a name="wp1004752"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1004753"> </a><p class="pBody">
+Select &quot;About mathematics and statistics&quot; for information about the Mathematics and Statistics Demo. 
+</p>  
+
+<a name="wp1004754"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1004755"> </a><h4 class="pHeading3">
+Integration radio button
+</h4>  
+
+<a name="wp1004756"> </a><p class="pBody">
+The INT_TABULATED function uses a fifth-order Newton-Cotes integration formula and neighborhood spline curve-fitting to produce integrations of tabulated data (discrete points). This is one of the most accurate integration techniques available. 
+</p>  
+
+<div class="pPreformatted"><pre class="pPreformatted">
+area = INT_TABULATED(time, amplitude)  
+</pre>
+</div>
+<a name="wp1004758"> </a><p class="pBody">
+You can also use IDL to integrate functions that have algebraic singularities and asymptotic behavior. 
+</p>  
+
+<a name="wp1004759"> </a><h5 class="pHeading4">
+Generate new data button
+</h5>  
+
+<a name="wp1004760"> </a><p class="pBody">
+Creates a new set of data.
+</p>  
+
+<a name="wp1004761"> </a><h4 class="pHeading3">
+Solving Equations radio button
+</h4>  
+
+<a name="wp1004762"> </a><p class="pBody">
+Dozens of &quot;Numerical Recipes&quot; library routines for performing complex mathematical computations are integrated into IDL. For example, the NR_NEWT function solves systems of non-linear equations. Multiple solutions can be found by starting the NR_NEWT algorithm at different initial values. The black markers show the locations of the initial guesses. The white markers show the solutions to the non-linear system of equations. The solutions lie on the intersection of the three surfaces: 
+</p>  
+
+<div class="pPreformatted"><pre class="pPreformatted">
+z = -(x*x - y - 4)&#160;&#160;&#160;&#160;&#160;(Bottom surface - blue)  
+z = 0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(Middle surface - green)  
+z = x*x + y*y - 8&#160;&#160;&#160;&#160;&#160;&#160;(Top surface - red)  
+</pre>
+</div>
+<a name="wp1004766"> </a><p class="pBody">
+The Numerical Recipes algorithms are used by permission and are taken from the book &quot;Numerical Recipes in C, The Art of Scientific Computing&quot; (second edition) by: William H. Press, Saul A. Teukolsky, William T. Vetterling, and Brian P. Flannery. 
+</p>  
+
+<a name="wp1004767"> </a><h4 class="pHeading3">
+Minimization radio button
+</h4>  
+
+<a name="wp1004768"> </a><p class="pBody">
+The IDL Numerical Recipes routine NR_POWELL can be used to find the local minimum of a function of `n' variables. In this demo, clicking on the plot identifies the nearest local minimum of the function: 
+</p>  
+
+<div class="pPreformatted"><pre class="pPreformatted">
+y=SIN(SIN(x^2)-COS(x))+COS(SIN(x)+SIN(x)^2)']  
+</pre>
+<a name="wp1004770"> </a><h4 class="pHeading3">
+Linear regression radio button
+</h4>  
+
+<a name="wp1004771"> </a><p class="pBody">
+The &quot;Method of Least Absolute Deviation&quot; (the plot on the right) is used to accurately fit a curve through data. This curve fitting method, unlike &quot;least-square&quot; fitting (the plot on the left) is not adversely affected by outlying points. 
+</p>  
+
+<a name="wp1004772"> </a><h5 class="pHeading4">
+Number of Points Above slider
+</h5>  
+
+<a name="wp1004773"> </a><p class="pBody">
+Sets the number of outliers above the main cluster.
+</p>  
+
+<a name="wp1004774"> </a><h5 class="pHeading4">
+Number of Points Below slider
+</h5>  
+
+<a name="wp1004775"> </a><p class="pBody">
+Sets the number of outliers below the main cluster.
+</p>  
+
+<a name="wp1004776"> </a><h4 class="pHeading3">
+Polynomial Fit radio button
+</h4>  
+
+<a name="wp1004777"> </a><p class="pBody">
+The &quot;POLY_FIT&quot; function fits a least-square polynomial curve through scattered data points.
+</p>  
+
+<a name="wp1004778"> </a><h5 class="pHeading4">
+Number of points slider
+</h5>  
+
+<a name="wp1004779"> </a><p class="pBody">
+Sets the number of data points.
+</p>  
+
+<a name="wp1004780"> </a><h5 class="pHeading4">
+Degree slider
+</h5>  
+
+<a name="wp1004781"> </a><p class="pBody">
+Sets the polynomial degree.
+</p>  
+
+<a name="wp1004782"> </a><h4 class="pHeading3">
+Surface Fit radio button
+</h4>  
+
+<a name="wp1004783"> </a><p class="pBody">
+The MIN_CURVE_SURF function can be used to fit a minimum curvature surface through irregularly- gridded 3D data. 
+</p>  
+
+<a name="wp1004784"> </a><h5 class="pHeading4">
+Number of Points
+</h5>  
+
+<a name="wp1004785"> </a><p class="pBody">
+Sets the number of data points.
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

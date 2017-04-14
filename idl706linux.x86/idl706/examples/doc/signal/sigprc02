@@ -1,0 +1,22 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc02#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a histogram plot of the simulated signal.
+
+; Compute time data sequence u.
+@sigprc01
+
+; Define vector of discrete times.
+t = delt * FINDGEN(N)
+
+; Beginning of plot time range:
+t1 = 1.0
+
+; End of plot time range:
+t2 = 2.0
+
+IPLOT, T + delt/2, U, /HISTOGRAM, $
+   XRANGE=[t1,t2], XTITLE='time in seconds', YTITLE='amplitude',$
+   TITLE='Portion of Sampled Time Signal u(k)'

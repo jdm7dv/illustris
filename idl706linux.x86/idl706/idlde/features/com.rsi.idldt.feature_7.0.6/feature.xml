@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.rsi.idldt.feature"
+      label="%featureName"
+      version="7.0.6"
+      provider-name="%featureProvider"
+      plugin="com.rsi.idldt"
+      image="idlde_128x128.png">
+
+   <description url="%featureURL">
+      %featureName
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="ITT Visual Information Solutions" url="http://www.ittvis.com/codebank/workbench/"/>
+      <discovery label="ITT Visual Information Solutions" url="http://www.ittvis.com/codebank/workbench/"/>
+      <discovery label="IDLdoc" url="http://updates.idldev.com/"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.platform" version="3.3.0.v20070612-_19UEkLEzwsdF9jSqQ-G"/>
+   </requires>
+
+   <plugin
+         id="com.rsi.idldt"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idldt.core"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idldt.ui"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.base"
+         download-size="0"
+         install-size="0"
+         version="3.3.0.v20070606"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.ide"
+         download-size="0"
+         install-size="0"
+         version="3.3.0.I20070620"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.workbench"
+         download-size="0"
+         install-size="0"
+         version="3.3.0.I20070608-1100"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.ui"
+         download-size="0"
+         install-size="0"
+         version="3.3.0.v20070530"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.navigator"
+         download-size="0"
+         install-size="0"
+         version="3.3.0.I20070605-0010"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jface"
+         download-size="0"
+         install-size="0"
+         version="3.3.0.I20070606-0010"
+         unpack="false"/>
+
+</feature>

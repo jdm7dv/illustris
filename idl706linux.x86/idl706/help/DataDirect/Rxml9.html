@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>Connecting to a Data Source Using a Connection String</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp523514"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Connection String
+</h1>
+<hr /><a name="wp579520"> </a><p class="pBody">
+If your application requires a connection string for connecting to a database, you must specify the data source name that tells the driver where to find the default connection information. Optionally, you may specify <em class="cEmphasis">attribute=value</em> pairs in the connection string to override the default values stored in the data source definition.
+</p>
+<a name="wp579521"> </a><p class="pBody">
+The connection string has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=<code><em>data_source_name</em></code>[;<code><em>attribute=value</em></code>[;<code><em>attribute=value</em></code>]...]<a name="wp579522"> </a>
+</pre></div>
+<a name="wp591078"> </a><p class="pBody">
+<a  href="Rxml9.html#wp548260">Table&#160;16-2</a> gives the names and descriptions of the attributes. It also lists the initial defaults that apply when no value is specified in either the connection string or in the data source definition in the system information. If you specified a value for the attribute when configuring the data source, that value is the default.
+</p>
+<a name="wp545478"> </a><p class="pBody">
+An example of a connection string for XML files is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=XML FILES;LOC1.Create Type=ADO25<a name="wp510391"> </a>
+</pre></div>
+<a name="wp543792"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp548260"> </a><div class="pTableTitleBold">
+Table 16-2.  XML Connection String Attributes&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp548264"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp548266"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp548285"> </a><div class="pCellBody">
+International Sort
+</div>
+</td>
+    <td><a name="wp548287"> </a><div class="pCellBody">
+International Sort={0 | 1}. Determines the order that records are retrieved when you issue a Select statement with an Order By clause.
+</div>
+<a name="wp548288"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver uses the ASCII sort order. This order sorts items alphabetically with uppercase letters preceding lowercase letters. For example, &#8220;A, b, C&#8221; is sorted as &#8220;A, C, b.&#8221;
+</div>
+<a name="wp548289"> </a><div class="pCellBody">
+When set to 1, the driver uses the international sort order as defined by your operating system. This order is always alphabetic, regardless of case; the letters from the previous example are sorted as &#8220;A, b, C.&#8221; See your operating system documentation concerning the sorting of accented characters.
+</div>
+<a name="wp583271"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is International Sort Order.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560132"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>
+</div>
+</td>
+    <td><a name="wp560151"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>={DataDirect Closed XML ADO Provider}, where <em class="cEmphasis">location_name</em> is the name of the location you are defining for the connection, for example:
+</div>
+<a name="wp560169"> </a><div class="pCellBody">
+LOC1={DataDirect Closed XML ADO Provider}
+</div>
+<a name="wp560172"> </a><div class="pCellBody">
+See <a  href="Rxml5.html#wp556366">&quot;Defining Locations&quot;</a> for an explanation of locations.
+</div>
+<a name="wp583405"> </a><div class="pCellBody">
+The equivalent Configure Location dialog box option is Location Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp560981"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>.<br />Catalog Type Hint
+</div>
+</td>
+    <td><a name="wp560998"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>.Catalog Type Hint={Folder | XML Document | HTML Document}. Determines the type of location you are defining for the connection, for example:
+</div>
+<a name="wp562599"> </a><div class="pCellBody">
+LOC1.Catalog Type Hint=XML Document
+</div>
+<a name="wp561001"> </a><div class="pCellBody">
+The initial default is Folder. See <a  href="Rxml5.html#wp556366">&quot;Defining Locations&quot;</a> for a definition of each location type.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561111"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>.Create Type
+</div>
+</td>
+    <td><a name="wp561114"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>.Create Type={IE5DataIsland | ADO25 | DataDirect}. Determines the style of tabular-formatted XML that is generated when a new table is created in the location specified by <em class="cEmphasis">location_name</em>. This attribute is valid only for Folder location types.
+</div>
+<a name="wp561115"> </a><div class="pCellBody">
+When set to IEDataIsland, new tables are created with the Internet Explorer 5 Data Island XML style.
+</div>
+<a name="wp561116"> </a><div class="pCellBody">
+When set to ADO25, new tables are created with the ADO 2.5 XML style.
+</div>
+<a name="wp561117"> </a><div class="pCellBody">
+When set to DataDirect (the initial default), new tables are created with the DataDirect Format. This format complies to the W3C recommendation for XML schema, working draft April 07, 2000.
+</div>
+<a name="wp591446"> </a><div class="pCellBody">
+See <a  href="Rxml3.html#wp582226">&quot;Common Tabular Formats for XML Documents&quot;</a> for a description of each of these formats.
+</div>
+<a name="wp583272"> </a><div class="pCellBody">
+The equivalent Configure Location dialog box option is Table Creation.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561123"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.</em>Delete Schema
+</div>
+</td>
+    <td><a name="wp561125"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>.Delete Schema={0 | 1}. Determines whether externally linked schema files are deleted when a table is deleted from the location specified by <em class="cEmphasis">location_name</em>. 
+</div>
+<a name="wp562610"> </a><div class="pCellBody">
+The XML document for the table contains a link to this external schema file. If multiple XML documents are linked to the same schema file, the schema file should not be deleted when a table is deleted. This attribute is valid only for Folder location types.
+</div>
+<a name="wp561126"> </a><div class="pCellBody">
+When set to 0 (the initial default), externally linked schema files are not deleted when a table is deleted.
+</div>
+<a name="wp561127"> </a><div class="pCellBody">
+When set to 1, externally linked schema files are deleted when a table is deleted.
+</div>
+<a name="wp583277"> </a><div class="pCellBody">
+The equivalent Configure Location dialog box option is Delete Linked Schema.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561376"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>.Initial Catalog
+</div>
+</td>
+    <td><a name="wp561378"> </a><div class="pCellBody">
+Specifies the full path for a location. The location can be either a local file system or a web server, for example:
+</div>
+<a name="wp562613"> </a><div class="pCellBody">
+LOC1.Initial Catalog=c:\xmlsample
+</div>
+<a name="wp562616"> </a><div class="pCellBody">
+See <a  href="Rxml5.html#wp556366">&quot;Defining Locations&quot;</a> for an explanation of locations.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561230"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.</em>Password
+</div>
+</td>
+    <td><a name="wp561232"> </a><div class="pCellBody">
+The password used to establish a connection to the location specified by <em class="cEmphasis">location_name</em>. A password is required only if the location to which you are connecting is password-protected. If so, contact your system administrator to get your password.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561234"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.</em>Require Passwd
+</div>
+</td>
+    <td><a name="wp561236"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>.Require Passwd={0 | 1}. Specifies whether a User ID and password are required to establish a connection to the location specified by <em class="cEmphasis">location_name</em>.
+</div>
+<a name="wp561237"> </a><div class="pCellBody">
+When set to 0 (the initial default), a User ID and password are not required.
+</div>
+<a name="wp589875"> </a><div class="pCellBody">
+When set to 1, a User ID and password are required. You must set this attribute to 1 when the location to which you want to connect is password-protected; otherwise, the connection will fail. Setting this attribute to 1 causes a <a  href="Rxml8.html#wp536091">Logon dialog box</a> to appear when connecting with the driver.
+</div>
+<a name="wp583330"> </a><div class="pCellBody">
+The equivalent Configure Location dialog box option is Require User/ID Password.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561240"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.</em>Resolve External
+</div>
+</td>
+    <td><a name="wp561544"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.</em>Resolve External={0 | 1}. Determines whether external references such as DTDs, Schemas, Entities, and Notations are resolved for the XML documents contained within the location specified by <em class="cEmphasis">location_name</em>. 
+</div>
+<a name="wp561243"> </a><div class="pCellBody">
+When set to 0, the documents are allowed to be processed, even if the XML parser cannot locate the external references.
+</div>
+<a name="wp561244"> </a><div class="pCellBody">
+When set to 1 (the initial default), the documents are not allowed to be processed if the XML parser cannot locate the external references.
+</div>
+<a name="wp583335"> </a><div class="pCellBody">
+The equivalent Configure Location dialog box option is Resolve External References.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561246"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.</em>Row Hint
+</div>
+</td>
+    <td><a name="wp561248"> </a><div class="pCellBody">
+A string that specifies an Extensible Stylesheet Language (XSL) pattern to identify the nodes that make up the rows in the rowset of a tabular-formatted XML document contained within the location specified by <em class="cEmphasis">location_name</em>. This attribute is valid only for Folder and HTML Document location types.
+</div>
+<a name="wp562665"> </a><div class="pCellBody">
+See <a  href="Rxml10.html#wp565825">&quot;Using Hints for Tabular-Formatted XML Documents&quot;</a> for details.
+</div>
+<a name="wp591513"> </a><div class="pCellBody">
+The equivalent Configure Location dialog box option is Row Hint.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp562685"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name</em>.Scan Rows
+</div>
+</td>
+    <td><a name="wp562687"> </a><div class="pCellBody">
+Any positive integer that represents the maximum number of rows to scan during the column scan of a table in the location specified by <em class="cEmphasis">location_name</em>. This attribute is valid only for XML Document location types.
+</div>
+<a name="wp562688"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver scans all rows in the table.
+</div>
+<a name="wp562689"> </a><div class="pCellBody">
+Limiting the number of rows to scan can reduce the amount of time it takes to determine the column information on very large documents. However, because less information is available, the determination of the data types can be incorrect.
+</div>
+<a name="wp583350"> </a><div class="pCellBody">
+The equivalent Configure Location dialog box option is Max Rows to Scan.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561268"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.</em>Table Hint
+</div>
+</td>
+    <td><a name="wp561270"> </a><div class="pCellBody">
+A string that specifies an XSL pattern to identify the table or rowset nodes in a tabular-formatted XML document contained within the location specified by <em class="cEmphasis">location_name</em>. This attribute is valid only for Folder and HTML Document location types.
+</div>
+<a name="wp562646"> </a><div class="pCellBody">
+See <a  href="Rxml10.html#wp565825">&quot;Using Hints for Tabular-Formatted XML Documents&quot;</a> for details. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp562278"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.<br /></em>Top Table Hint
+</div>
+</td>
+    <td><a name="wp562280"> </a><div class="pCellBody">
+A string that specifies an XSL pattern to identify where in a hierarchical-formatted XML document the table scan should begin, for example, LOC1.Top Table Hint=/table/empdata. This attribute is valid only for XML Document location types.
+</div>
+<a name="wp562336"> </a><div class="pCellBody">
+This attribute enables you to return only the data from an XML document that is relevant to your task, thus, eliminating unnecessary data from being reported.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561275"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.</em>User ID
+</div>
+</td>
+    <td><a name="wp561277"> </a><div class="pCellBody">
+The User ID (user name) used to establish a connection to the location specified by <em class="cEmphasis">location_name</em>. A User ID is required only if the location to which you are connecting is password-protected. If so, contact your system administrator to get your User ID.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp561279"> </a><div class="pCellBody">
+<em class="cEmphasis">location_name.</em>Validate Schema
+</div>
+</td>
+    <td><a name="wp561281"> </a><div class="pCellBody">
+Validate Schema={0 | 1}. Determines whether the XML documents contained within the location specified by <em class="cEmphasis">location_name</em> are validated against their schema. 
+</div>
+<a name="wp561282"> </a><div class="pCellBody">
+When set to 0 (the initial default), the XML documents are not validated against their schema.
+</div>
+<a name="wp561283"> </a><div class="pCellBody">
+When set to 1, the XML documents are validated against their schema. This allows a well-formed XML document to be processed, even if the document is not valid.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548297"> </a><div class="pCellBody">
+Log Filename
+</div>
+</td>
+    <td><a name="wp548299"> </a><div class="pCellBody">
+The name of the file in which logging will occur. The initial default log file name is \Integrator.txt.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548320"> </a><div class="pCellBody">
+Logging
+</div>
+</td>
+    <td><a name="wp548322"> </a><div class="pCellBody">
+Logging={0 | 1}. Determines whether internal information is logged. 
+</div>
+<a name="wp548323"> </a><div class="pCellBody">
+When set to 0 (the initial default), internal information is logged.
+</div>
+<a name="wp548324"> </a><div class="pCellBody">
+When set to 1, internal information is <b class="cBold">not</b> logged.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548327"> </a><div class="pCellBody">
+Max BLOB Compare Size
+</div>
+</td>
+    <td><a name="wp548329"> </a><div class="pCellBody">
+The number of bytes at the beginning of a BLOB when making comparisons in the XML driver&#8217;s evaluator. If a BLOB is larger than the specified length, it is truncated before comparison. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548331"> </a><div class="pCellBody">
+Max BLOB Sort Size
+</div>
+</td>
+    <td><a name="wp548333"> </a><div class="pCellBody">
+The number of bytes at the beginning of a BLOB that are used when performing an Order By, Distinct, or Group By on a BLOB column. This option can affect in-memory indexes that are built over BLOB columns during a join. 
+</div>
+<a name="wp548334"> </a><div class="pCellBody">
+The initial default is 512. 
+</div>
+<a name="wp548335"> </a><div class="pCellBody">
+NOTE: Do not set the value higher than the default if the client application uses BLOBs as join condition columns.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548348"> </a><div class="pCellBody">
+Read Only
+</div>
+</td>
+    <td><a name="wp548350"> </a><div class="pCellBody">
+Read Only={0 | 1}. Determines whether the data source is read-only.
+</div>
+<a name="wp548351"> </a><div class="pCellBody">
+When set to 0, the data source is configured to be read/write (the initial default).
+</div>
+<a name="wp548352"> </a><div class="pCellBody">
+When set to 1, the data source is configured to be read-only. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp581413"> </a><div class="pCellBody">
+ReportCodepage<br />ConversionErrors (RCCE)
+</div>
+</td>
+    <td><a name="wp592412"> </a><div class="pCellBody">
+ReportCodePageConversionErrors={0 | 1 | 2}. Provides flexibility for the way in which the driver returns error or warning messages associated with code page conversion. 
+</div>
+<a name="wp592413"> </a><div class="pCellBody">
+When set to 0 (the initial default), if the driver encounters code page conversion errors (a character cannot be converted from one character set to another), it substitutes 0x1A for each character that cannot be converted and does not return a warning or error.
+</div>
+<a name="wp592414"> </a><div class="pCellBody">
+Settings 1 and 2 apply both to all ODBC API calls that could cause a conversion error and to all code page conversions to/from the database and to/from the application. The error or warning returned is, <code class="cCode">Code page conversion error encountered</code>. In the case of parameter data conversion errors, the driver adds the following sentence: <code class="cCode">Error in parameter </code><code><em>x</em></code>, where <code><em>x</em></code> is the parameter number. The standard rules for returning specific row and column errors for bulk operations still apply.
+</div>
+<a name="wp592415"> </a><div class="pCellBody">
+When set to 1, if the driver encounters code page conversion errors, it returns an error instead of substituting 0x1A for unconverted characters.
+</div>
+<a name="wp592416"> </a><div class="pCellBody">
+When set to 2, if the driver encounters code page conversion errors, it substitutes 0x1A for each character that cannot be converted and returns a warning.
+</div>
+<a name="wp591267"> </a><p class="pBody">
+&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp559635"> </a><div class="pCellBody">
+Show Manufactured Schemas
+</div>
+</td>
+    <td><a name="wp559637"> </a><div class="pCellBody">
+Show Manufactured Schemas={0 | 1}. Determines whether the manufactured schema name is returned when a SQLTables or SQLColumns operation is performed. See &quot;Schema Mode&quot; on <a  href="Rxml7.html#wp593105">page&#160;470</a> for further explanation.
+</div>
+<a name="wp559685"> </a><div class="pCellBody">
+When set to 0 (the initial default), virtual schema names are returned.
+</div>
+<a name="wp559726"> </a><div class="pCellBody">
+When set to 1, manufactured schema names are returned.
+</div>
+<a name="wp591867"> </a><div class="pCellBody">
+To return both manufactured and virtual schema names, set this connection string attribute to 1 and the Show Virtual Schemas connection string attribute to 1.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp559708"> </a><div class="pCellBody">
+Show Virtual Schemas
+</div>
+</td>
+    <td><a name="wp559710"> </a><div class="pCellBody">
+Show Virtual Schemas={0 | 1}. Determines whether the virtual schema name is returned when a SQLTables or SQLColumns operation is performed. See &quot;Schema Mode&quot; on <a  href="Rxml7.html#wp593105">page&#160;470</a> for further explanation.
+</div>
+<a name="wp559711"> </a><div class="pCellBody">
+When set to 1 (the initial default), virtual schema names are returned.
+</div>
+<a name="wp591893"> </a><div class="pCellBody">
+When set to 0, manufactured schemas names are returned.
+</div>
+<a name="wp591878"> </a><div class="pCellBody">
+To return both virtual and manufactured schema names, set this connection string attribute to 1 and the Show Manufactured Schemas connection string attribute to 1.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548395"> </a><div class="pCellBody">
+Use Floating Point Rounding
+</div>
+</td>
+    <td><a name="wp548397"> </a><div class="pCellBody">
+Use Floating Point Rounding={0 | 1}. Determines whether the XML evaluator performs a small amount of rounding when comparing floating-point numbers. The binary representation of two identical floating-point numbers can be slightly different.
+</div>
+<a name="wp548398"> </a><div class="pCellBody">
+When set to 0 (the initial default), the XML evaluator does not perform a small amount of rounding when comparing floating-point numbers.
+</div>
+<a name="wp548399"> </a><div class="pCellBody">
+When set to 1, the evaluator compensates for slight differences.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

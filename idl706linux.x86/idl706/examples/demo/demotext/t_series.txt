@@ -1,0 +1,80 @@
+               Time Series Analysis Demo
+
+The data in this demonstration shows the power,
+measured in megawatts, produced at a large power
+generation station. The data was collected from many
+circuits, every half-hour for a period exceeding one
+year.
+
+Initially, the data is sub-sampled to fit into the
+window and displayed as a 2-D color image where days
+are on the X axis and time of day is the Y axis. The
+color shades represent the data values in megawatts
+with a legend at the bottom of the x window indicating
+the relationship between the color shades and the data
+values.
+
+Drag the cursor over the 2-D color image to get
+specific data readings which are displayed in the lower
+left hand corner of the window.  The Time and Date
+Profiles are updated as the cursor moves through the
+image.
+
+You can also view the data as a 3-D surface. You can
+view the data for the entire year, or for any month
+within the year.
+
+MENU OPTIONS
+------------
+
+File Menu:
+
+    Select "Quit" to exit the demo.
+
+Options Menu:
+
+    Note: this menu is only available when the surface
+    display is in use. The menu will be greyed out when
+    the image display is in use.
+
+    Select "Fixed Z Axis" to fix the Z axis such that it
+    covers the range of the entire data set.
+
+    Select "Variable Z Axis" to scale the Z axis such that
+    it covers only the current month.
+
+View Menu:
+
+    Select "Image" to display the 2-D version of the data,
+    as described above.
+
+    Select "Surface" to display the 3-D surface version of
+    the data.
+
+About Menu:
+
+    Select "About Time Series" to display this help text.
+
+
+FEATURES OF THE TIME SERIES ANALYSIS DEMO
+-----------------------------------------
+
+<<Surface/Image Button>>
+    Click this button to toggle between displaying
+    the 2-D (image) and 3-D (surface) versions of 
+    the data.
+
+<<Month Slider>>
+    Adjust the month selection slider bar to select a
+    specific month to view. Slide the slider all the
+    way to the left to view the entire year's data set.
+
+<<Z Rotation Slider>>
+    Adjust this slider to change the z axis rotation of
+    the surface plot. This slider does not appear when
+    the 2-D image display is in use.
+
+<<X Rotation Slider>>
+    Adjust this slider to change the x axis rotation of
+    the surface plot. This slider does not appear when
+    the 2-D image display is in use.

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:29:55" />
+  <title>Connecting to a Data Source Using a Logon Dialog Box</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp601028"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Logon Dialog Box
+</h1>
+<hr /><a name="wp601031"> </a><p class="pBody">
+Some ODBC applications display a logon dialog box when you are connecting to a data source. In these cases, the data source name has already been specified.
+</p>
+<a name="wp601045"> </a><p class="pBody">
+In this dialog box, perform the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp601046"> </a><div class="pSmartList1"><li>In the Ip Address field, type the IP (Internet Protocol) address of the machine where the catalog tables are stored. Specify the address using the machine&#39;s numeric address (for example, 123.456.78.90) or specify its host name. If you enter a host name, the driver must find this name (with the correct address assignment) in the HOSTS file on the workstation or in a DNS server.</li></div><a name="wp601047"> </a><div class="pSmartList1"><li>In the Tcp Port field, type the port number that is assigned to the DB2 server on the machine where the catalog tables are stored. Specify either this port&#39;s numeric address or its service name (50000 is the default port address). If you specify a service name, the driver must find this name (with the correct port assignment) in the SERVICES file on the workstation.</li></div><a name="wp601048"> </a><div class="pSmartList1"><li>If you are running DB2 on OS/390 or AS/400, perform Steps 3a and 3b. Otherwise, skip to Step 4.</li></div><div class="pSmartList2"><ol type="a" class="pSmartList2">
+<a name="wp601049"> </a><div class="pSmartList2"><li>In the Location field, type the DB2 location name. Use the name defined during the local DB2 installation.</li></div>
+<a name="wp601050"> </a><div class="pSmartList2"><li>In the Collection field, type the name that identifies a group of packages. These packages include the DB2 Wire Protocol driver packages. By default, the User ID is used for Collection.</li></div>
+</ol></div>
+<a name="wp622280"> </a><div class="pSmartList1"><li>If you are running DB2 on Windows or UNIX, type the name of the database to which you want to connect in the Database field. Otherwise, skip to Step 5.</li></div><a name="wp622281"> </a><div class="pSmartList1"><li>In the Security Mechanism drop-down list, select the security method the driver uses to authenticate the user to the DB2 server when a connection is established.</li></div><a name="wp622343"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0 - No Encryption (the default), the driver sends the user ID and password in clear text to the DB2 server for authentication.
+</p>
+<a name="wp622344"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 - Encrypt Password, the driver sends an encrypted password to the DB2 server for authentication.
+</p>
+<a name="wp622345"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 2 - Encrypted UID and Password, the driver sends an encrypted user ID and password to the DB2 server for authentication.
+</p>
+<a name="wp622346"> </a><p class="pBodyIndent12pxBeforeAfter">
+If the specified authentication method is not supported by the DB2 server, the connection fails and the driver generates an error.
+</p>
+<a name="wp622282"> </a><div class="pSmartList1"><li>If required, type your logon ID in the User Name field.</li></div><a name="wp601053"> </a><div class="pSmartList1"><li>If required, type your password in the Password field.</li></div><a name="wp601054"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> to complete the logon and to update the values in the Registry.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

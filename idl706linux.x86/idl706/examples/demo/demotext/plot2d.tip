@@ -1,0 +1,12 @@
+2 3
+welcome|IDL lets you create and interactively man-
+showing|ipulate all types of plots, from X-Y plots
+interact|to sophisticated polar plots with symbols.
+selecto|Select the type of plot to create. Alter
+mouse|the plot's attributes using the controls.
+perio|Select the period of the signal.
+symbo|Select the variance and the symbol.
+varia|Select the variance.
+color|Select the color.
+thick|Select the line thickness.
+locat|Select the text location.

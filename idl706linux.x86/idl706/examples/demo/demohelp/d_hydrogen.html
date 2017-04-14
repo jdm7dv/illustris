@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:56">
+    <title>Hydrogen Atom</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_gridding.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_imageproc.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004503"> </a><h2 class="pHeading1">
+Hydrogen Atom
+</h2>  
+
+<a name="wp1004505"> </a><p class="pBody">
+This program generates volume data that represents the probability density of the electron of a hydrogen atom. The volume data is a 3 dimensional array, with each cell in the array representing a small volume of space located at that cell's x, y, z location. The value in each cell represents the likelihood of finding the electron in that cell's space at a given instant in time. Zero represents no probability, and one represents complete probability. 
+</p>  
+
+<a name="wp1004506"> </a><p class="pBody">
+The probability of finding the electron is governed by three quantum numbers, n, l, and m. Although a full discussion of the meaning of these quantum numbers is beyond the scope of this message, some brief notes may give a little insight into their function: 
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004507"> </a><div class="pSmartList1"><li>The energy is proportional to n^2</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004508"> </a><div class="pSmartList1"><li>The square of the angular momentum is proportional to l(l+1)</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004509"> </a><div class="pSmartList1"><li>The z component of the angular momentum is proportional to m</li></div>  
+
+</ul></div>
+<a name="wp1004510"> </a><h3 class="pHeading2">
+Quantum Number Controls
+</h3>  
+
+
+<a name="wp1004511"> </a><p class="pBody">
+Move the n, l, and m sliders to change the quantum numbers used to generate the volume data.
+</p>  
+
+<a name="wp1004512"> </a><h3 class="pHeading2">
+Display Controls
+</h3>  
+
+
+<a name="wp1004513"> </a><h4 class="pHeading3">
+Depth Cueing checkbox
+</h4>  
+
+<a name="wp1004514"> </a><p class="pBody">
+Check this box to make axes and isosurfaces fade toward the background color with distance.
+</p>  
+
+<a name="wp1004515"> </a><h4 class="pHeading3">
+Color Smoothing checkbox
+</h4>  
+
+<a name="wp1004516"> </a><p class="pBody">
+Check this box to enable color interpolation. Trilinear interpolation is used for voxel projections. Gouraud shading is used for surfaces. 
+</p>  
+
+<a name="wp1004517"> </a><h4 class="pHeading3">
+Data Resolution slider
+</h4>  
+
+<a name="wp1004518"> </a><p class="pBody">
+Move this slider to set the number of voxels to calculate. For example, 35 yields a 35x35x35 voxel volume. 100 yields a 100x100x100 voxel volume. Each voxel value represents the probability of finding the electron in an infinitesimal volume at that voxel's x, y, z location, at a given instant in time. 
+</p>  
+
+<a name="wp1004519"> </a><h4 class="pHeading3">
+Color Table list
+</h4>  
+
+<a name="wp1004520"> </a><p class="pBody">
+Select color tables to be used in graphic.
+</p>  
+
+<a name="wp1004521"> </a><h4 class="pHeading3">
+Show Voxel Projection checkbox
+</h4>  
+
+<a name="wp1004522"> </a><p class="pBody">
+A voxel projection is a volume display that typically looks like a translucent cloud. Each voxel in this program's volume has color and opacity per its probability value. Voxels occlude those that are behind them to the extent that they are opaque. 
+</p>  
+
+<a name="wp1004523"> </a><h4 class="pHeading3">
+Approximate Overall Opacity slider
+</h4>  
+
+<a name="wp1004524"> </a><p class="pBody">
+Move this slider to scale the opacities in the volume. Overall opacity is an estimate of how much the entire volume blots out that which is behind it (i.e the background). 
+</p>  
+
+<a name="wp1004525"> </a><h4 class="pHeading3">
+Show Isosurfaces checkbox
+</h4>  
+
+<a name="wp1004526"> </a><p class="pBody">
+Isosurfaces are sets of contiguous polygons enclosing voxels that exceed a given threshold. Check this box to show isosurfaces. Click in the outlined region to the right of the colorbar to create new isosurface thresholds. Drag the resulting wedge-shaped indicators to move isosurface thresholds. Right click a wedge-shaped indicator to remove that isosurface threshold. 
+</p>  
+
+<a name="wp1004527"> </a><h4 class="pHeading3">
+Isosurface Style droplist
+</h4>  
+
+<a name="wp1004528"> </a><p class="pBody">
+Select from this list to specify how isosurface polygons should be drawn. The &quot;Perforated Surface&quot; style is created using texture maps. 
+</p>  
+
+<a name="wp1004529"> </a><h4 class="pHeading3">
+Auto Refresh checkbox
+</h4>  
+
+<a name="wp1004530"> </a><p class="pBody">
+Check this box to have the program automatically update its calculations (when needed) and redraw the volume after each change you make with the mouse. 
+</p>  
+
+<a name="wp1004531"> </a><h4 class="pHeading3">
+Refresh button
+</h4>  
+
+<a name="wp1004532"> </a><p class="pBody">
+Click this button to update the volume and display.
+</p>  
+
+<a name="wp1004533"> </a><h3 class="pHeading2">
+Colorbar with Multislider 
+</h3>  
+
+
+<a name="wp1004534"> </a><p class="pBody">
+When the Show Isosurfaces checkbox is checked, an outlined region appears to the right of the colorbar in the graphic. Click in the outlined region to create new isosurface thresholds. Drag the resulting wedge-shaped indicators to move isosurface thresholds. Right click a wedge-shaped indicator to remove it. 
+</p>  
+
+<a name="wp1004535"> </a><h3 class="pHeading2">
+References
+</h3>  
+
+
+<a name="wp1004536"> </a><p class="pBody">
+Quantum Theory
+</p>  
+
+<a name="wp1004537"> </a><p class="pBody">
+David Bohm
+</p>  
+
+<a name="wp1004538"> </a><p class="pBody">
+ISBN: 0-486-65969-0
+</p>  
+
+<a name="wp1004539"> </a><p class="pBody">
+
+</p>  
+
+<a name="wp1004540"> </a><p class="pBody">
+Modern Physics
+</p>  
+
+<a name="wp1004541"> </a><p class="pBody">
+Kenneth Krane
+</p>  
+
+<a name="wp1004542"> </a><p class="pBody">
+2nd ed. pp. 208-219
+</p>  
+
+<a name="wp1004543"> </a><p class="pBody">
+ISBN: 0-471-82872-6
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

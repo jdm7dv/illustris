@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:58">
+    <title>Object World</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_optimize.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_orbit.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004814"> </a><h2 class="pHeading1">
+Object World
+</h2>  
+
+<a name="wp1004816"> </a><p class="pBody">
+Object World allows you to manipulated a three dimensional scene using IDL's Object Graphics. Object Graphics, IDL's object-oriented, OpenGL-based graphics system allows rapid interactive visualization of complex data without expensive visualization hardware. 
+</p>  
+
+<a name="wp1004817"> </a><p class="pBody">
+Click and drag with your mouse to manipulate objects in the view. Because views are retained in memory, re-rendering is virtually instantaneous. While not necessary, if your system supports OpenGL hardware rendering, IDL automatically takes advantage of it, resulting in the fastest graphics performance possible. 
+</p>  
+
+<a name="wp1004818"> </a><h3 class="pHeading2">
+Controls
+</h3>  
+
+
+<a name="wp1004819"> </a><h4 class="pHeading3">
+Translate, Rotate and Scale Buttons
+</h4>  
+
+<a name="wp1004820"> </a><p class="pBody">
+Select the current mode of manipulation which will be applied to the currently selected object 
+</p>  
+
+<a name="wp1004821"> </a><h4 class="pHeading3">
+Add Button
+</h4>  
+
+<a name="wp1004822"> </a><p class="pBody">
+Add an object to the view.
+</p>  
+
+<a name="wp1004823"> </a><h4 class="pHeading3">
+Add Child Button
+</h4>  
+
+<a name="wp1004824"> </a><p class="pBody">
+Add an object as a &quot;child&quot; of a currently selected object. A child object gets selected along with its parent when the parent is selected. Thus, a child will translate, rotate and scale along with its parent when such operations are applied to the parent. 
+</p>  
+
+<a name="wp1004825"> </a><h4 class="pHeading3">
+Delete Button
+</h4>  
+
+<a name="wp1004826"> </a><p class="pBody">
+Delete a currently selected object. Deleting a parent object will also delete all its child objects.
+</p>  
+
+<a name="wp1004827"> </a><h4 class="pHeading3">
+Select<span style="font-weight: normal"> </span>Button
+</h4>  
+
+<a name="wp1004828"> </a><p class="pBody">
+Select an object.
+</p>  
+
+<a name="wp1004829"> </a><h4 class="pHeading3">
+Unselect Button
+</h4>  
+
+<a name="wp1004830"> </a><p class="pBody">
+Unselect all objects. When no objects are selected you can rotate the checkered base-plate grid, and all the objects that are with it in a view, by clicking and dragging the left mouse-button 
+</p>  
+
+<a name="wp1004831"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004832"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004833"> </a><h5 class="pHeading4">
+Load
+</h5>  
+
+<a name="wp1004834"> </a><p class="pBody">
+Load objects from a previously saved selection into the current scene. After being loaded, the objects become the current selection. 
+</p>  
+
+<a name="wp1004835"> </a><h5 class="pHeading4">
+Save Selection
+</h5>  
+
+<a name="wp1004836"> </a><p class="pBody">
+Write an IDL save file with an objworld object in it.
+</p>  
+
+<a name="wp1004837"> </a><h5 class="pHeading4">
+Print
+</h5>  
+
+<a name="wp1004838"> </a><p class="pBody">
+Print the objworld scene.
+</p>  
+
+<a name="wp1004839"> </a><h5 class="pHeading4">
+Export VRML 
+</h5>  
+
+<a name="wp1004840"> </a><p class="pBody">
+Save the current view to a Virtual Reality Modeling Language (VRML) file. VRML is a standard language for describing interactive 3-D objects and worlds delivered across the Internet. Be sure when viewing these images that your VRML browser supports the VRML 2.0 format. We have had good results using the CosmoPlayer 2.0, available free from http://cosmosoftware.com. 
+</p>  
+
+<a name="wp1004841"> </a><h5 class="pHeading4">
+Quit
+</h5>  
+
+<a name="wp1004842"> </a><p class="pBody">
+Close the Objworld program.
+</p>  
+
+<a name="wp1004843"> </a><h4 class="pHeading3">
+Options Menu
+</h4>  
+
+<a name="wp1004844"> </a><h5 class="pHeading4">
+Drag Quality 
+</h5>  
+
+<a name="wp1004845"> </a><p class="pBody">
+Set the quality at which graphics will appear when being dragged or rotated with the mouse. 
+</p>  
+
+<a name="wp1004846"> </a><h5 class="pHeading4">
+Show Grid
+</h5>  
+
+<a name="wp1004847"> </a><p class="pBody">
+Turn off or turn on the display of the &quot;checkerboard&quot; grid.
+</p>  
+
+<a name="wp1004848"> </a><h5 class="pHeading4">
+Anti-Alias
+</h5>  
+
+<a name="wp1004849"> </a><p class="pBody">
+Apply full-scene anti-aliasing. This is most useful on 24-bit displays to provide smoother lines and polygon edges. 
+</p>  
+
+<a name="wp1004850"> </a><h5 class="pHeading4">
+Manipulate Views
+</h5>  
+
+<a name="wp1004851"> </a><p class="pBody">
+Turn off or on a mode in which additional objworld views can be added. Scale the views by clicking and dragging in their corners. Move the views by clicking and dragging them. 
+</p>  
+
+<a name="wp1004852"> </a><h5 class="pHeading4">
+Copy to Clipboard
+</h5>  
+
+<a name="wp1004853"> </a><p class="pBody">
+Copy the current display to the system clipboard.
+</p>  
+
+<a name="wp1004854"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1004855"> </a><h5 class="pHeading4">
+About Object World
+</h5>  
+
+<a name="wp1004856"> </a><p class="pBody">
+Display this message.
+</p>  
+
+<a name="wp1004857"> </a><h3 class="pHeading2">
+Mouse Buttons
+</h3>  
+
+
+<a name="wp1004858"> </a><p class="pBody">
+Note: On Windows platforms with a 2 button mouse, you can use &lt;CTRL-Left mouse-button&gt; to emulate the middle mouse-button. On Macintosh computers hold down the Option key while pressing the mouse-button to emulate a &quot;middle&quot; mouse-button, or hold down the Command key while pressing the mouse-button to emulate a &quot;right&quot; mouse-button. 
+</p>  
+
+<a name="wp1004859"> </a><h4 class="pHeading3">
+Left Button
+</h4>  
+
+<a name="wp1004860"> </a><p class="pBody">
+Click and drag to manipulate a currently selected object. If no object is currently selected, clicking and dragging will rotate all objects in a view. 
+</p>  
+
+<a name="wp1004861"> </a><h4 class="pHeading3">
+Middle Button
+</h4>  
+
+<a name="wp1004862"> </a><p class="pBody">
+Click and drag to rotate all objects in a view. Note that the use of a middle mouse-button is optional. The same operation can be performed with the left mouse-button when all objects are unselected. 
+</p>  
+
+<a name="wp1004863"> </a><h4 class="pHeading3">
+Right Button
+</h4>  
+
+<a name="wp1004864"> </a><p class="pBody">
+Click on objects to select them. Re-click on selected objects to cycle through the Translate, Rotate and Scale manipulation modes. Click in the background to unselect all objects. 
+</p>  
+
+<a name="wp1004865"> </a><p class="pBody">
+Note that the use of a right mouse-button is optional. The same operations can be performed via the &quot;Select&quot;, &quot;Unselect&quot;, &quot;Translate&quot;, &quot;Scale&quot;, and &quot;Rotate&quot; GUI control buttons to the left of the scene. 
+</p>  
+
+<a name="wp1004866"> </a><h3 class="pHeading2">
+Hotkeys or Keyboard Shortcuts
+</h3>  
+
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004867"> </a><div class="pSmartList1"><li>&lt;spacebar&gt; = select</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004868"> </a><div class="pSmartList1"><li>u = unselect</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004869"> </a><div class="pSmartList1"><li>s = scale</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004870"> </a><div class="pSmartList1"><li>r = rotate</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004871"> </a><div class="pSmartList1"><li>t = translate</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004872"> </a><div class="pSmartList1"><li>d = delete</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004873"> </a><div class="pSmartList1"><li>v = toggle view manipulation mode</li></div>  
+
+</ul></div>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>Defining Index Attributes on UNIX</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp589835"> </a><h1 class="pNewHTMLPageNoNum">
+Defining Index Attributes on UNIX
+</h1>
+<hr /><a name="wp589840"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixa4.gif" height="28" width="25" border="0" hspace="0" vspace="0"/></div><p class="pBody">Index files for dBASE contain index tags for each index that exists for a database file. These index tags can be marked as unique, that is, the driver will ensure that no duplicate values exist for the columns that define the index tag. The unique attribute is not natively supported by the dBASE or FoxPro products. The enforcement and recognition of the unique attribute is an extension of the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> dBASE driver. The driver must be notified that index tags are unique. No configuration is needed for unique indexes that were created using the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> dBASE driver. When using files that were not created with the dBASE driver, you must define unique index tags as outlined in the following procedure.
+</p>
+<a name="wp589841"> </a><p class="pBody">
+In the directory where the database and index files are located, use any plain text editor, such as vi, to define or edit the QEDBF.INI as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp589842"> </a><div class="pSmartList1"><li>Create a <code class="cCode">[</code><code><em>filename</em></code><code class="cCode">]</code> section where <code><em>filename</em></code> is the name of the database file. This entry is case-sensitive and the file extension should be included, for example,<code class="cCode"> [accts.dbf]</code>.</li></div><a name="wp589843"> </a><div class="pSmartList1"><li>In the <code class="cCode">[</code><code><em>filename</em></code><code class="cCode">]</code> section, specify the number of unique indexes on the file (<code class="cCode">NUMUNIQUE=</code>) and the index specifications (<code class="cCode">UNIQUE#=</code><code><em>index_filename</em></code><code class="cCode">,</code><code><em>index_tag</em></code>). The <code><em>index_tag</em></code> can be determined by calling the ODBC function SQLStatistics and examining the INDEX_NAME result column.</li></div></ol></div>
+<a name="wp589844"> </a><p class="pBody">
+For example, to define two unique indexes on the accts.dbf database file, the QEDBF.INI would be defined as:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+[accts.dbf]<a name="wp589845"> </a>
+NUMUNIQUE=2<a name="wp589846"> </a>
+UNIQUE0=accts.mdx,ACCT_NAME<a name="wp589847"> </a>
+UNIQUE1=accts.mdx,ACCT_ID<a name="wp589848"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

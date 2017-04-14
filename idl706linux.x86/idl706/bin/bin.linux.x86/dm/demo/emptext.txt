@@ -1,0 +1,33 @@
+FIRST_NAME,LAST_NAME,EMP_ID,HIRE_DATE,SALARY,DEPT,EXEMPT,INTERESTS
+Tyler,Bennett,E10297,6/1/77,32000.00,D101,Y,
+John,Rappl,E21437,7/15/87,47000.00,D050,Y,"Sports:
+        Volleyball
+        Softball
+        Basketball
+
+Hobbies:
+        Gardening
+        Wood Working
+        Auto Restoration"
+George,Woltman,E00127,8/7/82,53500.00,D101,Y,"Sports:
+        Bicycling
+        Volleyball
+
+Hobbies:
+        Bridge
+        Reading"
+Adam,Smith,E63535,1/15/88,18000.00,D202,N,
+David,McClellan,E04242,7/27/82,41500.00,D101,Y,"Sports:
+        Jogging
+
+Hobbies:
+        Cub Scouts
+        Writing
+        Gardening"
+Rich,Holcomb,E01234,6/1/83,49500.00,D202,Y,
+Nathan,Adams,E41298,2/15/88,21900.00,D050,N,
+Richard,Potter,E43128,4/12/86,15900.00,D101,N,
+David,Motsinger,E27002,5/5/85,19250.00,D202,N,
+Tim,Sampair,E03033,12/2/87,27000.00,D101,Y,
+Kim,Arlich,E10001,7/30/85,57000.00,D190,Y,
+Timothy,Grove,E16398,1/21/85,29900.00,D190,Y,

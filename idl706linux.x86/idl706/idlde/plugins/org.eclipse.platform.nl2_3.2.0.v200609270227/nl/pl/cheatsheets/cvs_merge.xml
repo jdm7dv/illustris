@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Scalanie rozgałęzień projektu CVS">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      W tej ściągawce przedstawiono kroki scalania zmian z jednego rozgałęzienia projektu CVS
+      z innym rozgałęzieniem lub z węzłem HEAD. Aby uzyskać pomoc dla danego kroku, kliknij ikonę (?) znajdującą się
+      po prawej stronie.
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Określanie informacji o rozgałęzieniu i wersji">
+    <description>
+      Pierwszym krokiem jest określenie <b>dwóch</b> rozgałęzień do scalenia, <b>wersji</b> rozgałęzionej treści i
+      <b>docelowego</b> rozgałęzienia (miejsca, w którym nastąpi scalenie).
+      Po uzyskaniu tych informacji można przejść do następnego kroku.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Pobieranie projektu">
+    <description>
+      Przed scaleniem należy <b>pobrać</b> projekt do scalenia
+      i przenieść go do obszaru roboczego. Można to zrobić za pomocą kreatora
+      importowania lub dodając repozytorium z perspektywy eksplorowania repozytorium CVS.
+      Kliknij przycisk (?), aby uzyskać pomoc.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="Ładowanie położenia docelowego do obszaru roboczego">
+    <description>
+      W nawigatorze kliknij projekt prawym przyciskiem myszy i wybierz opcję Zamień na &gt;
+      Inne rozgałęzienie lub wersja. Wybierz rozgałęzienie docelowe. Spowoduje to załadowanie najnowszej
+      treści rozgałęzienia do obszaru roboczego.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Scalanie szczegółów">
+    <description>
+      W nawigatorze kliknij projekt prawym przyciskiem myszy i wybierz opcję <b>Zespół</b>
+      &gt; <b>Scal</b>, a następnie wykonaj kroki kreatora. Określa się w nim szczegóły scalania.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Praca z edytorem scalania">
+    <description>
+      Ręcznie scal zmiany w edytorze scalania. W tym kroku wymagane zmiany są ładowane do obszaru roboczego. Po scaleniu wszystkich zmian, jeśli
+      wynik jest zadowalający, przejdź do następnego kroku.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Zatwierdzanie zmian">
+    <description>
+      Kliknij projekt prawym przyciskiem myszy i wybierz opcję <b>Zespół</b> &gt; <b>Synchronizuj z repozytorium </b>, a następnie zatwierdź wszystkie zmiany w repozytorium. Ten krok kończy proces przesyłania zmian z obszaru roboczego do repozytorium CVS
+      i kończy również proces scalania.
+    </description>
+  </item>
+
+</cheatsheet>

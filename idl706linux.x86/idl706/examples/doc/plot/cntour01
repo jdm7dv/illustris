@@ -1,0 +1,17 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/cntour01#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file defines variables used in the examples in 
+; Chapter 11, "Plotting Multi-dimensional Arrays", of _Using IDL_.
+
+; Restore Maroon Bells data into the IDL variable "elev".
+
+RESTORE, FILEPATH('marbells.dat', SUBDIR=['examples','data'])
+
+; Make the x and y vectors giving the position of each column and row.
+
+X = 326.850 + .030 * FINDGEN(72)	
+Y = 4318.500 + .030 * FINDGEN(92)
+

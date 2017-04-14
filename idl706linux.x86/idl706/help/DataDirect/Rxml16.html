@@ -1,0 +1,1919 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>SQL Supported</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp548055"> </a><h1 class="pNewHTMLPageNoNum">
+SQL Supported
+</h1>
+<hr /><a name="wp549634"> </a><p class="pBody">
+This section provides information about the SQL statements that the XML driver processes, and about SQL standards and conventions that the driver supports:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp549644"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp549592">&quot;SQL Statements&quot;</a></li></div><a name="wp549648"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp577724">&quot;Extensions to SQL Standards&quot;</a></li></div><a name="wp549652"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp552523">&quot;Grammar Token Definitions&quot;</a></li></div></ul></div>
+<a name="wp549592"> </a><h3 class="pHeading2">
+SQL Statements
+</h3>
+<a name="wp549628"> </a><p class="pBody">
+The SQL Engine included with the XML driver supports the following SQL statements:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp551609"> </a><div class="pSmartList1"><li>Select</li></div><a name="wp551610"> </a><div class="pSmartList1"><li>Create and Drop Table</li></div><a name="wp551612"> </a><div class="pSmartList1"><li>Insert</li></div><a name="wp551614"> </a><div class="pSmartList1"><li>Update</li></div><a name="wp551615"> </a><div class="pSmartList1"><li>Delete</li></div></ul></div>
+<a name="wp577718"> </a><p class="pBody">
+NOTE: Refer to the table at the beginning of this chapter for the SQL statements that the XML driver supports for the different types of supported file formats.
+</p>
+<a name="wp577724"> </a><h3 class="pHeading2">
+Extensions to SQL Standards
+</h3>
+<a name="wp577725"> </a><p class="pBody">
+The XML driver uses SQL grammar that is compliant with entry level ANSI SQL-92. <a  href="Rxml16.html#wp548485">Table&#160;16-6</a> summarizes significant extensions to the grammar.
+</p>
+<a name="wp548542"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp548485"> </a><div class="pTableTitleBold">
+Table 16-6.  SQL Extensions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp548489"> </a><div class="pCellHeading">
+Entry Level ANSI SQL-92 Extension
+</div>
+</th>
+    <th><a name="wp548491"> </a><div class="pCellHeading">
+Relevant Standard or Convention
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp548500"> </a><div class="pCellBody">
+Aliasing table references
+</div>
+</td>
+    <td><a name="wp548502"> </a><div class="pCellBody">
+Intermediate level ANSI SQL-92
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548504"> </a><div class="pCellBody">
+ANSI date, time, and timestamp literals
+</div>
+</td>
+    <td><a name="wp548506"> </a><div class="pCellBody">
+Intermediate level ANSI SQL-92
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548512"> </a><div class="pCellBody">
+Dynamic parameter specification
+</div>
+</td>
+    <td><a name="wp548514"> </a><div class="pCellBody">
+Full level ANSI SQL-92
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548516"> </a><div class="pCellBody">
+GUID literals
+</div>
+</td>
+    <td><a name="wp548518"> </a><div class="pCellBody">
+COM
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548520"> </a><div class="pCellBody">
+Hex string literals
+</div>
+</td>
+    <td><a name="wp548522"> </a><div class="pCellBody">
+Full level ANSI SQL-92
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548527"> </a><div class="pCellBody">
+Left Outer Joins
+</div>
+</td>
+    <td><a name="wp548529"> </a><div class="pCellBody">
+Intermediate level ANSI SQL-92
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548531"> </a><div class="pCellBody">
+ODBC escape support
+</div>
+</td>
+    <td><a name="wp548533"> </a><div class="pCellBody">
+ODBC 3.0
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548535"> </a><div class="pCellBody">
+Scalar functions
+</div>
+</td>
+    <td><a name="wp548537"> </a><div class="pCellBody">
+ODBC 3.0
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp552523"> </a><h3 class="pHeading2">
+Grammar Token Definitions
+</h3>
+<a name="wp548553"> </a><p class="pBody">
+The tokens used in the XML driver SQL grammar are defined in the following sections:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp548557"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548606">&quot;Regular Identifiers&quot;</a> </li></div><a name="wp548561"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548621">&quot;Delimited Identifiers&quot;</a> </li></div><a name="wp548565"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548630">&quot;Integer Numbers&quot;</a> </li></div><a name="wp548569"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548638">&quot;Real Numbers&quot;</a> </li></div><a name="wp548573"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548654">&quot;Character String Literals&quot;</a> </li></div><a name="wp548577"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548664">&quot;GUID Literals&quot;</a></li></div><a name="wp548581"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548674">&quot;Hex Literals&quot;</a></li></div><a name="wp548585"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548693">&quot;Time and Date Literals&quot;</a></li></div><a name="wp548589"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548748">&quot;SQL Operators and Symbols&quot;</a> </li></div><a name="wp548593"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp548835">&quot;Keywords for the XML Driver&quot;</a> </li></div><a name="wp548597"> </a><div class="pSmartList1"><li><a  href="Rxml16.html#wp549490">&quot;SQL Comments&quot;</a></li></div></ul></div>
+<a name="wp548606"> </a><h4 class="pHeading3">
+Regular Identifiers
+</h4>
+<a name="wp548611"> </a><p class="pBody">
+A regular identifier must begin with a letter and may not exceed 128 characters. In addition, all ASCII characters are converted to uppercase.
+</p>
+<a name="wp548612"> </a><p class="pBody">
+The following are examples of regular identifiers:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp548613"> </a><div class="pSmartList1"><li>FOO</li></div><a name="wp548614"> </a><div class="pSmartList1"><li>COLUMN_NAME</li></div><a name="wp548615"> </a><div class="pSmartList1"><li>SCHEMA#NAME</li></div><a name="wp548616"> </a><div class="pSmartList1"><li>Col3 (legal, but converted to COL3)</li></div></ul></div>
+<a name="wp548621"> </a><h4 class="pHeading3">
+Delimited Identifiers
+</h4>
+<a name="wp548623"> </a><p class="pBody">
+Delimited identifiers may not exceed 128 characters. A double quotation character can be embedded within the string by specifying two consecutive double quotation mark characters. A delimited identifier can span multiple lines. The body of a delimited identifier can contain any character except the newline character.
+</p>
+<a name="wp548624"> </a><p class="pBody">
+The following examples show delimited identifiers:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp548625"> </a><div class="pSmartList1"><li>&quot;$ % ^ ( $&quot;</li></div><a name="wp548626"> </a><div class="pSmartList1"><li>&quot;This is a delimited variable name&quot;</li></div></ul></div>
+<a name="wp548630"> </a><h4 class="pHeading3">
+Integer Numbers
+</h4>
+<a name="wp548632"> </a><p class="pBody">
+Examples of integer numbers are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp548633"> </a><div class="pSmartList1"><li>5</li></div><a name="wp548634"> </a><div class="pSmartList1"><li>1004</li></div></ul></div>
+<a name="wp548638"> </a><h4 class="pHeading3">
+Real Numbers
+</h4>
+<a name="wp548640"> </a><p class="pBody">
+Examples of real numbers are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp548641"> </a><div class="pSmartList1"><li>.10</li></div><a name="wp548642"> </a><div class="pSmartList1"><li>12.01</li></div><a name="wp548643"> </a><div class="pSmartList1"><li>10.</li></div><a name="wp548644"> </a><div class="pSmartList1"><li>.01e-10</li></div><a name="wp548645"> </a><div class="pSmartList1"><li>12E+10</li></div><a name="wp548646"> </a><div class="pSmartList1"><li>12.01e2</li></div><a name="wp548647"> </a><div class="pSmartList1"><li>12.01e-10</li></div><a name="wp548648"> </a><div class="pSmartList1"><li>12.e-10</li></div></ul></div>
+<a name="wp548654"> </a><h4 class="pHeading3">
+Character String Literals
+</h4>
+<a name="wp548656"> </a><p class="pBody">
+Character string literals are delimited with single quotation mark characters. A single quotation mark character can be embedded within the string by specifying two consecutive single quotation mark characters. A character string literal can span multiple lines. 
+</p>
+<a name="wp548657"> </a><p class="pBody">
+Examples are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp548658"> </a><div class="pSmartList1"><li>&#39;$%^($&#39;</li></div><a name="wp548659"> </a><div class="pSmartList1"><li>&#39;This is a character string literal&#8217;</li></div></ul></div>
+<a name="wp548664"> </a><h4 class="pHeading3">
+GUID Literals
+</h4>
+<a name="wp548668"> </a><p class="pBody">
+A GUID uses the following format, where <em class="cEmphasis">x</em> is a hexadecimal digit:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<em class="cEmphasis">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</em><a name="wp548669"> </a>
+</pre></div>
+<a name="wp548674"> </a><h4 class="pHeading3">
+Hex Literals
+</h4>
+<a name="wp548676"> </a><p class="pBody">
+Hex literal values are introduced with an uppercase <code class="cCode">X</code> followed by a single quoted string of hexadecimal characters.
+</p>
+<a name="wp548677"> </a><p class="pBody">
+Examples are:
+</p>
+<div class="pSmartList1Syntax"><ul class="pSmartList1Syntax">
+<a name="wp548678"> </a><div class="pSmartList1Syntax"><li>X&#8217;39FA&#8217;</li></div><a name="wp548679"> </a><div class="pSmartList1Syntax"><li>X&#8217;B0F00D&#8217;</li></div></ul></div>
+<a name="wp548693"> </a><h4 class="pHeading3">
+Time and Date Literals
+</h4>
+<a name="wp548695"> </a><p class="pBody">
+Date, time, and timestamp literals are date, time, and timestamp values surrounded by a standard prefix and suffix. Date literals are specified in a <em class="cEmphasis">YYYY-MM-DD</em> format. Time literals are specified in an <em class="cEmphasis">HH:MM:SS</em> format with an optional fraction component. Timestamp literals are a concatenation of date and time values.
+</p>
+<a name="wp548699"> </a><p class="pBody">
+Examples for ODBC and SQL syntax are shown in the following table.
+</p>
+<a name="wp548741"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp548712"> </a><div class="pCellHeading">
+&#160;
+</div>
+</th>
+    <th><a name="wp548714"> </a><div class="pCellHeading">
+ODBC Syntax
+</div>
+</th>
+    <th><a name="wp548716"> </a><div class="pCellHeading">
+ANSI SQL-92 Syntax
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp548718"> </a><div class="pCellBody">
+<b class="cBold">Date Literal</b>
+</div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+{d &#8217;1999-09-19&#8217;}<a name="wp548720"> </a>
+</pre></div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+date &#8217;1999-09-19&#8217;<a name="wp548722"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548724"> </a><div class="pCellBody">
+<b class="cBold">Time Literal</b>
+</div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+{t &#8217;11:11:11.225&#8217;}<a name="wp548726"> </a>
+</pre></div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+time &#8217;11:11:11.225&#8217;<a name="wp548728"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548730"> </a><div class="pCellBody">
+<b class="cBold">Timestamp Literal</b>
+</div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+{ts &#8217;1999-09-19 
+11:11:11.225&#8217;}<a name="wp548732"> </a>
+</pre></div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+timestamp &#8217;1999-09-19 
+11:11:11.225&#8217;<a name="wp548734"> </a>
+</pre></div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548736"> </a><div class="pCellBody">
+<b class="cBold">Timestamp Literal</b>
+</div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+{ts &#8217;1999-09-19&#8217;}<a name="wp548738"> </a>
+</pre></div>
+</td>
+    <td><div class="pPreformatted"><pre class="pPreformatted">
+timestamp &#8217;1999-09-19&#8217;<a name="wp548740"> </a>
+</pre></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp548744"> </a><p class="pBody">
+NOTE: ODBC 1.<em class="cEmphasis">x</em> style ODBC escape sequences such as the following are not supported:
+</p>
+<a name="wp548745"> </a><p class="pBody">
+<code class="cCode">--(*VENDOR(Microsoft), PRODUCT(ODBC) ...*)--</code>
+</p>
+<a name="wp548748"> </a><h4 class="pHeading3">
+SQL Operators and Symbols
+</h4>
+<a name="wp548831"> </a><p class="pBody">
+</p><div align="right">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp548752"> </a><div class="pCellHeading">
+Symbol
+</div>
+</th>
+    <th><a name="wp548754"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+    <th><a name="wp548756"> </a><div class="pCellHeading">
+Symbol
+</div>
+</th>
+    <th><a name="wp548758"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp548760"> </a><div class="pCellBody">
+&#39;:&#39;
+</div>
+</td>
+    <td><a name="wp548762"> </a><div class="pCellBody">
+Colon
+</div>
+</td>
+    <td><a name="wp548764"> </a><div class="pCellBody">
+&#39;&lt;&#39;
+</div>
+</td>
+    <td><a name="wp548766"> </a><div class="pCellBody">
+Less than operator
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548768"> </a><div class="pCellBody">
+&#39;;&#39;
+</div>
+</td>
+    <td><a name="wp548770"> </a><div class="pCellBody">
+Semicolon
+</div>
+</td>
+    <td><a name="wp548772"> </a><div class="pCellBody">
+&#8216;)&#8217;
+</div>
+</td>
+    <td><a name="wp548774"> </a><div class="pCellBody">
+Right parenthesis
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548776"> </a><div class="pCellBody">
+&#39;.&#39;
+</div>
+</td>
+    <td><a name="wp548778"> </a><div class="pCellBody">
+Period
+</div>
+</td>
+    <td><a name="wp548780"> </a><div class="pCellBody">
+&#8216;=&#8217;
+</div>
+</td>
+    <td><a name="wp548782"> </a><div class="pCellBody">
+Equal operator
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548784"> </a><div class="pCellBody">
+&#39;,&#39;
+</div>
+</td>
+    <td><a name="wp548786"> </a><div class="pCellBody">
+Comma
+</div>
+</td>
+    <td><a name="wp548788"> </a><div class="pCellBody">
+&#8216;+&#8217;
+</div>
+</td>
+    <td><a name="wp548790"> </a><div class="pCellBody">
+Plus operator
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548792"> </a><div class="pCellBody">
+&#39;&lt;&gt;&#39;
+</div>
+</td>
+    <td><a name="wp548794"> </a><div class="pCellBody">
+Not equal operator
+</div>
+</td>
+    <td><a name="wp548796"> </a><div class="pCellBody">
+&#8216;-&#8216;
+</div>
+</td>
+    <td><a name="wp548798"> </a><div class="pCellBody">
+Minus operator
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548800"> </a><div class="pCellBody">
+&#39;&lt;=&#39;
+</div>
+</td>
+    <td><a name="wp548802"> </a><div class="pCellBody">
+Less than or equal operator
+</div>
+</td>
+    <td><a name="wp548804"> </a><div class="pCellBody">
+&#8216;*&#8217;
+</div>
+</td>
+    <td><a name="wp548806"> </a><div class="pCellBody">
+Multiply operator
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548808"> </a><div class="pCellBody">
+&#39;&gt;=&#39;
+</div>
+</td>
+    <td><a name="wp548810"> </a><div class="pCellBody">
+Greater than or equal operator
+</div>
+</td>
+    <td><a name="wp548812"> </a><div class="pCellBody">
+&#8216;/&#8217;
+</div>
+</td>
+    <td><a name="wp548814"> </a><div class="pCellBody">
+Divide operator
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548816"> </a><div class="pCellBody">
+&#8216;&gt;&#8217;
+</div>
+</td>
+    <td><a name="wp548818"> </a><div class="pCellBody">
+Greater than operator
+</div>
+</td>
+    <td><a name="wp548820"> </a><div class="pCellBody">
+&#8216;?&#8217;
+</div>
+</td>
+    <td><a name="wp548822"> </a><div class="pCellBody">
+Dynamic parameter
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548824"> </a><div class="pCellBody">
+&#8216;(&#8216;
+</div>
+</td>
+    <td><a name="wp548826"> </a><div class="pCellBody">
+Left parenthesis
+</div>
+</td>
+    <td><a name="wp548828"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp548830"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp548835"> </a><h4 class="pHeading3">
+Keywords for the XML Driver
+</h4>
+<a name="wp548836"> </a><p class="pBody">
+A keyword may not be used as a regular identifier. For example, the following statement would generate a syntax error because INDICATOR is a keyword:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT INDICATOR FROM T1<a name="wp548837"> </a>
+</pre></div>
+<a name="wp548838"> </a><p class="pBody">
+You can, however, enclose a keyword in double quotation marks to form a delimited identifier. For example, the following statement is valid:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT &quot;INDICATOR&quot; FROM T1<a name="wp548839"> </a>
+</pre></div>
+<a name="wp548843"> </a><p class="pBody">
+<a  href="Rxml16.html#wp548850">Table&#160;16-7</a> lists all of the keywords that are reserved for use in SQL statements or designated as potential future reserved words.
+</p>
+<a name="wp549485"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp548850"> </a><div class="pTableTitleBold">
+Table 16-7.  Reserved Keywords&#160;
+</div>
+</caption>
+  <tr align="left">    <td><a name="wp548856"> </a><div class="pCellBody">
+ABSOLUTE
+</div>
+</td>
+    <td><a name="wp548858"> </a><div class="pCellBody">
+ACTION
+</div>
+</td>
+    <td><a name="wp548860"> </a><div class="pCellBody">
+ADD
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548862"> </a><div class="pCellBody">
+AFTER
+</div>
+</td>
+    <td><a name="wp548864"> </a><div class="pCellBody">
+ALIAS
+</div>
+</td>
+    <td><a name="wp548866"> </a><div class="pCellBody">
+ALL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548868"> </a><div class="pCellBody">
+ALLOCATE
+</div>
+</td>
+    <td><a name="wp548870"> </a><div class="pCellBody">
+ALTER
+</div>
+</td>
+    <td><a name="wp548872"> </a><div class="pCellBody">
+AND
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548874"> </a><div class="pCellBody">
+ANY
+</div>
+</td>
+    <td><a name="wp548876"> </a><div class="pCellBody">
+ARE
+</div>
+</td>
+    <td><a name="wp548878"> </a><div class="pCellBody">
+AS
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548880"> </a><div class="pCellBody">
+ASC
+</div>
+</td>
+    <td><a name="wp548882"> </a><div class="pCellBody">
+ASSERTION
+</div>
+</td>
+    <td><a name="wp548884"> </a><div class="pCellBody">
+ASYNC
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548886"> </a><div class="pCellBody">
+AT
+</div>
+</td>
+    <td><a name="wp548888"> </a><div class="pCellBody">
+AUTHORIZATION
+</div>
+</td>
+    <td><a name="wp548890"> </a><div class="pCellBody">
+AVG
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548892"> </a><div class="pCellBody">
+BEFORE
+</div>
+</td>
+    <td><a name="wp548894"> </a><div class="pCellBody">
+BEGIN
+</div>
+</td>
+    <td><a name="wp548896"> </a><div class="pCellBody">
+BETWEEN
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548898"> </a><div class="pCellBody">
+BIT
+</div>
+</td>
+    <td><a name="wp548900"> </a><div class="pCellBody">
+BIT_LENGTH
+</div>
+</td>
+    <td><a name="wp548902"> </a><div class="pCellBody">
+BOOLEAN
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548904"> </a><div class="pCellBody">
+BOTH
+</div>
+</td>
+    <td><a name="wp548906"> </a><div class="pCellBody">
+BREADTH
+</div>
+</td>
+    <td><a name="wp548908"> </a><div class="pCellBody">
+BY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548910"> </a><div class="pCellBody">
+CALL
+</div>
+</td>
+    <td><a name="wp548912"> </a><div class="pCellBody">
+CASCADE
+</div>
+</td>
+    <td><a name="wp548914"> </a><div class="pCellBody">
+CASCADED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548916"> </a><div class="pCellBody">
+CASE
+</div>
+</td>
+    <td><a name="wp548918"> </a><div class="pCellBody">
+CAST
+</div>
+</td>
+    <td><a name="wp548920"> </a><div class="pCellBody">
+CATALOG
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548922"> </a><div class="pCellBody">
+CHAR
+</div>
+</td>
+    <td><a name="wp548924"> </a><div class="pCellBody">
+CHAR_LENGTH
+</div>
+</td>
+    <td><a name="wp548926"> </a><div class="pCellBody">
+CHARACTER
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548928"> </a><div class="pCellBody">
+CHARACTER_ LENGTH
+</div>
+</td>
+    <td><a name="wp548930"> </a><div class="pCellBody">
+CHECK
+</div>
+</td>
+    <td><a name="wp548932"> </a><div class="pCellBody">
+CLOSE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548934"> </a><div class="pCellBody">
+COALESCE
+</div>
+</td>
+    <td><a name="wp548936"> </a><div class="pCellBody">
+COLLATE
+</div>
+</td>
+    <td><a name="wp548938"> </a><div class="pCellBody">
+COLLATION
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548940"> </a><div class="pCellBody">
+COLUMN
+</div>
+</td>
+    <td><a name="wp548942"> </a><div class="pCellBody">
+COLUMNS
+</div>
+</td>
+    <td><a name="wp548944"> </a><div class="pCellBody">
+COMMIT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548946"> </a><div class="pCellBody">
+COMPLETION
+</div>
+</td>
+    <td><a name="wp548948"> </a><div class="pCellBody">
+CONCAT
+</div>
+</td>
+    <td><a name="wp548950"> </a><div class="pCellBody">
+CONNECT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548952"> </a><div class="pCellBody">
+CONNECTION
+</div>
+</td>
+    <td><a name="wp548954"> </a><div class="pCellBody">
+CONSTRAINT
+</div>
+</td>
+    <td><a name="wp548956"> </a><div class="pCellBody">
+CONSTRAINTS
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548958"> </a><div class="pCellBody">
+CONTINUE
+</div>
+</td>
+    <td><a name="wp548960"> </a><div class="pCellBody">
+CONVERT
+</div>
+</td>
+    <td><a name="wp548962"> </a><div class="pCellBody">
+CORRESPONDING
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548964"> </a><div class="pCellBody">
+COUNT
+</div>
+</td>
+    <td><a name="wp548966"> </a><div class="pCellBody">
+CREATE
+</div>
+</td>
+    <td><a name="wp548968"> </a><div class="pCellBody">
+CROSS
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548970"> </a><div class="pCellBody">
+CURDATE
+</div>
+</td>
+    <td><a name="wp548972"> </a><div class="pCellBody">
+CURRENT
+</div>
+</td>
+    <td><a name="wp548974"> </a><div class="pCellBody">
+CURRENT_DATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548976"> </a><div class="pCellBody">
+CURRENT_TIME
+</div>
+</td>
+    <td><a name="wp548978"> </a><div class="pCellBody">
+CURRENT_ TIMESTAMP
+</div>
+</td>
+    <td><a name="wp548980"> </a><div class="pCellBody">
+CURRENT_USER
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548982"> </a><div class="pCellBody">
+CURSOR
+</div>
+</td>
+    <td><a name="wp548984"> </a><div class="pCellBody">
+CURTIME
+</div>
+</td>
+    <td><a name="wp548986"> </a><div class="pCellBody">
+CYCLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548988"> </a><div class="pCellBody">
+DATA
+</div>
+</td>
+    <td><a name="wp548990"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp548992"> </a><div class="pCellBody">
+DAY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp548994"> </a><div class="pCellBody">
+DAYOFMONTH
+</div>
+</td>
+    <td><a name="wp548996"> </a><div class="pCellBody">
+DAYOFWEEK
+</div>
+</td>
+    <td><a name="wp548998"> </a><div class="pCellBody">
+DEALLOCATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549000"> </a><div class="pCellBody">
+DEC
+</div>
+</td>
+    <td><a name="wp549002"> </a><div class="pCellBody">
+DECIMAL
+</div>
+</td>
+    <td><a name="wp549004"> </a><div class="pCellBody">
+DECLARE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549006"> </a><div class="pCellBody">
+DEFAULT
+</div>
+</td>
+    <td><a name="wp549008"> </a><div class="pCellBody">
+DEFERRABLE
+</div>
+</td>
+    <td><a name="wp549010"> </a><div class="pCellBody">
+DEFERRED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549012"> </a><div class="pCellBody">
+DELETE
+</div>
+</td>
+    <td><a name="wp549014"> </a><div class="pCellBody">
+DEPTH
+</div>
+</td>
+    <td><a name="wp549016"> </a><div class="pCellBody">
+DESC
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549018"> </a><div class="pCellBody">
+DESCRIBE
+</div>
+</td>
+    <td><a name="wp549020"> </a><div class="pCellBody">
+DESCRIPTOR
+</div>
+</td>
+    <td><a name="wp549022"> </a><div class="pCellBody">
+DIAGNOSTICS
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549024"> </a><div class="pCellBody">
+DICTIONARY
+</div>
+</td>
+    <td><a name="wp549026"> </a><div class="pCellBody">
+DISCONNECT
+</div>
+</td>
+    <td><a name="wp549028"> </a><div class="pCellBody">
+DISTINCT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549030"> </a><div class="pCellBody">
+DOMAIN
+</div>
+</td>
+    <td><a name="wp549032"> </a><div class="pCellBody">
+DOUBLE
+</div>
+</td>
+    <td><a name="wp549034"> </a><div class="pCellBody">
+DROP
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549036"> </a><div class="pCellBody">
+EACH
+</div>
+</td>
+    <td><a name="wp549038"> </a><div class="pCellBody">
+ELSE
+</div>
+</td>
+    <td><a name="wp549040"> </a><div class="pCellBody">
+ELSEIF
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549042"> </a><div class="pCellBody">
+END
+</div>
+</td>
+    <td><a name="wp549044"> </a><div class="pCellBody">
+END_EXEC
+</div>
+</td>
+    <td><a name="wp549046"> </a><div class="pCellBody">
+EQUALS
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549048"> </a><div class="pCellBody">
+ESCAPE
+</div>
+</td>
+    <td><a name="wp549050"> </a><div class="pCellBody">
+EXCEPT
+</div>
+</td>
+    <td><a name="wp549052"> </a><div class="pCellBody">
+EXCEPTION
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549054"> </a><div class="pCellBody">
+EXEC
+</div>
+</td>
+    <td><a name="wp549056"> </a><div class="pCellBody">
+EXECUTE
+</div>
+</td>
+    <td><a name="wp549058"> </a><div class="pCellBody">
+EXISTS
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549060"> </a><div class="pCellBody">
+EXTERNAL
+</div>
+</td>
+    <td><a name="wp549062"> </a><div class="pCellBody">
+EXTRACT
+</div>
+</td>
+    <td><a name="wp549064"> </a><div class="pCellBody">
+FALSE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549066"> </a><div class="pCellBody">
+FETCH
+</div>
+</td>
+    <td><a name="wp549068"> </a><div class="pCellBody">
+FIRST
+</div>
+</td>
+    <td><a name="wp549070"> </a><div class="pCellBody">
+FLOAT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549072"> </a><div class="pCellBody">
+FLOOR
+</div>
+</td>
+    <td><a name="wp549074"> </a><div class="pCellBody">
+FOR
+</div>
+</td>
+    <td><a name="wp549076"> </a><div class="pCellBody">
+FOREIGN
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549078"> </a><div class="pCellBody">
+FOUND
+</div>
+</td>
+    <td><a name="wp549080"> </a><div class="pCellBody">
+FROM
+</div>
+</td>
+    <td><a name="wp549082"> </a><div class="pCellBody">
+FULL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549084"> </a><div class="pCellBody">
+GENERAL
+</div>
+</td>
+    <td><a name="wp549086"> </a><div class="pCellBody">
+GET
+</div>
+</td>
+    <td><a name="wp549088"> </a><div class="pCellBody">
+GLOBAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549090"> </a><div class="pCellBody">
+GO
+</div>
+</td>
+    <td><a name="wp549092"> </a><div class="pCellBody">
+GOTO
+</div>
+</td>
+    <td><a name="wp549094"> </a><div class="pCellBody">
+GRANT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549096"> </a><div class="pCellBody">
+GROUP
+</div>
+</td>
+    <td><a name="wp549098"> </a><div class="pCellBody">
+HAVING
+</div>
+</td>
+    <td><a name="wp549100"> </a><div class="pCellBody">
+HOUR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549102"> </a><div class="pCellBody">
+IDENTIFY
+</div>
+</td>
+    <td><a name="wp549104"> </a><div class="pCellBody">
+IF
+</div>
+</td>
+    <td><a name="wp549106"> </a><div class="pCellBody">
+IFNULL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549108"> </a><div class="pCellBody">
+IGNORE
+</div>
+</td>
+    <td><a name="wp549110"> </a><div class="pCellBody">
+IMMEDIATE
+</div>
+</td>
+    <td><a name="wp549112"> </a><div class="pCellBody">
+IN
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549114"> </a><div class="pCellBody">
+INDEX
+</div>
+</td>
+    <td><a name="wp549116"> </a><div class="pCellBody">
+INFO
+</div>
+</td>
+    <td><a name="wp549118"> </a><div class="pCellBody">
+INDICATOR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549120"> </a><div class="pCellBody">
+INITIALLY
+</div>
+</td>
+    <td><a name="wp549122"> </a><div class="pCellBody">
+INNER
+</div>
+</td>
+    <td><a name="wp549124"> </a><div class="pCellBody">
+INPUT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549126"> </a><div class="pCellBody">
+INSENSITIVE
+</div>
+</td>
+    <td><a name="wp549128"> </a><div class="pCellBody">
+INSERT
+</div>
+</td>
+    <td><a name="wp549130"> </a><div class="pCellBody">
+INT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549132"> </a><div class="pCellBody">
+INTEGER
+</div>
+</td>
+    <td><a name="wp549134"> </a><div class="pCellBody">
+INTERSECT
+</div>
+</td>
+    <td><a name="wp549136"> </a><div class="pCellBody">
+INTERVAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549138"> </a><div class="pCellBody">
+INTO
+</div>
+</td>
+    <td><a name="wp549140"> </a><div class="pCellBody">
+IS
+</div>
+</td>
+    <td><a name="wp549142"> </a><div class="pCellBody">
+ISOLATION
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549144"> </a><div class="pCellBody">
+JOIN
+</div>
+</td>
+    <td><a name="wp549146"> </a><div class="pCellBody">
+KEY
+</div>
+</td>
+    <td><a name="wp549148"> </a><div class="pCellBody">
+LANGUAGE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549150"> </a><div class="pCellBody">
+LAST
+</div>
+</td>
+    <td><a name="wp549152"> </a><div class="pCellBody">
+LCASE
+</div>
+</td>
+    <td><a name="wp549154"> </a><div class="pCellBody">
+LEADING
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549156"> </a><div class="pCellBody">
+LEAVE
+</div>
+</td>
+    <td><a name="wp549158"> </a><div class="pCellBody">
+LEFT
+</div>
+</td>
+    <td><a name="wp549160"> </a><div class="pCellBody">
+LENGTH
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549162"> </a><div class="pCellBody">
+LESS
+</div>
+</td>
+    <td><a name="wp549164"> </a><div class="pCellBody">
+LEVEL
+</div>
+</td>
+    <td><a name="wp549166"> </a><div class="pCellBody">
+LIKE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549168"> </a><div class="pCellBody">
+LIMIT
+</div>
+</td>
+    <td><a name="wp549170"> </a><div class="pCellBody">
+LOCAL
+</div>
+</td>
+    <td><a name="wp549172"> </a><div class="pCellBody">
+LOOP
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549174"> </a><div class="pCellBody">
+LOWER
+</div>
+</td>
+    <td><a name="wp549176"> </a><div class="pCellBody">
+LTRIM
+</div>
+</td>
+    <td><a name="wp549178"> </a><div class="pCellBody">
+MATCH
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549180"> </a><div class="pCellBody">
+MAX
+</div>
+</td>
+    <td><a name="wp549182"> </a><div class="pCellBody">
+MIN
+</div>
+</td>
+    <td><a name="wp549184"> </a><div class="pCellBody">
+MINUTE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549186"> </a><div class="pCellBody">
+MOD
+</div>
+</td>
+    <td><a name="wp549188"> </a><div class="pCellBody">
+MODIFY
+</div>
+</td>
+    <td><a name="wp549190"> </a><div class="pCellBody">
+MODULE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549192"> </a><div class="pCellBody">
+MONTH
+</div>
+</td>
+    <td><a name="wp549194"> </a><div class="pCellBody">
+NAMES
+</div>
+</td>
+    <td><a name="wp549196"> </a><div class="pCellBody">
+NATIONAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549198"> </a><div class="pCellBody">
+NATURAL
+</div>
+</td>
+    <td><a name="wp549200"> </a><div class="pCellBody">
+NCHAR
+</div>
+</td>
+    <td><a name="wp549202"> </a><div class="pCellBody">
+NEW
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549204"> </a><div class="pCellBody">
+NEXT
+</div>
+</td>
+    <td><a name="wp549206"> </a><div class="pCellBody">
+NO
+</div>
+</td>
+    <td><a name="wp549208"> </a><div class="pCellBody">
+NONE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549210"> </a><div class="pCellBody">
+NOT
+</div>
+</td>
+    <td><a name="wp549212"> </a><div class="pCellBody">
+NOW
+</div>
+</td>
+    <td><a name="wp549214"> </a><div class="pCellBody">
+NULL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549216"> </a><div class="pCellBody">
+NULLIF
+</div>
+</td>
+    <td><a name="wp549218"> </a><div class="pCellBody">
+NUMERIC
+</div>
+</td>
+    <td><a name="wp549220"> </a><div class="pCellBody">
+OBJECT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549222"> </a><div class="pCellBody">
+OCTET_LENGTH
+</div>
+</td>
+    <td><a name="wp549224"> </a><div class="pCellBody">
+OF
+</div>
+</td>
+    <td><a name="wp549226"> </a><div class="pCellBody">
+OFF
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549228"> </a><div class="pCellBody">
+OID
+</div>
+</td>
+    <td><a name="wp549230"> </a><div class="pCellBody">
+OLD
+</div>
+</td>
+    <td><a name="wp549232"> </a><div class="pCellBody">
+ON
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549234"> </a><div class="pCellBody">
+ONLY
+</div>
+</td>
+    <td><a name="wp549236"> </a><div class="pCellBody">
+OPEN
+</div>
+</td>
+    <td><a name="wp549238"> </a><div class="pCellBody">
+OPERATION
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549240"> </a><div class="pCellBody">
+OPERATORS
+</div>
+</td>
+    <td><a name="wp549242"> </a><div class="pCellBody">
+OPTION
+</div>
+</td>
+    <td><a name="wp549244"> </a><div class="pCellBody">
+OR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549246"> </a><div class="pCellBody">
+ORDER
+</div>
+</td>
+    <td><a name="wp549248"> </a><div class="pCellBody">
+OTHERS
+</div>
+</td>
+    <td><a name="wp549250"> </a><div class="pCellBody">
+OUTER
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549252"> </a><div class="pCellBody">
+OUTPUT
+</div>
+</td>
+    <td><a name="wp549254"> </a><div class="pCellBody">
+OVERLAPS
+</div>
+</td>
+    <td><a name="wp549256"> </a><div class="pCellBody">
+PAD
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549258"> </a><div class="pCellBody">
+PARAMETERS
+</div>
+</td>
+    <td><a name="wp549260"> </a><div class="pCellBody">
+PARTIAL
+</div>
+</td>
+    <td><a name="wp549262"> </a><div class="pCellBody">
+PENDANT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549264"> </a><div class="pCellBody">
+POSITION
+</div>
+</td>
+    <td><a name="wp549266"> </a><div class="pCellBody">
+POWER
+</div>
+</td>
+    <td><a name="wp549268"> </a><div class="pCellBody">
+PRECISION
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549270"> </a><div class="pCellBody">
+PREORDER
+</div>
+</td>
+    <td><a name="wp549272"> </a><div class="pCellBody">
+PREPARE
+</div>
+</td>
+    <td><a name="wp549274"> </a><div class="pCellBody">
+PRESERVE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549276"> </a><div class="pCellBody">
+PRIMARY
+</div>
+</td>
+    <td><a name="wp549278"> </a><div class="pCellBody">
+PRIOR
+</div>
+</td>
+    <td><a name="wp549280"> </a><div class="pCellBody">
+PRIVATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549282"> </a><div class="pCellBody">
+PRIVILEGES
+</div>
+</td>
+    <td><a name="wp549284"> </a><div class="pCellBody">
+PROCEDURE
+</div>
+</td>
+    <td><a name="wp549286"> </a><div class="pCellBody">
+PROTECTED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549288"> </a><div class="pCellBody">
+PUBLIC
+</div>
+</td>
+    <td><a name="wp549290"> </a><div class="pCellBody">
+RCASE
+</div>
+</td>
+    <td><a name="wp549292"> </a><div class="pCellBody">
+READ
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549294"> </a><div class="pCellBody">
+REAL
+</div>
+</td>
+    <td><a name="wp549296"> </a><div class="pCellBody">
+RECURSIVE
+</div>
+</td>
+    <td><a name="wp549298"> </a><div class="pCellBody">
+REF
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549300"> </a><div class="pCellBody">
+REFERENCES
+</div>
+</td>
+    <td><a name="wp549302"> </a><div class="pCellBody">
+REFERENCING
+</div>
+</td>
+    <td><a name="wp549304"> </a><div class="pCellBody">
+RELATIVE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549306"> </a><div class="pCellBody">
+REMOVE
+</div>
+</td>
+    <td><a name="wp549308"> </a><div class="pCellBody">
+REPLACE
+</div>
+</td>
+    <td><a name="wp549310"> </a><div class="pCellBody">
+RESIGNAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549312"> </a><div class="pCellBody">
+RESTRICT
+</div>
+</td>
+    <td><a name="wp549314"> </a><div class="pCellBody">
+RETURN
+</div>
+</td>
+    <td><a name="wp549316"> </a><div class="pCellBody">
+RETURNS
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549318"> </a><div class="pCellBody">
+REVOKE
+</div>
+</td>
+    <td><a name="wp549320"> </a><div class="pCellBody">
+RIGHT
+</div>
+</td>
+    <td><a name="wp549322"> </a><div class="pCellBody">
+ROLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549324"> </a><div class="pCellBody">
+ROLLBACK
+</div>
+</td>
+    <td><a name="wp549326"> </a><div class="pCellBody">
+ROUND
+</div>
+</td>
+    <td><a name="wp549328"> </a><div class="pCellBody">
+ROUTINE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549330"> </a><div class="pCellBody">
+ROW
+</div>
+</td>
+    <td><a name="wp549332"> </a><div class="pCellBody">
+ROWS
+</div>
+</td>
+    <td><a name="wp549334"> </a><div class="pCellBody">
+RTRIM
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549336"> </a><div class="pCellBody">
+SAVEPOINT
+</div>
+</td>
+    <td><a name="wp549338"> </a><div class="pCellBody">
+SCHEMA
+</div>
+</td>
+    <td><a name="wp549340"> </a><div class="pCellBody">
+SCROLL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549342"> </a><div class="pCellBody">
+SEARCH
+</div>
+</td>
+    <td><a name="wp549344"> </a><div class="pCellBody">
+SECOND
+</div>
+</td>
+    <td><a name="wp549346"> </a><div class="pCellBody">
+SECTION
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549348"> </a><div class="pCellBody">
+SELECT
+</div>
+</td>
+    <td><a name="wp549350"> </a><div class="pCellBody">
+SENSITIVE
+</div>
+</td>
+    <td><a name="wp549352"> </a><div class="pCellBody">
+SEQUENCE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549354"> </a><div class="pCellBody">
+SESSION
+</div>
+</td>
+    <td><a name="wp549356"> </a><div class="pCellBody">
+SESSION_USER
+</div>
+</td>
+    <td><a name="wp549358"> </a><div class="pCellBody">
+SET
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549360"> </a><div class="pCellBody">
+SIGNAL
+</div>
+</td>
+    <td><a name="wp549362"> </a><div class="pCellBody">
+SIMILAR
+</div>
+</td>
+    <td><a name="wp549364"> </a><div class="pCellBody">
+SIZE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549366"> </a><div class="pCellBody">
+SMALLINT
+</div>
+</td>
+    <td><a name="wp549368"> </a><div class="pCellBody">
+SOME
+</div>
+</td>
+    <td><a name="wp549370"> </a><div class="pCellBody">
+SPACE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549372"> </a><div class="pCellBody">
+SQL
+</div>
+</td>
+    <td><a name="wp549374"> </a><div class="pCellBody">
+SQLCODE
+</div>
+</td>
+    <td><a name="wp549376"> </a><div class="pCellBody">
+SQLERROR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549378"> </a><div class="pCellBody">
+SQLEXCEPTION
+</div>
+</td>
+    <td><a name="wp549380"> </a><div class="pCellBody">
+SQLSTATE
+</div>
+</td>
+    <td><a name="wp549382"> </a><div class="pCellBody">
+SQLWARNING
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549384"> </a><div class="pCellBody">
+STRUCTURE
+</div>
+</td>
+    <td><a name="wp549386"> </a><div class="pCellBody">
+SUBSTRING
+</div>
+</td>
+    <td><a name="wp549388"> </a><div class="pCellBody">
+SUM
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549390"> </a><div class="pCellBody">
+SYSTEM_USER
+</div>
+</td>
+    <td><a name="wp549392"> </a><div class="pCellBody">
+TABLE
+</div>
+</td>
+    <td><a name="wp549394"> </a><div class="pCellBody">
+TEMPORARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549396"> </a><div class="pCellBody">
+TEST
+</div>
+</td>
+    <td><a name="wp549398"> </a><div class="pCellBody">
+THEN
+</div>
+</td>
+    <td><a name="wp549400"> </a><div class="pCellBody">
+THERE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549402"> </a><div class="pCellBody">
+TIME
+</div>
+</td>
+    <td><a name="wp549404"> </a><div class="pCellBody">
+TIMESTAMP
+</div>
+</td>
+    <td><a name="wp549406"> </a><div class="pCellBody">
+TIMEZONE_ HOUR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549408"> </a><div class="pCellBody">
+TIMEZONE_ MINUTE
+</div>
+</td>
+    <td><a name="wp549410"> </a><div class="pCellBody">
+TO
+</div>
+</td>
+    <td><a name="wp549412"> </a><div class="pCellBody">
+TRAILING
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549414"> </a><div class="pCellBody">
+TRANSACTION
+</div>
+</td>
+    <td><a name="wp549416"> </a><div class="pCellBody">
+TRANSLATE
+</div>
+</td>
+    <td><a name="wp549418"> </a><div class="pCellBody">
+TRANSLATION
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549420"> </a><div class="pCellBody">
+TRIGGER
+</div>
+</td>
+    <td><a name="wp549422"> </a><div class="pCellBody">
+TRIM
+</div>
+</td>
+    <td><a name="wp549424"> </a><div class="pCellBody">
+TRUE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549426"> </a><div class="pCellBody">
+TYPE
+</div>
+</td>
+    <td><a name="wp549428"> </a><div class="pCellBody">
+UCASE
+</div>
+</td>
+    <td><a name="wp549430"> </a><div class="pCellBody">
+UNDER
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549432"> </a><div class="pCellBody">
+UNION
+</div>
+</td>
+    <td><a name="wp549434"> </a><div class="pCellBody">
+UNIQUE
+</div>
+</td>
+    <td><a name="wp549436"> </a><div class="pCellBody">
+UNKNOWN
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549438"> </a><div class="pCellBody">
+UPDATE
+</div>
+</td>
+    <td><a name="wp549440"> </a><div class="pCellBody">
+UPPER
+</div>
+</td>
+    <td><a name="wp549442"> </a><div class="pCellBody">
+USAGE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549444"> </a><div class="pCellBody">
+USER
+</div>
+</td>
+    <td><a name="wp549446"> </a><div class="pCellBody">
+USING
+</div>
+</td>
+    <td><a name="wp549448"> </a><div class="pCellBody">
+VALUE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549450"> </a><div class="pCellBody">
+VALUES
+</div>
+</td>
+    <td><a name="wp549452"> </a><div class="pCellBody">
+VARCHAR
+</div>
+</td>
+    <td><a name="wp549454"> </a><div class="pCellBody">
+VARIABLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549456"> </a><div class="pCellBody">
+VARYING
+</div>
+</td>
+    <td><a name="wp549458"> </a><div class="pCellBody">
+VIEW
+</div>
+</td>
+    <td><a name="wp549460"> </a><div class="pCellBody">
+VIRTUAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549462"> </a><div class="pCellBody">
+VISIBLE
+</div>
+</td>
+    <td><a name="wp549464"> </a><div class="pCellBody">
+WAIT
+</div>
+</td>
+    <td><a name="wp549466"> </a><div class="pCellBody">
+WHEN
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549468"> </a><div class="pCellBody">
+WHENEVER
+</div>
+</td>
+    <td><a name="wp549470"> </a><div class="pCellBody">
+WHERE
+</div>
+</td>
+    <td><a name="wp549472"> </a><div class="pCellBody">
+WHILE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549474"> </a><div class="pCellBody">
+WITH
+</div>
+</td>
+    <td><a name="wp549476"> </a><div class="pCellBody">
+WITHOUT
+</div>
+</td>
+    <td><a name="wp549478"> </a><div class="pCellBody">
+WORK
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp549480"> </a><div class="pCellBody">
+WRITE
+</div>
+</td>
+    <td><a name="wp549482"> </a><div class="pCellBody">
+YEAR
+</div>
+</td>
+    <td><a name="wp549484"> </a><div class="pCellBody">
+ZONE
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp549490"> </a><h4 class="pHeading3">
+SQL Comments
+</h4>
+<a name="wp549491"> </a><p class="pBody">
+ANSI SQL-92 standard comments (--) and C++ standard comments (/*...*/, //) are supported. Comments can be nested. 
+</p>
+<a name="wp549492"> </a><p class="pBody">
+For example, in the following query columns col2, col3, and col4 are ignored:
+</p>
+<a name="wp549493"> </a><p class="pBody">
+<code class="cCode">SELECT col1  /* col1 comment */</code>
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">/*</code><a name="wp549494"> </a>
+<code class="cCode">	col2,	-- col2 comment</code><a name="wp549495"> </a>
+<code class="cCode">	col3,	// col3 comment</code><a name="wp549496"> </a>
+<code class="cCode">	col4,	/* col4 comment */</code><a name="wp549497"> </a>
+<code class="cCode">*/</code><a name="wp549498"> </a>
+<code class="cCode">FROM t1</code><a name="wp549499"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

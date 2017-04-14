@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:49" />
+  <title>Diagnostic Tools</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp514374"> </a><h1 class="pNewHTMLPageNoNum">
+Diagnostic Tools
+</h1>
+<hr /><a name="wp515661"> </a><p class="pBody">
+This section discusses the diagnostic tools that are available to you when you are configuring and troubleshooting your ODBC environment.
+</p>
+<a name="wp515273"> </a><h3 class="pHeading2">
+ODBC Trace
+</h3>
+<a name="wp514375"> </a><p class="pBody">
+ODBC tracing allows you to trace calls to ODBC drivers and create a log of the traces. Creating a trace log is particularly useful when you are troubleshooting an issue. 
+</p>
+<a name="wp515754"> </a><p class="pBody">
+To create a trace log, turn on tracing, start the ODBC application, and reproduce the issue. Then, open the log file in a text editor and review the output to help you debug the problem. Be sure to turn off tracing when you are finished reproducing the issue because tracing decreases the performance of your ODBC application.
+</p>
+<a name="wp514909"> </a><h4 class="pHeading3">
+Enabling Tracing
+</h4>
+<a name="wp514379"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinj.gif" height="31" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, you enable tracing by clicking the <b class="cBold">Start Tracing</b> button on the Tracing tab of the ODBC Administrator. You can also specify the name and location of the trace log on this tab.
+</p>
+<a name="wp514385"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixh2.gif" height="31" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, the [ODBC] section in the system information file must include the keywords Trace and TraceFile. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Trace=1<a name="wp514386"> </a>
+TraceFile=odbctrace.out<a name="wp514387"> </a>
+</pre></div>
+<a name="wp509944"> </a><p class="pBody">
+In this example, tracing is enabled and trace information is logged in a file named odbctrace.out. To disable tracing, set the Trace value to 0.
+</p>
+<a name="wp514401"> </a><h3 class="pHeading2">
+ivtestlib Tool
+</h3>
+<a name="wp514393"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixb12.gif" height="29" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">The ivtestlib tool is provided to help diagnose configuration problems in the UNIX environment (such as environment variables not correctly set or missing database client components). This tool is installed in the bin subdirectory in the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> installation directory, for example, /opt/odbc/bin. The tool attempts to load a specified ODBC driver and prints out all available error information if the load fails. 
+</p>
+<a name="wp514394"> </a><p class="pBody">
+On HP-UX, for example, if a driver is installed in /opt/odbc, use the following command to attempt to load the Oracle driver:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ivtestlib /opt/odbc/lib/ivora<em class="cEmphasis">xx</em>.sl<a name="wp514395"> </a>
+</pre></div>
+<a name="wp514397"> </a><p class="pBody">
+where <code><em>xx</em></code> is the driver level number. For example,<code class="cCode"> <br />ivtestlib /opt/odbc/lib/ivora20.sl</code>. 
+</p>
+<a name="wp515760"> </a><p class="pBody">
+If the driver cannot be loaded, ivtestlib returns an error message explaining why.
+</p>
+<a name="wp514398"> </a><p class="pBody">
+NOTE: On Solaris, AIX, and Linux, the full path to the driver does not have to be specified for ivtestlib. The HP-UX version of ivtestlib, however, requires the full path.
+</p>
+<a name="wp515776"> </a><p class="pBody">
+Also, you can use ivtestlib to check the version strings of the ODBC drivers on UNIX. See <a  href="Rstart8.html#wp584370">&quot;Version String Information&quot;</a>.
+</p>
+<a name="wp514483"> </a><h3 class="pHeading2">
+ODBC Test
+</h3>
+<a name="wp514484"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinc14.gif" height="35" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, Microsoft<span style="vertical-align: super">®</span> ships along with their ODBC SDK an ODBC-enabled application, named ODBC Test, that you can use to test ODBC drivers and the ODBC Driver Manager. ODBC 3.51 includes both ANSI and Unicode-enabled versions of ODBC Test. 
+</p>
+<a name="wp515092"> </a><p class="pBody">
+To use ODBC Test, you must understand the ODBC API, the C language, and SQL. For more information about ODBC Test, see the <em class="cEmphasis">Microsoft ODBC SDK Guide</em>.
+</p>
+<a name="wp515158"> </a><h3 class="pHeading2">
+demoodbc Application
+</h3>
+<a name="wp516824"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunix13.gif" height="29" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> is shipped with a small C application, demoodbc, on UNIX that is useful for:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp516826"> </a><div class="pSmartList1"><li>Executing <code class="cCode">SELECT * FROM emp</code>, where emp is a database table (one for each supported database) that is provided with the product. The scripts for building the emp database tables are in the demo subdirectory in the product installation directory.</li></div><a name="wp516832"> </a><div class="pSmartList1"><li>Testing database connections.</li></div><a name="wp515186"> </a><div class="pSmartList1"><li>Creating reproducibles.</li></div><a name="wp516809"> </a><div class="pSmartList1"><li>Persisting data to an XML data file. </li></div></ul></div>
+<a name="wp515164"> </a><p class="pBody">
+Demoodbc is installed in the demo subdirectory in the product installation directory. See the readme in the demo directory for an explanation of how to build and use this application.
+</p>
+<a name="wp515230"> </a><h3 class="pHeading2">
+example Application
+</h3>
+<a name="wp515242"> </a><p class="pBody">
+DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> is shipped with a small C application, named example, on Windows and UNIX that is useful for:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515246"> </a><div class="pSmartList1"><li>Executing any type of SQL statement</li></div><a name="wp515247"> </a><div class="pSmartList1"><li>Testing database connections</li></div><a name="wp515250"> </a><div class="pSmartList1"><li>Testing SQL statements</li></div><a name="wp515251"> </a><div class="pSmartList1"><li>Verifying your database environment</li></div></ul></div>
+<a name="wp515264"> </a><p class="pBody">
+Example is installed in the example subdirectory in the product installation directory. See the readme in the example directory for an explanation of how to build and use this application.
+</p>
+<a name="wp516839"> </a><h3 class="pHeading2">
+Translators
+</h3>
+<a name="wp516840"> </a><p class="pBody">
+DataDirect provides a sample translator named &quot;OEM to ANSI&quot; that provides a framework for coding a translation library.
+</p>
+<a name="wp516868"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinc10.gif" height="35" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, see the readme.trn file in the \TRANSLAT subdirectory in the product installation directory.
+</p>
+<a name="wp516878"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixc11.gif" height="29" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, see the readme.trn file in the /src/trn subdirectory in the product installation directory.
+</p>
+<a name="wp514434"> </a><h3 class="pHeading2">
+Other Tools
+</h3>
+<a name="wp514989"> </a><p class="pBody">
+DataDirect Technologies Support Web site provides other diagnostic tools that you can download to assist you with troubleshooting. These tools are not shipped with the product. See the DataDirect Web page:
+</p>
+<a name="wp515296"> </a><p class="pBody">
+<a  href="http://www.datadirect.com/support/downloads/su-tools/index.ssp">http://www.datadirect.com/support/downloads/su-tools/index.ssp</a>
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

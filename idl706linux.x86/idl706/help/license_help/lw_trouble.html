@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="$RSI_UsesSymbol;">
+    <meta name="TEMPLATEBASE" content="Dynamic HTML">
+    <meta name="LASTUPDATED" content="03/10/08 11:18:55">
+    <title>Troubleshooting</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+  <table width=100% cols=3 cellpadding="0">
+  <tr>
+  <td width=20% valign=top bgcolor="#E2E2E2" class="toc">
+  <h2  class="pHeading1">Table of Contents</h2>
+  <p class="pTOC1"><a href="lw_options.html">License Wizard Options</a></p>
+  <p class="pTOC1"><a href="lw_connecting.html">Using the Licensing Web Site</a></p>
+  <p class="pTOC1"><a href="lw_entering.html">Entering a License</a></p>
+  <p class="pTOC1"><a href="lw_existing_server.html">Connecting to an Existing License Server</a></p>
+  <p class="pTOC1"><a href="lw_trouble.html">Troubleshooting</a></p>
+  
+  </td>
+  <td width=1%>&nbsp;</td>
+  <td width=79% valign=top>
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom" >
+  <tr> 
+    <td width="10%">
+<a href="lw_complete_hasp.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<i></i>    </td>
+    <td width="10%" align="right">
+<img src="images/nextx.gif" border="0" alt="Next">    </td>
+  </tr>
+</table>
+
+<a name="wp998751"> </a><h2 class="pHeading1">
+Troubleshooting
+</h2><a name="wp1001528"> </a><h3 class="pHeading2">
+License Manager Log Files
+</h3>
+<a name="wp1001537"> </a><p class="pBody">
+On UNIX and Macintosh systems, output from the license manager is written to a file named <code class="cCode">lmgrd_log.txt</code> in the <code class="cCode">license</code> directory of the product installation directory.
+</p>
+<a name="wp1000675"> </a><h3 class="pHeading2">
+UNIX: Web Browser Does Not Launch
+</h3>
+<a name="wp1000681"> </a><p class="pBody">
+On UNIX systems, the license wizard attempts to launch one of a number of web browsers. If none of these browsers is available on the UNIX path, the License Wizard will not be able to launch a web browser from within the License Wizard.
+</p>
+<a name="wp1000682"> </a><p class="pBody">
+To remedy this situation, set the IDL_ONLINE_HELP_HTML_BROWSER environment variable to specify your preferred browser, then launch IDL and run the License Wizard again:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+
+<a name="wp1000691"> </a><div class="pSmartList1"><li>
+Exit the License Wizard.
+</li></div>
+<a name="wp1000695"> </a><div class="pSmartList1"><li>
+At the shell prompt, set the IDL_ONLINE_HELP_HTML_BROWSER environment variable. The syntax for doing this will depend on your shell, but will most likely be similar to one of the below.
+</li></div>
+<a name="wp1000715"> </a><p class="pIndentedRelative">
+Assume you use the Firefox browser, and that the command to launch Firefox is present on the UNIX path (that is, you can launch the browser by typing <code class="cCode">firefox</code> at the shell prompt):
+</p>
+<a name="wp1000702"> </a><p class="pIndentedRelative">
+For C shell (and other shells that use C shell syntax, such as <code class="cCode">tcsh</code>):
+</p>
+<pre class="pPreformatted">
+setenv IDL_ONLINE_HELP_HTML_BROWSER firefox
+</pre><a name="wp1000703"> </a>
+
+<a name="wp1000704"> </a><p class="pIndentedRelative">
+For the Bourne shell (and other shells that use Bourne shell syntax, such as the <code class="cCode">bash</code> and <code class="cCode">korn</code> shells):
+</p>
+<pre class="pPreformatted">
+IDL_ONLINE_HELP_HTML_BROWSER=firefox
+</pre><a name="wp1000705"> </a>
+
+<pre class="pPreformatted">
+export IDL_ONLINE_HELP_HTML_BROWSER
+</pre><a name="wp1000727"> </a>
+
+<a name="wp1000730"> </a><br />
+<table border="0" bgcolor="#E2E2E2" cellpadding="5" width="98%">
+   <tr><td><b>Note</b><br />
+   You may want to set the IDL_ONLINE_HELP_HTML_BROWSER environment variable in a startup file (<code class="cCode">.cshrc</code> or <code class="cCode">.profile</code>, for example); its value will be used if you open a web browser using IDL's ONLINE_HELP routine.</td></tr>
+</table>
+<br />
+
+<a name="wp1000700"> </a><div class="pSmartList1"><li>
+Change directories to the <code class="cCode">bin</code> subdirectory of the IDL installation directory and launch the <code class="cCode">ittlicense</code> program. For example, if you installed in the default location, you would issue the following commands at the shell prompt:
+</li></div>
+<pre class="pPreformatted">
+cd /usr/local/itt/idl<i>xx</i>/bin
+</pre><a name="wp1001144"> </a>
+
+<pre class="pPreformatted">
+ittlicense
+</pre><a name="wp1001158"> </a>
+
+<a name="wp1001159"> </a><p class="pIndentedRelative">
+where <code class="cCode">idl</code><code class="cCodeItalic">xx</code> is the name of your IDL directory (<code class="cCode">idl70</code>, for example).
+</p>
+</ol></div>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;ITT Visual Information Solutions (March 10, 2008)</FONT></P>
+  </td>
+  </tr>
+  </table>
+
+  </body>
+</html>

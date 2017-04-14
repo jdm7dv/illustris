@@ -1,0 +1,1500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.rsi.idldt.language.feature"
+      label="%featureName"
+      version="7.0.6"
+      provider-name="%featureProvider">
+
+   <description url="%featureURL">
+      %featureName
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="ITT Visual Information Solutions" url="http://www.ittvis.com/codebank/workbench/"/>
+   </url>
+
+   <plugin
+         id="com.rsi.idldt.core.nl"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idldt.nl"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idldt.ui.nl"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.icu.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.4.5.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.icu.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.4.5.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.icu.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.4.5.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ant.core.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ant.core.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ant.core.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.compare.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.compare.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.compare.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.boot.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.boot.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.boot.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.commands.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.commands.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.commands.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.contenttype.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.contenttype.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.contenttype.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.expressions.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.expressions.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.expressions.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filebuffers.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filebuffers.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filebuffers.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.nl1"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.nl2"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.nl2a"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.jobs.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.jobs.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.jobs.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.resources.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.resources.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.resources.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.runtime.compatibility.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.runtime.compatibility.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.runtime.compatibility.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.runtime.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.runtime.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.runtime.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.variables.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.variables.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.variables.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.debug.core.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.debug.core.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.debug.core.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.debug.ui.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.debug.ui.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.debug.ui.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.common.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.common.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.common.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.preferences.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.preferences.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.preferences.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.registry.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.registry.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.registry.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.appserver.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.appserver.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.appserver.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.base.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.base.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.base.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.ui.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.ui.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.ui.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.webapp.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.help.webapp.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.help.webapp.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.jface.databinding.nl1"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jface.databinding.nl2"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jface.databinding.nl2a"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jface.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jface.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jface.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jface.text.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jface.text.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jface.text.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ltk.core.refactoring.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ltk.core.refactoring.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ltk.core.refactoring.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ltk.ui.refactoring.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ltk.ui.refactoring.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ltk.ui.refactoring.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.services.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.services.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.services.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.util.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.util.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.util.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.platform.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.platform.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.platform.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.rcp.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rcp.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rcp.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.search.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.search.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.search.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.swt.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.swt.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.swt.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.team.core.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.team.core.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.team.core.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.team.ui.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.team.ui.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.team.ui.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.text.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.text.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.text.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.tomcat.nl1"
+         download-size="0"
+         install-size="0"
+         version="4.1.130.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.tomcat.nl2"
+         download-size="0"
+         install-size="0"
+         version="4.1.130.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.tomcat.nl2a"
+         download-size="0"
+         install-size="0"
+         version="4.1.130.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.ui.browser.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.browser.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.browser.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.cheatsheets.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.cheatsheets.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.cheatsheets.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.console.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.console.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.console.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.1.100.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.editors.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.editors.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.editors.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.externaltools.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.1.101.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.externaltools.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.1.101.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.externaltools.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.1.101.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.forms.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.forms.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.forms.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.ide.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.ide.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.ide.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.intro.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.intro.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.intro.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.intro.universal.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.ui.intro.universal.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.ui.intro.universal.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.ui.navigator.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.navigator.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.navigator.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.navigator.resources.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.navigator.resources.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.navigator.resources.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.presentations.r21.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.presentations.r21.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.presentations.r21.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.views.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.views.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.views.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.views.properties.tabbed.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.views.properties.tabbed.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.views.properties.tabbed.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.workbench.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.workbench.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.workbench.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.workbench.texteditor.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.workbench.texteditor.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.workbench.texteditor.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.configurator.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.configurator.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.configurator.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.core.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.core.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.core.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.scheduler.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.scheduler.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.scheduler.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.ui.nl1"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.ui.nl2"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.ui.nl2a"
+         download-size="0"
+         install-size="0"
+         version="3.2.1.v200609270227"
+         fragment="true"
+         unpack="false"/>
+
+</feature>

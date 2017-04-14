@@ -1,0 +1,1611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:36" />
+  <title>Select Statement</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510919"> </a><h1 class="pNewHTMLPageNoNum">
+Select Statement
+</h1>
+<hr /><a name="wp510923"> </a><p class="pBody">
+The form of the Select statement supported by the flat-file drivers is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT [DISTINCT] {* | <span style="font-style: italic">column_expression</span>, ...}<a name="wp510925"> </a>
+FROM <span style="font-style: italic">table_names</span> [<span style="font-style: italic">table_alias</span>] ...<a name="wp510927"> </a>
+[ WHERE <span style="font-style: italic">expr1</span> <span style="font-style: italic">rel_operator</span> <span style="font-style: italic">expr2</span> ]<a name="wp510929"> </a>
+[ GROUP BY {<span style="font-style: italic">column_expression</span>, ...} ]<a name="wp515004"> </a>
+[ HAVING <span style="font-style: italic">expr1</span> <span style="font-style: italic">rel_operator</span> <span style="font-style: italic">expr2</span> ]<a name="wp514999"> </a>
+[ UNION [ALL] (SELECT...) ]<a name="wp515000"> </a>
+[ ORDER BY {<span style="font-style: italic">sort_expression</span> [DESC | ASC]}, ... ]<a name="wp510935"> </a>
+[ FOR UPDATE [OF {<span style="font-style: italic">column_expression</span>, ...}] ]<a name="wp510937"> </a>
+</pre></div>
+<a name="wp510939"> </a><h3 class="pHeading2">
+Select Clause
+</h3>
+<a name="wp514847"> </a><p class="pBody">
+Follow Select with a list of column expressions you want to retrieve or an asterisk (*) to retrieve all fields.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT [DISTINCT] {* | <span style="font-style: italic">column_expression</span>, [[AS] 
+<code><em>column_alias</em></code>]. . .}<a name="wp514848"> </a>
+</pre></div>
+<a name="wp510945"> </a><p class="pBody">
+<em class="cEmphasis">column_expression</em> can be simply a field name (for example, LAST_NAME). More complex expressions may include mathematical operations or string manipulation (for example, SALARY * 1.05). See <a  href="RSGLFLAT2.html#wp511134">&quot;SQL Expressions&quot;</a> for details.
+</p>
+<a name="wp510947"> </a><p class="pBody">
+<em class="cEmphasis">column_alias</em> can be used to give the column a more descriptive name. For example, to assign the alias DEPARTMENT to the column DEP:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT dep AS department FROM emp<a name="wp512812"> </a>
+</pre></div>
+<a name="wp512811"> </a><p class="pBody">
+Separate multiple column expressions with commas (for example, LAST_NAME, FIRST_NAME, HIRE_DATE).
+</p>
+<a name="wp510949"> </a><p class="pBody">
+Field names can be prefixed with the table name or alias. For example, EMP.LAST_NAME or E.LAST_NAME, where E is the alias for the table EMP.
+</p>
+<a name="wp510951"> </a><p class="pBody">
+The Distinct operator can precede the first column expression. This operator eliminates duplicate rows from the result of a query. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT DISTINCT dep FROM emp<a name="wp510953"> </a>
+</pre></div>
+<a name="wp510955"> </a><h4 class="pHeading3">
+Aggregate Functions
+</h4>
+<a name="wp510961"> </a><p class="pBody">
+Aggregate functions can also be a part of a Select clause. Aggregate functions return a single value from a set of records. An aggregate can be used with a field name (for example, AVG(SALARY)) or in combination with a more complex column expression (for example, AVG(SALARY * 1.07)). The column expression can be preceded by the Distinct operator. The Distinct operator eliminates duplicate values from an aggregate expression. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+COUNT (DISTINCT last_name)<a name="wp510963"> </a>
+</pre></div>
+<a name="wp510965"> </a><p class="pBody">
+In this example, only distinct last name values are counted.
+</p>
+<a name="wp510967"> </a><p class="pBody">
+<a  href="RSGLFLAT2.html#wp509806">Table&#160;A-1</a> lists valid aggregates.
+</p>
+<a name="wp520413"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp509806"> </a><div class="pTableTitleBold">
+Table A-1.  Aggregate Functions
+</div>
+</caption>
+  <tr align="left">    <td><a name="wp509752"> </a><div class="pCellHeading">
+Aggregate
+</div>
+</td>
+    <td><a name="wp509754"> </a><div class="pCellHeading">
+Returns
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509760"> </a><div class="pCellBody">
+SUM
+</div>
+</td>
+    <td><a name="wp509764"> </a><div class="pCellBody">
+The total of the values in a numeric field expression. For example, SUM(SALARY) returns the sum of all salary field values.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509770"> </a><div class="pCellBody">
+AVG
+</div>
+</td>
+    <td><a name="wp509774"> </a><div class="pCellBody">
+The average of the values in a numeric field expression. For example, AVG(SALARY) returns the average of all salary field values.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509780"> </a><div class="pCellBody">
+COUNT
+</div>
+</td>
+    <td><a name="wp509784"> </a><div class="pCellBody">
+The number of values in any field expression. For example, COUNT(NAME) returns the number of name values. When using COUNT with a field name, COUNT returns the number of non-null field values. A special example is COUNT(*), which returns the number of records in the set, including records with null values.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509790"> </a><div class="pCellBody">
+MAX
+</div>
+</td>
+    <td><a name="wp509794"> </a><div class="pCellBody">
+The maximum value in any field expression. For example, MAX(SALARY) returns the maximum salary field value.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509800"> </a><div class="pCellBody">
+MIN
+</div>
+</td>
+    <td><a name="wp509804"> </a><div class="pCellBody">
+The minimum value in any field expression. For example, MIN(SALARY) returns the minimum salary field value.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp514471"> </a><h3 class="pHeading2">
+From Clause
+</h3>
+<a name="wp510978"> </a><p class="pBody">
+The From clause indicates the tables that will be used in the Select statement. The format of the From clause is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+FROM <code><em>table_names</em></code> [<code><em>table_alias</em></code>]<a name="wp510980"> </a>
+</pre></div>
+<a name="wp510982"> </a><p class="pBody">
+<em class="cEmphasis">table_names</em> can be one or more simple table names in the current working directory or complete pathnames.
+</p>
+<a name="wp510984"> </a><p class="pBody">
+<em class="cEmphasis">table_alias</em> is a name used to refer to this table in the rest of the Select statement. Database field names may be prefixed by the table alias. Given the table specification
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+FROM emp E<a name="wp510986"> </a>
+</pre></div>
+<a name="wp510988"> </a><p class="pBody">
+you may refer to the LAST_NAME field as E.LAST_NAME. Table aliases must be used if the Select statement joins a table to itself. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM emp E, emp F WHERE E.mgr_id = F.emp_id<a name="wp510990"> </a>
+</pre></div>
+<a name="wp510992"> </a><p class="pBody">
+The equal sign (=) includes only matching rows in the results. 
+</p>
+<a name="wp511857"> </a><p class="pBody">
+If you are joining more than one table, you can use LEFT OUTER JOIN, which includes nonmatching rows in the first table you name. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM T1 LEFT OUTER JOIN T2 on T1.key = T2.key <a name="wp511843"> </a>
+</pre></div>
+<a name="wp510994"> </a><h3 class="pHeading2">
+Where Clause
+</h3>
+<a name="wp511000"> </a><p class="pBody">
+The Where clause specifies the conditions that records must meet to be retrieved. The Where clause contains conditions in the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+WHERE <code><em>expr1</em></code> <code><em>rel_operator</em></code> <code><em>expr2</em></code><a name="wp511002"> </a>
+</pre></div>
+<a name="wp511004"> </a><p class="pBody">
+<em class="cEmphasis">expr1</em> and <em class="cEmphasis">expr2</em> may be field names, constant values, or expressions.
+</p>
+<a name="wp511006"> </a><p class="pBody">
+<em class="cEmphasis">rel_operator</em> is the relational operator that links the two expressions. See <a  href="RSGLFLAT2.html#wp511134">&quot;SQL Expressions&quot;</a> for details.
+</p>
+<a name="wp511008"> </a><p class="pBody">
+For example, the following Select statement retrieves the names of employees that make at least $20,000.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT last_name,first_name FROM emp WHERE salary &gt;= 20000<a name="wp511010"> </a>
+</pre></div>
+<a name="wp511012"> </a><h3 class="pHeading2">
+Group By Clause
+</h3>
+<a name="wp511018"> </a><p class="pBody">
+The Group By clause specifies the names of one or more fields by which the returned values should be grouped. This clause is used to return a set of aggregate values. It has the following form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+GROUP BY <code><em>column_expressions</em></code><a name="wp511022"> </a>
+</pre></div>
+<a name="wp511024"> </a><p class="pBody">
+<em style="font-style: italic" class="cEmphasis">column_expressions</em><span style="font-style: italic"> </span>must match the column expression used in the Select clause. A column expression can be one or more field names of the database table, separated by a comma (,) or one or more expressions, separated by a comma (,). See <a  href="RSGLFLAT2.html#wp511134">&quot;SQL Expressions&quot;</a> for details.
+</p>
+<a name="wp511026"> </a><p class="pBody">
+The following example sums the salaries in each department:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT dept_id, sum(salary) FROM emp GROUP BY dept_id<a name="wp511028"> </a>
+</pre></div>
+<a name="wp511030"> </a><p class="pBody">
+This statement returns one row for each distinct department ID. Each row contains the department ID and the sum of the salaries of the employees in the department.
+</p>
+<a name="wp511032"> </a><h3 class="pHeading2">
+Having Clause
+</h3>
+<a name="wp517086"> </a><p class="pBody">
+The Having clause enables you to specify conditions for groups of records (for example, display only the departments that have salaries totaling more than $200,000). This clause is valid only if you have already defined a Group By clause. It has the following form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+HAVING <code><em>expr1</em></code> <code><em>rel_operator</em></code> <code><em>expr2</em></code><a name="wp511042"> </a>
+</pre></div>
+<a name="wp511044"> </a><p class="pBody">
+<em class="cEmphasis">expr1</em> and <em class="cEmphasis">expr2</em> can be field names, constant values, or expressions. These expressions do not have to match a column expression in the Select clause.
+</p>
+<a name="wp511046"> </a><p class="pBody">
+<em style="font-style: italic" class="cEmphasis">rel_operator</em><span style="font-style: italic"> </span>is the relational operator that links the two expressions. See <a  href="RSGLFLAT2.html#wp511134">&quot;SQL Expressions&quot;</a> for details.
+</p>
+<a name="wp511048"> </a><p class="pBody">
+The following example returns only the departments whose sums of salaries are greater than $200,000:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT dept_id, sum(salary) FROM emp<a name="wp511050"> </a>
+GROUP BY dept_id HAVING sum(salary) &gt; 200000<a name="wp511052"> </a>
+</pre></div>
+<a name="wp511054"> </a><h3 class="pHeading2">
+Union Operator
+</h3>
+<a name="wp511060"> </a><p class="pBody">
+The Union operator combines the results of two Select statements into a single result. The single result is all of the returned records from both Select statements. By default, duplicate records are not returned. To return duplicate records, use the All keyword (UNION ALL). The form is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT statement<a name="wp511062"> </a>
+UNION [ALL]<a name="wp511064"> </a>
+SELECT <span style="font-style: italic">statement</span><a name="wp511066"> </a>
+</pre></div>
+<a name="wp511068"> </a><p class="pBody">
+When using the Union operator, the select lists for each Select statement must have the same number of column expressions with the same data types and must be specified in the same order. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT last_name, salary, hire_date FROM emp<a name="wp511070"> </a>
+UNION<a name="wp511072"> </a>
+SELECT name, pay, birth_date FROM person<a name="wp511074"> </a>
+</pre></div>
+<a name="wp511076"> </a><p class="pBody">
+This example has the same number of column expressions, and each column expression, in order, has the same data type.
+</p>
+<a name="wp511078"> </a><p class="pBody">
+The following example is <em class="cEmphasis">not</em> valid because the data types of the column expressions are different (SALARY from EMP has a different data type than LAST_NAME from RAISES). This example does have the same number of column expressions in each Select statement but the expressions are not in the same order by data type.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT last_name, salary FROM emp<a name="wp511080"> </a>
+UNION<a name="wp511082"> </a>
+SELECT salary, last_name FROM raises<a name="wp511084"> </a>
+</pre></div>
+<a name="wp511086"> </a><h3 class="pHeading2">
+Order By Clause
+</h3>
+<a name="wp511092"> </a><p class="pBody">
+The Order By clause indicates how the records are to be sorted. The form is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ORDER BY {<span style="font-style: italic">sort_expression</span> [DESC | ASC]}, ...<a name="wp511094"> </a>
+</pre></div>
+<a name="wp511096"> </a><p class="pBody">
+<em class="cEmphasis">sort_expression</em> can be field names, expressions, or the positional number of the column expression to use.
+</p>
+<a name="wp511098"> </a><p class="pBody">
+The default is to perform an ascending (ASC) sort.
+</p>
+<a name="wp511100"> </a><p class="pBody">
+For example, to sort by LAST_NAME then by FIRST_NAME you could use either of the following Select statements:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT emp_id, last_name, first_name FROM emp <a name="wp511102"> </a>
+ORDER BY last_name, first_name<a name="wp511104"> </a>
+</pre></div>
+<a name="wp511106"> </a><p class="pBody">
+or
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT emp_id, last_name, first_name FROM emp <a name="wp511108"> </a>
+ORDER BY 2,3<a name="wp511110"> </a>
+</pre></div>
+<a name="wp511112"> </a><p class="pBody">
+In the second example, LAST_NAME is the second column expression following Select, so Order By 2 sorts by LAST_NAME.
+</p>
+<a name="wp511114"> </a><h3 class="pHeading2">
+For Update Clause
+</h3>
+<a name="wp511122"> </a><p class="pBody">
+The For Update clause locks the records of the database table selected by the Select statement. The form is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+FOR UPDATE OF <code><em>column_expressions</em></code><a name="wp511124"> </a>
+</pre></div>
+<a name="wp515060"> </a><p class="pBody">
+<em class="cEmphasis">column_expressions</em> is a list of field names in the database table that you intend to update, separated by a comma (,).
+</p>
+<a name="wp515061"> </a><p class="pBody">
+The following example returns all records in the employee database that have a SALARY field value of more than $20,000. When each record is fetched, it is locked. If the record is updated or deleted, the lock is held until you commit the change. Otherwise, the lock is released when you fetch the next record.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT * FROM emp WHERE salary &gt; 20000<a name="wp511130"> </a>
+  FOR UPDATE OF last_name, first_name, salary<a name="wp511132"> </a>
+</pre></div>
+<a name="wp511134"> </a><h3 class="pHeading2">
+SQL Expressions
+</h3>
+<a name="wp511140"> </a><p class="pBody">
+Expressions are used in the Where clauses, Having clauses, and Order By clauses of SQL Select statements.
+</p>
+<a name="wp511142"> </a><p class="pBody">
+Expressions enable you to use mathematical operations as well as character string and date manipulation operators to form complex database queries.
+</p>
+<a name="wp515722"> </a><p class="pBody">
+The most common expression is a simple field name. You can combine a field name with other expression elements.
+</p>
+<a name="wp515723"> </a><p class="pBody">
+Valid expression elements are as follows:
+</p>
+<a name="wp515745"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515726"> </a><div class="pSmartList1"><li>Field names</li></div></ul></div>
+</td>
+    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515728"> </a><div class="pSmartList1"><li>Date operators</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515730"> </a><div class="pSmartList1"><li>Constants</li></div></ul></div>
+</td>
+    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515732"> </a><div class="pSmartList1"><li>Relational operators</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515734"> </a><div class="pSmartList1"><li>Exponential notation</li></div></ul></div>
+</td>
+    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515736"> </a><div class="pSmartList1"><li>Logical operators</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515738"> </a><div class="pSmartList1"><li>Numeric operators</li></div></ul></div>
+</td>
+    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515740"> </a><div class="pSmartList1"><li>Functions</li></div></ul></div>
+</td>
+</tr>
+  <tr align="left">    <td><div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp515742"> </a><div class="pSmartList1"><li>Character operators</li></div></ul></div>
+</td>
+    <td><a name="wp516462"> </a><p class="pBody">
+&#160;
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp511166"> </a><h4 class="pHeading3">
+Constants
+</h4>
+<a name="wp511172"> </a><p class="pBody">
+Constants are values that do not change. For example, in the expression PRICE * 1.05, the value 1.05 is a constant.
+</p>
+<a name="wp511176"> </a><p class="pBody">
+You must enclose character constants in pairs of single (&#39;) or double quotation marks (&quot;). To include a single quotation mark in a character constant enclosed by single quotation marks, use two single quotation marks together (for example, &#39;Don&#39;&#39;t&#39;). Similarly, if the constant is enclosed by double quotation marks, use two double quotation marks to include one.
+</p>
+<a name="wp511182"> </a><p class="pBody">
+You must enclose date and time constants in braces ({}), for example, {01/30/89} and {12:35:10}. The form for date constants is MM/DD/YY or MM/DD/YYYY. The form for time constants is HH:MM:SS.
+</p>
+<a name="wp511184"> </a><p class="pBody">
+The logical constants are .T. and 1 for True and .F. and 0 for False. For portability, use 1 and 0.
+</p>
+<a name="wp511684"> </a><h4 class="pHeading3">
+Exponential Notation
+</h4>
+<a name="wp514759"> </a><p class="pBody">
+You may include exponential notation. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT col1, 3.4E+7 FROM table1 WHERE calc &lt; 3.4E-6 * col2<a name="wp514760"> </a>
+</pre></div>
+<a name="wp519783"> </a><h4 class="pHeading3">
+Numeric Operators
+</h4>
+<a name="wp519813"> </a><p class="pBody">
+You may include the following operators in numeric expressions:
+</p>
+<a name="wp520417"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp519786"> </a><div class="pCellHeading">
+Operator
+</div>
+</th>
+    <th><a name="wp519788"> </a><div class="pCellHeading">
+Meaning
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp519790"> </a><div class="pCellBody">
+	+
+</div>
+</td>
+    <td><a name="wp519792"> </a><div class="pCellBody">
+Addition
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp519794"> </a><div class="pCellBody">
+	&#8211;
+</div>
+</td>
+    <td><a name="wp519796"> </a><div class="pCellBody">
+Subtraction
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp519798"> </a><div class="pCellBody">
+	*
+</div>
+</td>
+    <td><a name="wp519800"> </a><div class="pCellBody">
+Multiplication
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp519802"> </a><div class="pCellBody">
+	/
+</div>
+</td>
+    <td><a name="wp519804"> </a><div class="pCellBody">
+Division
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp519806"> </a><div class="pCellBody">
+	**
+</div>
+</td>
+    <td><a name="wp519808"> </a><div class="pCellBody">
+Exponentiation
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp519810"> </a><div class="pCellBody">
+	^
+</div>
+</td>
+    <td><a name="wp519812"> </a><div class="pCellBody">
+Exponentiation
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp519814"> </a><p class="pBody">
+The following table shows examples of numeric expressions. For these examples, assume SALARY is 20000.
+</p>
+<a name="wp520433"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp519817"> </a><div class="pCellHeading">
+Example
+</div>
+</td>
+    <td><a name="wp519819"> </a><div class="pCellHeading">
+Resulting value
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp519821"> </a><div class="pCellBody">
+<code class="cCode">salary + 10000</code>
+</div>
+</td>
+    <td><a name="wp519823"> </a><div class="pCellBody">
+<code class="cCode">30000</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp519825"> </a><div class="pCellBody">
+<code class="cCode">salary * 1.1</code>
+</div>
+</td>
+    <td><a name="wp519827"> </a><div class="pCellBody">
+<code class="cCode">22000</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp519829"> </a><div class="pCellBody">
+<code class="cCode">2 ** 3</code>
+</div>
+</td>
+    <td><a name="wp519831"> </a><div class="pCellBody">
+<code class="cCode">8</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp511204"> </a><p class="pBody">
+You can precede numeric expressions with a unary plus (+) or minus (&#8211;). For example, <code class="cCode">&#8211;(salary * 1.1)</code> is -22000.
+</p>
+<a name="wp511206"> </a><h4 class="pHeading3">
+Character Operators
+</h4>
+<a name="wp511736"> </a><p class="pBody">
+Character expressions may include the following operators:
+</p>
+<a name="wp520445"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp511739"> </a><div class="pCellHeading">
+Operator
+</div>
+</td>
+    <td><a name="wp511741"> </a><div class="pCellHeading">
+Meaning
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp511743"> </a><div class="pCellBody">
+	+
+</div>
+</td>
+    <td><a name="wp511745"> </a><div class="pCellBody">
+Concatenation keeping trailing blanks.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp511747"> </a><div class="pCellBody">
+	&#8211;
+</div>
+</td>
+    <td><a name="wp511749"> </a><div class="pCellBody">
+Concatenation moving trailing blanks to the end.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp511751"> </a><p class="pBody">
+The following chart shows examples of character expressions. In the examples, LAST_NAME is <code class="cCode">&#39;JONES  &#39;</code> and FIRST_NAME is <code class="cCode">&#39;ROBERT&#160;&#160;&#39;</code>.
+</p>
+<a name="wp520453"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp512058"> </a><div class="pCellHeading">
+Example
+</div>
+</th>
+    <th><a name="wp512060"> </a><div class="pCellHeading">
+Resulting value
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp509950"> </a><div class="pCellBody">
+<code class="cCode">first_name + last_name</code>
+</div>
+</td>
+    <td><a name="wp509952"> </a><div class="pCellBody">
+<code class="cCode">&#39;ROBERT     JONES  &#39;</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509958"> </a><div class="pCellBody">
+<code class="cCode">first_name &#8211; last_name</code>
+</div>
+</td>
+    <td><a name="wp509960"> </a><div class="pCellBody">
+<code class="cCode">&#39;ROBERTJONES       &#39;</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp511224"> </a><p class="pBody">
+NOTE: Some flat-file drivers return character data with trailing blanks as shown in the table; however, you cannot rely on the driver to return blanks. Therefore, if you want an expression that works with drivers that do and do not return trailing blanks, use the TRIM function before concatenating strings to make the expression portable. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+TRIM(first_name) + &#39;&#39; + TRIM(last_name)<a name="wp511226"> </a>
+</pre></div>
+<a name="wp511228"> </a><h4 class="pHeading3">
+Date Operators
+</h4>
+<a name="wp511236"> </a><p class="pBody">
+You may include the following operators in date expressions:
+</p>
+<a name="wp520457"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp509971"> </a><div class="pCellHeading">
+Operator
+</div>
+</td>
+    <td><a name="wp509973"> </a><div class="pCellHeading">
+Meaning
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509979"> </a><div class="pCellBody">
++
+</div>
+</td>
+    <td><a name="wp509981"> </a><div class="pCellBody">
+Add a number of days to a date to produce a new date.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp509987"> </a><div class="pCellBody">
+&#8211;
+</div>
+</td>
+    <td><a name="wp509989"> </a><div class="pCellBody">
+The number of days between two dates, or subtract a number of days from a date to produce a new date.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp511241"> </a><p class="pBody">
+The following chart shows examples of date expressions. In these examples, hire_date is {01/30/1990}.
+</p>
+<a name="wp520461"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp510000"> </a><div class="pCellHeading">
+Example
+</div>
+</td>
+    <td><a name="wp510002"> </a><div class="pCellHeading">
+Resulting value
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510008"> </a><div class="pCellBody">
+<code class="cCode">hire_date + 5</code>
+</div>
+</td>
+    <td><a name="wp510010"> </a><div class="pCellBody">
+<code class="cCode">{02/04/1990}</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510016"> </a><div class="pCellBody">
+<code class="cCode">hire_date &#8211; {01/01/1990}</code>
+</div>
+</td>
+    <td><a name="wp510018"> </a><div class="pCellBody">
+<code class="cCode">29</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510024"> </a><div class="pCellBody">
+<code class="cCode">hire_date &#8211; 10</code>
+</div>
+</td>
+    <td><a name="wp510026"> </a><div class="pCellBody">
+<code class="cCode">{01/20/1990}</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp511248"> </a><h4 class="pHeading3">
+Relational Operators
+</h4>
+<a name="wp511256"> </a><p class="pBody">
+The relational operators separating the two expressions may be any one of those listed in <a  href="RSGLFLAT2.html#wp510163">Table&#160;A-2</a>.
+</p>
+<a name="wp520465"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp510163"> </a><div class="pTableTitleBold">
+Table A-2.  Relational Operators&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp512066"> </a><div class="pCellHeading">
+Operator
+</div>
+</th>
+    <th><a name="wp512068"> </a><div class="pCellHeading">
+Meaning
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp510045"> </a><div class="pCellBody">
+=
+</div>
+</td>
+    <td><a name="wp510047"> </a><div class="pCellBody">
+Equal.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510053"> </a><div class="pCellBody">
+&lt;&gt;
+</div>
+</td>
+    <td><a name="wp510055"> </a><div class="pCellBody">
+Not Equal.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510061"> </a><div class="pCellBody">
+&gt;
+</div>
+</td>
+    <td><a name="wp510063"> </a><div class="pCellBody">
+Greater Than.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510069"> </a><div class="pCellBody">
+&gt;=
+</div>
+</td>
+    <td><a name="wp510071"> </a><div class="pCellBody">
+Greater Than or Equal.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510077"> </a><div class="pCellBody">
+&lt;
+</div>
+</td>
+    <td><a name="wp510079"> </a><div class="pCellBody">
+Less Than.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510085"> </a><div class="pCellBody">
+&lt;=
+</div>
+</td>
+    <td><a name="wp510087"> </a><div class="pCellBody">
+Less Than or Equal.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510093"> </a><div class="pCellBody">
+Like
+</div>
+</td>
+    <td><a name="wp510095"> </a><div class="pCellBody">
+Matching a pattern.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510101"> </a><div class="pCellBody">
+Not Like
+</div>
+</td>
+    <td><a name="wp510103"> </a><div class="pCellBody">
+Not matching a pattern.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510109"> </a><div class="pCellBody">
+Is Null
+</div>
+</td>
+    <td><a name="wp510111"> </a><div class="pCellBody">
+Equal to Null.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510117"> </a><div class="pCellBody">
+Is Not Null
+</div>
+</td>
+    <td><a name="wp510119"> </a><div class="pCellBody">
+Not Equal to Null.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510125"> </a><div class="pCellBody">
+Between
+</div>
+</td>
+    <td><a name="wp510127"> </a><div class="pCellBody">
+Range of values between a lower and upper bound.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510133"> </a><div class="pCellBody">
+In
+</div>
+</td>
+    <td><a name="wp510135"> </a><div class="pCellBody">
+A member of a set of specified values or a member of a subquery.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510141"> </a><div class="pCellBody">
+Exists
+</div>
+</td>
+    <td><a name="wp510143"> </a><div class="pCellBody">
+True if a subquery returned at least one record.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510149"> </a><div class="pCellBody">
+Any
+</div>
+</td>
+    <td><a name="wp510151"> </a><div class="pCellBody">
+Compares a value to each value returned by a subquery. Any must be prefaced by =, &lt;&gt;, &gt;, &gt;=, &lt;, or &lt;=.
+</div>
+<a name="wp510153"> </a><div class="pCellBody">
+=Any is equivalent to In.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp510159"> </a><div class="pCellBody">
+All
+</div>
+</td>
+    <td><a name="wp510161"> </a><div class="pCellBody">
+Compares a value to each value returned by a subquery. All must be prefaced by =, &lt;&gt;, &gt;, &gt;=, &lt;, or &lt;=.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp514513"> </a><p class="pBody">
+The following list shows some examples of relational operators:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+salary &lt;= 40000<a name="wp511267"> </a>
+dept = &#39;D101&#39;<a name="wp511269"> </a>
+hire_date &gt; {01/30/1989}<a name="wp511271"> </a>
+salary + commission &gt;= 50000<a name="wp511273"> </a>
+last_name LIKE &#39;Jo%&#39;<a name="wp511275"> </a>
+salary IS NULL<a name="wp511277"> </a>
+salary BETWEEN 10000 AND 20000<a name="wp511279"> </a>
+WHERE salary = ANY (SELECT salary FROM emp WHERE dept = &#39;D101&#39;)<a name="wp511281"> </a>
+WHERE salary &gt; ALL (SELECT salary FROM emp WHERE dept = &#39;D101&#39;)<a name="wp511283"> </a>
+</pre></div>
+<a name="wp511285"> </a><h4 class="pHeading3">
+Logical Operators
+</h4>
+<a name="wp511293"> </a><p class="pBody">
+Two or more conditions may be combined to form more complex criteria. When two or more conditions are present, they must be related by AND or OR. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+salary = 40000 AND exempt = 1<a name="wp511295"> </a>
+</pre></div>
+<a name="wp511297"> </a><p class="pBody">
+The logical NOT operator is used to reverse the meaning. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+NOT (salary = 40000 AND exempt = 1)<a name="wp511299"> </a>
+</pre></div>
+<a name="wp511301"> </a><h4 class="pHeading3">
+Operator Precedence
+</h4>
+<a name="wp514655"> </a><p class="pBody">
+As expressions become more complex, the order in which the expressions are evaluated becomes important. <a  href="RSGLFLAT2.html#wp514665">Table&#160;A-3</a> shows the order in which the operators are evaluated. The operators in the first line are evaluated first, then those in the second line, and so on. Operators in the same line are evaluated left to right in the expression.
+</p>
+<a name="wp520500"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp514665"> </a><div class="pTableTitleBold">
+Table A-3.  Operator Precedence&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp514669"> </a><div class="pCellHeading">
+Precedence
+</div>
+</th>
+    <th><a name="wp514671"> </a><div class="pCellHeading">
+Operator
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp514673"> </a><div class="pCellBody">
+1
+</div>
+</td>
+    <td><a name="wp514675"> </a><div class="pCellBody">
+Unary -, Unary +
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp514677"> </a><div class="pCellBody">
+2
+</div>
+</td>
+    <td><a name="wp514679"> </a><div class="pCellBody">
+**
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp514681"> </a><div class="pCellBody">
+3
+</div>
+</td>
+    <td><a name="wp514683"> </a><div class="pCellBody">
+*, /
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp514685"> </a><div class="pCellBody">
+4
+</div>
+</td>
+    <td><a name="wp514687"> </a><div class="pCellBody">
++, - 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp514689"> </a><div class="pCellBody">
+5
+</div>
+</td>
+    <td><a name="wp514691"> </a><div class="pCellBody">
+=, &lt;&gt;, &lt;, &lt;=, &gt;, &gt;=, Like, Not Like, Is Null, Is Not Null, Between, In, Exists, Any, All
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp514693"> </a><div class="pCellBody">
+6
+</div>
+</td>
+    <td><a name="wp514695"> </a><div class="pCellBody">
+Not
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp514697"> </a><div class="pCellBody">
+7
+</div>
+</td>
+    <td><a name="wp514699"> </a><div class="pCellBody">
+AND
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp514701"> </a><div class="pCellBody">
+8
+</div>
+</td>
+    <td><a name="wp514703"> </a><div class="pCellBody">
+OR
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp514521"> </a><p class="pBody">
+The following example shows the importance of precedence:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+WHERE salary &gt; 40000 OR <a name="wp511318"> </a>
+hire_date &gt; {01/30/1989} AND <a name="wp511320"> </a>
+dept = &#39;D101&#39;<a name="wp511322"> </a>
+</pre></div>
+<a name="wp511324"> </a><p class="pBody">
+Because AND is evaluated first, this query retrieves employees in department D101 hired after January 30, 1989, as well as every employee making more than $40,000, no matter what department or hire date.
+</p>
+<a name="wp511326"> </a><p class="pBody">
+To force the clause to be evaluated in a different order, use parentheses to enclose the conditions to be evaluated first. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+WHERE (salary &gt; 40000 OR hire_date &gt; {01/30/1989})<a name="wp511328"> </a>
+AND dept = &#39;D101&#39;<a name="wp511330"> </a>
+</pre></div>
+<a name="wp511332"> </a><p class="pBody">
+retrieves employees in department D101 that either make more than $40,000 or were hired after January 30, 1989.
+</p>
+<a name="wp511334"> </a><h4 class="pHeading3">
+Functions
+</h4>
+<a name="wp520783"> </a><p class="pBody">
+The flat-file drivers support a number of functions that you may use in expressions. In <a  href="RSGLFLAT2.html#wp520796">Table&#160;A-4</a> through <a  href="RSGLFLAT2.html#wp520997">Table&#160;A-6</a>, the functions are grouped according to the type of result they return.
+</p>
+<a name="wp521041"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp520796"> </a><div class="pTableTitleBold">
+Table A-4.  Functions that Return Character Strings&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp520800"> </a><div class="pCellHeading">
+Function
+</div>
+</th>
+    <th><a name="wp520802"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp520804"> </a><div class="pCellBody">
+CHR
+</div>
+</td>
+    <td><a name="wp520806"> </a><div class="pCellBody">
+Converts an ASCII code into a one-character string.
+</div>
+<a name="wp520807"> </a><div class="pCellBody">
+<code class="cCode">CHR(67)</code> returns <code class="cCode">C</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520809"> </a><div class="pCellBody">
+RTRIM
+</div>
+</td>
+    <td><a name="wp520811"> </a><div class="pCellBody">
+Removes trailing blanks from a string.
+</div>
+<a name="wp520812"> </a><div class="pCellBody">
+<code class="cCode">RTRIM(&#39;ABC   &#39;)</code> returns <code class="cCode">ABC</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520814"> </a><div class="pCellBody">
+TRIM
+</div>
+</td>
+    <td><a name="wp520816"> </a><div class="pCellBody">
+Removes trailing blanks from a string.
+</div>
+<a name="wp520817"> </a><div class="pCellBody">
+<code class="cCode">TRIM(&#39;ABC   &#39;)</code> returns <code class="cCode">ABC</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520819"> </a><div class="pCellBody">
+LTRIM
+</div>
+</td>
+    <td><a name="wp520821"> </a><div class="pCellBody">
+Removes leading blanks from a string.
+</div>
+<a name="wp520822"> </a><div class="pCellBody">
+<code class="cCode">LTRIM(&#39;  ABC&#39;)</code> returns <code class="cCode">ABC</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520824"> </a><div class="pCellBody">
+UPPER
+</div>
+</td>
+    <td><a name="wp520826"> </a><div class="pCellBody">
+Changes each letter of a string to uppercase.
+</div>
+<a name="wp520827"> </a><div class="pCellBody">
+<code class="cCode">UPPER(&#39;Allen&#39;)</code> returns <code class="cCode">ALLEN</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520829"> </a><div class="pCellBody">
+LOWER
+</div>
+</td>
+    <td><a name="wp520831"> </a><div class="pCellBody">
+Changes each letter of a string to lowercase.
+</div>
+<a name="wp520832"> </a><div class="pCellBody">
+<code class="cCode">LOWER(&#39;Allen&#39;)</code> returns <code class="cCode">allen</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520834"> </a><div class="pCellBody">
+LEFT
+</div>
+</td>
+    <td><a name="wp520836"> </a><div class="pCellBody">
+Returns leftmost characters of a string.
+</div>
+<a name="wp520837"> </a><div class="pCellBody">
+<code class="cCode">LEFT(&#39;Mattson&#39;,3)</code> returns <code class="cCode">Mat</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520839"> </a><div class="pCellBody">
+RIGHT
+</div>
+</td>
+    <td><a name="wp520841"> </a><div class="pCellBody">
+Returns rightmost characters of a string.
+</div>
+<a name="wp520842"> </a><div class="pCellBody">
+<code class="cCode">RIGHT(&#39;Mattson&#39;,4)</code> returns <code class="cCode">tson</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520844"> </a><div class="pCellBody">
+SUBSTR
+</div>
+</td>
+    <td><a name="wp520846"> </a><div class="pCellBody">
+Returns a substring of a string. Parameters are the string, the first character to extract, and the number of characters to extract (optional).
+</div>
+<a name="wp520847"> </a><div class="pCellBody">
+<code class="cCode">SUBSTR(&#39;Conrad&#39;,2,3)</code> returns <code class="cCode">onr</code>.
+</div>
+<a name="wp520848"> </a><div class="pCellBody">
+<code class="cCode">SUBSTR(&#39;Conrad&#39;,2)</code> returns <code class="cCode">onrad</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520850"> </a><div class="pCellBody">
+SPACE
+</div>
+</td>
+    <td><a name="wp520852"> </a><div class="pCellBody">
+Generates a string of blanks.
+</div>
+<a name="wp520853"> </a><div class="pCellBody">
+<code class="cCode">SPACE(5)</code> returns <code class="cCode">&#39;&#160;&#160;&#160;&#160;&#160;&#39;</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520855"> </a><div class="pCellBody">
+DTOC
+</div>
+</td>
+    <td><a name="wp520857"> </a><div class="pCellBody">
+Converts a date to a character string. An optional second parameter determines the format of the result:
+</div>
+<a name="wp520858"> </a><div class="pCellBody">
+0 (the default) returns MM/DD/YY
+</div>
+<a name="wp520859"> </a><div class="pCellBody">
+1 returns DD/MM/YY
+</div>
+<a name="wp520860"> </a><div class="pCellBody">
+2 returns YY/MM/DD
+</div>
+<a name="wp520861"> </a><div class="pCellBody">
+10 returns MM/DD/YYYY
+</div>
+<a name="wp520862"> </a><div class="pCellBody">
+11 returns DD/MM/YYYY
+</div>
+<a name="wp520863"> </a><div class="pCellBody">
+12 returns YYYY/MM/DD
+</div>
+<a name="wp520864"> </a><div class="pCellBody">
+An optional third parameter specifies the date separator character. If not specified, a slash (/) is used.
+</div>
+<a name="wp520865"> </a><div class="pCellBody">
+<code class="cCode">DTOC({01/30/1997})</code> returns <code class="cCode">01/30/97</code>
+</div>
+<a name="wp520866"> </a><div class="pCellBody">
+<code class="cCode">DTOC({01/30/1997}, 0)</code> returns <code class="cCode">01/30/97</code>
+</div>
+<a name="wp520867"> </a><div class="pCellBody">
+<code class="cCode">DTOC({01/30/1997}, 1)</code> returns <code class="cCode">30/01/97</code>
+</div>
+<a name="wp520868"> </a><div class="pCellBody">
+<code class="cCode">DTOC({01/30/1997}, 2,&#39;-&#39;)</code> returns <code class="cCode">97-01-30</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520870"> </a><div class="pCellBody">
+DTOS
+</div>
+</td>
+    <td><a name="wp520872"> </a><div class="pCellBody">
+Converts a date to a character string using the format YYYYMMDD.
+</div>
+<a name="wp520873"> </a><div class="pCellBody">
+<code class="cCode">DTOS({01/23/1990})</code> returns <code class="cCode">19900123</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520875"> </a><div class="pCellBody">
+IIF
+</div>
+</td>
+    <td><a name="wp520877"> </a><div class="pCellBody">
+Returns one of two values. Parameters are a logical expression, the true value, and the false value. If the logical expression evaluates to True, the function returns the true value. Otherwise, it returns the false value.
+</div>
+<a name="wp520878"> </a><div class="pCellBody">
+<code class="cCode">IIF(salary&gt;20000,&#39;BIG&#39;,&#39;SMALL&#39;)</code> returns <code class="cCode">BIG</code> if SALARY is greater than 20000. If not, it returns <code class="cCode">SMALL</code>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520880"> </a><div class="pCellBody">
+STR
+</div>
+</td>
+    <td><a name="wp520882"> </a><div class="pCellBody">
+Converts a number to a character string. Parameters are the number, the total number of output characters (including the decimal point), and optionally the number of digits to the right of the decimal point.
+</div>
+<a name="wp520883"> </a><div class="pCellBody">
+<code class="cCode">STR(12.34567,4)</code> returns <code class="cCode">12</code>
+</div>
+<a name="wp520884"> </a><div class="pCellBody">
+<code class="cCode">STR(12.34567,4,1)</code> returns <code class="cCode">12.3</code>
+</div>
+<a name="wp520885"> </a><div class="pCellBody">
+<code class="cCode">STR(12.34567,6,3)</code> returns <code class="cCode">12.346</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520887"> </a><div class="pCellBody">
+STRVAL
+</div>
+</td>
+    <td><a name="wp520889"> </a><div class="pCellBody">
+Converts a value of any type to a character string.
+</div>
+<a name="wp520890"> </a><div class="pCellBody">
+<code class="cCode">STRVAL(&#39;Woltman&#39;)</code> returns <code class="cCode">Woltman</code>
+</div>
+<a name="wp520891"> </a><div class="pCellBody">
+<code class="cCode">STRVAL({12/25/1953})</code> returns <code class="cCode">12/25/1953</code>
+</div>
+<a name="wp520892"> </a><div class="pCellBody">
+<code class="cCode">STRVAL (5 * 3)</code> returns <code class="cCode">15</code>
+</div>
+<a name="wp520893"> </a><div class="pCellBody">
+<code class="cCode">STRVAL (4 = 5)</code> returns <code class="cCode">&#39;False&#39;</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520895"> </a><div class="pCellBody">
+TIME
+</div>
+</td>
+    <td><a name="wp520897"> </a><div class="pCellBody">
+Returns the time of day as a string.
+</div>
+<a name="wp520898"> </a><div class="pCellBody">
+At 9:49 PM, <code class="cCode">TIME()</code> returns <code class="cCode">21:49:00</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520900"> </a><div class="pCellBody">
+TTOC
+</div>
+</td>
+    <td><a name="wp520902"> </a><div class="pCellBody">
+NOTE: This function is applicable only for those flat-file drivers that support SQL_TIMESTAMP, the Btrieve, dBASE (access to FoxPro 3.0), and Paradox (access to Paradox 5, 7, 8,and 9 tables) drivers.
+</div>
+<a name="wp520903"> </a><div class="pCellBody">
+Converts a timestamp to a character string. An optional second parameter determines the format of the result:
+</div>
+<a name="wp520904"> </a><div class="pCellBody">
+When set to 0 or none (the default), MM/DD/YY HH:MM:SS&#160;AM is returned.
+</div>
+<a name="wp520905"> </a><div class="pCellBody">
+When set to 1, YYYYMMDDHHMMSS is returned, which is a suitable format for indexing.
+</div>
+<a name="wp520906"> </a><div class="pCellBody">
+TTOC({1992-04-02 03:27:41}) returns 04/02/92 03:27:41&#160;AM.
+</div>
+<a name="wp520907"> </a><div class="pCellBody">
+TTOC({1992-04-02 03:27:41, 1}) returns 19920402032741
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520909"> </a><div class="pCellBody">
+USERNAME
+</div>
+</td>
+    <td><a name="wp520911"> </a><div class="pCellBody">
+For Btrieve, the logon ID specified at connect time is returned. For Paradox and Paradox 5 drivers, the user name specified during configuration is returned. For all other flat file drivers, an empty string is returned.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp521038"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp520917"> </a><div class="pTableTitleBold">
+Table A-5.  Functions that Return Numbers&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp520921"> </a><div class="pCellHeading">
+Function
+</div>
+</th>
+    <th><a name="wp520923"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp520925"> </a><div class="pCellBody">
+MOD
+</div>
+</td>
+    <td><a name="wp520927"> </a><div class="pCellBody">
+Divides two numbers and returns the remainder of the division.
+</div>
+<a name="wp520928"> </a><div class="pCellBody">
+<code class="cCode">MOD(10,3)</code> returns <code class="cCode">1</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520930"> </a><div class="pCellBody">
+LEN
+</div>
+</td>
+    <td><a name="wp520932"> </a><div class="pCellBody">
+Returns the length of a string.
+</div>
+<a name="wp520933"> </a><div class="pCellBody">
+<code class="cCode">LEN(&#39;ABC&#39;)</code> returns <code class="cCode">3</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520935"> </a><div class="pCellBody">
+MONTH
+</div>
+</td>
+    <td><a name="wp520937"> </a><div class="pCellBody">
+Returns the month part of a date.
+</div>
+<a name="wp520938"> </a><div class="pCellBody">
+<code class="cCode">MONTH({01/30/1989})</code> returns <code class="cCode">1</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520940"> </a><div class="pCellBody">
+DAY
+</div>
+</td>
+    <td><a name="wp520942"> </a><div class="pCellBody">
+Returns the day part of a date.
+</div>
+<a name="wp520943"> </a><div class="pCellBody">
+<code class="cCode">DAY({01/30/1989})</code> returns <code class="cCode">30</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520945"> </a><div class="pCellBody">
+YEAR
+</div>
+</td>
+    <td><a name="wp520947"> </a><div class="pCellBody">
+Returns the year part of a date.
+</div>
+<a name="wp520948"> </a><div class="pCellBody">
+<code class="cCode">YEAR({01/30/1989})</code> returns <code class="cCode">1989</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520950"> </a><div class="pCellBody">
+MAX
+</div>
+</td>
+    <td><a name="wp520952"> </a><div class="pCellBody">
+Returns the larger of two numbers.
+</div>
+<a name="wp520953"> </a><div class="pCellBody">
+<code class="cCode">MAX(66,89)</code> returns <code class="cCode">89</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520955"> </a><div class="pCellBody">
+DAYOFWEEK
+</div>
+</td>
+    <td><a name="wp520957"> </a><div class="pCellBody">
+Returns the day of week (1-7) of a date expression.
+</div>
+<a name="wp520958"> </a><div class="pCellBody">
+<code class="cCode">DAYOFWEEK({05/01/1995})</code> returns <code class="cCode">5</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520960"> </a><div class="pCellBody">
+MIN
+</div>
+</td>
+    <td><a name="wp520962"> </a><div class="pCellBody">
+Returns the smaller of two numbers.
+</div>
+<a name="wp520963"> </a><div class="pCellBody">
+<code class="cCode">MIN(66,89)</code> returns <code class="cCode">66</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520965"> </a><div class="pCellBody">
+POW
+</div>
+</td>
+    <td><a name="wp520967"> </a><div class="pCellBody">
+Raises a number to a power.
+</div>
+<a name="wp520968"> </a><div class="pCellBody">
+<code class="cCode">POW(7,2)</code> returns <code class="cCode">49</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520970"> </a><div class="pCellBody">
+INT
+</div>
+</td>
+    <td><a name="wp520972"> </a><div class="pCellBody">
+Returns the integer part of a number.
+</div>
+<a name="wp520973"> </a><div class="pCellBody">
+<code class="cCode">INT(6.4321)</code> returns <code class="cCode">6</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520975"> </a><div class="pCellBody">
+ROUND
+</div>
+</td>
+    <td><a name="wp520977"> </a><div class="pCellBody">
+Rounds a number.
+</div>
+<a name="wp520978"> </a><div class="pCellBody">
+<code class="cCode">ROUND(123.456, 0)</code> returns <code class="cCode">123</code>
+</div>
+<a name="wp520979"> </a><div class="pCellBody">
+<code class="cCode">ROUND(123.456, 2)</code> returns <code class="cCode">123.46</code>
+</div>
+<a name="wp520980"> </a><div class="pCellBody">
+<code class="cCode">ROUND(123.456, &#8211;2)</code> returns <code class="cCode">100</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520982"> </a><div class="pCellBody">
+NUMVAL
+</div>
+</td>
+    <td><a name="wp520984"> </a><div class="pCellBody">
+Converts a character string to a number. If the character string is not a valid number, a zero is returned.
+</div>
+<a name="wp520985"> </a><div class="pCellBody">
+<code class="cCode">NUMVAL(&#39;123&#39;)</code> returns the number <code class="cCode">123</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp520987"> </a><div class="pCellBody">
+VAL
+</div>
+</td>
+    <td><a name="wp520989"> </a><div class="pCellBody">
+Converts a character string to a number. If the character string is not a valid number, a zero is returned.
+</div>
+<a name="wp520990"> </a><div class="pCellBody">
+<code class="cCode">VAL(&#39;123&#39;)</code> returns the number <code class="cCode">123</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp521035"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp520997"> </a><div class="pTableTitleBold">
+Table A-6.  Functions that Return Dates&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp521001"> </a><div class="pCellHeading">
+Function
+</div>
+</th>
+    <th><a name="wp521003"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp521005"> </a><div class="pCellBody">
+DATE
+</div>
+</td>
+    <td><a name="wp521007"> </a><div class="pCellBody">
+Returns today&#8217;s date.
+</div>
+<a name="wp521008"> </a><div class="pCellBody">
+If today is 12/25/1999, <code class="cCode">DATE()</code> returns <code class="cCode">{12/25/1999}</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521010"> </a><div class="pCellBody">
+TODAY
+</div>
+</td>
+    <td><a name="wp521012"> </a><div class="pCellBody">
+Returns today&#39;s date.
+</div>
+<a name="wp521013"> </a><div class="pCellBody">
+If today is 12/25/1999, <code class="cCode">TODAY()</code> returns <code class="cCode">{12/25/1999}</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521015"> </a><div class="pCellBody">
+DATEVAL
+</div>
+</td>
+    <td><a name="wp521017"> </a><div class="pCellBody">
+Converts a character string to a date.
+</div>
+<a name="wp521018"> </a><div class="pCellBody">
+<code class="cCode">DATEVAL(&#39;01/30/1989&#39;)</code> returns <code class="cCode">{01/30/1989}</code>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521020"> </a><div class="pCellBody">
+CTOD
+</div>
+</td>
+    <td><a name="wp521022"> </a><div class="pCellBody">
+Converts a character string to a date. An optional second parameter specifies the format of the character string: 0 (the default) returns MM/DD/YY, 1 returns <br />DD/MM/YY, and 2 returns YY/MM/DD.
+</div>
+<a name="wp521023"> </a><div class="pCellBody">
+<code class="cCode">CTOD(&#39;01/30/1989&#39;)</code> returns <code class="cCode">{01/30/1989}</code>
+</div>
+<a name="wp521024"> </a><div class="pCellBody">
+<code class="cCode">CTOD(&#39;01/30/1989&#39;,1)</code> returns <code class="cCode">{30/01/1989}</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp514558"> </a><p class="pBody">
+The following examples use some of the number and date functions.
+</p>
+<a name="wp511379"> </a><p class="pBody">
+Retrieve all employees that have been with the company at least 90 days:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT first_name, last_name FROM emp<a name="wp515017"> </a>
+  WHERE DATE() &#8211; hire_date &gt;= 90<a name="wp515018"> </a>
+</pre></div>
+<a name="wp515019"> </a><p class="pBody">
+Retrieve all employees hired in January of this year or last year:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT first_name, last_name FROM emp <a name="wp511387"> </a>
+  WHERE MONTH(hire_date) = 1 <a name="wp511389"> </a>
+  AND (YEAR(hire_date) = YEAR(DATE())<a name="wp512416"> </a>
+  OR YEAR(hire_date) = YEAR(DATE()) &#8211; 1)<a name="wp511391"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

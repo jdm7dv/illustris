@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Sloučit větve CVS">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Tento pohled Cheat Sheet vám ukazuje kroky ke sloučení změn z jedné větve CVS do jiné, resp. HEAD. Pokud potřebujete v některém kroku pomoc, klepněte na ikonu (?)
+      napravo.
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Určit informace o větvi a verzi">
+    <description>
+      Prvním krokem je určení, <b>které</b> dvě větve budou sloučeny, ve které <b>verzi</b> byl obsah rozdělen do větví a co bude <b>cílová</b> větev (kam půjde výsledek sloučení).
+      Jakmile máte tyto informace, můžete přejít k dalšímu kroku.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Zapůjčit projekt">
+    <description>
+      Před sloučením musíte <b>zapůjčit</b> projekt, který chcete slučovat, a přenést jej do pracovního prostoru. Toto můžete provést buď přes průvodce importem, nebo přidáním vašeho úložiště z Perspektivy prozkoumání úložiště CVS, popř. klepněte na tlačítko (?), abyste zobrazili nápovědu.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="Načíst místo určení do pracovního prostoru">
+    <description>
+      V navigátoru klepněte pravým tlačítkem myši na projekt a vyberte Nahradit &gt;další větví nebo verzí. Vyberte cílovou větev. Tím se načte nejnovější obsah větve do pracovního prostoru.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Sloučit podrobnosti">
+    <description>
+      Opět v navigátoru klepněte pravým tlačítkem myši na projekt a vyberte <b>Tým</b>
+      &gt; <b>Sloučit</b> a proveďte kroky v průvodci. V tomto průvodci určete podrobnosti sloučení.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Pracovat s editorem sloučení">
+    <description>
+V editoru sloučení provedete ruční sloučení změn. Tento krok nahraje požadované změny do pracovního prostoru. Po sloučení všech změn a ubezpečení o výsledku přejděte k dalšímu kroku.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Potvrdit změny">
+    <description>
+      Klepněte pravým tlačítkem myši na projekt a vyberte <b>Tým</b> &gt; <b>Synchronizovat s úložištěm</b> a potom potvrďte všechny změny v úložišti. Tento krok završuje přenos změn z pracovního prostoru do úložiště CVS a finalizuje sloučení.
+    </description>
+  </item>
+
+</cheatsheet>

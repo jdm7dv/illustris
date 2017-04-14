@@ -1,0 +1,28 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc08#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a plot of the power spectrum of 
+; the simulated signal with a 30 cycle/second
+; periodic component added.
+
+@sigprc01  ; compute time data sequence u
+
+; f = [0.0, 1.0/(N*delt), ... , 1.0/(2.0*delt)]
+F = FINDGEN(N/2+1) / (N*delt) 
+
+u_a = U + SIN(2*!PI*30.0*delt*FINDGEN(N))
+
+v_a = FFT(u_a)
+
+; Log-log plot of power spectrum
+IPLOT, F, ABS(v_a(0:N/2))^2, YTITLE='Power Spectrum', $
+    XTITLE='Frequency in cycles / second', $
+    TITLE='Power Spectrum with (solid) and without (dashed)' $
+    +' Aliased 30 Cycles/Second Component'
+
+; Overplot without window (dashed).
+IPLOT, F, ABS((FFT(U))(0:N/2))^2, LINESTYLE=2, $
+   YRANGE=[1.0e-8,1.0], XRANGE=[1.0,1.0/(2.0*delt)], $
+   /Y_LOG, /X_LOG, YMINOR=0, /OVERPLOT

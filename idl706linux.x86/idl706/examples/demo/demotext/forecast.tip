@@ -1,0 +1,7 @@
+2 3
+welcome|Use IDL for time-series analysis.
+showing|Extrapolate data for future points 
+data|in time.
+select|You can select the order of the model and 
+number|the number of forecasts to generate
+generate|for a new data set.

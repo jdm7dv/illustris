@@ -1,0 +1,155 @@
+
+
+
+
+             WELCOME TO SURFACE DEMO
+
+
+This demo shows a the graphic capabilities of a
+an IDL Object Graphics surface object. These include:
+ - texture mapping,
+ - point picking,
+ - tracing,
+ - masking (or transparency), 
+ - interactive change of orientation,
+ - vertex coloring,
+ - hiding.
+
+You can rotate the surface by positioning the mouse in the
+draw widget, holding down the left mouse button, and
+dragging the mouse.   The current rotation constraint will
+be applied as you drag.
+
+
+MENU OPTIONS
+------------
+
+File Menu:
+    Select "Quit" to exit the demonstration.
+
+Options Menu:
+    Select "Flat" or "Gouraud" from the "Shading"
+    sub-menu to change the way IDL handles lightsource
+    shading on the surface.
+
+    Select an option from the "Style" sub-menu
+    to change the way the surface is rendered.
+    Note that the "Lego Solid" option may take
+    a few seconds to render.
+
+    Select a skirt height value from the "Skirt"
+    sub-menu to choose between different values of
+    the "skirt" that surrounds the object.
+
+    Select "Low," "Medium," or "High" from the
+    "Drag Quality" sub-menu to change the way the
+    surface is rendered during rotation. This setting
+    does not affect the rendering quality of the
+    surface when you are _not_ rotating it.
+
+    Select an option from the "Tracing" sub-menu
+    to select a "region of interest" in the surface
+    and then display only that region. To select
+    a region, do the following:
+
+     i)   Select "Trace Mode" (the menu item should
+          change to "Trace Mode (on)"). This enables
+	  the tracing selection mode.
+
+     ii)  Select one or more regions by clicking
+          the right mouse button on the corners of
+	  the regions. The boundaries of the regions
+	  are indicated by red lines.
+
+     iii) Select "Trace Mask" (the menu item should
+	  change to "Trace Mask (on)"). The display
+	  now shows only the selected region.
+
+     iv)  To remove the trace mask, select "Trace
+	  Reset" (the menu item should change to
+	  "Trace Reset (on)"). This removes the
+	  red lines marking your region of interest.
+
+     v)   Select "Trace Mask" (the menu should change
+	  to "Trace Mask (off)"). This will redisplay
+	  the entire surface.
+
+    Select "Hidden" to remove points or lines that are
+    "behind" other points or lines in the rendered
+    surface. Hidden line removal is computationally
+    expensive, and is not done by default. This option
+    is only available if you have selected "Point,"
+    "Wire," or "Lego Wire" from the Style sub-menu.
+
+    Select "Vertex Colored" to toggle the display between
+    showing the surface with a specific color at each
+    vertex and showing the surface in a single color.
+
+    Select "Texture Mapping" to toggle the overlay of
+    an image on the solid surface.
+
+    Select "Line Style" to toggle the display between
+    solid and dashed lines. This option not available
+    when the surface is rendered as a solid, lego solid
+    or as points.
+
+View Menu:
+
+    Select "Animate" to display a short animation of
+    the surface being warped.
+
+    Select "Reset Orientation" to restore the surface
+    to the original orientation in space.
+
+About Menu:
+
+    Select "About Surface Objects" to display this help
+    text.
+
+FEATURES OF THE SURFACE DEMO
+----------------------------
+
+<<Data Minimum Slider>> 
+    Adjust this slider to select the minimum value 
+    to be rendered. Data smaller than this value will
+    not be displayed.
+
+<<Data Maximum Slider>> 
+    Adjust this slider to select the maximum value 
+    to be rendered. Data larger than this value will
+    not be displayed.
+
+<<Scaling slider>>
+    Adjust this slider to scale the size of the surface
+    between 75% and 125% of its original size.
+
+<<Constrain Rotations droplist>>
+    Select from this list to change how
+    left-click-and-dragging in the graphic will rotate 
+    the view.
+
+    Tip: If you have the "about Screen Z" rotation
+    Constraint selected, click and drag in
+    a motion arcing about the center of the graphics
+    area for consistent rotation speed.  The farther
+    from the center you make your arc, the slower
+    the rotation.
+
+HOTKEYS
+-------
+
+    In most situations, you can use your keyboard to select
+    from the <<Constrain Rotations>> droplist.  To select
+    one of the rotation constraints type:
+
+       X, 
+       Y,
+       Z,
+       R,
+       G,
+       B or 
+       U.
+
+    Also, to toggle the display of the red, green and blue
+    rotation axes, you can type H.
+ 

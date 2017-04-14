@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:55:21" />
+  <title>Connecting to a Data Source Using a Logon Dialog Box</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp574550"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Logon Dialog Box
+</h1>
+<hr /><a name="wp574553"> </a><p class="pBody">
+Some ODBC applications display a logon dialog box when you are connecting to a data source. In these cases, the data source name has already been specified.
+</p>
+<a name="wp574571"> </a><p class="pBody">
+In this dialog box, perform the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp574572"> </a><div class="pSmartList1"><li>In the Host field, type either the name or the IP address of the server to which you want to connect.</li></div><a name="wp574573"> </a><div class="pSmartList1"><li>In the Port Number field, type the number of your Oracle listener. Check with your database administrator for the correct number.</li></div><a name="wp580836"> </a><div class="pSmartList1"><li>In the SID field, type the Oracle System Identifier that refers to the instance of Oracle running on the server. This option and the Service Name option are mutually exclusive. If the Service Name field is specified, do not specify this field.</li></div><a name="wp609157"> </a><div class="pSmartList1"><li>In the Service Name field, type the Oracle service name that specifies the database used for the connection. The service name is a string that is the global database name&#8212;a name that comprises the database name and domain name, for example:</li></div><a name="wp608942"> </a><p class="pSyntaxEmbed">
+sales.us.acme.com
+</p>
+<a name="wp608943"> </a><p class="pBodyIndent12pxBeforeAfter">
+The service name is included as part of the Oracle connect descriptor, which is a description of the destination for a network connection. The service name is specified in the CONNECT_DATA parameter of the connect descriptor, for example:
+</p>
+<a name="wp608944"> </a><p class="pSyntaxEmbed">
+(CONNECT_DATA=SERVICE_NAME=sales.us.acme.com)
+</p>
+<a name="wp608945"> </a><p class="pBodyIndent12pxBeforeAfter">
+In this example, you would specify sales.us.acme.com as the value for the Service Name connection option.
+</p>
+<a name="wp608946"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option and the SID option are mutually exclusive. If the SID option is specified, do not specify this option.
+</p>
+<a name="wp580838"> </a><div class="pSmartList1"><li>If required, type your Oracle user name.</li></div><a name="wp574576"> </a><div class="pSmartList1"><li>If required, type your Oracle password.</li></div><a name="wp574578"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> to log on to the Oracle database installed on the server you specified and to update the values in the Registry.</li></div></ol></div>
+<a name="wp574579"> </a><p class="pBody">
+NOTE: You can also use OS Authentication to connect to an Oracle database. See <a  href="RORACLEwp7.html#wp574851">&quot;OS Authentication&quot;</a> for details.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

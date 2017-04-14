@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/14/04 11:47:58" />
+  <title>Using Connection Retry</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp592469"> </a><h1 class="pNewHTMLPageNoNum">
+Using Connection Retry
+</h1>
+<hr /><a name="wp596254"> </a><p class="pBody">
+Connection retry is a useful feature that is available in the following DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers: DB2 Wire Protocol, Informix Wire Protocol, Oracle Wire Protocol, Oracle, SQL Server Wire Protocol (UNIX only), and Sybase Wire Protocol.
+</p>
+<a name="wp592470"> </a><p class="pBody">
+<em class="cEmphasis">Connection retry</em> defines the number of times the driver attempts to connect to the primary and, if configured, alternate database servers after the initial unsuccessful connection attempt. Connection retry can be an important strategy for system recovery. For example, suppose you have a power failure in which both the client and the server fails. When the power is restored and all computers are restarted, the client may be ready to attempt a connection before the server has completed its startup routines. If connection retry is enabled, the client application can continue to retry the connection until a connection is successfully accepted by the server.
+</p>
+<a name="wp592471"> </a><p class="pBody">
+Connection retry can be used in environments that have only one server or can be used as a complementary feature with connection failover in environments with multiple servers. 
+</p>
+<a name="wp592472"> </a><p class="pBody">
+Using connection options, you can specify the number of times the data provider attempts to connect and the time in seconds between connection attempts. For details on configuring connection retry, see the appropriate driver chapter.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

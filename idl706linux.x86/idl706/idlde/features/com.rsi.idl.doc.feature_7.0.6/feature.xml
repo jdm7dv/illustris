@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.rsi.idl.doc.feature"
+      label="%featureName"
+      version="7.0.6"
+      provider-name="%featureProvider"
+      plugin="com.rsi.idl.doc"
+      image="idlHelp_128x128.png">
+
+   <description url="%featureURL">
+      %featureName
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="ITT Visual Information Solutions" url="http://www.ittvis.com/codebank/workbench/"/>
+   </url>
+
+   <plugin
+         id="com.rsi.idl.doc"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.platform"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.analyst"
+         download-size="0"
+         install-size="0"
+         version="7.0.3"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.base"
+         download-size="0"
+         install-size="0"
+         version="7.0.3"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.core"
+         download-size="0"
+         install-size="0"
+         version="7.0.3"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.dm"
+         download-size="0"
+         install-size="0"
+         version="7.0.3"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.ext"
+         download-size="0"
+         install-size="0"
+         version="7.0.3"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.tutorials"
+         download-size="0"
+         install-size="0"
+         version="7.0.3"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.updates"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.wb"
+         download-size="0"
+         install-size="0"
+         version="7.0.3"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.wn"
+         download-size="0"
+         install-size="0"
+         version="7.0.6"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.wv"
+         download-size="0"
+         install-size="0"
+         version="7.0.3"
+         unpack="false"/>
+
+   <plugin
+         id="com.rsi.idl.doc.dicom"
+         download-size="0"
+         install-size="0"
+         version="7.0.3"
+         unpack="false"/>
+
+</feature>

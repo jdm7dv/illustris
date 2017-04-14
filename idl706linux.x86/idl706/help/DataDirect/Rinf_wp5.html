@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:41:00" />
+  <title>Connecting to a Data Source Using a Connection String</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp549416"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Connection String
+</h1>
+<hr /><a name="wp550724"> </a><p class="pBody">
+If your application requires a connection string for connecting to a database, you must specify the data source name that tells the driver where to find the default connection information. Optionally, you may specify <em class="cEmphasis">attribute=value</em> pairs in the connection string to override the default values stored in the data source definition.
+</p>
+<a name="wp550725"> </a><p class="pBody">
+The connection string has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=<code><em>data_source_name</em></code>[;<code><em>attribute=value</em></code>[;<code><em>attribute=value</em></code>]...]<a name="wp550726"> </a>
+</pre></div>
+<a name="wp550731"> </a><p class="pBody">
+<a  href="Rinf_wp5.html#wp567912">Table&#160;4-1</a> gives the long and short names for each attribute, as well as a description. You can specify either long or short names in the connection string. Connection string attribute names are the same as the option names on the driver Setup dialog box tabs unless otherwise noted. The connection string attribute name does not have spaces between the words. For example, the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em> is equivalent to the option name <em class="cEmphasis">Application Using Threads</em>.
+</p>
+<a name="wp550732"> </a><p class="pBody">
+The defaults listed in the table are initial defaults that apply when no value is specified in either the data source definition or in the connection string. If you specified a value for the attribute when configuring the data source, that value is the default.
+</p>
+<a name="wp550377"> </a><p class="pBody">
+An example of a connection string for Informix is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=INFORMIX TABLES;DB=PAYROLL<a name="wp550378"> </a>
+</pre></div>
+<a name="wp568100"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp567912"> </a><div class="pTableTitleBold">
+Table 4-1.  Informix Wire Protocol Connection String Attributes&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp567916"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp567918"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp567921"> </a><div class="pCellBody">
+AlternateServers	 (ASRV)
+</div>
+</td>
+    <td><a name="wp568816"> </a><div class="pCellBody">
+A list of alternate database servers to which the driver will try to connect if the primary database server is unavailable. Specifying a value for this connection string attribute enables connection failover for the driver. See <a  href="Rstart4.html#wp583803"><a  href="Rstart4.html#wp583803">&quot;Using Connection Failover&quot;</a></a> for a discussion of connection failover.
+</div>
+<a name="wp568783"> </a><div class="pCellBody">
+&#160;
+</div>
+<a name="wp568745"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp567932"> </a><div class="pCellBody">
+For the Informix Wire Protocol driver, you must specify the host name, the port number, and the server name. The string has the format:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+AlternateServers=(HostName=<code><em>hostvalue</em></code>;
+PortNumber=<code><em>portvalue</em></code>;ServerName=<code><em>servervalue</em></code>[, . . .])<a name="wp567933"> </a>
+</pre></div>
+<a name="wp567934"> </a><div class="pCellBody">
+For example, the following AlternateServers value defines two alternate database servers for connection failover:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+AlternateServers=(HostName=Informixhost1;
+PortNumber=5177;ServerName=accounting1, 
+HostName=Informixhost2;PortNumber=5178;
+ServerName=accounting2)<a name="wp567935"> </a>
+</pre></div>
+<a name="wp567939"> </a><div class="pCellBody">
+See <a  href="Rinf_wp9.html#wp556065">&quot;Configuring Connection Failover&quot;</a> for information about other connection string attributes that you can set for this feature.
+</div>
+<a name="wp567940"> </a><p class="pBody">
+&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp567951"> </a><div class="pCellBody">
+ApplicationUsing<br />Threads (AUT)
+</div>
+</td>
+    <td><a name="wp567956"> </a><div class="pCellBody">
+ApplicationUsingThreads={0 | 1}. Determines whether or not the driver works with multi-threaded applications. 
+</div>
+<a name="wp567957"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver is thread-safe and is ensured to work with multi-threaded applications. 
+</div>
+<a name="wp567958"> </a><div class="pCellBody">
+When using the driver with single-threaded applications, you can set this option to 0 to avoid additional processing required for ODBC thread-safety standards.&#160;&#160;&#160;
+</div>
+<a name="wp567962"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Rinf_wp6.html#wp568104">&quot;Performance Considerations&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp567966"> </a><div class="pCellBody">
+CancelDetect<br />Interval (CDI)
+</div>
+</td>
+    <td><a name="wp567968"> </a><div class="pCellBody">
+CancelDetectInterval={0 | 5 | 10 | 30 | 60}. A value in seconds that determines how often the driver checks whether a query has been canceled using SQLCancel.
+</div>
+<a name="wp567969"> </a><div class="pCellBody">
+If the driver determines that SQLCancel has been issued, the query is canceled. This attribute determines whether long-running queries in threaded applications are canceled if the application issues a SQLCancel. If set to 0 (the initial default), queries are not canceled even if SQLCancel is issued.
+</div>
+<a name="wp567970"> </a><div class="pCellBody">
+For example, if CancelDetectInterval is set to 5, then for every pending request, the driver checks every five seconds to see whether the application has canceled execution of the query using SQLCancel.
+</div>
+<a name="wp567973"> </a><div class="pCellBody">
+This attribute can affect performance. See <a  href="Rinf_wp6.html#wp568104">&quot;Performance Considerations&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp567977"> </a><div class="pCellBody">
+ConnectionRetryCount (CRC)
+</div>
+</td>
+    <td><a name="wp568511"> </a><div class="pCellBody">
+Specifies the number of times the driver tries to connect to the primary server, and if configured, to the alternate servers after the initial unsuccessful attempt. See <a  href="Rstart6.html#wp592469"><a  href="Rstart6.html#wp592469">&quot;Using Connection Retry&quot;</a></a> for more information about this feature.
+</div>
+<a name="wp568516"> </a><div class="pCellBody">
+Valid values are integers from 0 to 65535. When set to 0 (the initial default), the driver does not try to connect after the initial unsuccessful attempt.
+</div>
+<a name="wp568517"> </a><div class="pCellBody">
+If a connection is not established during the retry attempts, the driver returns an error that is generated by the last server to which it tried to connect.
+</div>
+<a name="wp568518"> </a><div class="pCellBody">
+This attribute and the ConnectionRetryDelay connection string attribute, which specifies the wait interval between attempts, can be used in conjunction with connection failover. &#160;&#160;
+</div>
+<a name="wp567993"> </a><div class="pCellBody">
+See <a  href="Rinf_wp9.html#wp556065">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp567996"> </a><div class="pCellBody">
+ConnectionRetryDelay (CRD)
+</div>
+</td>
+    <td><a name="wp568000"> </a><div class="pCellBody">
+Specifies the number of seconds that the driver waits after the initial unsuccessful connection attempt before retrying a connection to the primary server and, if specified, to the alternate servers. 
+</div>
+<a name="wp568001"> </a><div class="pCellBody">
+Valid values are integers from 0 to 65535. The default value is 3 (seconds). When set to 0, there is no delay between retries.
+</div>
+<a name="wp568002"> </a><div class="pCellBody">
+NOTE: This attribute has no effect unless the ConnectionRetryCount connection string attribute is set to an integer value greater than 0.
+</div>
+<a name="wp568003"> </a><div class="pCellBody">
+This attribute and the ConnectionRetryCount connection string attribute, which specifies the number of times the driver tries to connect after the initial unsuccessful attempt, can be used in conjunction with connection failover. &#160;&#160;&#160;
+</div>
+<a name="wp568008"> </a><div class="pCellBody">
+See <a  href="Rinf_wp9.html#wp556065">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568011"> </a><div class="pCellBody">
+Database (DB)
+</div>
+</td>
+    <td><a name="wp568013"> </a><div class="pCellBody">
+The name of the database to which you want to connect.
+</div>
+<a name="wp568014"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Database Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568017"> </a><div class="pCellBody">
+DataSourceName (DSN)
+</div>
+</td>
+    <td><a name="wp568019"> </a><div class="pCellBody">
+A string that identifies an Informix data source configuration. Examples include &quot;Accounting&quot; or &quot;INFORMIX-Serv1.&quot;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568022"> </a><div class="pCellBody">
+HostName (HOST)
+</div>
+<a name="wp568026"> </a><div class="pCellBody">
+<img src="images/iconwin4.gif" height="27" width="27" border="0" hspace="0" vspace="0"/>
+</div>
+</td>
+    <td><a name="wp568028"> </a><div class="pCellBody">
+The name of the machine on which the Informix database resides.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568032"> </a><div class="pCellBody">
+IANAAppCodePage (IACP)
+</div>
+<a name="wp568036"> </a><div class="pCellBody">
+<img src="images/iconunix5.gif" height="31" width="26" border="0" hspace="0" vspace="0"/>
+</div>
+</td>
+    <td><a name="wp568043"> </a><div class="pCellBody">
+See <a  href="appcodepage.html#wp526223"><a  href="appcodepage.html#wp526223">&quot;Values for IANAAppCodePage Connection String Attribute&quot;</a></a> for a list of valid values for this attribute. The code page that you specify must be the same as the code page used by your application. This attribute applies to UNIX only.
+</div>
+<a name="wp568045"> </a><div class="pCellBody">
+For this non-Unicode driver, the Driver Manager determines the value of the application&#8217;s code page by checking for an IANAAppCodePage value in the following order:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp568046"> </a><div class="pSmartList1"><li>In the connection string</li></div><a name="wp568047"> </a><div class="pSmartList1"><li>In the DataSource section of the system information file (odbc.ini)</li></div><a name="wp568048"> </a><div class="pSmartList1"><li>In the ODBC section of the system information file (odbc.ini)</li></div></ul></div>
+<a name="wp568049"> </a><div class="pCellBody">
+If no IANAAppCodePage value is found, the driver uses the default value of 4 (ISO 8859-1 Latin-1). 
+</div>
+<a name="wp568052"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568055"> </a><div class="pCellBody">
+LoadBalancing (LB)
+</div>
+</td>
+    <td><a name="wp568523"> </a><div class="pCellBody">
+LoadBalancing={0 | 1}. Determines whether the driver uses client load balancing in its attempts to connect to primary and alternate database servers. See <a  href="Rstart5.html#wp583520"><a  href="Rstart5.html#wp583520">&quot;Using Client Load Balancing&quot;</a> </a>for more information.
+</div>
+<a name="wp568528"> </a><div class="pCellBody">
+When set to 1, the driver attempts to connect to the database servers in random order. 
+</div>
+<a name="wp568529"> </a><div class="pCellBody">
+When set to 0, (the initial default), client load balancing is not used and the driver connects to each database server based on its sequential order (primary server first, then, alternate servers in the order they are specified).
+</div>
+<a name="wp568530"> </a><div class="pCellBody">
+NOTE: This attribute has no effect unless alternate servers are defined for the AlternateServers connection string attribute.
+</div>
+<a name="wp568068"> </a><div class="pCellBody">
+The LoadBalancing connection string attribute is an optional setting that you can use in conjunction with connection failover. See <a  href="Rinf_wp9.html#wp556065">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568074"> </a><div class="pCellBody">
+LogonID (UID)
+</div>
+</td>
+    <td><a name="wp568076"> </a><div class="pCellBody">
+Your user name as specified on the Informix server.
+</div>
+<a name="wp568077"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is User Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568080"> </a><div class="pCellBody">
+Password (PWD)
+</div>
+</td>
+    <td><a name="wp568082"> </a><div class="pCellBody">
+A password.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568085"> </a><div class="pCellBody">
+PortNumber (PORT)
+</div>
+</td>
+    <td><a name="wp568087"> </a><div class="pCellBody">
+The port number of the server listener. There is no default value.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568090"> </a><div class="pCellBody">
+ServerName<br />(SRVR)
+</div>
+</td>
+    <td><a name="wp568092"> </a><div class="pCellBody">
+The name of the server running the Informix database.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp568095"> </a><div class="pCellBody">
+TrimBlankFrom<br />IndexName (TBFIN)
+</div>
+</td>
+    <td><a name="wp568097"> </a><div class="pCellBody">
+TrimBlankFromIndexName={0 | 1}. Determines whether the leading space should be trimmed from a system-generated index name. This option is provided to address problems with applications that cannot process a leading space in index names. 
+</div>
+<a name="wp568098"> </a><div class="pCellBody">
+When set to 0, the driver does not trim the space.
+</div>
+<a name="wp568099"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver trims the leading space. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp568101"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

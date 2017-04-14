@@ -1,0 +1,26 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc09#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a plot of the simulated signal - 
+; an analytic signal for r(t) using Hilbert transform.
+
+; Number of time samples in data set
+N = 1024   
+
+; Sampling interval in seconds
+delt = 0.02                   
+
+; Vector of discrete times
+T = delt * FINDGEN(N)         
+
+f1 = 5.0 / ((n-1)*delt)
+f2 = 0.5 / ((n-1)*delt)
+
+R = SIN(2*!PI*f1*T) * SIN(2*!PI*f2*T)
+ 
+IPLOT, T, R, -FLOAT(HILBERT(R)), $
+    XTITLE = 'time in seconds', $
+    YTITLE = 'real', ZTITLE = 'imaginary', $
+    TITLE='Analytic Signal for r(t) Using Hilbert Transform'

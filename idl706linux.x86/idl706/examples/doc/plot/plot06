@@ -1,0 +1,30 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/plot06#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; Compile the file plot05.pro, which contains two IDL procedures
+; named "EX_BOX" and "EX_BARGRAPH". 
+
+.r plot05.pro
+
+; Define variables.
+
+@plot01
+
+; Load a colorful color table.
+
+LOADCT, 39
+
+; As in the previous example, the PLOT procedure is used to draw
+; the axes and to establish the scaling using the NODATA keyword.
+
+PLOT, year, CHINOOK, YRANGE = [MIN(allpts),MAX(allpts)], $
+    TITLE = 'Salmon Populations', /NODATA, XRANGE = [year(0), 1990]	
+
+; Retrieve the y value of the bottom X-axis and store it in
+; the variable minval. Pass this variable to the EX_BARGRAPH procedure.
+
+minval = !Y.CRANGE(0)
+
+EX_BARGRAPH, minval

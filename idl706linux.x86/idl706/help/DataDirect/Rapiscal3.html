@@ -1,0 +1,819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:41" />
+  <title>Scalar Functions</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp3828"> </a><h1 class="pNewHTMLPageNoNum">
+Scalar Functions
+</h1>
+<hr /><a name="wp969"> </a><p class="pBody">
+This section lists the scalar functions that ODBC supports. Your database system may not support all of these functions. See the documentation for your database system to find out which functions are supported. Also, depending on the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> driver that you are using, all of the scalar functions may not be supported. To check which scalar functions are supported by a driver, use the SQLGetInfo ODBC function.
+</p>
+<a name="wp1698"> </a><p class="pBody">
+You can use these functions in SQL statements using the following syntax:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+{fn <code><em>scalar-function</em></code>}<a name="wp1678"> </a>
+</pre></div>
+<a name="wp1701"> </a><p class="pBody">
+where <em class="cEmphasis">scalar-function</em> is one of the functions listed in the following tables. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT {fn UCASE(NAME)} FROM EMP<a name="wp1704"> </a>
+</pre></div>
+<a name="wp971"> </a><h3 class="pHeading2">
+String Functions
+</h3>
+<a name="wp977"> </a><p class="pBody">
+<a  href="Rapiscal3.html#wp358">Table&#160;B-3</a> lists the string functions that ODBC supports.
+</p>
+<a name="wp979"> </a><p class="pBody">
+The string functions listed can take the following arguments:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp981"> </a><div class="pSmartList1"><li><em class="cEmphasis">string_exp</em> can be the name of a column, a string literal, or the result of another scalar function, where the underlying data type is SQL_CHAR, SQL_VARCHAR, or SQL_LONGVARCHAR.</li></div><a name="wp983"> </a><div class="pSmartList1"><li><em class="cEmphasis">start</em>, <em class="cEmphasis">length</em>, and <em class="cEmphasis">count</em> can be the result of another scalar function or a literal numeric value, where the underlying data type is SQL_TINYINT, SQL_SMALLINT, or SQL_INTEGER.</li></div></ul></div>
+<a name="wp985"> </a><p class="pBody">
+The string functions are one-based; that is, the first character in the string is character 1.
+</p>
+<a name="wp987"> </a><p class="pBody">
+Character string literals must be surrounded in single quotation marks.
+</p>
+<a name="wp3664"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp358"> </a><div class="pTableTitleBold">
+Table B-3.  Scalar String Functions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp1241"> </a><div class="pCellHeading">
+Function
+</div>
+</th>
+    <th><a name="wp1243"> </a><div class="pCellHeading">
+Returns
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp150"> </a><div class="pCellBody">
+ASCII(<em class="cEmphasis">string_exp</em>)
+</div>
+</td>
+    <td><a name="wp156"> </a><div class="pCellBody">
+ASCII code value of the leftmost character of <em class="cEmphasis">string_exp</em> as an integer.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp2064"> </a><div class="pCellBody">
+BIT_LENGTH(<em class="cEmphasis">string_exp</em>)<br /><em class="cEmphasis">[ODBC 3.0 only]</em>
+</div>
+</td>
+    <td><a name="wp2066"> </a><div class="pCellBody">
+The length in bits of the string expression.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp162"> </a><div class="pCellBody">
+CHAR(<em class="cEmphasis">code</em>)
+</div>
+</td>
+    <td><a name="wp166"> </a><div class="pCellBody">
+The character with the ASCII code value specified by <em class="cEmphasis">code</em>. <em class="cEmphasis">code</em> should be between 0 and 255; otherwise, the return value is data-source dependent.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp2080"> </a><div class="pCellBody">
+CHAR_LENGTH(<em class="cEmphasis">string_exp</em>)<br /><em class="cEmphasis">[ODBC 3.0 only]</em>
+</div>
+</td>
+    <td><a name="wp2082"> </a><div class="pCellBody">
+The length in characters of the string expression, if the string expression is of a character data type; otherwise, the length in bytes of the string expression (the smallest integer not less than the number of bits divided by 8). (This function is the same as the CHARACTER_LENGTH function.)
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp2084"> </a><div class="pCellBody">
+CHARACTER_<br />LENGTH(string_exp) <br /><em class="cEmphasis">[ODBC 3.0 only]</em>
+</div>
+</td>
+    <td><a name="wp2086"> </a><div class="pCellBody">
+The length in characters of the string expression, if the string expression is of a character data type; otherwise, the length in bytes of the string expression (the smallest integer not less than the number of bits divided by 8). (This function is the same as the CHAR_LENGTH function.)
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp180"> </a><div class="pCellBody">
+CONCAT(<em class="cEmphasis">string_exp1</em>, <em class="cEmphasis">string_exp2</em>)
+</div>
+</td>
+    <td><a name="wp184"> </a><div class="pCellBody">
+The string resulting from concatenating <em class="cEmphasis">string_exp2</em> and <em class="cEmphasis">string_exp1</em>. The string is system dependent.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp190"> </a><div class="pCellBody">
+DIFFERENCE(<em class="cEmphasis">string_exp1</em>, <em class="cEmphasis">string_exp2</em>)
+</div>
+</td>
+    <td><a name="wp194"> </a><div class="pCellBody">
+An integer value that indicates the difference between the values returned by the SOUNDEX function for <em class="cEmphasis">string_exp1</em> and <em class="cEmphasis">string_exp2</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp200"> </a><div class="pCellBody">
+INSERT(<em class="cEmphasis">string_exp1</em>, <em class="cEmphasis">start</em>,<span style="font-style: italic"> </span><em class="cEmphasis">length</em>, <em class="cEmphasis">string_exp2</em>)
+</div>
+</td>
+    <td><a name="wp204"> </a><div class="pCellBody">
+A string where <em class="cEmphasis">length</em> characters have been deleted from <em class="cEmphasis">string_exp1</em> beginning at <em class="cEmphasis">start</em> and where <em class="cEmphasis">string_exp2</em> has been inserted into <em class="cEmphasis">string_exp</em>, beginning at <em class="cEmphasis">start</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp210"> </a><div class="pCellBody">
+LCASE(<em class="cEmphasis">string_exp</em>)
+</div>
+</td>
+    <td><a name="wp216"> </a><div class="pCellBody">
+Uppercase characters in <em class="cEmphasis">string_exp</em> converted to lowercase.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp222"> </a><div class="pCellBody">
+LEFT(<em class="cEmphasis">string_exp</em>,<em class="cEmphasis">count</em>)
+</div>
+</td>
+    <td><a name="wp226"> </a><div class="pCellBody">
+The <em class="cEmphasis">count</em> of characters of <em class="cEmphasis">string_exp</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp232"> </a><div class="pCellBody">
+LENGTH(<em class="cEmphasis">string_exp</em>)
+</div>
+</td>
+    <td><a name="wp238"> </a><div class="pCellBody">
+The number of characters in <em class="cEmphasis">string_exp</em>, excluding trailing blanks and the string termination character.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp244"> </a><div class="pCellBody">
+LOCATE(<em class="cEmphasis">string_exp1</em>, <em class="cEmphasis">string_exp2</em>[,<em class="cEmphasis">start</em>])
+</div>
+</td>
+    <td><a name="wp248"> </a><div class="pCellBody">
+The starting position of the first occurrence of <em class="cEmphasis">string_exp1</em> within<span style="font-style: italic"> </span><em class="cEmphasis">string_exp2</em>. If <em class="cEmphasis">start</em> is not specified, the search begins with the first character position in <em class="cEmphasis">string_exp2</em>. If <em class="cEmphasis">start</em> is specified, the search begins with the character position indicated by the value of <em class="cEmphasis">start</em>. The first character position in <em class="cEmphasis">string_exp2</em> is indicated by the value 1. If <em class="cEmphasis">string_exp1</em> is not found, 0 is returned<span style="font-style: italic">.</span>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp254"> </a><div class="pCellBody">
+LTRIM(<em class="cEmphasis">string_exp</em>)
+</div>
+</td>
+    <td><a name="wp260"> </a><div class="pCellBody">
+The characters of <em class="cEmphasis">string_exp</em>, with leading blanks removed.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp2098"> </a><div class="pCellBody">
+OCTET_LENGTH(<em class="cEmphasis">string_exp</em>)<br /><em class="cEmphasis">[ODBC 3.0 only]</em>
+</div>
+</td>
+    <td><a name="wp2100"> </a><div class="pCellBody">
+The length in bytes of the string expression. The result is the smallest integer not less than the number of bits divided by 8.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp2102"> </a><div class="pCellBody">
+POSITION(<em class="cEmphasis">character_exp</em> IN <em class="cEmphasis">character_exp</em>)<br /><em class="cEmphasis">[ODBC 3.0 only]</em>
+</div>
+</td>
+    <td><a name="wp2104"> </a><div class="pCellBody">
+The position of the first character expression in the second character expression. The result is an exact numeric with an implementation-defined precision and a scale of 0.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp266"> </a><div class="pCellBody">
+REPEAT(<em class="cEmphasis">string_exp</em>,<span style="font-style: italic"> </span><em class="cEmphasis">count</em>)
+</div>
+</td>
+    <td><a name="wp270"> </a><div class="pCellBody">
+A string composed of <em class="cEmphasis">string_exp</em> repeated <em class="cEmphasis">count</em> times.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp276"> </a><div class="pCellBody">
+REPLACE(<em class="cEmphasis">string_exp1</em>,<span style="font-style: italic"> </span><em class="cEmphasis">string_exp2</em>,<span style="font-style: italic"> </span><em class="cEmphasis">string_exp3</em>)
+</div>
+</td>
+    <td><a name="wp280"> </a><div class="pCellBody">
+Replaces all occurrences of <em class="cEmphasis">string_exp2</em> in <em class="cEmphasis">string_exp1</em> with <em style="font-style: italic" class="cEmphasis">string_exp3</em><span style="font-style: italic">.</span>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp286"> </a><div class="pCellBody">
+RIGHT(<em class="cEmphasis">string_exp</em>,<span style="font-style: italic"> </span><em class="cEmphasis">count</em>)
+</div>
+</td>
+    <td><a name="wp290"> </a><div class="pCellBody">
+The rightmost <em class="cEmphasis">count</em> of characters in <em class="cEmphasis">string_exp</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp296"> </a><div class="pCellBody">
+RTRIM(<em class="cEmphasis">string_exp</em>)
+</div>
+</td>
+    <td><a name="wp302"> </a><div class="pCellBody">
+The characters of <em class="cEmphasis">string_exp</em> with trailing blanks removed.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp316"> </a><div class="pCellBody">
+SOUNDEX(<em class="cEmphasis">string_exp</em>)
+</div>
+</td>
+    <td><a name="wp320"> </a><div class="pCellBody">
+A data-source-dependent string representing the sound of the words in <em class="cEmphasis">string_exp</em>. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp326"> </a><div class="pCellBody">
+SPACE(<em class="cEmphasis">count</em>)
+</div>
+</td>
+    <td><a name="wp334"> </a><div class="pCellBody">
+A string consisting of <em class="cEmphasis">count</em> spaces.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp340"> </a><div class="pCellBody">
+SUBSTRING(<em class="cEmphasis">string_exp</em>,<span style="font-style: italic"> </span><em class="cEmphasis">start</em>,<span style="font-style: italic"> </span><em class="cEmphasis">length</em>)
+</div>
+</td>
+    <td><a name="wp346"> </a><div class="pCellBody">
+A string derived from<span style="font-style: italic"> </span><em class="cEmphasis">string_exp</em> beginning at the character position <em class="cEmphasis">start</em> for <em class="cEmphasis">length</em> characters.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp352"> </a><div class="pCellBody">
+UCASE(<em class="cEmphasis">string_exp</em>)
+</div>
+</td>
+    <td><a name="wp356"> </a><div class="pCellBody">
+Lowercase characters in <em class="cEmphasis">string_exp</em> converted to uppercase.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp3602"> </a><h3 class="pHeading2">
+Numeric Functions
+</h3>
+<a name="wp1000"> </a><p class="pBody">
+<a  href="Rapiscal3.html#wp4230">Table&#160;B-4</a> lists the numeric functions that ODBC supports.
+</p>
+<a name="wp1002"> </a><p class="pBody">
+The numeric functions listed can take the following arguments:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1004"> </a><div class="pSmartList1"><li><em class="cEmphasis">numeric_exp</em> can be a column name, a numeric literal, or the result of another scalar function, where the underlying data type is SQL_NUMERIC, SQL_DECIMAL, SQL_TINYINT, SQL_SMALLINT, SQL_INTEGER, SQL_BIGINT, SQL_FLOAT, SQL_REAL, or SQL_DOUBLE.</li></div><a name="wp1006"> </a><div class="pSmartList1"><li><em class="cEmphasis">float_exp</em> can be a column name, a numeric literal, or the result of another scalar function, where the underlying data type is SQL_FLOAT.</li></div><a name="wp1008"> </a><div class="pSmartList1"><li><em class="cEmphasis">integer_exp</em> can be a column name, a numeric literal, or the result of another scalar function, where the underlying data type is SQL_TINYINT, SQL_SMALLINT, SQL_INTEGER, or SQL_BIGINT.</li></div></ul></div>
+<a name="wp12137"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp4230"> </a><div class="pTableTitleBold">
+Table B-4.  Scalar Numeric Functions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp4234"> </a><div class="pCellHeading">
+Function
+</div>
+</th>
+    <th><a name="wp4236"> </a><div class="pCellHeading">
+Returns
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp4238"> </a><div class="pCellBody">
+ABS(<em class="cEmphasis">numeric_exp</em>)
+</div>
+</td>
+    <td><a name="wp4240"> </a><div class="pCellBody">
+Absolute value of <em style="font-style: italic" class="cEmphasis">numeric_exp</em><span style="font-style: italic">.</span>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4242"> </a><div class="pCellBody">
+ACOS(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4244"> </a><div class="pCellBody">
+Arccosine of <em class="cEmphasis">float_exp</em> as an angle in radians.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4246"> </a><div class="pCellBody">
+ASIN(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4248"> </a><div class="pCellBody">
+Arcsine of <em class="cEmphasis">float_exp</em> as an angle in radians.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4250"> </a><div class="pCellBody">
+ATAN(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4252"> </a><div class="pCellBody">
+Arctangent of <em class="cEmphasis">float_exp</em> as an angle in radians.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4254"> </a><div class="pCellBody">
+ATAN2(<em class="cEmphasis">float_exp1</em>, <em class="cEmphasis">float_exp2</em>)
+</div>
+</td>
+    <td><a name="wp4256"> </a><div class="pCellBody">
+Arctangent of the x and y coordinates, specified by <em class="cEmphasis">float_exp1</em> and <em class="cEmphasis">float_exp2</em> as an angle in radians.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4258"> </a><div class="pCellBody">
+CEILING(<em class="cEmphasis">numeric_exp</em>)
+</div>
+</td>
+    <td><a name="wp4260"> </a><div class="pCellBody">
+Smallest integer greater than or equal to <em style="font-style: italic" class="cEmphasis">numeric_exp</em><span style="font-style: italic">.</span>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4262"> </a><div class="pCellBody">
+COS(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4264"> </a><div class="pCellBody">
+Cosine of <em class="cEmphasis">float_exp</em> as an angle in radians.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4266"> </a><div class="pCellBody">
+COT(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4268"> </a><div class="pCellBody">
+Cotangent of <em class="cEmphasis">float_exp</em> as an angle in radians.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4270"> </a><div class="pCellBody">
+DEGREES(<em class="cEmphasis">numeric_exp</em>)
+</div>
+</td>
+    <td><a name="wp4272"> </a><div class="pCellBody">
+Number if degrees converted from <em class="cEmphasis">numeric_exp</em> radians.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4274"> </a><div class="pCellBody">
+EXP(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4276"> </a><div class="pCellBody">
+Exponential value of <em style="font-style: italic" class="cEmphasis">float_exp</em><span style="font-style: italic">.</span>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4278"> </a><div class="pCellBody">
+FLOOR(<em class="cEmphasis">numeric_exp</em>)
+</div>
+</td>
+    <td><a name="wp4280"> </a><div class="pCellBody">
+Largest integer less than or equal to <em class="cEmphasis">numeric_exp</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4282"> </a><div class="pCellBody">
+LOG(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4284"> </a><div class="pCellBody">
+Natural log of <em style="font-style: italic" class="cEmphasis">float_exp</em><span style="font-style: italic">.</span>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4286"> </a><div class="pCellBody">
+LOG10(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4288"> </a><div class="pCellBody">
+Base 10 log of <em style="font-style: italic" class="cEmphasis">float_exp</em><span style="font-style: italic">.</span>
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4290"> </a><div class="pCellBody">
+MOD(<em class="cEmphasis">integer_exp1</em>, <em class="cEmphasis">integer_exp2</em>)
+</div>
+</td>
+    <td><a name="wp4292"> </a><div class="pCellBody">
+Remainder of <em class="cEmphasis">integer_exp1</em> divided by <em class="cEmphasis">integer_exp2</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4294"> </a><div class="pCellBody">
+PI()
+</div>
+</td>
+    <td><a name="wp4296"> </a><div class="pCellBody">
+Constant value of pi as a floating-point number.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4298"> </a><div class="pCellBody">
+POWER(<em class="cEmphasis">numeric_exp</em>, <em class="cEmphasis">integer_exp</em>)
+</div>
+</td>
+    <td><a name="wp4300"> </a><div class="pCellBody">
+Value of <em class="cEmphasis">numeric_exp</em> to the power of <em class="cEmphasis">integer_exp</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4302"> </a><div class="pCellBody">
+RADIANS(<em class="cEmphasis">numeric_exp</em>)
+</div>
+</td>
+    <td><a name="wp4304"> </a><div class="pCellBody">
+Number of radians converted from <em class="cEmphasis">numeric_exp</em> degrees.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4306"> </a><div class="pCellBody">
+RAND([<em class="cEmphasis">integer_exp</em>])
+</div>
+</td>
+    <td><a name="wp4308"> </a><div class="pCellBody">
+Random floating-point value using <em class="cEmphasis">integer_exp</em> as the optional seed value.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4310"> </a><div class="pCellBody">
+ROUND(<em class="cEmphasis">numeric_exp</em>, <em class="cEmphasis">integer_exp</em>)
+</div>
+</td>
+    <td><a name="wp4312"> </a><div class="pCellBody">
+<em class="cEmphasis">numeric_exp</em> rounded to <em class="cEmphasis">integer_exp</em> places right of the decimal (left of the decimal if <em class="cEmphasis">integer_exp</em> is negative).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4314"> </a><div class="pCellBody">
+SIGN(<em class="cEmphasis">numeric_exp</em>)
+</div>
+</td>
+    <td><a name="wp4316"> </a><div class="pCellBody">
+Indicator of the sign of <em class="cEmphasis">numeric_exp</em>. If <em class="cEmphasis">numeric_exp</em> &lt; 0, -1 is returned. If <em class="cEmphasis">numeric_exp</em> = 0, 0 is returned. If <em class="cEmphasis">numeric_exp</em> &gt; 0, 1 is returned.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4318"> </a><div class="pCellBody">
+SIN(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4320"> </a><div class="pCellBody">
+Sine of <em class="cEmphasis">float_exp</em>, where <em class="cEmphasis">float_exp</em> is an angle in radians.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4322"> </a><div class="pCellBody">
+SQRT(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4324"> </a><div class="pCellBody">
+Square root of <em class="cEmphasis">float_exp</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4326"> </a><div class="pCellBody">
+TAN(<em class="cEmphasis">float_exp</em>)
+</div>
+</td>
+    <td><a name="wp4328"> </a><div class="pCellBody">
+Tangent of <em class="cEmphasis">float_exp</em>, where <em class="cEmphasis">float_exp</em> is an angle in radians.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp4330"> </a><div class="pCellBody">
+TRUNCATE(<em class="cEmphasis">numeric_exp</em>, <em class="cEmphasis">integer_exp</em>)
+</div>
+</td>
+    <td><a name="wp4332"> </a><div class="pCellBody">
+<em class="cEmphasis">numeric_exp</em> truncated to <em class="cEmphasis">integer_exp</em> places right of the decimal. (If <em class="cEmphasis">integer_exp</em> is negative, truncation is to the left of the decimal.)
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp3612"> </a><h3 class="pHeading2">
+Date and Time Functions
+</h3>
+<a name="wp1021"> </a><p class="pBody">
+<a  href="Rapiscal3.html#wp824">Table&#160;B-5</a> lists the date and time functions that ODBC supports.
+</p>
+<a name="wp1023"> </a><p class="pBody">
+The date and time functions listed can take the following arguments:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp1025"> </a><div class="pSmartList1"><li><em class="cEmphasis">date_exp</em> can be a column name, a date or timestamp literal, or the result of another scalar function, where the underlying data type can be represented as SQL_CHAR, SQL_VARCHAR, SQL_DATE, or SQL_TIMESTAMP.</li></div><a name="wp1027"> </a><div class="pSmartList1"><li><em class="cEmphasis">time_exp</em> can be a column name, a timestamp or timestamp literal, or the result of another scalar function, where the underlying data type can be represented as SQL_CHAR, SQL_VARCHAR, SQL_TIME, or SQL_TIMESTAMP.</li></div><a name="wp1029"> </a><div class="pSmartList1"><li><em class="cEmphasis">timestamp_exp</em> can be a column name; a time, date, or timestamp literal; or the result of another scalar function, where the underlying data type can be represented as SQL_CHAR, SQL_VARCHAR, SQL_TIME, SQL_DATE, or SQL_TIMESTAMP.</li></div></ul></div>
+<a name="wp3380"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp824"> </a><div class="pTableTitleBold">
+Table B-5.  Scalar Time and Date Functions&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp1623"> </a><div class="pCellHeading">
+Function
+</div>
+</th>
+    <th><a name="wp1625"> </a><div class="pCellHeading">
+Returns
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp2175"> </a><div class="pCellBody">
+CURRENT_DATE()<br /><em class="cEmphasis">[ODBC 3.0 only]</em>
+</div>
+</td>
+    <td><a name="wp2177"> </a><div class="pCellBody">
+Current date.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp2171"> </a><div class="pCellBody">
+CURRENT_TIME[(<em class="cEmphasis">time-precision</em>)]<br /><em class="cEmphasis">[ODBC 3.0 only]</em>
+</div>
+</td>
+    <td><a name="wp2173"> </a><div class="pCellBody">
+Current local time. The <em class="cEmphasis">time-precision</em> argument determines the seconds precision of the returned value.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp2167"> </a><div class="pCellBody">
+CURRENT_TIMESTAMP[(<em class="cEmphasis">timestamp-precision</em>)]<br /><em class="cEmphasis">[ODBC 3.0 only]</em>
+</div>
+</td>
+    <td><a name="wp2169"> </a><div class="pCellBody">
+Current local date and local time as a timestamp value. The <em class="cEmphasis">timestamp-precision</em> argument determines the seconds precision of the returned timestamp.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp2183"> </a><div class="pCellBody">
+CURDATE()
+</div>
+</td>
+    <td><a name="wp2187"> </a><div class="pCellBody">
+Current date as a date value.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp2189"> </a><div class="pCellBody">
+CURTIME()
+</div>
+</td>
+    <td><a name="wp2192"> </a><div class="pCellBody">
+Current local time as a time value.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp662"> </a><div class="pCellBody">
+DAYNAME(<em class="cEmphasis">date_exp</em>)
+</div>
+</td>
+    <td><a name="wp666"> </a><div class="pCellBody">
+Character string containing a data-source-specific name of the day for the day portion of <em class="cEmphasis">date_exp</em>.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp672"> </a><div class="pCellBody">
+DAYOFMONTH(<em class="cEmphasis">date_exp</em>)
+</div>
+</td>
+    <td><a name="wp676"> </a><div class="pCellBody">
+Day of the month in <em class="cEmphasis">date_exp</em> as an integer value (1&#8211;31).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp682"> </a><div class="pCellBody">
+DAYOFWEEK(<em class="cEmphasis">date_exp</em>)
+</div>
+</td>
+    <td><a name="wp686"> </a><div class="pCellBody">
+Day of the week in <em class="cEmphasis">date_exp</em> as an integer value (1&#8211;7).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp692"> </a><div class="pCellBody">
+DAYOFYEAR(<em class="cEmphasis">date_exp</em>)
+</div>
+</td>
+    <td><a name="wp696"> </a><div class="pCellBody">
+Day of the year in <em class="cEmphasis">date_exp</em> as an integer value (1&#8211;366).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp702"> </a><div class="pCellBody">
+HOUR(<em class="cEmphasis">time_exp</em>)
+</div>
+</td>
+    <td><a name="wp706"> </a><div class="pCellBody">
+Hour in <em class="cEmphasis">time_exp</em> as an integer value (0&#8211;23).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp712"> </a><div class="pCellBody">
+MINUTE(<em class="cEmphasis">time_exp</em>)
+</div>
+</td>
+    <td><a name="wp716"> </a><div class="pCellBody">
+Minute in <em class="cEmphasis">time_exp</em> as an integer value (0&#8211;59).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp722"> </a><div class="pCellBody">
+MONTH(<em class="cEmphasis">date_exp</em>)
+</div>
+</td>
+    <td><a name="wp728"> </a><div class="pCellBody">
+Month in <em class="cEmphasis">date_exp</em> as an integer value (1&#8211;12). 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp734"> </a><div class="pCellBody">
+MONTHNAME(<em class="cEmphasis">date_exp</em>)
+</div>
+</td>
+    <td><a name="wp738"> </a><div class="pCellBody">
+Character string containing the data source-specific name of the month. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp744"> </a><div class="pCellBody">
+NOW()
+</div>
+</td>
+    <td><a name="wp748"> </a><div class="pCellBody">
+Current date and time as a timestamp value. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp754"> </a><div class="pCellBody">
+QUARTER(<em class="cEmphasis">date_exp</em>)
+</div>
+</td>
+    <td><a name="wp758"> </a><div class="pCellBody">
+Quarter in <em class="cEmphasis">date_exp</em> as an integer value (1&#8211;4). 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp764"> </a><div class="pCellBody">
+SECOND(<em class="cEmphasis">time_exp</em>)
+</div>
+</td>
+    <td><a name="wp768"> </a><div class="pCellBody">
+Second in <em class="cEmphasis">date_exp</em> as an integer value (0&#8211;59). 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp782"> </a><div class="pCellBody">
+TIMESTAMPADD(<em class="cEmphasis">interval</em>, <em class="cEmphasis">integer_exp</em>, <em class="cEmphasis">time_exp</em>)
+</div>
+</td>
+    <td><a name="wp784"> </a><div class="pCellBody">
+Timestamp calculated by adding <em class="cEmphasis">integer_exp</em> intervals of type interval to <em class="cEmphasis">time_exp</em>. <em class="cEmphasis">interval</em> can be
+</div>
+<a name="wp786"> </a><div class="pCellBody">
+SQL_TSI_FRAC_SECOND<br />SQL_TSI_SECOND<br />SQL_TSI_MINUTE<br />SQL_TSI_HOUR<br />SQL_TSI_DAY<br />SQL_TSI_WEEK<br />SQL_TSI_MONTH<br />SQL_TSI_QUARTER<br />SQL_TSI_YEAR
+</div>
+<a name="wp790"> </a><div class="pCellBody">
+Fractional seconds are expressed in billionths of a second.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp796"> </a><div class="pCellBody">
+TIMESTAMPDIFF(<em class="cEmphasis">interval</em>, <em class="cEmphasis">time_exp1</em>, <em class="cEmphasis">time_exp2</em>)
+</div>
+</td>
+    <td><a name="wp800"> </a><div class="pCellBody">
+Integer number of intervals of type <em class="cEmphasis">interval</em> by which <em class="cEmphasis">time_exp2</em> is greater than <em class="cEmphasis">time_exp1</em>. <em class="cEmphasis">interval</em> has the same values as TIMESTAMPADD. Fractional seconds are expressed in billionths of a second.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp806"> </a><div class="pCellBody">
+WEEK(<em class="cEmphasis">date_exp</em>)
+</div>
+</td>
+    <td><a name="wp810"> </a><div class="pCellBody">
+Week of the year in <em class="cEmphasis">date_exp</em> as an integer value (1&#8211;53).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp816"> </a><div class="pCellBody">
+YEAR(<em class="cEmphasis">date_exp</em>)
+</div>
+</td>
+    <td><a name="wp822"> </a><div class="pCellBody">
+Year in <em class="cEmphasis">date_exp</em>. The range is data-source dependent.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp1038"> </a><h3 class="pHeading2">
+System Functions
+</h3>
+<a name="wp1042"> </a><p class="pBody">
+<a  href="Rapiscal3.html#wp3642">Table&#160;B-6</a> lists the system functions that ODBC supports.
+</p>
+<a name="wp3632"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp3642"> </a><div class="pTableTitleBold">
+Table B-6.  Scalar System Functions
+</div>
+</caption>
+  <tr align="left">    <td><a name="wp3646"> </a><div class="pCellHeading">
+Function
+</div>
+</td>
+    <td><a name="wp3648"> </a><div class="pCellHeading">
+Returns
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp3650"> </a><div class="pCellBody">
+DATABASE()
+</div>
+</td>
+    <td><a name="wp3652"> </a><div class="pCellBody">
+Name of the database, corresponding to the connection handle (<em class="cEmphasis">hdbc</em>).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp3654"> </a><div class="pCellBody">
+IFNULL(<em style="font-style: italic" class="cEmphasis">exp</em><span style="font-style: italic">,</span><em class="cEmphasis">value</em>)
+</div>
+</td>
+    <td><a name="wp3656"> </a><div class="pCellBody">
+<em class="cEmphasis">value</em>, if <em class="cEmphasis">exp</em> is null.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp3658"> </a><div class="pCellBody">
+USER()
+</div>
+</td>
+    <td><a name="wp3660"> </a><div class="pCellBody">
+Authorization name of the user.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

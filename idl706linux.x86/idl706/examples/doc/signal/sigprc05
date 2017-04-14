@@ -1,0 +1,23 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc05#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a plot of the power spectrum 
+; of the simulated signal.
+
+; Compute time sequence data:
+@sigprc01
+
+; Compute spectrum v:
+V = FFT(U)
+
+; F = [0.0, 1.0/(N*delt), ... , 1.0/(2.0*delt)]
+F = FINDGEN(N/2+1) / (N*delt)  
+
+; Set up log-plot of power spectrum.
+IPLOT, F, ABS(V(0:N/2))^2, $
+   YTITLE='Power Spectrum of u(k)', /Y_LOG, YMINOR=0, $
+   XTITLE='Frequency in cycles / second', /X_LOG, $
+   XRANGE=[1.0,1.0/(2.0*delt)], $
+   TITLE='Power Spectrum'

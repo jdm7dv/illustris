@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:55:21" />
+  <title>Configuring Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp612135"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Data Sources
+</h1>
+<hr /><a name="wp611270"> </a><p class="pBody">
+When you configure a data source, you store default connection values in a data source definition that is used each time you connect to the data source. You can change these defaults by modifying the definition or you can override the defaults at the time of connection by using a connection string.
+</p>
+<a name="wp574390"> </a><p class="pBody">
+If you choose to use a connection string, you must use specific connection string attributes. See <a  href="RORACLEwp5.html#wp574612">Table&#160;5-1</a> for a complete description of driver connection string attributes and their values.
+</p>
+<a name="wp611318"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixc4.gif" height="38" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, data sources are configured and modified by editing the system information file (by default, odbc.ini) and storing default connection values there. See <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a> for detailed information about editing the system information file. See <a  href="unixenviron.html#wp518848"><a  href="unixenviron.html#wp518848">&quot;The UNIX Environments&quot;</a> </a>for detailed information about the specific steps necessary to configure the UNIX environment and connect with the driver.
+</p>
+<a name="wp596559"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp596593"> </a><p class="pBody">
+<a  href="RORACLEwp5.html#wp574612">Table&#160;5-1</a> lists the connection values, in the form of connection string attributes, that must be used in the system information file. Note that only the long name of the attribute can be used in the file.
+</p>
+<a name="wp611339"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinb3.gif" height="30" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, data sources are configured and modified through the ODBC Administrator using a driver Setup dialog box. Default connection values are specified through the options on the tabs of the Setup dialog box and are stored in the Windows Registry. Connection string attributes that override these options have the same names as the options unless noted otherwise. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp605612"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp605614"> </a><p class="pBody">
+<b class="cBold">To configure an Oracle data source:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp574391"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources.</li></div><a name="wp574392"> </a><div class="pSmartList1"><li>If you are configuring an existing data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC Oracle Wire Protocol driver Setup dialog box.</li></div><a name="wp574393"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add</b> to display a list of installed drivers. Select the Oracle Wire Protocol driver and click <b class="cBold">Finish</b> to display the ODBC Oracle Wire Protocol Driver Setup dialog box.
+</p>
+<a name="wp574410"> </a><p class="pBodyRelative">
+NOTE: The General tab displays only fields that are required for creating a data source. The fields on all other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp574412"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply.</b></li></div><a name="wp574413"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Type a string that identifies this Oracle data source configuration. Examples include &quot;Accounting&quot; or &quot;Oracle-Serv1.&quot;
+</p>
+<a name="wp574414"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: Type an optional long description of a data source name. For example, &quot;My Accounting Database&quot; or &quot;Oracle on Server number 1.&quot;
+</p>
+<a name="wp574415"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Host</b>: Type either the name or the IP address of the server to which you want to connect.
+</p>
+<a name="wp574416"> </a><p class="pBodyIndent12pxBeforeAfter">
+For example, if your network supports named servers, you can specify a server name such as <code class="cCode">Oracleserver</code>. Or, you can specify an IP address such as <code class="cCode">199.226.224.34</code>.
+</p>
+<a name="wp576994"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is HostName.
+</p>
+<a name="wp574417"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Port Number</b>: Type the port number of your Oracle listener. Check with your database administrator for the correct number. The default is 1521.
+</p>
+<a name="wp574418"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">SID:</b> Type the Oracle System Identifier that refers to the instance of Oracle running on the server. The default is ORCL.
+</p>
+<a name="wp581275"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option and the Service Name option are mutually exclusive. If the Service Name option is specified, do not specify this option.
+</p>
+<a name="wp581266"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Service Name</b>: Type the Oracle service name that specifies the database used for the connection. The service name is a string that is the global database name&#8212;a name that comprises the database name and domain name, for example:
+</p>
+<a name="wp589140"> </a><p class="pSyntaxEmbed">
+sales.us.acme.com
+</p>
+<a name="wp589146"> </a><p class="pBodyIndent12pxBeforeAfter">
+The service name is included as part of the Oracle connect descriptor, which is a description of the destination for a network connection. The service name is specified in the CONNECT_DATA parameter of the connect descriptor, for example:
+</p>
+<a name="wp589157"> </a><p class="pSyntaxEmbed">
+(CONNECT_DATA=SERVICE_NAME=sales.us.acme.com)
+</p>
+<a name="wp589161"> </a><p class="pBodyIndent12pxBeforeAfter">
+In this example, you would specify sales.us.acme.com as the value for the Service Name connection option.
+</p>
+<a name="wp581802"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option and the SID option are mutually exclusive. If the SID option is specified, do not specify this option.
+</p>
+<a name="wp574424"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab to specify data source settings.</li></div><a name="wp581934"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply</b>.
+</p>
+<a name="wp574442"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Default User Name</b>: Type the default user name used to connect to your Oracle database. A default user name is required only if security is enabled on your database. Your ODBC application may override this value or you may override this value in the logon dialog box or connection string.
+</p>
+<a name="wp574443"> </a><p class="pBodyIndent12pxBeforeAfter">
+You can also use OS Authentication to connect to your Oracle database. See <a  href="RORACLEwp7.html#wp574851">&quot;OS Authentication&quot;</a> for details.
+</p>
+<a name="wp583776"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is LogonID.
+</p>
+<a name="wp608623"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Local Timezone Offset</b>: Type a value for local time zone information. The default is &#8220;&#8221; (empty string), which means that the driver determines local time zone information from the operating system. If it is not available from the operating system, the driver defaults to using the setting on the Oracle server. Other possible values are specified as offsets from GMT in the following format: (-)HH:MM. For example, &#8220;-08:00&#8221; equals GMT minus 8 hours. The driver uses the value of the option to issue an &#8220;ALTER SESSION&#8221; for the local time zone at connect time.
+</p>
+<a name="wp574448"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Enable Timestamp with Timezone</b>: Select this check box to expose timestamps with timezones to the application. By default, the check box is not selected.
+</p>
+<a name="wp574449"> </a><p class="pBodyIndent12pxBeforeAfter">
+When selected, the driver issues an &quot;ALTER SESSION&quot; at connection time to modify NLS_TIMESTAMP_TZ_FORMAT. NLS_TIMESTAMP_TZ_FORMAT is changed to the ODBC definition of a timestamp literal with the addition of the timezone literal: &#8217;YYYY-MM-DD HH24:MI:SSXFF TZR&#8217;.
+</p>
+<a name="wp574450"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Default Buffer Size for Long/LOB Columns (in Kb)</b>: Type an integer value that specifies the maximum length of data fetched from Long/LOB columns. The value must be in multiples of 1024 (for example, 1024, 2048). The default is 1024 KB. You need to increase the default value if the total size of any Long data exceeds 1 MB.
+</p>
+<a name="wp574455"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option also applies to binding Long parameters in chunks. The driver truncates any data passed in a Long/LOB SQL_DATA_AT_EXEC parameter to the size specified.
+</p>
+<a name="wp574456"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp583777"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is DefaultLongDataBuffLen.
+</p>
+<a name="wp613957"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Using Threads</b>: Select this check box to ensure that the driver works with multi-threaded applications. You can clear this check box when using the driver with single-threaded applications. Turning off this setting avoids additional processing required for ODBC thread-safety standards.
+</p>
+<a name="wp574463"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp574467"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Catalog Options</b>: Select this check box if you want the result column REMARKS (for the catalog functions SQLTables and SQLColumns) and the result column COLUMN_DEF (for the catalog function SQLColumns) to return actual values. Selecting this check box reduces the performance of your queries.
+</p>
+<a name="wp609357"> </a><p class="pBodyIndent12pxBeforeAfter">
+By default, the check box is not selected, which returns SQL_NULL_DATA for the result columns REMARKS and COLUMN_DEF. 
+</p>
+<a name="wp608840"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Enable SQLDescribeParam</b>: Select this check box to enable the SQLDescribeParam function, which results in all parameters being described with a data type of SQL_VARCHAR for SELECT statements. For Insert/Update/Delete statements and for stored procedures, the parameters are described as the actual Oracle data types on the Oracle server. This option must be selected to access data when using Microsoft Remote Data Objects (RDO). By default, the check box is not selected.
+</p>
+<a name="wp583778"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string is EnableDescribeParam.
+</p>
+<a name="wp574470"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Procedure Returns Results</b>: Select this check box to enable the driver to return result sets from stored procedures/functions. If this check box is selected and you execute a stored procedure that does not return result sets, you will incur a small performance penalty. See <a  href="RORACLEwp14.html#wp610680">&quot;Stored Procedure Results&quot;</a> for details. By default, the check box is not selected.
+</p>
+<a name="wp574474"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp583779"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string is ProcedureRetResults.
+</p>
+<a name="wp574478"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Describe at Prepare</b>: Select this check box to cause the driver to describe the SQL statement at prepare time. By default, the check box is not selected.
+</p>
+<a name="wp574479"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp574483"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Enable N-CHAR Support</b>: Select this check box to enable support for the N-Types NCHAR, NVARCHAR2, and NCLOB. When this option is enabled, these types are described as SQL_WCHAR, SQL_WVARCHAR, and SQL_WLONGVARCHAR, and are returned as supported by SQLGetTypeInfo. In addition, the &quot;normal&quot; char types (char, varchar, varchar2, long, clob) are described as SQL_CHAR, SQL_VARCHAR, and SQL_LONGVARCHAR regardless of the character set on the Oracle server. By default, the check box is not selected.
+</p>
+<a name="wp574484"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: Valid only on Oracle9<em class="cEmphasis">i</em> or higher.
+</p>
+<a name="wp583780"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string is EnableNcharSupport.
+</p>
+<a name="wp606225"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Timestamp Escape Mapping</b>: This option specifies how the driver maps Date, Time, and Timestamp literals.
+</p>
+<a name="wp606226"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0 - Oracle Version Specific, the driver determines whether to use the TO_DATE or TO_TIMESTAMP function based on the version of the Oracle server to which it is connected.
+</p>
+<a name="wp606227"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 - Oracle 8x Compatible, the driver always uses the Oracle 8<em class="cEmphasis">x</em> TO_DATE function as if connected to an Oracle 8.<em class="cEmphasis">x</em> server.
+</p>
+<a name="wp606228"> </a><p class="pBodyIndent12pxBeforeAfter">
+When this option is set to Oracle Version Specific, if the driver is connected to an 8.<em class="cEmphasis">x</em> or earlier server, it maps the Date, Time, and Timestamp literals to the TO_DATE function. If the driver is connected to a 9.<em class="cEmphasis">x</em> or later server, it maps these escapes to the TO_TIMESTAMP function.
+</p>
+<a name="wp612289"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Report Codepage Conversion Errors</b>: Select the method by which the driver handles code page conversion errors.
+</p>
+<a name="wp612290"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0 - Ignore Errors (the default), if the driver encounters code page conversion errors (a character cannot be converted from one character set to another), it substitutes 0x1A for each character that cannot be converted and does not return a warning or error. 
+</p>
+<a name="wp612291"> </a><p class="pBodyIndent12pxBeforeAfter">
+Error and Warning apply both to all ODBC API calls that could cause a conversion error and to all code page conversions to/from the database and to/from the application. The error or warning returned is, <code class="cCode">Code page conversion error encountered</code>. In the case of parameter data conversion errors, the driver adds the following sentence: <code class="cCode">Error in parameter </code><code><em>x</em></code>, where <code><em>x</em></code> is the parameter number. The standard rules for returning specific row and column errors for bulk operations still apply.
+</p>
+<a name="wp612292"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 - Return Error, if the driver encounters code page conversion errors, it returns an error instead of substituting 0x1A for unconverted characters.
+</p>
+<a name="wp612293"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 2 - Return Warning, if the driver encounters code page conversion errors, it substitutes 0x1A for each character that cannot be converted and returns a warning.
+</p>
+<a name="wp612930"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Server Process Type</b>: Select whether the connection is established using a shared or dedicated server process (dedicated thread on Windows).
+</p>
+<a name="wp612932"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 - Shared, the server process used is retrieved from a pool. The socket connection between the application and server is made to a dispatcher process on the server. This setting allows there to be fewer processes than the number of connections, reducing the need for server resources. Use this value when a server must handle a large number of connections.
+</p>
+<a name="wp605834"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 2 - Dedicated, a server process is created to service only that connection. When that connection ends, so does the process (UNIX) or thread (Windows). The socket connection is made directly between the application and the dedicated server process or thread. When connecting to UNIX servers, a dedicated server process can provide significant performance improvement, but uses more resources on the server. When connecting to Windows servers, the server resource penalty is insignificant. Use this value if you have a batch environment with a low numbers of connections.
+</p>
+<a name="wp605835"> </a><p class="pBodyIndent12pxBeforeAfter">
+If set to 0 - Server Default, the driver uses the default server process set on the server.
+</p>
+<a name="wp613274"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: The server must be configured for shared connectons (the SHARED_SERVERS initialization parameter on the server has a value greater than 0) for the driver to be able to specify the shared server process type.
+</p>
+<a name="wp605836"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp605840"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is ServerType.
+</p>
+<a name="wp574485"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Translate</b>: Click <b class="cBold">Translate</b> to display the Select Translator dialog box, which lists the translators specified in the ODBC Translators section of the Registry. DataDirect provides a translator named &quot;OEM TO ANSI&quot; that translates your data from the IBM PC character set to the ANSI character set. 
+</p>
+<a name="wp574486"> </a><p class="pBodyIndent12pxBeforeAfter">
+Select a translator; then, click <b class="cBold">OK</b> to close this dialog box and perform the translation.
+</p>
+<a name="wp574492"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Performance</b> tab to specify performance data source settings.</li></div><a name="wp574501"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp574502"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Array Size</b>: Type the number of bytes the driver uses for fetching multiple rows. Values can be an integer from 1 to 4,294,967,296 (4GB); the default is 60000. Larger values increase throughput by reducing the number of times the driver fetches data across the network. Smaller values increase response time, as there is less of a delay waiting for the server to transmit data.
+</p>
+<a name="wp574503"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp574507"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Lock Timeout</b>: Type 0, -1, or any integer value greater than 0. The value 0 specifies that Oracle does not wait for a lock to be freed before raising an error when processing a Select...For Update statement. The value -1 waits forever. When connected to an Oracle9<em class="cEmphasis">i</em> or higher server, you can specify the number of seconds to wait by setting this option to an integer greater than 0. If you are connected to an Oracle8<em class="cEmphasis">i</em> or lower server, any value greater than 0 is equivalent to the value -1.
+</p>
+<a name="wp583781"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string is LockTimeOut.
+</p>
+<a name="wp574512"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Use Current Schema for SQLProcedures</b>: Select this check box to specify that the driver return only procedures owned by the current user when executing SQLProcedures. When this check box is selected (the default), the call for SQLProcedures is optimized, but only procedures owned by the user are returned.
+</p>
+<a name="wp574513"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp583782"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string is UseCurrentSchema.
+</p>
+<a name="wp574517"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Catalog Functions Include Synonyms</b>: Select this check box to include synonyms in calls to SQLProcedures, SQLStatistics, and SQLProcedureColumns. Clear the check box to exclude synonyms (a non-standard behavior) and, thereby, improve performance. By default, the check box is selected.
+</p>
+<a name="wp574518"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp583786"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string is CatalogIncludesSynonyms.
+</p>
+<a name="wp574522"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Enable Scrollable Cursors</b>: Select this check box to enable scrollable cursors for the data source. Both Keyset and Static cursors are enabled. By default, the check box is selected.
+</p>
+<a name="wp574523"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Enable Static Cursors for Long Data</b>:<b class="cBold"> </b>Select this check box to enable the driver to support Long columns when using a static cursor. Selecting this check box causes a performance penalty at the time of execution when reading Long data. By default, the check box is not selected.
+</p>
+<a name="wp574524"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: You must select this check box if you want to persist a result set that contains Long data into an XML data file. 
+</p>
+<a name="wp574525"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp574529"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Cached Cursor Limit</b>: Type a value from 0 to 65535. The default value is 32. This value corresponds to the number of Oracle Cursor Identifiers that the driver stores in cache. A cursor identifier is needed for each concurrent open Select statement. When a Select statement is closed, the driver stores the identifier in its cache, up to the limit specified, rather than closing the cursor identifier. When a new cursor identifier is needed, the driver takes one from its cache, if one is available. Cached cursor identifiers are closed when the connection is closed.
+</p>
+<a name="wp574530"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp574535"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Cached Description Limit</b>: Type a value from 0 to 65535. The default value is 0. This value corresponds to the number of descriptions that the driver saves for Select statements. These descriptions include number of columns, data type, length, and scale for each column. When this option is enabled, applications that issue a Select statement that returns a few rows repeatedly can realize a significant performance benefit.
+</p>
+<a name="wp574536"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: If the statement contains a Union or a nested Select, the description is <em class="cEmphasis">not</em> cached.
+</p>
+<a name="wp574537"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="RORACLEwp6.html#wp574836">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp580447"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Failover</b> tab to specify Failover data source settings.</li></div><a name="wp606119"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp613994"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Load Balancing</b>: Select this check box to allow the driver to use client load balancing in its attempts to connect to primary and alternate database servers. In this case, the driver attempts to connect to the database servers in random order. See <a  href="Rstart5.html#wp583520"><a  href="Rstart5.html#wp583520">&quot;Using Client Load Balancing&quot;</a> </a>for more information.
+</p>
+<a name="wp613999"> </a><p class="pBodyIndent12pxBeforeAfter">
+If this check box is not selected (the default), client load balancing is not used and the driver connects to each database server based on its sequential order (primary server first, then, alternate servers in the order they are specified).
+</p>
+<a name="wp614000"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This option has no effect unless alternate servers are defined for the Alternate Servers connection option.&#160;&#160;&#160;&#160;
+</p>
+</ol></div>
+<a name="wp607526"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp607527"> </a><p class="pBodyIndent12pxBeforeAfter">
+The Load Balancing option is an optional setting that you can use in conjunction with connection failover. See <a  href="RORACLEwp11.html#wp602130">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</p>
+<a name="wp613938"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Alternate Servers</b>: Type a list of alternate database servers to which the driver will try to connect if the primary database server is unavailable. Specifying a value for this option enables connection failover for the driver.&#160;See <a  href="Rstart4.html#wp583803"><a  href="Rstart4.html#wp583803">&quot;Using Connection Failover&quot;</a></a> for a discussion of connection failover.
+</p>
+<a name="wp606128"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp606129"> </a><p class="pBodyIndent12pxBeforeAfter">
+The value you specify must be in the form of a string that defines the physical location of each alternate server. All of the other required connection information for each alternate server is the same as what is defined for the primary server connection. 
+</p>
+<a name="wp606130"> </a><p class="pBodyIndent12pxBeforeAfter">
+For the Oracle Wire Protocol driver, you must specify the host name, port number, and either the SID or service name of each alternate server. The string has the format:
+</p>
+<a name="wp606131"> </a><p class="pSyntaxEmbed">
+(HostName=<code><em>hostvalue</em></code>;PortNumber=<code><em>portvalue</em></code>;{SID<code><em>=sidvalue</em></code> | ServiceName=<code><em>servicevalue</em></code>}[, . . .])
+</p>
+<a name="wp606132"> </a><p class="pSyntaxEmbed">
+For example, the following Alternate Servers value defines two alternate database servers for connection failover:
+</p>
+<a name="wp606133"> </a><p class="pSyntaxEmbed">
+(HostName=AccountingOracleServer;<br />PortNumber=1521;SID=Accounting, HostName=255.201.11.24;PortNumber=1522;<br />ServiceName=ABackup.NA.MyCompany)
+</p>
+<a name="wp606137"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="RORACLEwp11.html#wp602130">&quot;Configuring Connection Failover&quot;</a> for information about other connection options that you can set for this feature.
+</p>
+<a name="wp613972"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Connection Retry Count:</b> Type a value to specify the number of times the driver tries to connect to the primary server and, if configured, to the alternate servers after the initial unsuccessful attempt. See <a  href="Rstart6.html#wp592469"><a  href="Rstart6.html#wp592469">&quot;Using Connection Retry&quot;</a></a> for more information about this feature.
+</p>
+<a name="wp613977"> </a><p class="pBodyIndent12pxBeforeAfter">
+Valid values are integers from 0 to 65535. When set to 0 (the default), the driver does not try to connect after the initial unsuccessful attempt.
+</p>
+<a name="wp613978"> </a><p class="pBodyIndent12pxBeforeAfter">
+If a connection is not established during the retry attempts, the driver returns an error that is generated by the last server to which it tried to connect.
+</p>
+<a name="wp613979"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option and the Connection Retry Delay connection option, which specifies the wait interval between attempts, can be used in conjunction with connection failover. &#160;&#160;&#160;
+</p>
+<a name="wp602342"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="RORACLEwp11.html#wp602130">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</p>
+<a name="wp611459"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Connection Retry Delay</b>: Type a value to specify the number of seconds that the driver waits after the initial unsuccessful connection attempt before retrying a connection to the primary server and, if specified, to the alternate servers. 
+</p>
+<a name="wp611460"> </a><p class="pBodyIndent12pxBeforeAfter">
+Valid values are integers from 0 to 65535. The default value is 3 (seconds). When set to 0, there is no delay between retries.
+</p>
+<a name="wp611461"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This option has no effect unless the Connection Retry Count connection option is set to an integer value greater than 0.
+</p>
+<a name="wp611462"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option and the Connection Retry Count connection option, which specifies the number of times the driver tries to connect after the initial unsuccessful attempt, are used in conjunction with connection failover. &#160;&#160;&#160;
+</p>
+<a name="wp602355"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="RORACLEwp11.html#wp602130">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp574541"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the driver Setup dialog box. A logon dialog box appears; see <a  href="RORACLEwp4.html#wp574550">&quot;Connecting to a Data Source Using a Logon Dialog Box&quot;</a> for details. Note that the information you enter in the logon dialog box during a test connect is not saved.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp574545"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a <code class="cCode">Connection Established</code> message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp574546"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message.</li></div>
+<a name="wp574547"> </a><p class="pBodyRelative">
+Click <b class="cBold">OK</b>.
+</p>
+<a name="wp608333"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: If you are configuring alternate servers for use with the connection failover feature, be aware that the Test Connect button tests only the primary server, not the alternate servers.
+</p>
+</ul></div>
+<a name="wp574548"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

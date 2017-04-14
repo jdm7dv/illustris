@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="合併 CVS 分支">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      本提要將顯示如何按部就班將變更從 CVS 分支合併至另一個分支，或是 HEAD。在任何步驟中，若您需要說明，請按一下右邊的 (?) 圖示。
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="判斷分支和版本資訊">
+    <description>
+      第一步驟是決定要合併<b>哪</b>兩個分支，是哪個<b>版本</b>內容的分支，以及要合併至哪個<b>目的地</b>分支（將在此進行合併結果）。
+      有了這些資訊之後，您可以前進至下一個步驟。
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="移出專案">
+    <description>
+      進行合併之前，必須<b>移出</b>您要合併的專案，並將其帶入工作區中。有兩種作法，一是利用匯入精靈，另一個方法是從 CVS 儲存庫瀏覽視景來新增您的儲存庫，或是按一下 (?) 按鈕以取得說明。
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="將目的地載入您的工作區">
+    <description>
+      在導覽器中，用滑鼠右鍵按一下專案，並選取「取代為 &gt; 另一個分支或版本」。選取目的地分支。會將分支的最新內容載入您的工作區。
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="合併詳細資料">
+    <description>
+      再一次在導覽器中，用滑鼠右鍵按一下專案，並選取「<b>團隊</b> &gt; <b>合併</b>」，並完成精靈中的步驟。在這個精靈中，指定合併的詳細資料。    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="使用合併編輯器">
+    <description>
+在合併編輯器中，請以手動方式來合併變更。這個步驟會將必要的變更載入工作區中。在您完成合併所有的變更並對結果感到滿意後，就可以前進至下一個步驟。
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="確定變更">
+    <description>
+      用滑鼠右鍵按一下專案，並選取「<b>團隊</b> &gt; <b>與儲存庫同步化</b>」，然後將所有變更提交至儲存庫。這個步驟會終結從工作區到 CVS 儲存庫的變更轉送，並結束合併。    </description>
+  </item>
+
+</cheatsheet>

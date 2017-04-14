@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:30:04">
+    <title>Warping and Morphing</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_volrendr.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_wavelet.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1005530"> </a><h2 class="pHeading1">
+Warping and Morphing
+</h2>  
+
+<a name="wp1005532"> </a><p class="pBody">
+This demo illustrates image warping, morphing (the gradual changing of one image to another), and image compression using IDL. Images of several employees of ITT Visual Information Solutions are used to demonstrate the features. 
+</p>  
+
+<a name="wp1005533"> </a><p class="pBody">
+The pictures are stored in JPEG compressed image format, which is fully supported by IDL. Each 192 by 192 image (36K bytes) is stored using JPEG in less than 6K bytes, resulting in approximately 6 to 1 compression.
+</p>  
+
+<a name="wp1005534"> </a><h5 class="pHeading4">
+Warping
+</h5>  
+
+<a name="wp1005535"> </a><p class="pBody">
+To experiment with image warping, first display a picture, then click the &quot;Warping&quot; button. The warping control box should become visible on the right side of the demo widget. 
+</p>  
+
+<a name="wp1005536"> </a><p class="pBody">
+Control or &quot;tie&quot; points are used to specify how the image is to be warped. Each control point in the original image is transformed to a designated point in the &quot;warped&quot; output image. To make a control point, position the cursor over the image, click the left mouse button, and drag the cursor to the place where that point should appear in the warped image. IDL will draw an arrow with the base at the control point's original position, and the head at the &quot;warped&quot; position. At least three control points must be defined to warp an image. Up to 100 control points may be defined. 
+</p>  
+
+<a name="wp1005537"> </a><p class="pBody">
+To make a control point with the same position in both the original and output image, click the left mouse button at that point. This has the effect of fixing that point at the same location in both images. 
+</p>  
+
+<a name="wp1005538"> </a><p class="pBody">
+Note: the output image is only defined over the convex hull of the control points. To include the entire image, use the &quot;Mark Corners&quot; button. 
+</p>  
+
+<a name="wp1005539"> </a><h5 class="pHeading4">
+Morphing
+</h5>  
+
+<a name="wp1005540"> </a><p class="pBody">
+Morphing is the gradual and continuous changing of one image to another. This demonstration shows IDL's built-in irregular gridding, interpolation and image processing capabilities by changing one person's face to another.
+</p>  
+
+<a name="wp1005541"> </a><p class="pBody">
+To run this demo, select two images with the same general orientation. Then alternately mark control points on the same feature in each image. For example, the tip of the nose, corners of the lips, pupils of the eyes, and top of the head are readily distinguished features of human faces. More control points give better results. 
+</p>  
+
+<a name="wp1005542"> </a><p class="pBody">
+When all points are marked, press the `Go' button to morph between the images. You can experiment by adding or removing control points. 
+</p>  
+
+<a name="wp1005543"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1005544"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1005545"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit the demo.
+</p>  
+
+<a name="wp1005546"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1005547"> </a><p class="pBody">
+Select &quot;About Warping and Morphing&quot; to display this help text.
+</p>  
+
+<a name="wp1005548"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1005549"> </a><h4 class="pHeading3">
+Warping button
+</h4>  
+
+<a name="wp1005550"> </a><p class="pBody">
+Click this button to set the application to the warping mode. This functionality is available when the image of only one person is displayed. 
+</p>  
+
+<a name="wp1005551"> </a><h4 class="pHeading3">
+Morphing button
+</h4>  
+
+<a name="wp1005552"> </a><p class="pBody">
+Click this button to set the application to the morphing mode. This functionality is available when the image of everyone is displayed. 
+</p>  
+
+<a name="wp1005553"> </a><h4 class="pHeading3">
+Group button
+</h4>  
+
+<a name="wp1005554"> </a><p class="pBody">
+Click this button to display an image of four employees of ITT Visual Information Solutions.
+</p>  
+
+<a name="wp1005555"> </a><h4 class="pHeading3">
+People list
+</h4>  
+
+<a name="wp1005556"> </a><p class="pBody">
+Select a name from the list to display the image of the selected person.
+</p>  
+
+<a name="wp1005557"> </a><h3 class="pHeading2">
+Warping Features
+</h3>  
+
+
+<a name="wp1005558"> </a><h4 class="pHeading3">
+Undo button
+</h4>  
+
+<a name="wp1005559"> </a><p class="pBody">
+Click this button to remove the most recently defined control point. 
+</p>  
+
+<a name="wp1005560"> </a><h4 class="pHeading3">
+Reset button
+</h4>  
+
+<a name="wp1005561"> </a><p class="pBody">
+Click this button to display the original image (one person) and clear the control points.
+</p>  
+
+<a name="wp1005562"> </a><h4 class="pHeading3">
+Warp Linear button
+</h4>  
+
+<a name="wp1005563"> </a><p class="pBody">
+Click this button to set the warping function to linear. Display the warped image if 3 or more control points are defined. 
+</p>  
+
+<a name="wp1005564"> </a><h4 class="pHeading3">
+Warp Smooth button
+</h4>  
+
+<a name="wp1005565"> </a><p class="pBody">
+Click this button to set the warping function to smooth. Display the warped image if 3 or more control points are defined. 
+</p>  
+
+<a name="wp1005566"> </a><h4 class="pHeading3">
+Original button
+</h4>  
+
+<a name="wp1005567"> </a><p class="pBody">
+Click this button to display the original image (one person). The arrows connecting the control points are shown. 
+</p>  
+
+<a name="wp1005568"> </a><h4 class="pHeading3">
+Surface
+</h4>  
+
+<a name="wp1005569"> </a><p class="pBody">
+Click this button to display the warping X and Y deformation surface function.
+</p>  
+
+<a name="wp1005570"> </a><h4 class="pHeading3">
+Animate button
+</h4>  
+
+<a name="wp1005571"> </a><p class="pBody">
+Click this button to display an animation tool that illustrates the intermediate images between the original image and the final warped image. 
+</p>  
+
+<a name="wp1005572"> </a><h4 class="pHeading3">
+Mark Corners on button
+</h4>  
+
+<a name="wp1005573"> </a><p class="pBody">
+Click this button to place four control points in the corners of the image. This fixes the corners of the output image to the same positions. 
+</p>  
+
+<a name="wp1005574"> </a><h3 class="pHeading2">
+Morphing Features
+</h3>  
+
+
+<a name="wp1005575"> </a><h4 class="pHeading3">
+Done button
+</h4>  
+
+<a name="wp1005576"> </a><p class="pBody">
+Click this button to exit the morphing demo.
+</p>  
+
+<a name="wp1005577"> </a><h4 class="pHeading3">
+Help button
+</h4>  
+
+<a name="wp1005578"> </a><p class="pBody">
+Click this button to display a help file that explains how to operate the morphing demo (not this file).
+</p>  
+
+<a name="wp1005579"> </a><h4 class="pHeading3">
+Restart button
+</h4>  
+
+<a name="wp1005580"> </a><p class="pBody">
+Click this button to reset the morphing procedure to the beginning.
+</p>  
+
+<a name="wp1005581"> </a><h4 class="pHeading3">
+Delete CP button
+</h4>  
+
+<a name="wp1005582"> </a><p class="pBody">
+Click this button to delete all the control points.
+</p>  
+
+<a name="wp1005583"> </a><h4 class="pHeading3">
+Go button
+</h4>  
+
+<a name="wp1005584"> </a><p class="pBody">
+Click this button to display an animation tool that shows the images as they morph from one to the other.
+</p>  
+
+<a name="wp1005585"> </a><h4 class="pHeading3">
+Frames droplist
+</h4>  
+
+<a name="wp1005586"> </a><p class="pBody">
+Select the number of images to be created as intermediate steps in the morphing process. The larger the number of images used, the smoother the morph will look, and that longer the process will take. 
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

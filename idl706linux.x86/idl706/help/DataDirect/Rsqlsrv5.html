@@ -1,0 +1,629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:15:48" />
+  <title>Connecting to a Data Source Using a Connection String</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp601463"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Connection String
+</h1>
+<hr /><a name="wp601466"> </a><p class="pBody">
+If your application requires a connection string for connecting to a database, you must specify the data source name that tells the driver where to find the default connection information. Optionally, you may specify <em class="cEmphasis">attribute=value</em> pairs in the connection string to override the default values stored in the data source definition.
+</p>
+<a name="wp601467"> </a><p class="pBody">
+The connection string has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=<code><em>data_source_name</em></code>[;<code><em>attribute=value</em></code>[;<code><em>attribute=value</em></code>]...]<a name="wp601468"> </a>
+</pre></div>
+<a name="wp601473"> </a><p class="pBody">
+<a  href="Rsqlsrv5.html#wp608996">Table&#160;6-1</a> and <a  href="Rsqlsrv5.html#wp593754">Table&#160;6-2</a> give the names for each attribute, as well as a description. Connection string attribute names are the same as the option names on the driver Setup dialog box tabs unless otherwise noted. The connection string attribute name does not have spaces between the words. For example, the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em> is equivalent to the option name <em class="cEmphasis">Application Using Threads</em>.
+</p>
+<a name="wp601474"> </a><p class="pBody">
+The defaults listed in the table are initial defaults that apply when no value is specified in either the data source definition or in the connection string. If you specified a value for the attribute when configuring the data source, that value is the default.
+</p>
+<a name="wp601475"> </a><p class="pBody">
+An example of a connection string for SQL Server is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=Accounting;UID=JOHN;PWD=XYZZY<a name="wp593603"> </a>
+</pre></div>
+<a name="wp608987"> </a><h3 class="pHeading2">
+</h3><div align="left"><img src="images/iconwina10.gif" height="31" width="27" border="0" hspace="0" vspace="0"/></div><h3 class="pHeading2">Windows
+</h3>
+<a name="wp609117"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp608996"> </a><div class="pTableTitleBold">
+Table 6-1.  Windows SQL Server Wire Protocol Connection String Attributes&#160; 
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp609000"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp609002"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp609008"> </a><div class="pCellBody">
+AnsiNPW
+</div>
+</td>
+    <td><a name="wp609010"> </a><div class="pCellBody">
+AnsiNPW={yes | no}. Determines whether ANSI-defined behaviors are exposed. 
+</div>
+<a name="wp609011"> </a><div class="pCellBody">
+When set to yes, the driver uses ANSI-defined behaviors for handling NULL comparisons, character data padding, warnings, and NULL concatenation. If the driver appears to be truncating trailing blank spaces, this attribute should be set to no.
+</div>
+<a name="wp609012"> </a><div class="pCellBody">
+When set to no, ANSI-defined behaviors are not exposed.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609014"> </a><div class="pCellBody">
+APP
+</div>
+</td>
+    <td><a name="wp621417"> </a><div class="pCellBody">
+The name SQL Server uses to identify your application.
+</div>
+<a name="wp611370"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Application Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609018"> </a><div class="pCellBody">
+AttachDBFileName
+</div>
+</td>
+    <td><a name="wp609020"> </a><div class="pCellBody">
+The name of the primary file of an attachable database. Include the full path and escape any slash ( \ ) characters if using a C character string variable:
+</div>
+<a name="wp609021"> </a><div class="pCellBody">
+AttachDBFileName=c:\\MyFolder\\MyDB.mdf
+</div>
+<a name="wp609022"> </a><div class="pCellBody">
+This database is attached and becomes the default database for the connection. To use AttachDBFileName you must also specify the database name in either the SQLDriverConnnect DATABASE parameter or the SQL_COPT_CURRENT_CATALOG connection attribute. If the database was previously attached, SQL Server will not reattach it; it will use the attached database as the default for the connection.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609024"> </a><div class="pCellBody">
+AutoTranslate
+</div>
+</td>
+    <td><a name="wp609026"> </a><div class="pCellBody">
+AutoTranslate={yes | no}. Determines how ANSI character strings are translated. 
+</div>
+<a name="wp609027"> </a><div class="pCellBody">
+When set to yes, ANSI character strings sent between the client and server are translated by converting through Unicode to minimize problems in matching extended characters between the code pages on the client and the server.
+</div>
+<a name="wp609028"> </a><div class="pCellBody">
+These conversions are performed on the client by the SQL Server Wire Protocol driver. This requires that the same ANSI code page (ACP) used on the server be available on the client.
+</div>
+<a name="wp612378"> </a><div class="pCellBody">
+These settings have no effect on the conversions that occur for the following transfers:
+</div>
+<a name="wp612379"> </a><div class="pCellBody">
+Unicode SQL_C_WCHAR client data sent to char, varchar, or text on the server.
+</div>
+<a name="wp612380"> </a><div class="pCellBody">
+Char, varchar, or text server data sent to a Unicode SQL_C_WCHAR variable on the client.
+</div>
+<a name="wp612381"> </a><div class="pCellBody">
+ANSI SQL_C_CHAR client data sent to Unicode nchar, nvarchar, or ntext on the server.
+</div>
+<a name="wp612382"> </a><div class="pCellBody">
+Unicode char, varchar, or text server data sent to an ANSI SQL_C_CHAR variable on the client.
+</div>
+<a name="wp612383"> </a><div class="pCellBody">
+When set to no, character translation is not performed.
+</div>
+<a name="wp612384"> </a><div class="pCellBody">
+The SQL Server Wire Protocol driver does not translate client ANSI character SQL_C_CHAR data sent to char, varchar, or text variables, parameters, or columns on the server. No translation is performed on char, varchar, or text data sent from the server to SQL_C_CHAR variables on the client.
+</div>
+<a name="wp612374"> </a><div class="pCellBody">
+If the client and SQL Server are using different ACPs, then extended characters can be misinterpreted.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609041"> </a><div class="pCellBody">
+DATABASE
+</div>
+</td>
+    <td><a name="wp621389"> </a><div class="pCellBody">
+The name of the database to which you want to connect by default. If you do not specify a value, the default database defined by SQL Server is used.
+</div>
+<a name="wp621390"> </a><div class="pCellBody">
+The database must be an existing database unless AttachDBFileName is also specified. If AttachDBFileName is specified, the primary file it points to is attached and given the database name specified by DATABASE.
+</div>
+<a name="wp611357"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Database Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609045"> </a><div class="pCellBody">
+LANGUAGE
+</div>
+</td>
+    <td><a name="wp621236"> </a><div class="pCellBody">
+The national language to use for SQL Server system messages. This overrides the default language specified for the login on the server. If no language is specified, the connection uses the default language specified for the login on the server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609049"> </a><div class="pCellBody">
+Network
+</div>
+</td>
+    <td><a name="wp609051"> </a><div class="pCellBody">
+The name of a network library dynamic-link library. The name need not include the path and must not include the .DLL file name extension, for example, Network=dbnmpntw.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609053"> </a><div class="pCellBody">
+PWD
+</div>
+</td>
+    <td><a name="wp609055"> </a><div class="pCellBody">
+The password for the SQL Server login account specified in the UID parameter. PWD need not be specified if the login has a NULL password or when using Windows NT authentication (Trusted_Connection = yes).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609057"> </a><div class="pCellBody">
+QueryLogFile
+</div>
+<a name="wp609058"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp621689"> </a><div class="pCellBody">
+The full path and file name of a file to be used for logging data about long-running queries. QueryLog_On must be set to yes.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609062"> </a><div class="pCellBody">
+QueryLog_On
+</div>
+<a name="wp609063"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp609065"> </a><div class="pCellBody">
+QueryLog_On={yes | no}. Determines whether data about long-running queries data is logged.
+</div>
+<a name="wp621687"> </a><div class="pCellBody">
+When set to yes, logging data about long-running queries data is enabled on the connection. 
+</div>
+<a name="wp609067"> </a><div class="pCellBody">
+When set to no, long-running query data is not logged.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609069"> </a><div class="pCellBody">
+QueryLogTime
+</div>
+<a name="wp609070"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp609072"> </a><div class="pCellBody">
+A digit character string specifying the threshold (in milliseconds) for logging data about long-running queries. Any query that does not receive a response in the time specified is written to the long-running query log file.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609074"> </a><div class="pCellBody">
+QuotedID
+</div>
+</td>
+    <td><a name="wp609076"> </a><div class="pCellBody">
+QuotedID={yes | no}. Determines whether the driver uses quoted identifiers.
+</div>
+<a name="wp621049"> </a><div class="pCellBody">
+When set to yes, SQL Server enforces ANSI rules regarding quote marks. Double quotes can only be used for identifiers, such as column and table names. Character strings must be enclosed in single quotes, for example:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+SELECT &quot;au_id&quot;<a name="wp621050"> </a>
+FROM &quot;authors&quot;<a name="wp621051"> </a>
+WHERE &quot;au_lname&quot; = &#39;O&#39;&#39;Brien&#39;<a name="wp621052"> </a>
+</pre></div>
+<a name="wp609078"> </a><div class="pCellBody">
+When set to no (the initial default), applications that use quoted identifiers encounter errors when they generate SQL statements with quoted identifiers.
+</div>
+<a name="wp611680"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Enable Quoted Identifiers.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609080"> </a><div class="pCellBody">
+Regional
+</div>
+</td>
+    <td><a name="wp609082"> </a><div class="pCellBody">
+Regional={yes | no}. Determines how currency, date, and time data are converted.
+</div>
+<a name="wp609083"> </a><div class="pCellBody">
+When set to yes, the SQL Server Wire Protocol driver uses client settings when converting currency, date, and time data to character data. The conversion is one way only; the driver does not recognize non-ODBC standard formats for date strings or currency values.
+</div>
+<a name="wp609084"> </a><div class="pCellBody">
+When set to no, the driver uses ODBC standard strings to represent currency, date, and time data that is converted to string data. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609086"> </a><div class="pCellBody">
+SAVEFILE
+</div>
+</td>
+    <td><a name="wp609088"> </a><div class="pCellBody">
+The name of an ODBC data source file into which the attributes of the current connection are saved if the connection is successful.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609090"> </a><div class="pCellBody">
+SERVER
+</div>
+</td>
+    <td><a name="wp611945"> </a><div class="pCellBody">
+The name of a server on your network. It must be an advanced entry in the SQL Client Configuration utility or the network name of a server running SQL Server.
+</div>
+<a name="wp612051"> </a><div class="pCellBody">
+You can enter &quot;(local)&quot; in the server box when you are using the same computer as SQL Server. The user can then connect to a local copy of SQL Server, even when running a nonnetworked version of SQL Server. SQL Server 2000 supports multiple instances of SQL Server running on the same computer.
+</div>
+<a name="wp612056"> </a><div class="pCellBody">
+To specify a named instance of SQL Server, use the format: <code><em>server_name\instance_name</em></code>. If only a server name is specified with no instance name, the driver connects to the server and uses the default named instance on the server.
+</div>
+<a name="wp612132"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Server Name.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609094"> </a><div class="pCellBody">
+StatsLogFile
+</div>
+</td>
+    <td><a name="wp609096"> </a><div class="pCellBody">
+The full path and file name of a file used to record SQL Server Wire Protocol driver performance data. StatsLogFile must be set to yes.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609098"> </a><div class="pCellBody">
+StatsLog_On
+</div>
+</td>
+    <td><a name="wp609100"> </a><div class="pCellBody">
+StatsLog_On={yes | no}. Determines whether SQL Server Wire Protocol driver performance data is available.
+</div>
+<a name="wp609101"> </a><div class="pCellBody">
+When set to yes, SQL Server Wire Protocol driver performance data is captured. 
+</div>
+<a name="wp609102"> </a><div class="pCellBody">
+When set to no, SQL Server Wire Protocol driver performance data is not available on the connection.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609104"> </a><div class="pCellBody">
+Trusted_Connection
+</div>
+</td>
+    <td><a name="wp609106"> </a><div class="pCellBody">
+Trusted_Connection={yes | no}. Determines what information the SQL Server Wire Protocol driver uses for login validation.
+</div>
+<a name="wp609107"> </a><div class="pCellBody">
+When set to yes (the initial default), the SQL Server Wire Protocol driver requests a secure (or trusted) connection to a SQL Server running on Windows NT, Windows 2000, Windows XP, or Windows Server 2003. SQL Server uses integrated login security to establish connections using this data source, regardless of the current login security mode at the server. Any login ID or password supplied is ignored. The SQL Server system administrator must have associated your Windows network ID with a SQL Server login ID.
+</div>
+<a name="wp609108"> </a><div class="pCellBody">
+When set to no, the SQL Server Wire Protocol driver uses a SQL Server username and password for login validation. The UID and PWD keywords must be specified.
+</div>
+<a name="wp611641"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Use NT Authentication.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609110"> </a><div class="pCellBody">
+UID
+</div>
+</td>
+    <td><a name="wp609112"> </a><div class="pCellBody">
+A valid SQL Server login account. UID need not be specified when using Windows NT authentication (Trusted_Connection = yes).
+</div>
+<a name="wp611593"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Default Logon ID.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp609114"> </a><div class="pCellBody">
+WSID
+</div>
+</td>
+    <td><a name="wp621454"> </a><div class="pCellBody">
+The workstation ID used by the client.
+</div>
+<a name="wp611422"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Workstation ID.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp609124"> </a><h3 class="pHeading2">
+</h3><div align="left"><img src="images/iconunix11.gif" height="27" width="27" border="0" hspace="0" vspace="0"/></div><h3 class="pHeading2">UNIX
+</h3>
+<a name="wp593824"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp593754"> </a><div class="pTableTitleBold">
+Table 6-2.  UNIX SQL Server Wire Protocol Connection String Attributes&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp593758"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp593760"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp593762"> </a><div class="pCellBody">
+Address
+</div>
+</td>
+    <td><a name="wp593764"> </a><div class="pCellBody">
+The network address of the server running SQL&#160;Server. This is required and can be an IP address in the following format: IP <code><em>address, port_number</em></code>. For example, you might enter <code class="cCode">199.226.224.34, 5000</code>. If your network supports named servers, you can specify an address as: <code><em>servername, port_number</em></code>. For example, you might enter <code class="cCode">SSserver, 5000</code>.
+</div>
+<a name="wp621851"> </a><div class="pCellBody">
+To specify a named instance of SQL Server, use the format: <code><em>server_name\instance_name</em></code>. If only a server name is specified with no instance name, the driver connects to the server and uses the default named instance on the server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp610119"> </a><div class="pCellBody">
+AlternateServers	
+</div>
+</td>
+    <td><a name="wp626060"> </a><div class="pCellBody">
+A list of alternate database servers to which the driver will try to connect if the primary database server is unavailable. Specifying a value for this connection string attribute enables connection failover for the driver. See <a  href="Rstart4.html#wp583803"><a  href="Rstart4.html#wp583803">&quot;Using Connection Failover&quot;</a></a> for a discussion of connection failover.
+</div>
+<a name="wp623642"> </a><p class="pBody">
+ 
+</p>
+<a name="wp618262"> </a><div class="pCellBody">
+The value you specify must be in the form of a string that defines the physical location of each alternate server. All of the other required connection information for each alternate server is the same as what is defined for the primary server connection. 
+</div>
+<a name="wp616934"> </a><div class="pCellBody">
+For the SQL Server Wire Protocol driver, you must specify the network address. The string has the format:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+(Address=<code><em>addressvalue</em></code>[, . . .])<a name="wp616935"> </a>
+</pre></div>
+<a name="wp616936"> </a><div class="pCellBody">
+For example, the following two Alternate Servers values define two alternate database servers for connection failover:
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+AlternateServers=(Address=\\MySQLServer\Instance1, 
+Address=\\MySQLServer2\Instance1)<a name="wp616980"> </a>
+</pre></div>
+<a name="wp616981"> </a><div class="pCellBody">
+or
+</div>
+<div class="pPreformatted"><pre class="pPreformatted">
+AlternateServers=(Address=&quot;MySQLServer, 5001&quot;,  
+Address=&quot;255.125.1.11, 5002&quot;)<a name="wp616982"> </a>
+</pre></div>
+<a name="wp616983"> </a><div class="pCellBody">
+Notice in the second example that the address is enclosed in quotation marks. This is because it contains a comma and might be mistaken for the next alternate server in the list.
+</div>
+<a name="wp616941"> </a><div class="pCellBody">
+See <a  href="Rsqlsrv8.html#wp617096">&quot;Configuring Connection Failover&quot;</a> for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593766"> </a><div class="pCellBody">
+AnsiNPW
+</div>
+</td>
+    <td><a name="wp593768"> </a><div class="pCellBody">
+AnsiNPW={yes | no}. Determines whether ANSI-defined behaviors are exposed.
+</div>
+<a name="wp593769"> </a><div class="pCellBody">
+When set to yes, the driver uses ANSI-defined behaviors for handling NULL comparisons, character data padding, warnings, and NULL concatenation. If the driver appears to be truncating trailing blank spaces, this attribute should be set to no.
+</div>
+<a name="wp593770"> </a><div class="pCellBody">
+When set to no, ANSI-defined behaviors are not exposed.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593772"> </a><div class="pCellBody">
+APP
+</div>
+</td>
+    <td><a name="wp621496"> </a><div class="pCellBody">
+The name SQL Server uses to identify your application.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp610093"> </a><div class="pCellBody">
+ConnectionRetryCount
+</div>
+</td>
+    <td><a name="wp623503"> </a><div class="pCellBody">
+Specifies the number of times the driver tries to connect to the primary server, and if configured, to the alternate servers after the initial unsuccessful attempt. See <a  href="Rstart6.html#wp592469"><a  href="Rstart6.html#wp592469">&quot;Using Connection Retry&quot;</a></a> for more information about this feature.
+</div>
+<a name="wp623508"> </a><div class="pCellBody">
+Valid values are integers from 0 to 65535. When set to 0 (the initial default), the driver does not try to connect after the initial unsuccessful attempt.
+</div>
+<a name="wp623509"> </a><div class="pCellBody">
+If a connection is not established during the retry attempts, the driver returns an error that is generated by the last server to which it tried to connect.
+</div>
+<a name="wp623510"> </a><div class="pCellBody">
+This attribute and the ConnectionRetryDelay connection string attribute, which specifies the wait interval between attempts, can be used in conjunction with connection failover. &#160;&#160;
+</div>
+<a name="wp610884"> </a><div class="pCellBody">
+See <a  href="Rsqlsrv8.html#wp617096">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp610103"> </a><div class="pCellBody">
+ConnectionRetryDelay
+</div>
+</td>
+    <td><a name="wp622426"> </a><div class="pCellBody">
+Specifies the number of seconds that the driver waits after the initial unsuccessful connection attempt before retrying a connection to the primary server and, if specified, to the alternate servers. 
+</div>
+<a name="wp622427"> </a><div class="pCellBody">
+Valid values are integers from 0 to 65535. The default value is 3 (seconds). When set to 0, there is no delay between retries.
+</div>
+<a name="wp622428"> </a><div class="pCellBody">
+NOTE: This attribute has no effect unless the ConnectionRetryCount connection string attribute is set to an integer value greater than 0.
+</div>
+<a name="wp622429"> </a><div class="pCellBody">
+This attribute and the ConnectionRetryCount connection string attribute, which specifies the number of times the driver tries to connect after the initial unsuccessful attempt, can be used in conjunction with connection failover. &#160;&#160;&#160;
+</div>
+<a name="wp610892"> </a><div class="pCellBody">
+See <a  href="Rsqlsrv8.html#wp617096">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection string attributes that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593784"> </a><div class="pCellBody">
+DATABASE
+</div>
+</td>
+    <td><a name="wp593786"> </a><div class="pCellBody">
+The name of the database to which you want to connect by default. If you do not specify a value, the default database defined by SQL Server is used.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593789"> </a><div class="pCellBody">
+IANAAppCodePage
+</div>
+</td>
+    <td><a name="wp622307"> </a><div class="pCellBody">
+See <a  href="appcodepage.html#wp526223"><a  href="appcodepage.html#wp526223">&quot;Values for IANAAppCodePage Connection String Attribute&quot;</a></a> for a list of valid values for this attribute. The code page that you specify must be the same as the code page used by your application. This attribute applies to UNIX only.
+</div>
+<a name="wp622309"> </a><div class="pCellBody">
+Both this Unicode driver and the Driver Manager determine the value of the application&#8217;s code page by checking for an IANAAppCodePage value in the following order:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp622310"> </a><div class="pSmartList1"><li>In the connection string</li></div><a name="wp622311"> </a><div class="pSmartList1"><li>In the DataSource section of the system information file (odbc.ini)</li></div><a name="wp622312"> </a><div class="pSmartList1"><li>In the ODBC section of the system information file (odbc.ini)</li></div></ul></div>
+<a name="wp622313"> </a><div class="pCellBody">
+If no IANAAppCodePage value is found, the driver uses the default value of 4 (ISO 8859-1 Latin-1). 
+</div>
+<a name="wp610020"> </a><p class="pBody">
+   
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593802"> </a><div class="pCellBody">
+LANGUAGE
+</div>
+</td>
+    <td><a name="wp593804"> </a><div class="pCellBody">
+The national language to use for SQL Server system messages. This overrides the default language specified for the login on the server. If no language is specified, the connection uses the default language specified for the login on the server.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp610073"> </a><div class="pCellBody">
+LoadBalancing
+</div>
+</td>
+    <td><a name="wp623483"> </a><div class="pCellBody">
+LoadBalancing={0 | 1}. Determines whether the driver uses client load balancing in its attempts to connect to primary and alternate database servers. See <a  href="Rstart5.html#wp583520"><a  href="Rstart5.html#wp583520">&quot;Using Client Load Balancing&quot;</a> </a>for more information.
+</div>
+<a name="wp623488"> </a><div class="pCellBody">
+When set to 1, the driver attempts to connect to the database servers in random order. 
+</div>
+<a name="wp623489"> </a><div class="pCellBody">
+When set to 0, (the initial default), client load balancing is not used and the driver connects to each database server based on its sequential order (primary server first, then, alternate servers in the order they are specified).
+</div>
+<a name="wp623490"> </a><div class="pCellBody">
+NOTE: This attribute has no effect unless alternate servers are defined for the AlternateServers connection string attribute.
+</div>
+<a name="wp610914"> </a><div class="pCellBody">
+The LoadBalancing connection string attribute is an optional setting that you can use in conjunction with connection failover. See <a  href="Rsqlsrv8.html#wp617096">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593806"> </a><div class="pCellBody">
+PWD
+</div>
+</td>
+    <td><a name="wp593808"> </a><div class="pCellBody">
+The password for the SQL Server login account specified in the UID parameter. PWD need not be specified if the login has a NULL password.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593810"> </a><div class="pCellBody">
+QuotedID
+</div>
+</td>
+    <td><a name="wp593812"> </a><div class="pCellBody">
+QuotedID={yes | no}. Determines whether QUOTED_IDENTIFIERS is set ON or OFF for the connection.
+</div>
+<a name="wp593813"> </a><div class="pCellBody">
+When set to yes, QUOTED_IDENTIFIERS is set ON for the connection, and SQL Server uses the SQL-92 rules regarding the use of quotation marks in SQL statements.
+</div>
+<a name="wp593814"> </a><div class="pCellBody">
+When set to no, QUOTED_IDENTIFIERS is set OFF for the connection, and SQL Server uses the legacy Transact-SQL rules regarding the use of quotation marks in SQL statements.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593816"> </a><div class="pCellBody">
+UID
+</div>
+</td>
+    <td><a name="wp593818"> </a><div class="pCellBody">
+A valid SQL Server login account.
+</div>
+<a name="wp593819"> </a><div class="pCellBody">
+NOTE: UID is not a valid term for the system information file (odbc.ini); you must use LogonID instead.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp593821"> </a><div class="pCellBody">
+WSID
+</div>
+</td>
+    <td><a name="wp621476"> </a><div class="pCellBody">
+The workstation ID used by the client.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

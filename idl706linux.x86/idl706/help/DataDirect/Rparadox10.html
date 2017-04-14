@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:15" />
+  <title>Password Protection</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp511694"> </a><h1 class="pNewHTMLPageNoNum">
+Password Protection
+</h1>
+<hr /><a name="wp510326"> </a><p class="pBody">
+Paradox supports two types of passwords: master and auxiliary. The Paradox driver supports master passwords only and can manage a maximum of 50 passwords.
+</p>
+<a name="wp510332"> </a><p class="pBody">
+Paradox database files can be encrypted to provide limited access to users who do not know the password. The driver maintains a list of passwords for each connection. The driver can access only encrypted database files for which a password appears in this list. You can supply a password in three ways: by typing it in the Password dialog box (which appears when the driver does not have the password to open an encrypted database file), by including it in a connection string (with the Passwords attribute), or by using the Add Password statement.
+</p>
+<a name="wp511083"> </a><p class="pBody">
+Paradox provides five statements that manage passwords for Paradox database files. These statements are specific to the Paradox driver:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ENCRYPT <code><em>filename</em></code> USING PASSWORD <code><em>password</em></code><a name="wp510336"> </a>
+ADD PASSWORD <span style="font-style: italic">password</span><a name="wp510338"> </a>
+DECRYPT <span style="font-style: italic">filename</span> USING PASSWORD <span style="font-style: italic">password</span><a name="wp510340"> </a>
+REMOVE PASSWORD <span style="font-style: italic">password</span><a name="wp510342"> </a>
+REMOVE ALL PASSWORDS<a name="wp510344"> </a>
+</pre></div>
+<a name="wp510346"> </a><p class="pBody">
+<em class="cEmphasis">filename</em> can be a simple file name or a full path name. If a simple file name is given, the file must be in the directory specified with the Database connection string attribute. The .DB extension is not required.
+</p>
+<a name="wp510348"> </a><p class="pBody">
+<em class="cEmphasis">password</em> is a case-sensitive text string and its maximum length is 15 characters, including blanks. If your password includes lowercase letters or nonalphanumeric characters, enclose it in single quotation marks (&#39;).
+</p>
+<a name="wp510350"> </a><h3 class="pHeading2">
+Encrypting a Paradox Database File
+</h3>
+<a name="wp510352"> </a><p class="pBody">
+The Encrypt statement associates a password with a database file. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ENCRYPT emp USING PASSWORD test<a name="wp510354"> </a>
+</pre></div>
+<a name="wp510356"> </a><h3 class="pHeading2">
+Accessing an Encrypted Paradox Database File
+</h3>
+<a name="wp510358"> </a><p class="pBody">
+To access an encrypted Paradox database file, add the password to the list of passwords Paradox maintains for that connection. To do so, you can:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp510360"> </a><div class="pSmartList1"><li>Issue an Add Password statement before you access the database file. For example:</li></div><a name="wp510362"> </a><p class="pSyntaxEmbed">
+ADD PASSWORD test<br />SELECT * FROM emp
+</p>
+<a name="wp510364"> </a><div class="pSmartList1"><li>Specify the passwords using the Passwords attribute at connection time.</li></div></ul></div>
+<a name="wp510366"> </a><p class="pBody">
+If you do not add the password, the driver prompts you for it when you access the database file.
+</p>
+<a name="wp510368"> </a><h3 class="pHeading2">
+Decrypting a Paradox Database File
+</h3>
+<a name="wp510370"> </a><p class="pBody">
+The Decrypt statement disassociates a password from a database file. You no longer need to enter the password to open the database file. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DECRYPT emp USING PASSWORD test<a name="wp510372"> </a>
+</pre></div>
+<a name="wp510374"> </a><h3 class="pHeading2">
+Removing a Password from Paradox
+</h3>
+<a name="wp510376"> </a><p class="pBody">
+The Remove Password statement removes a password from the list Paradox maintains for the connection. For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+REMOVE PASSWORD test<a name="wp510378"> </a>
+</pre></div>
+<a name="wp510380"> </a><h3 class="pHeading2">
+Removing All Passwords from Paradox
+</h3>
+<a name="wp510382"> </a><p class="pBody">
+The Remove All Passwords statement removes the list of passwords Paradox maintains.
+</p>
+<a name="wp510384"> </a><p class="pBody">
+If you remove a password from Paradox and do not decrypt the database file, you must continue entering the password to open the database file.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

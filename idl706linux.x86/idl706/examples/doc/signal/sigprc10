@@ -1,0 +1,35 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc10#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a plot a bandstop filter which suppresses
+; frequencies between 7 cycles per second and 15 cycles per second for
+; data sampled every 0.02 seconds. 
+
+delt = 0.02 ; sampling period in seconds
+f_low = 15. ; frequencies above f_low will be passed
+f_high = 7. ; frequencies below f_high will be passed
+a_ripple = 50. ; ripple amplitude will be less than -50 dB
+nterms = 40 ; the order of the filter
+
+; Compute the impulse response = the filter coefficients
+bs_ir_k = DIGITAL_FILTER(f_low*2*delt, f_high*2*delt, $
+   a_ripple, nterms)
+
+; The frequency response of the filter is the FFT of its impulse 
+; response: nfilt = number of points in impulse response.
+nfilt = N_ELEMENTS(bs_ir_k) 
+
+; Scale frequency response by number of pts.
+bs_fr_k = FFT(bs_ir_k) * nfilt 
+
+; Log plot of magnitude in dB. Magnitude of bandstop filter 
+; transfer f'n.
+f_filt = FINDGEN(nfilt/2+1) / (nfilt*delt)
+mag = ABS(bs_fr_k(0:nfilt/2)) 
+
+IPLOT, f_filt, 20*ALOG10(mag), YTITLE='Magnitude in dB', $
+    XRANGE=[1.0,1.0/(2.0*delt)], YRANGE=[-60,20], $
+    XTITLE='Frequency in cycles / second', /X_LOG, $
+    TITLE='Frequency Response for Bandstop FIR Filter (Kaiser)'

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:15" />
+  <title>Multiuser Access to Database Files</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510206"> </a><h1 class="pNewHTMLPageNoNum">
+Multiuser Access to Database Files
+</h1>
+<hr /><a name="wp510210"> </a><p class="pBody">
+You can query Paradox database files that reside in a shared directory on a network or that are to be shared among applications running on a local workstation. If the database files are on a network server, multiple users can query these database files simultaneously. To share Paradox database files among multiple users, the database files must be located in a shared directory on your network server.
+</p>
+<a name="wp510212"> </a><p class="pBody">
+Two connection attributes identify the Paradox database you are accessing: Database (database directory) and NetDir (network directory). The Database setting specifies the directory in which the Paradox database files are stored. If the Database setting you specify is a shared network directory, then Paradox requires a NetDir specification as well. This value identifies the directory containing the PARADOX.NET file that corresponds to the Database setting you have specified.
+</p>
+<a name="wp510214"> </a><p class="pBody">
+Every user who accesses the same shared directory of database files must set the NetDir value to point to the same PARADOX.NET file. If your connection string does not specify a NetDir value, then Paradox uses the NetDir value specified in the Paradox section of the IDAPI configuration file. This makes it important that the NetDir specification in each user&#8217;s IDAPI configuration file be set correctly.
+</p>
+<a name="wp510216"> </a><p class="pBody">
+Whenever you open a Paradox database file that another user opens at the same time, the consistency of the data becomes an issue if both individuals are updating the database file.
+</p>
+<a name="wp510218"> </a><h3 class="pHeading2">
+Locking
+</h3>
+<a name="wp510222"> </a><p class="pBody">
+The Paradox driver has two locking levels: record locking and table locking. Database files that have no primary key always have a prevent write lock placed on the database file when the file is opened. The table lock is escalated to a write lock when an operation that changes the database file is attempted.
+</p>
+<a name="wp510224"> </a><p class="pBody">
+Database files that have primary keys use record locking. The locking level is escalated from record locking to a table write lock if the transaction runs out of record locks.
+</p>
+<a name="wp510226"> </a><p class="pBody">
+Primary keys provide the greatest concurrency for database files that are accessed and modified by multiple users.
+</p>
+<a name="wp510228"> </a><p class="pBody">
+NOTE: If a table lock is placed on a Paradox database file, the Paradox driver prevents users from updating and deleting records but does not prevent them from inserting records into the locked database file.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

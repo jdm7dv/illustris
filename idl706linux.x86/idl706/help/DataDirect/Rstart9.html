@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/14/04 11:47:58" />
+  <title>Retrieving Data Type Information</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp596069"> </a><h1 class="pNewHTMLPageNoNum">
+Retrieving Data Type Information
+</h1>
+<hr /><a name="wp596084"> </a><p class="pBody">
+At times, you might need to get information about the data types supported by the data source, for example, precision and scale. You can use the ODBC function SQLGetTypeInfo to do this. 
+</p>
+<a name="wp596085"> </a><p class="pBody">
+On Windows, you can use ODBC Test to call SQLGetTypeInfo against the ODBC data source to return the data type information.
+</p>
+<a name="wp596086"> </a><p class="pBody">
+On UNIX or Windows, an application can call SQLGetTypeInfo. Here is an example of a C function that calls SQLGetTypeInfo and retrieves the information in the form of a SQL result set.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+void ODBC_GetTypeInfo(SQLHANDLE hstmt, SQLSMALLINT dataType)<a name="wp596087"> </a>
+{<a name="wp596088"> </a>
+<a name="wp596089"> </a>
+&#160;&#160;&#160;&#160;RETCODE rc;<a name="wp596090"> </a>
+<a name="wp596091"> </a>
+// There are 19 columns returned by SQLGetTypeInfo.  <a name="wp596092"> </a>
+// This example displays the first 3.<a name="wp596093"> </a>
+// Check the ODBC 3.x specification for more information.<a name="wp596094"> </a>
+<a name="wp596095"> </a>
+// Variables to hold the data from each column<a name="wp596096"> </a>
+&#160;&#160;&#160;&#160;char&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;typeName[30];<a name="wp596097"> </a>
+&#160;&#160;&#160;&#160;short&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sqlDataType;<a name="wp596098"> </a>
+&#160;&#160;&#160;&#160;unsigned long&#160;&#160;&#160;&#160;columnSize;<a name="wp596099"> </a>
+<a name="wp596100"> </a>
+&#160;&#160;&#160;&#160;SQLINTEGER&#160;&#160;&#160;&#160;&#160;&#160;&#160;strlenTypeName,<a name="wp596101"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;strlenSqlDataType,<a name="wp596102"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;strlenColumnSize;<a name="wp596103"> </a>
+<a name="wp596104"> </a>
+&#160;&#160;&#160;&#160;rc = SQLGetTypeInfo(hstmt, dataType);<a name="wp596105"> </a>
+&#160;&#160;&#160;&#160;if (rc == SQL_SUCCESS) {<a name="wp596106"> </a>
+        <a name="wp596107"> </a>
+// Bind the columns returned by the SQLGetTypeInfo result set.<a name="wp596108"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;rc = SQLBindCol(hstmt, 1, SQL_C_CHAR, &amp;typeName,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(SDWORD)sizeof(typeName), &amp;strlenTypeName);<a name="wp596109"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;rc = SQLBindCol(hstmt, 2, SQL_C_SHORT, &amp;sqlDataType,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(SDWORD)sizeof(sqlDataType), &amp;strlenSqlDataType);<a name="wp596110"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;rc = SQLBindCol(hstmt, 3, SQL_C_LONG, &amp;columnSize,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(SDWORD)sizeof(columnSize), &amp;strlenColumnSize);<a name="wp596111"> </a>
+<a name="wp596112"> </a>
+// Print column headings<a name="wp596113"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;printf (&quot;TypeName&#160;&#160;&#160;&#160;&#160;&#160;DataType&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ColumnSize\n&quot;);<a name="wp596114"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;printf (&quot;-------------------- ---------- ----------\n&quot;);<a name="wp596115"> </a>
+<a name="wp596116"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;do {<a name="wp596117"> </a>
+// Fetch the results from executing SQLGetTypeInfo<a name="wp596118"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;rc = SQLFetch(hstmt);<a name="wp596119"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (rc == SQL_ERROR) {<a name="wp596120"> </a>
+// Procedure to retrieve errors from the SQLGetTypeInfo function<a name="wp596121"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ODBC_GetDiagRec(SQL_HANDLE_STMT, hstmt);<a name="wp596122"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<a name="wp596123"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<a name="wp596124"> </a>
+<a name="wp596125"> </a>
+// Print the results<a name="wp596126"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if ((rc == SQL_SUCCESS) || (rc == SQL_SUCCESS_WITH_INFO)) {<a name="wp596127"> </a>
+printf (&quot;%-30s %10i %10u\n&quot;, typeName, sqlDataType, columnSize);<a name="wp596128"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<a name="wp596129"> </a>
+<a name="wp596130"> </a>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} while (rc != SQL_NO_DATA);<a name="wp596131"> </a>
+&#160;&#160;&#160;&#160;}<a name="wp596132"> </a>
+}<a name="wp596133"> </a>
+</pre></div>
+<a name="wp596078"> </a><p class="pBody">
+For information about how a database&#8217;s data types map to the standard ODBC data types, see the appropriate driver chapter in this book.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code><em></em></code><a name="wp584994"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

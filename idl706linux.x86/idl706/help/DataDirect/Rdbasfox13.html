@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>SQL Statements for FoxPro 3.0 Database Containers</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510624"> </a><h1 class="pNewHTMLPageNoNum">
+SQL Statements for FoxPro 3.0 Database Containers
+</h1>
+<hr /><a name="wp514745"> </a><p class="pBody">
+The FoxPro DBC driver supports four additional SQL statements:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp514746"> </a><div class="pSmartList1"><li>Create Database</li></div><a name="wp514747"> </a><div class="pSmartList1"><li>Add Table</li></div><a name="wp514748"> </a><div class="pSmartList1"><li>Remove Table</li></div><a name="wp514749"> </a><div class="pSmartList1"><li>Use</li></div></ul></div>
+<a name="wp514750"> </a><p class="pBody">
+To create a new FoxPro 3.0 database container, use
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE DATABASE <em class="cEmphasis">database_name</em><a name="wp514751"> </a>
+</pre></div>
+<a name="wp514755"> </a><p class="pBody">
+To add an existing table to the database container, use
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ADD TABLE <em class="cEmphasis">table_name</em><a name="wp514756"> </a>
+</pre></div>
+<a name="wp514757"> </a><p class="pBody">
+To remove a table from the database container (not delete the table, but unlink it from the database container), use
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+REMOVE TABLE <em class="cEmphasis">table_name</em><a name="wp514758"> </a>
+</pre></div>
+<a name="wp514759"> </a><p class="pBody">
+To set the current database container to an existing database container, use
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+USE <em class="cEmphasis">database_name</em><a name="wp514760"> </a>
+</pre></div>
+<a name="wp514761"> </a><p class="pBody">
+To add or delete columns from a table in a database container, use the Alter Table statement (see <a  href="Rdbasfox10.html#wp514198">&quot;Alter Table Statement&quot;</a>).
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

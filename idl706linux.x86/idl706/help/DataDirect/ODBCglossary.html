@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:51" />
+  <title>Glossary</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp71166"> </a><h1 class="pNewHTMLPageNoNum">
+Glossary
+</h1>
+<hr /><a name="wp73565"> </a><p class="pBodyBold">
+application 
+</p>
+<a name="wp73761"> </a><p class="pBody">
+An application, as it relates to the ODBC standard, performs tasks such as: requesting a connection to a data source; sending SQL requests to a data source; processing errors; and terminating the connection to a data source. It may also perform functions outside the scope of the ODBC interface.
+</p>
+<a name="wp75692"> </a><p class="pBodyBold">
+client load balancing
+</p>
+<a name="wp75708"> </a><p class="pBody">
+Client load balancing distributes new connections in a computing environment so that no one server is overwhelmed with connection requests.
+</p>
+<a name="wp73733"> </a><p class="pBodyBold">
+conformance
+</p>
+<a name="wp74389"> </a><p class="pBody">
+There are two types of conformance levels for ODBC drivers&#8212;ODBC API and ODBC SQL grammar (see SQL Grammar). Knowing the conformance levels helps you determine the range of functionality available through the driver, even if a particular database does not support all of the functionality of a particular level.
+</p>
+<a name="wp74392"> </a><p class="pBody">
+For ODBC API conformance, most quality ODBC drivers support Core, Level 1, and a defined set of Level 2 functions, depending on the database being accessed.
+</p>
+<a name="wp75646"> </a><p class="pBodyBold">
+connection failover
+</p>
+<a name="wp75652"> </a><p class="pBody">
+Connection failover allows an application to connect to an alternate, or backup, database server if the primary database server is unavailable, for example, because of a hardware failure or traffic overload.
+</p>
+<a name="wp75737"> </a><p class="pBodyBold">
+connection retry
+</p>
+<a name="wp75743"> </a><p class="pBody">
+Connection retry defines the number of times the driver attempts to connect to the primary and, if configured, alternate database servers after the initial unsuccessful connection attempt. Connection retry can be an important strategy for system recovery.
+</p>
+<a name="wp73731"> </a><p class="pBodyBold">
+connection string
+</p>
+<a name="wp74516"> </a><p class="pBody">
+A string passed in code that specifies connection information directly to the Driver Manager and driver.
+</p>
+<a name="wp74517"> </a><p class="pBodyBold">
+data source
+</p>
+<a name="wp73566"> </a><p class="pBody">
+A data source includes both the source of data itself, such as relational database, a flat-file database, or even a text file, and the connection information necessary for accessing the data. Connection information may include such things as server location, database name, logon ID, and other driver options. Data source information is usually stored in a DSN (see Data Source Name).
+</p>
+<a name="wp73740"> </a><p class="pBodyBold">
+driver
+</p>
+<a name="wp73741"> </a><p class="pBody">
+An ODBC driver communicates with the application through the Driver Manager and performs tasks such as: establishing a connection to a data source; submitting requests to the data source; translating data to and from other formats; returning results to the application; and formatting errors into a standard code and returning them to the application.
+</p>
+<a name="wp74097"> </a><p class="pBodyBold">
+Driver Manager
+</p>
+<a name="wp74098"> </a><p class="pBody">
+The main purpose of the Driver Manager is to load drivers for the application. The Driver Manager also processes ODBC initialization calls and maps data sources to a specific driver.
+</p>
+<a name="wp73742"> </a><p class="pBodyBold">
+DSN (Data Source Name)
+</p>
+<a name="wp74567"> </a><p class="pBody">
+A DSN stores the data source information (see Data Source) necessary for the Driver Manager to connect to the database. This can be configured either through the ODBC Administrator or in a DSN file. On Windows, the information is called a system or user DSN and is stored in the Registry. Data source information can also be stored in text configuration files, as is the case on UNIX. Applications deployed in the global assembly cache must have a strong name to handle name and version conflicts. 
+</p>
+<a name="wp74568"> </a><p class="pBodyBold">
+DTC (Distributed Transaction Coordinator)
+</p>
+<a name="wp74569"> </a><p class="pBody">
+In Microsoft<span style="vertical-align: super">®</span> Windows<span style="vertical-align: super">®</span> NT, Windows 2000, Windows XP, and the Windows Server 2003 family, the DTC is a system service that is part of COM+ services. COM+ components that use DTC can enlist ODBC connections in distributed transactions. This makes it possible to scale transactions from one to many computers without adding special code.
+</p>
+<a name="wp75838"> </a><p class="pBodyBold">
+index
+</p>
+<a name="wp75848"> </a><p class="pBody">
+A database structure used to improve the performance of database activity. A database table can have one or more indexes associated with it.
+</p>
+<a name="wp74382"> </a><p class="pBodyBold">
+isolation level
+</p>
+<a name="wp74581"> </a><p class="pBody">
+An isolation level represents a particular locking strategy employed in the database system to improve data consistency.The higher the isolation level number, the more complex the locking strategy behind it. The isolation level provided by the database determines how a transaction handles data consistency.
+</p>
+<a name="wp74587"> </a><p class="pBody">
+The American National Standards Institute (ANSI) defines four isolation levels:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp74384"> </a><div class="pSmartList1"><li>Read uncommitted (0)</li></div><a name="wp74633"> </a><div class="pSmartList1"><li>Read committed (1)</li></div><a name="wp75818"> </a><div class="pSmartList1"><li>Repeatable read (2)</li></div><a name="wp75819"> </a><div class="pSmartList1"><li>Serializable (3)</li></div></ul></div>
+<a name="wp75820"> </a><p class="pBodyBold">
+load balancing
+</p>
+<a name="wp75832"> </a><p class="pBody">
+See client load balancing.
+</p>
+<a name="wp75826"> </a><p class="pBodyBold">
+locking level
+</p>
+<a name="wp74687"> </a><p class="pBody">
+Locking is a database operation that restricts a user from accessing a table or record. Locking is used in situations more than one user might try to use the same table or the same time. By locking the table or record, the system that only one user at a time can affect the data.
+</p>
+<a name="wp74676"> </a><p class="pBodyBold">
+MTS (Microsoft Transaction Server)
+</p>
+<a name="wp74709"> </a><p class="pBody">
+MTS is a component-based transaction processing system for developing, deploying, and managing high-performance, scalable, and robust enterprise, Internet, and intranet server applications. MTS was the precursor to COM+, the current version of this processing system (see DTC).
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

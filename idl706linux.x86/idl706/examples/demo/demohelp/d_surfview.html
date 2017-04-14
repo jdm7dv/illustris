@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:30:02">
+    <title>Surface Objects</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_slice.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_vectrack.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1005316"> </a><h2 class="pHeading1">
+Surface Objects
+</h2>  
+
+<a name="wp1005318"> </a><p class="pBody">
+This demo shows a the graphic capabilities of a an IDL Object Graphics surface object. These include:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005319"> </a><div class="pSmartList1"><li>texture mapping</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005320"> </a><div class="pSmartList1"><li>point picking</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005321"> </a><div class="pSmartList1"><li>tracing</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005322"> </a><div class="pSmartList1"><li>masking (or transparency),</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005323"> </a><div class="pSmartList1"><li>interactive change of orientation</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005324"> </a><div class="pSmartList1"><li>vertex coloring</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005325"> </a><div class="pSmartList1"><li>hiding</li></div>  
+
+</ul></div>
+<a name="wp1005326"> </a><p class="pBody">
+You can rotate the surface by positioning the mouse in the draw widget, holding down the left mouse button, and dragging the mouse. The current rotation constraint will be applied as you drag.
+</p>  
+
+<a name="wp1005327"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1005328"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1005329"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit the demonstration.
+</p>  
+
+<a name="wp1005330"> </a><h4 class="pHeading3">
+Options Menu
+</h4>  
+
+<a name="wp1005331"> </a><p class="pBody">
+Select &quot;Flat&quot; or &quot;Gouraud&quot; from the &quot;Shading&quot; sub-menu to change the way IDL handles light source shading on the surface.
+</p>  
+
+<a name="wp1005332"> </a><p class="pBody">
+Select an option from the &quot;Style&quot; sub-menu to change the way the surface is rendered. Note that the &quot;Lego Solid&quot; option may take a few seconds to render. 
+</p>  
+
+<a name="wp1005333"> </a><p class="pBody">
+Select a skirt height value from the &quot;Skirt&quot; sub-menu to choose between different values of the &quot;skirt&quot; that surrounds the object. 
+</p>  
+
+<a name="wp1005334"> </a><p class="pBody">
+Select &quot;Low,&quot; &quot;Medium,&quot; or &quot;High&quot; from the &quot;Drag Quality&quot; sub-menu to change the way the surface is rendered during rotation. This setting does not affect the rendering quality of the surface when you are <span style="font-style: italic">not</span> rotating it. 
+</p>  
+
+<a name="wp1005335"> </a><p class="pBody">
+Select an option from the &quot;Tracing&quot; sub-menu to select a &quot;region of interest&quot; in the surface and then display only that region. To select a region, do the following: 
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005336"> </a><div class="pSmartList1"><li>&quot;Activate (or Deactivate) Outlining&quot;. When this mode is active, you can click and drag with the right mouse button to outline a region on the surface. The outline will be drawn in red. (If you only have one mouse-button, and you are on a Macintosh computer, hold down the Command key while pressing the mouse button to simulate a &quot;right&quot; mouse-button press).</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005337"> </a><div class="pSmartList1"><li>&quot;Activate (or Deactivate) Trace Mask&quot;. When this option is active, those areas of the surface that are external to the current region of interest are made transparent, i. e. &quot;masked&quot;. (Select the region of interest using &quot;Outlining,&quot; discussed above).</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005338"> </a><br />
+<table border="0" bgcolor="#E2E2E2" cellpadding="5" width="98%">
+   <tr><td><b>Note</b><br />
+   To resume normal operation of the Surface Objects program, deactivate &quot;Trace Mask&quot; and &quot;outlining&quot;.</td></tr>
+</table>
+<br />  
+
+
+</ul></div>
+<a name="wp1005339"> </a><p class="pBody">
+&quot;Activate (or Deactivate) Hiding&quot;. When this option is active, lines or points on the back of the surface are not displayed. This option is only available if you have selected &quot;Ruled&quot;, &quot;Point&quot;, or &quot;Wire&quot; from the Style sub-menu. 
+</p>  
+
+<a name="wp1005340"> </a><p class="pBody">
+&quot;Activate (or Deactivate) Vertex Colors&quot;. When this option is active, a specific color is assigned to each vertex in the surface. 
+</p>  
+
+<a name="wp1005341"> </a><p class="pBody">
+&quot;Activate (or Deactivate) Texture Map&quot;. When this option is active, an opaque, color image is applied to the surface. The image is derived from the elevations of the surface.
+</p>  
+
+<a name="wp1005342"> </a><p class="pBody">
+&quot;Activate (or Deactivate) Line Style&quot;. Activate this option to display the surface using dashed lines. This option not available when the surface is rendered as a solid or as points. 
+</p>  
+
+<a name="wp1005343"> </a><h4 class="pHeading3">
+View Menu
+</h4>  
+
+<a name="wp1005344"> </a><p class="pBody">
+Select &quot;Animate&quot; to display a short animation of the surface being warped.
+</p>  
+
+<a name="wp1005345"> </a><p class="pBody">
+Select &quot;Reset Orientation&quot; to restore the surface to the original orientation in space.
+</p>  
+
+<a name="wp1005346"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1005347"> </a><p class="pBody">
+Select &quot;About Surface Objects&quot; to display this help text.
+</p>  
+
+<a name="wp1005348"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1005349"> </a><h4 class="pHeading3">
+Data Minimum Slider 
+</h4>  
+
+<a name="wp1005350"> </a><p class="pBody">
+Adjust this slider to select the minimum value to be rendered. Data smaller than this value will not be displayed. 
+</p>  
+
+<a name="wp1005351"> </a><h4 class="pHeading3">
+Data Maximum Slider 
+</h4>  
+
+<a name="wp1005352"> </a><p class="pBody">
+Adjust this slider to select the maximum value to be rendered. Data larger than this value will not be displayed. 
+</p>  
+
+<a name="wp1005353"> </a><h4 class="pHeading3">
+Scaling slider
+</h4>  
+
+<a name="wp1005354"> </a><p class="pBody">
+Adjust this slider to scale the size of the surface between 75% and 125% of its original size.
+</p>  
+
+<a name="wp1005355"> </a><h4 class="pHeading3">
+Constrain Rotations droplist
+</h4>  
+
+<a name="wp1005356"> </a><p class="pBody">
+Select from this list to change how left-click-and-dragging in the graphic will rotate the view.
+</p>  
+
+<a name="wp1005357"> </a><p class="pBody">
+Tip: If you have the &quot;about Screen Z&quot; rotation constraint selected, click and drag in a motion arcing about the center of the graphics area for consistent rotation speed. The farther from the center you make your arc, the slower the rotation.
+</p>  
+
+<a name="wp1005358"> </a><h4 class="pHeading3">
+Show/Hide Axes Button
+</h4>  
+
+<a name="wp1005359"> </a><p class="pBody">
+Click this button to toggle on or off the display of axes. The axes are color-coded. The red line represents the X axis, green represents Y, and blue represents Z.
+</p>  
+
+<a name="wp1005360"> </a><h3 class="pHeading2">
+Hotkeys
+</h3>  
+
+
+<a name="wp1005361"> </a><p class="pBody">
+In most situations, you can use your keyboard to select from the Constrain Rotations droplist. To select one of the rotation constraints type:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005362"> </a><div class="pSmartList1"><li>X</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005363"> </a><div class="pSmartList1"><li>Y</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005364"> </a><div class="pSmartList1"><li>Z</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005365"> </a><div class="pSmartList1"><li>R</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005366"> </a><div class="pSmartList1"><li>G</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005367"> </a><div class="pSmartList1"><li>B</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005368"> </a><div class="pSmartList1"><li>U</li></div>  
+
+</ul></div>
+<a name="wp1005369"> </a><p class="pBody">
+To toggle the display of the red, green and blue rotation axes type:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005370"> </a><div class="pSmartList1"><li>H</li></div>  
+
+</ul></div>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

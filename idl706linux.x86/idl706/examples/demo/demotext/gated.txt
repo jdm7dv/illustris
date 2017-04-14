@@ -1,0 +1,95 @@
+
+
+
+       WELCOME TO THE GATED BLOOD POOL
+              ANIMATION DEMO
+
+
+   This animation shows a normal (left) and an
+   abnormal (right) gated blood pool inside the 
+   human heart.
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+       Select Quit to exit the Gated Blood Pool 
+       Demo and return to the IDL Demo main 
+       screen.
+
+   View Menu:
+       Select "Colors..." to launch the XLOADCT 
+       application, which allows you to select a 
+       different color table for the animation.
+
+   About Menu:
+       Select "About this animation" for 
+       information about the Normal and abnormal 
+       gated blood pool demo. 
+
+    
+
+   ANIMATION FEATURES
+   ------------------
+
+   BITMAP BUTTONS:
+
+   <<PLAY BACKWARD>>
+       Displays the animation frames in 
+       decreasing order. The animation repeats           
+       by continuing backwards.
+
+   <<PAUSE>>
+       Suspends animation until <<PLAY BACKWARD>>,
+       <<PLAY FORWARD>>, or <<PLAY IN CYCLE>> is pressed.
+
+   <<PLAY FORWARD>>
+       Displays the animation frames in increasing order.
+       The animation repeats by continuing from the 
+       first frame.
+
+   <<PLAY IN CYCLE>>
+       Displays the animation frames repeatedly from 
+       the first frame to the last and then from the 
+       last frame back to the first.
+
+   
+   OPTIONS:
+
+   <<ANIMATION SPEED>> Slider
+       Adjusts the animation speed in frames/second.
+
+   <<ANIMATION FRAME>> Slider
+       When you select <<ACTIVE SLIDER>> (see below), 
+       this slider shows the index of the frame that is
+       currently displayed. You can only view a 
+       specific frame with the slider when animation is 
+       suspended. As animation proceeds, this slider is 
+       desensitized.
+
+   <<ACTIVE SLIDER>> Checkbox
+       Activates or deactivates the 
+       <<ANIMATION FRAME SLIDER>>.
+
+   <<END ANIMATION>> Button
+       Quits the application.
+
+   <<COLORS... >> Button
+       Launches the XLOADCT application so you can select 
+       a new color table.
+
+   <<Write MPEG>> Button
+       Save the animation as an MPEG file. Note that this
+       option is not available if IDL is running in timed
+       demonstration mode (unlicensed).
+
+   <<HELP>> Button
+       Displays information about the Normal and abnormal 
+       gated blood pool demo.
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:06:36" />
+  <title>MTS Support</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp625730"> </a><h1 class="pNewHTMLPageNoNum">
+MTS Support
+</h1>
+<hr /><a name="wp641707"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinb14.gif" height="29" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, the driver can take advantage of Microsoft Transaction Server (MTS) capabilities, specifically, the Distributed Transaction Coordinator (DTC) using the XA Protocol. For a general discussion of MTS and DTC, refer to the help file of the &quot;Microsoft Transaction Server SDK.&quot;
+</p>
+<a name="wp641708"> </a><p class="pBody">
+NOTE: The DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> 32-bit drivers can operate in a 64-bit Windows environment; however, they do not support DTC in this environment. Only the DataDirect Connect64 <font size="1"><em>for</em></font> <font size="1">ODBC</font> 64-bit drivers support DTC in a 64-bit Windows environment.
+</p>
+<a name="wp625738"> </a><p class="pBody">
+To enable DTC support, you must be accessing Sybase Adaptive Server Enterprise 12.0 or higher. You can choose either Native OLE and XA protocol distributed transactions. See the Distributed Transaction Model option documented in <a  href="Rase3.html#wp624716">&quot;Configuring Data Sources&quot;</a> for details.
+</p>
+<a name="wp625742"> </a><p class="pBody">
+To enable distributed transaction in the Sybase server:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp625743"> </a><div class="pSmartList1"><li>Assign the dtm_tm_role to each user who will participate in distributed transactions (who will log in to Adaptive Server). You can do this using the sp_role command. For example:</li></div><a name="wp625744"> </a><p class="pSyntaxEmbed">
+sp_role &quot;grant&quot;, dtm_tm_role, <code><em>user_name</em></code>
+</p>
+<a name="wp625745"> </a><p class="pBodyIndent12pxBeforeAfter">
+In the open string for resource managers, the specified username must have the dtm_tm_role.
+</p>
+<a name="wp625746"> </a><div class="pSmartList1"><li>Specify a default database other than the master for each user. Sybase cannot start distributed transactions in a master database.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

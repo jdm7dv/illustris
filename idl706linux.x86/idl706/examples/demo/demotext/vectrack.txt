@@ -1,0 +1,141 @@
+
+
+
+       WELCOME TO THE THUNDERSTORM DEMO
+
+   This application demonstrates the advanced
+   visualization and data exploration capabilities of
+   IDL's OpenGL-based Object Graphics System.  The
+   data consists of temperature, pressure, and wind
+   velocity samples for a simulated storm front model
+   in three (x, y, z) spatial dimensions.  This is
+   analogous to measuring three parameters (pressure,
+   temperature and wind velocity) in evenly spaced (x,
+   y, z) locations of a room.  Each measured parameter
+   consists of a "brick" or volume of data, thus we
+   have three "bricks" of data to display.
+
+   In addition to these advanced visualization
+   capabilities, the array-based nature of IDL
+   facilitates the analysis of complex,
+   multidimensional data. If desired, all dimensions
+   of complex data may be stored and processed in a
+   single array.
+
+   Our most sincere thanks go to Drs. Joe Klemp and
+   Morris Weisman of the National Center for Atmospheric
+   Research (NCAR) Boulder, Colorado who graciously
+   provided ITT Visual Information Solutions with this data.
+
+   The following types of visualizations can be shown.
+
+   Images obtained from cross-sections of the data.
+   Vector plots of velocity at a given location.
+   Volume rendering of a variable throughout the data set.
+   Isosurfacing of a variable.
+   Ribbons for the display of vector data.
+
+   The data available for use in the demo:
+
+   P: air pressure pertubation (millibars)
+   T: potential temperature pertubation (difference
+   from mean in degrees Kelvin
+   U: wind field west to east (meters/second)
+   V: wind field south to north (m/sec)
+   W: wind field vertical velocity (m/sec)
+   (Note that the variable M shown in the visualization
+   is a computed value based on U, V, and W)
+
+   MENU OPTIONS
+   ------------
+   File Menu:
+      Select Quit to exit the Demo and return 
+      to the IDL Demo system.
+
+   About Menu:
+      Select "About Thunderstorm Visualization" for detailed
+      information about the Thunderstorm Demo.
+
+
+   FEATURES
+   --------
+
+   <<Velocity Field Planes: X, Y, Z>> droplists
+      
+      Control the display of velocity information for each plane.
+      The display of velocities can be shown as vectors, as an
+      image, or turned off.
+
+   <<Velocity Field Planes: X, Y, Z, Plane>> sliders
+      
+      Control the location of the plane in which velocity
+      information is to be displayed.
+
+   <<Vector Sampling>> button group
+      
+      Choose "Even" or "Random" sampling for the display of
+      velocity vectors.
+
+   <<Sample Every Nth>> text entry field
+      
+      Set the density of the sampling for the display of
+      velocity vectors.
+
+   <<Total Number of Samples>> text entry field
+      
+      Set the total number of velocity vectors to be displayed
+      when using random vector sampling.
+
+   <<Vector Length>> text entry field
+      
+      Set the length of the velocity vectors.
+
+   <<Vrend vol>> droplist
+      
+      Choose the volume to be rendered.  "P" represents air
+      pressure perturbation in millibars.  "T" represents
+      potential temperature perturbation, or the difference
+      from mean in degrees Kelvin.  "M" represents the magnitude
+      of the wind velocity.
+
+   <<Vol Render>> button
+      
+      Display the volume rendering selected with the "Vrend vol"
+      droplist.
+
+   <<Img vol>> droplist
+      
+      Select "P", "T", or "M" to display air pressure, temperature,
+      or the magnitude of wind velocity when the Field Planes droplists
+      are set to "Image".
+
+   <<Iso vol>> droplist
+      
+      Select the data set to be displayed as an isosurface, using the
+      same settings as in the "Img vol" droplist.
+
+   <<Level>> slider
+      
+      Set the data value to be used for the isosurface.
+
+   <<IsoShow>> check box
+      
+      Check this box to display the isosurface.
+
+   <<Transparency Min.>> slider
+      
+      Adjust the minimum value used for transparency in
+      the display of the field planes when the field plane
+      display is set to "Image".
+
+   <<Transparency Max.>> slider
+      
+      Adjust the maximum value used for transparency in
+      the display of the field planes when the field plane
+      display is set to "Image".
+
+   <<Clear Streamlines>> button
+      
+      Remove the display of streamlines.  Streamlines are
+      created by clicking the right mouse button (or emulated
+      right mouse button) on a field plane image or isosurface.

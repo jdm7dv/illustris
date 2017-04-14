@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:15" />
+  <title>Alter Table Statement</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp511673"> </a><h1 class="pNewHTMLPageNoNum">
+Alter Table Statement
+</h1>
+<hr /><a name="wp511674"> </a><p class="pBody">
+The Paradox driver supports the Alter Table statement to add one or more columns to a Paradox database file or to delete (drop) a single column.
+</p>
+<a name="wp511675"> </a><p class="pBody">
+The Alter Table statement has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ALTER TABLE <code><em>filename</em></code> {ADD <code><em>column_name</em></code> <code><em>data_type</em></code> <a name="wp515427"> </a>
+[DEFAULT <em class="cEmphasis">default_value</em>] | ADD (<em class="cEmphasis">column_name data_type </em><a name="wp516617"> </a>
+[DEFAULT <em class="cEmphasis">default_value</em>][, <em class="cEmphasis">column_name data_type </em><a name="wp516618"> </a>
+[DEFAULT <em class="cEmphasis">default_value</em>]] , , ,) | DROP <a name="wp516619"> </a>
+[COLUMN] <em class="cEmphasis">column_name</em> [CASCADE | RESTRICT]}<a name="wp516620"> </a>
+</pre></div>
+<a name="wp515428"> </a><p class="pBody">
+<em class="cEmphasis">filename</em> is the name of the Paradox database file to which you are adding or dropping columns.
+</p>
+<a name="wp517531"> </a><p class="pBody">
+<em class="cEmphasis">column_name</em> assigns a name to the column you are adding or specifies the column you are dropping.
+</p>
+<a name="wp517532"> </a><p class="pBody">
+<em class="cEmphasis">data_type</em> specifies the native data type of each column you add.
+</p>
+<a name="wp517533"> </a><p class="pBody">
+For example, to add two columns to the emp database file:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ALTER TABLE emp (ADD startdate date, dept alphanumeric(10))<a name="wp517491"> </a>
+</pre></div>
+<a name="wp517493"> </a><h3 class="pHeading2">
+Dropping Columns
+</h3>
+<a name="wp512603"> </a><p class="pBody">
+You cannot add columns and drop columns in a single statement, and you can drop only one column at a time.
+</p>
+<a name="wp511697"> </a><p class="pBody">
+When dropping a column, use the Cascade keyword to drop the column while removing references from any dependent objects, such as indexes or views. Use Restrict to cause the Alter Table statement to fail if other objects are dependent upon the column you are dropping. For example, to drop a column and remove its references from dependent objects:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ALTER TABLE emp DROP startdate CASCADE<a name="wp511698"> </a>
+</pre></div>
+<a name="wp511699"> </a><p class="pBody">
+If the Alter Table statement contains neither Cascade nor Restrict, it fails when you attempt to drop a column upon which other objects are dependent.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

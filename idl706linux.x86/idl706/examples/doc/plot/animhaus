@@ -1,0 +1,31 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/animhaus#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates rotates a three-dimensional "house".
+; The example is from Chapter 11, "Plotting Multi-dimensional
+; Arrays", of _Using IDL_.
+
+; Reset any 3-D transformations that may be in use.
+
+WINDOW, /FREE, XSIZE=300, YSIZE=300, COLORS=-16
+
+; Initialize animation: set frame size and number of frames.
+sizx = 300
+sizy = 300
+nframes = 16
+XINTERANIMATE, SET=[sizx, sizy, nframes]
+
+; Loop to create nframes images, rotating in the Z plane each time.
+FOR i = 0, nframes - 1 DO BEGIN $
+    SCALE3, AX = 75, AZ = i * 360. / nframes & $
+    ERASE & $
+    HOUSE & $	;Draw the house.
+    SCALE3, AX = 75, AZ = i * 360. / nframes & $
+    XINTERANIMATE, FRAME=i, WINDOW=!D.WINDOW & $
+ENDFOR 
+
+WDELETE
+; Run the animation.
+XINTERANIMATE

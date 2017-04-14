@@ -1,0 +1,7 @@
+#RSI_PRODUCT_NAME:IDL 7.0
+#RSI_FEATURE_NAME:eval_idl
+#RSI_PRODUCT_VERSION:7.000
+PACKAGE eval_idl idl_lmgrd 7.000 1D740DD82D83 COMPONENTS="idl:7.000 \
+	idl_wavelet:7.000 idl_dm:7.000 idl_dicomex_rw:7.000 \
+	idl_dicomex_net:7.000 idl_dicomex_scp:7.000 idl_lvsn:7.000 \
+	idl_bridge_assist:7.000"

@@ -1,0 +1,894 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:30:01">
+    <title>Slicer</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_roi.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_surfview.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1005067"> </a><h2 class="pHeading1">
+Slicer
+</h2>  
+
+<a name="wp1005083"> </a><p class="pBody">
+The Slicer program is a widget based application to visualize 3D data. For details on the calling sequence of the SLICER3 program see the entry in the Reference Manual.
+</p>  
+
+<a name="wp1005084"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1005085"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1005086"> </a><h5 class="pHeading4">
+Load
+</h5>  
+
+<a name="wp1005087"> </a><p class="pBody">
+Select a file containing a 3D array (or arrays) to load into Slicer3. The file must have been written in a certain binary format. For each data array in the file, the following values are present: 
+  </p>
+<div>
+<P class="Ignore"><I><FONT SIZE=-1><CENTER>
+<a name="wp1011160"> </a><div class="pTableTitle">
+Table 5-1: <span style="font-style: oblique; font-weight: normal; text-decoration: none; vertical-align: baseline">Slicer Load&#160;</span>
+</div>  
+
+
+</CENTER></FONT></I></P>
+<table border="0" cellpadding="10" cellspacing="1" id="wp1011160table1011002">
+  <caption><a name="wp1011160"> </a><div class="pTableTitle">
+Table 5-1: <span style="font-style: oblique; font-weight: normal; text-decoration: none; vertical-align: baseline">Slicer Load&#160;</span>
+</div>  
+
+</caption>
+  <tr bgcolor="#D5D5DE" align="center">    <th><a name="wp1011004"> </a><div class="pCellHeading">
+data item
+</div>  
+
+</th>
+    <th><a name="wp1011006"> </a><div class="pCellHeading">
+data type
+</div>  
+
+</th>
+    <th><a name="wp1011008"> </a><div class="pCellHeading">
+bytes
+</div>  
+
+</th>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td><a name="wp1011010"> </a><div class="pCellBody">
+Number of dimensions in array.
+</div>  
+
+</td>
+    <td><a name="wp1011012"> </a><div class="pCellBody">
+long
+</div>  
+
+</td>
+    <td><a name="wp1011014"> </a><div class="pCellBody">
+4
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td colspan="3" rowspan="1"><a name="wp1011022"> </a><div class="pCellBody">
+Note that this is always 3 for valid Slicer3 data.
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td><a name="wp1011034"> </a><div class="pCellBody">
+Size of first dimension.
+</div>  
+
+</td>
+    <td><a name="wp1011036"> </a><div class="pCellBody">
+long
+</div>  
+
+</td>
+    <td><a name="wp1011038"> </a><div class="pCellBody">
+4
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td><a name="wp1011040"> </a><div class="pCellBody">
+Size of second dimension.
+</div>  
+
+</td>
+    <td><a name="wp1011042"> </a><div class="pCellBody">
+long
+</div>  
+
+</td>
+    <td><a name="wp1011044"> </a><div class="pCellBody">
+4
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td><a name="wp1011046"> </a><div class="pCellBody">
+Size of third dimension.
+</div>  
+
+</td>
+    <td><a name="wp1011048"> </a><div class="pCellBody">
+long
+</div>  
+
+</td>
+    <td><a name="wp1011050"> </a><div class="pCellBody">
+4
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td colspan="3" rowspan="1"><a name="wp1011058"> </a><div class="pCellBody">
+If multiple arrays are present in the file, they must all have the same dimensions.
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td><a name="wp1011070"> </a><div class="pCellBody">
+Data type (1 through 5)
+</div>  
+
+</td>
+    <td><a name="wp1011072"> </a><div class="pCellBody">
+long
+</div>  
+
+</td>
+    <td><a name="wp1011074"> </a><div class="pCellBody">
+4
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td colspan="3" rowspan="1"><a name="wp1011076"> </a><div class="pCellBody">
+(see the IDL &quot;SIZE&quot; function for types).
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td><a name="wp1011088"> </a><div class="pCellBody">
+Total number of elements.
+</div>  
+
+</td>
+    <td><a name="wp1011090"> </a><div class="pCellBody">
+long
+</div>  
+
+</td>
+    <td><a name="wp1011092"> </a><div class="pCellBody">
+4
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td colspan="3" rowspan="1"><a name="wp1011094"> </a><div class="pCellBody">
+(dimX*dimY*dimZ).
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td colspan="3" rowspan="1"><a name="wp1011106"> </a><div class="pCellBody">
+Note that the all of the above values are the exact output of the IDL &quot;SIZE&quot; function.
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td><a name="wp1011118"> </a><div class="pCellBody">
+Number of characters in data name.
+</div>  
+
+</td>
+    <td><a name="wp1011120"> </a><div class="pCellBody">
+long
+</div>  
+
+</td>
+    <td><a name="wp1011122"> </a><div class="pCellBody">
+4
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td colspan="3" rowspan="1"><a name="wp1011124"> </a><div class="pCellBody">
+Note that the above value is the output from the IDL &quot;STRLEN&quot; function.
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td><a name="wp1011136"> </a><div class="pCellBody">
+Data name.
+</div>  
+
+</td>
+    <td><a name="wp1011138"> </a><div class="pCellBody">
+byte
+</div>  
+
+</td>
+    <td><a name="wp1011140"> </a><div class="pCellBody">
+strlen()
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td><a name="wp1011142"> </a><div class="pCellBody">
+3D data.
+</div>  
+
+</td>
+    <td><a name="wp1011144"> </a><div class="pCellBody">
+varies
+</div>  
+
+</td>
+    <td><a name="wp1011146"> </a><div class="pCellBody">
+varies
+</div>  
+
+</td>
+</tr>
+  <tr bgcolor="#E2E2E2" align="left">    <td colspan="3" rowspan="1"><a name="wp1011154"> </a><div class="pCellBody">
+Note that the 3D data type and number of bytes is specified by the &quot;size&quot; information above.
+</div>  
+
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+
+</p>  
+
+<a name="wp1005114"> </a><p class="pBody">
+Any number of 3D datasets can be concatenated into a single file of this type (as long as they all have the same dimensions). 
+</p>  
+
+<a name="wp1005115"> </a><p class="pBody">
+(See EXAMPLE, below.)
+</p>  
+
+<a name="wp1005116"> </a><p class="pBody">
+NOTE: Files saved by the &quot;Save Subset&quot; operation (see below) are suitable for input via the &quot;Load&quot; operation. 
+</p>  
+
+<a name="wp1005117"> </a><p class="pBody">
+Data files that are moved from one platform to another may not load as expected, due to differing byte order. See the &quot;BYTEORDER&quot; and &quot;SWAP_ENDIAN&quot; IDL commands for details. 
+</p>  
+
+<a name="wp1005118"> </a><h5 class="pHeading4">
+Save / Save Subset
+</h5>  
+
+<a name="wp1005119"> </a><p class="pBody">
+Slicer3 must be in &quot;Block&quot; mode for this operation to be available. When selected, a subset of the 3D data enclosed in the current block is written to the chosen save file. This subset can then be loaded back into Slicer3 at any time. If multiple 3D arrays are currently available in Slicer3, then multiple subsets are saved to the file. 
+</p>  
+
+<a name="wp1005120"> </a><h5 class="pHeading4">
+Save / Save Tiff Image
+</h5>  
+
+<a name="wp1005121"> </a><p class="pBody">
+When selected, a tiff image of the current Slicer3 contents is saved to the chosen file. When running in 8-bit mode, a &quot;Class P&quot; palette color Tiff file is created. In 24-bit mode, a &quot;Class R&quot; (interleaved by image) Tiff file is created. 
+</p>  
+
+<a name="wp1005122"> </a><h5 class="pHeading4">
+Quit
+</h5>  
+
+<a name="wp1005123"> </a><p class="pBody">
+Exits Slicer3.
+</p>  
+
+<a name="wp1005124"> </a><h4 class="pHeading3">
+Tools Menu
+</h4>  
+
+<a name="wp1005125"> </a><h5 class="pHeading4">
+Erase
+</h5>  
+
+<a name="wp1005126"> </a><p class="pBody">
+Erases the display window and deletes all the objects in the display list.
+</p>  
+
+<a name="wp1005127"> </a><h5 class="pHeading4">
+Delete / ...
+</h5>  
+
+<a name="wp1005128"> </a><p class="pBody">
+As graphical objects are created, they are added to the display list. The &quot;Delete&quot; menu allows the user to delete a specific object from the list. When an object is deleted, the screen is redrawn with the remaining objects. 
+</p>  
+
+<a name="wp1005129"> </a><h5 class="pHeading4">
+Colors / Reset Colors
+</h5>  
+
+<a name="wp1005130"> </a><p class="pBody">
+Selecting this will cause the original color scheme to be restored.
+</p>  
+
+<a name="wp1005131"> </a><h5 class="pHeading4">
+Colors / Differential Shading
+</h5>  
+
+<a name="wp1005132"> </a><p class="pBody">
+This allows the user to change the percentage of differential shading applied to the X, Y, and Z slices.
+</p>  
+
+<a name="wp1005133"> </a><h5 class="pHeading4">
+Colors / Slice/Block
+</h5>  
+
+<a name="wp1005134"> </a><p class="pBody">
+This allows the user to use the &quot;XLOADCT&quot; operation to modify the colors used for slices and blocks. In some cases, the new colors will not be visible until the user selects &quot;Done&quot; in the XLOADCT tool. 
+</p>  
+
+<a name="wp1005135"> </a><h5 class="pHeading4">
+Colors / Surface
+</h5>  
+
+<a name="wp1005136"> </a><p class="pBody">
+This allows the user to use the &quot;XLOADCT&quot; operation to modify the colors used for iso-surfaces.
+</p>  
+
+<a name="wp1005137"> </a><h5 class="pHeading4">
+Colors / Projection
+</h5>  
+
+<a name="wp1005138"> </a><p class="pBody">
+This allows the user to use the &quot;XLOADCT&quot; operation to modify the colors used for projections. Note that on some platforms, the selected colors may not become visible until after the XLOADCT tool is exited.
+</p>  
+
+<a name="wp1005139"> </a><h5 class="pHeading4">
+Options
+</h5>  
+
+<a name="wp1005140"> </a><p class="pBody">
+This brings up a panel allowing the user to set:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005141"> </a><div class="pSmartList1"><li>The axis visibility</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005142"> </a><div class="pSmartList1"><li>The wire-frame cube visibility</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005143"> </a><div class="pSmartList1"><li>The display window size</li></div>  
+
+</ul></div>
+<a name="wp1005144"> </a><p class="pBody">
+The X and Y dimensions are always the same. If the user selects &quot;Ok&quot;, then the display is redrawn.
+</p>  
+
+<a name="wp1005145"> </a><h4 class="pHeading3">
+Help Menu
+</h4>  
+
+<a name="wp1005146"> </a><h5 class="pHeading4">
+About Slicer
+</h5>  
+
+<a name="wp1005147"> </a><p class="pBody">
+Brings up help information about Slicer3.
+</p>  
+
+<a name="wp1005148"> </a><h5 class="pHeading4">
+Data pull-down Menu
+</h5>  
+
+<a name="wp1005149"> </a><p class="pBody">
+If multiple datasets are currently available in Slicer3, this menu allows the selection of the current data. Slices, blocks, iso-surfaces, etc. are created from the currently selected data. If only one dataset is currently loaded, then this menu is inactive.
+</p>  
+
+<a name="wp1005150"> </a><h5 class="pHeading4">
+Mode pull-down Menu
+</h5>  
+
+<a name="wp1005151"> </a><p class="pBody">
+This menu is used to select the current mode of operation.
+</p>  
+
+<a name="wp1005152"> </a><h3 class="pHeading2">
+Main Draw Window
+</h3>  
+
+
+<a name="wp1005153"> </a><p class="pBody">
+Interaction in the main draw window is dependent upon the currently selected mode (&quot;Slice&quot;, &quot;Block&quot;, &quot;Surface&quot;, etc., see below). In general, when coordinate input is required from the user, it is performed by clicking a mouse button on the &quot;surface&quot; of the wire-frame cube that surrounds the data. This 3D location is then used as the basis for whatever input is needed. In most cases, the &quot;front&quot; side of the cube is used. In a few cases, the coordinate input is on the &quot;back&quot; side of the cube. 
+</p>  
+
+<a name="wp1005154"> </a><h4 class="pHeading3">
+Slice mode
+</h4>  
+
+<a name="wp1005155"> </a><p class="pBody">
+To display a slice, click and drag the left mouse button on the wire-frame cube. When the button is released, a slice through the data will be drawn at that location. 
+</p>  
+
+<a name="wp1005156"> </a><h4 class="pHeading3">
+Draw mode
+</h4>  
+
+<a name="wp1005157"> </a><p class="pBody">
+When in Draw mode, new slices will be merged into the current Z-buffer contents.
+</p>  
+
+<a name="wp1005158"> </a><h4 class="pHeading3">
+Expose mode
+</h4>  
+
+<a name="wp1005159"> </a><p class="pBody">
+When in Expose mode, new slices will be drawn in front of everything else.
+</p>  
+
+<a name="wp1005160"> </a><h4 class="pHeading3">
+Orthogonal mode
+</h4>  
+
+<a name="wp1005161"> </a><p class="pBody">
+When in Orthogonal mode, use the left mouse button in the big window to position and draw an orthogonal slicing plane. Clicking the right mouse button in the big window (or any mouse button in the small window) will toggle the slicing plane orientation. 
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005162"> </a><div class="pSmartList1"><li>X: This sets the orthogonal slicing plane orientation to be perpendicular to the X axis.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005163"> </a><div class="pSmartList1"><li>Y: This sets the orthogonal slicing plane orientation to be perpendicular to the Y axis.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005164"> </a><div class="pSmartList1"><li>Z: This sets the orthogonal slicing plane orientation to be perpendicular to the Z axis.</li></div>  
+
+</ul></div>
+<a name="wp1005165"> </a><h4 class="pHeading3">
+Oblique mode
+</h4>  
+
+<a name="wp1005166"> </a><p class="pBody">
+Clicking any mouse button in the small window will reset the oblique slicing plane to its default orientation.
+</p>  
+
+<a name="wp1005167"> </a><h5 class="pHeading4">
+Normal mode
+</h5>  
+
+<a name="wp1005168"> </a><p class="pBody">
+When in this mode, click and drag the left mouse button in the big window to set the surface normal for the oblique slicing plane.
+</p>  
+
+<a name="wp1005169"> </a><h5 class="pHeading4">
+Center mode
+</h5>  
+
+<a name="wp1005170"> </a><p class="pBody">
+When in this mode, click and drag the left mouse button in the big window to set the center point for the surface normal.
+</p>  
+
+<a name="wp1005171"> </a><h5 class="pHeading4">
+Display
+</h5>  
+
+<a name="wp1005172"> </a><p class="pBody">
+Clicking this button will cause an oblique slicing plane to be drawn.
+</p>  
+
+<a name="wp1005173"> </a><h4 class="pHeading3">
+Block mode
+</h4>  
+
+<a name="wp1005174"> </a><p class="pBody">
+When in Block mode, use the left mouse button in the big window to set the location for the &quot;purple&quot; corner of the block. Use the right mouse button to locate the opposite &quot;blue&quot; corner of the block. 
+</p>  
+
+<a name="wp1005175"> </a><p class="pBody">
+When in Block mode, the &quot;Save Subset&quot; operation under the main &quot;File&quot; menu is available.
+</p>  
+
+<a name="wp1005176"> </a><h5 class="pHeading4">
+Add mode
+</h5>  
+
+<a name="wp1005177"> </a><p class="pBody">
+When in this mode, the block will be &quot;added&quot; to the current Z-buffer contents.
+</p>  
+
+<a name="wp1005178"> </a><h5 class="pHeading4">
+Subtract mode
+</h5>  
+
+<a name="wp1005179"> </a><p class="pBody">
+When in this mode, the block will be &quot;subtracted&quot; from the current Z-buffer contents. Subtract mode is only effective when the block intersects some other object in the display (such as an iso-surface). 
+</p>  
+
+<a name="wp1005180"> </a><h5 class="pHeading4">
+Display
+</h5>  
+
+<a name="wp1005181"> </a><p class="pBody">
+Clicking this button will cause the block to be drawn.
+</p>  
+
+<a name="wp1005182"> </a><h4 class="pHeading3">
+Surface mode
+</h4>  
+
+<a name="wp1005183"> </a><p class="pBody">
+In iso-surface is like a contour line on a contour map. On one side of the line, the elevation is higher than the contour level, and on the other side of the line, the elevation is lower than the contour level. An iso-surface, however, is a 3D surface that passes through the data such that the data values on one side of the surface are higher than the threshold value, and on the other side of the surface, the data values are lower than the threshold value. 
+</p>  
+
+<a name="wp1005184"> </a><p class="pBody">
+When in Surface mode, a logarithmic histogram plot of the data is displayed in the small draw window. Click and drag a mouse button on this plot to set the iso-surface threshold value. This value is also shown in the text widget below the plot. The threshold value may also be set by typing a new value in this text widget. The histogram plot is affected by the current threshold settings. (See Threshold mode, below). 
+</p>  
+
+<a name="wp1005185"> </a><h5 class="pHeading4">
+Low
+</h5>  
+
+<a name="wp1005186"> </a><p class="pBody">
+Selecting this mode will cause the iso-surface polygon facing to face towards the lower data values. Usually, this is the mode to use when the iso-surface is desired to surround high data values. 
+</p>  
+
+<a name="wp1005187"> </a><h5 class="pHeading4">
+High
+</h5>  
+
+<a name="wp1005188"> </a><p class="pBody">
+Selecting this mode will cause the iso-surface polygon facing to face towards the higher data values. Usually, this is the mode to use when the iso-surface is desired to surround low data values. 
+</p>  
+
+<a name="wp1005189"> </a><h5 class="pHeading4">
+Shading pull-down Menu
+</h5>  
+
+<a name="wp1005190"> </a><p class="pBody">
+Iso-surfaces are normally rendered with light-source shading. If multiple datasets are currently loaded, then this menu allows the selection of a different 3D array for the source of the iso-surface shading values. If only one dataset is currently loaded, then this menu is inactive. 
+</p>  
+
+<a name="wp1005191"> </a><h5 class="pHeading4">
+Display
+</h5>  
+
+<a name="wp1005192"> </a><p class="pBody">
+Clicking this button will cause the iso-surface to be created and drawn. Iso-surfaces often consist of tens of thousands of polygons, and can sometimes take considerable time to create and render. 
+</p>  
+
+<a name="wp1005193"> </a><h4 class="pHeading3">
+Projection mode
+</h4>  
+
+<a name="wp1005194"> </a><p class="pBody">
+A &quot;voxel&quot; projection of a 3D array is the projection of the data values within that array onto a viewing plane. This is similar to taking an X-ray image of a 3D object. 
+</p>  
+
+<a name="wp1005195"> </a><h5 class="pHeading4">
+Max mode
+</h5>  
+
+<a name="wp1005196"> </a><p class="pBody">
+Select this mode for a Maximum intensity projection.
+</p>  
+
+<a name="wp1005197"> </a><h5 class="pHeading4">
+Avg mode
+</h5>  
+
+<a name="wp1005198"> </a><p class="pBody">
+Select this mode for an Average intensity projection.
+</p>  
+
+<a name="wp1005199"> </a><h5 class="pHeading4">
+Low mode
+</h5>  
+
+<a name="wp1005200"> </a><p class="pBody">
+Select this mode for a Low resolution projection.
+</p>  
+
+<a name="wp1005201"> </a><h5 class="pHeading4">
+Med mode
+</h5>  
+
+<a name="wp1005202"> </a><p class="pBody">
+Select this mode for a Medium resolution projection.
+</p>  
+
+<a name="wp1005203"> </a><h5 class="pHeading4">
+High mode
+</h5>  
+
+<a name="wp1005204"> </a><p class="pBody">
+Select this mode for a High resolution projection.
+</p>  
+
+<a name="wp1005205"> </a><h5 class="pHeading4">
+Depth Queue %
+</h5>  
+
+<a name="wp1005206"> </a><p class="pBody">
+Use the slider to set the depth queue percent. A value of 50, for example, indicates that the farthest part of the projection will be 50% as bright as the closest part of the projection. 
+</p>  
+
+<a name="wp1005207"> </a><h5 class="pHeading4">
+Display
+</h5>  
+
+<a name="wp1005208"> </a><p class="pBody">
+Clicking this button will cause the projection to be calculated and drawn. Projections can sometimes take considerable time to display. Higher resolution projections take more computation time. 
+</p>  
+
+<a name="wp1005209"> </a><h4 class="pHeading3">
+Threshold mode
+</h4>  
+
+<a name="wp1005210"> </a><p class="pBody">
+When in Threshold mode, a logarithmic histogram plot of the data is displayed in the small draw window. Click and drag the left mouse button on this plot to set the minimum and maximum threshold values. To expand a narrow range of data values into the full range of available colors, set the threshold range before displaying slices, blocks, or projections. The threshold settings also affect the histogram plot in &quot;Surface&quot; mode. The minimum and maximum threshold values are also shown in the text widgets below the histogram plot. 
+</p>  
+
+<a name="wp1005211"> </a><p class="pBody">
+Click and drag the right mouse button on the histogram plot to set the transparency threshold. Portions of any slice, block, or projection that are less than the transparency value are not drawn (clear). Iso-surfaces are not affected by the transparency threshold. The transparency threshold value is also shown in a text widget below the histogram plot. 
+</p>  
+
+<a name="wp1005212"> </a><h5 class="pHeading4">
+Min
+</h5>  
+
+<a name="wp1005213"> </a><p class="pBody">
+In this text widget, a minimum threshold value can be entered.
+</p>  
+
+<a name="wp1005214"> </a><h5 class="pHeading4">
+Max
+</h5>  
+
+<a name="wp1005215"> </a><p class="pBody">
+In this text widget, a maximum threshold value can be entered.
+</p>  
+
+<a name="wp1005216"> </a><h5 class="pHeading4">
+Transp.
+</h5>  
+
+<a name="wp1005217"> </a><p class="pBody">
+In this text widget, a transparency threshold value can be entered.
+</p>  
+
+<a name="wp1005218"> </a><h4 class="pHeading3">
+Profile mode
+</h4>  
+
+<a name="wp1005219"> </a><p class="pBody">
+In Profile mode, a plot is displayed showing the data values along a line. This line is also shown superimposed on the data in the main draw window. The bottom of the plot corresponds to the &quot;purple&quot; end of the line, and the top of the plot corresponds to the &quot;blue&quot; end of the line. 
+</p>  
+
+<a name="wp1005220"> </a><h5 class="pHeading4">
+Orthogonal mode
+</h5>  
+
+<a name="wp1005221"> </a><p class="pBody">
+Click and drag the left mouse button to position the profile line, based upon a point on the &quot;front&quot; faces of the wire-frame cube. Click and drag the right mouse button to position the profile line, based upon a point on the &quot;back&quot; faces of the wire-frame cube. As the profile line is moved, The profile plot is dynamically updated.
+</p>  
+
+<a name="wp1005222"> </a><h5 class="pHeading4">
+Oblique mode
+</h5>  
+
+<a name="wp1005223"> </a><p class="pBody">
+Click and drag the left mouse button to position the &quot;purple&quot; end of the profile line on one of the &quot;front&quot; faces of the wire-frame cube. Click and drag the right mouse button to position the &quot;blue&quot; end of the profile line on one of the &quot;back&quot; faces of the wire-frame cube. As the profile line is moved, The profile plot is dynamically updated. 
+</p>  
+
+<a name="wp1005224"> </a><h4 class="pHeading3">
+Probe mode
+</h4>  
+
+<a name="wp1005225"> </a><p class="pBody">
+In Probe mode, click and drag a mouse button over an object in the main draw window. The actual X-Y-Z location within the data volume is displayed in the three text widgets. Also, the data value at that 3D location is displayed in the status window, above the main draw window. If the cursor is inside the wire-frame cube, but not on any object, then the status window displays &quot;No data value&quot;, and the three text widgets are empty. If the cursor is outside the wire-frame cube, then the status window and text widgets are empty. 
+</p>  
+
+<a name="wp1005226"> </a><h5 class="pHeading4">
+X
+</h5>  
+
+<a name="wp1005227"> </a><p class="pBody">
+Use this text widget to enter the X coordinate for the probe.
+</p>  
+
+<a name="wp1005228"> </a><h5 class="pHeading4">
+Y
+</h5>  
+
+<a name="wp1005229"> </a><p class="pBody">
+Use this text widget to enter the Y coordinate for the probe.
+</p>  
+
+<a name="wp1005230"> </a><h5 class="pHeading4">
+Z
+</h5>  
+
+<a name="wp1005231"> </a><p class="pBody">
+Use this text widget to enter the Z coordinate for the probe.
+</p>  
+
+<a name="wp1005232"> </a><h4 class="pHeading3">
+View mode
+</h4>  
+
+<a name="wp1005233"> </a><p class="pBody">
+In view mode, a small window shows the orientation of the data cube in the current view. As view parameters are changed, this window is dynamically updated. The main draw window is then updated when the user clicks on &quot;Display&quot;, or exits View mode.
+</p>  
+
+<a name="wp1005234"> </a><h4 class="pHeading3">
+Display
+</h4>  
+
+<a name="wp1005235"> </a><p class="pBody">
+Clicking on this button will cause the objects in the main view window to be drawn in the new view. If any view parameters have been changed since the last time the main view was updated, the main view will be automatically redrawn when the user exits View mode. 
+</p>  
+
+<a name="wp1005236"> </a><h4 class="pHeading3">
+1st Rotation
+</h4>  
+
+<a name="wp1005237"> </a><p class="pBody">
+Use this slider to set the angle of the first view rotation (in degrees). The droplist widget adjacent to the slider indicates which axis this rotation is about.
+</p>  
+
+<a name="wp1005238"> </a><h4 class="pHeading3">
+2nd Rotation
+</h4>  
+
+<a name="wp1005239"> </a><p class="pBody">
+Use this slider to set the angle of the second view rotation (in degrees). The droplist widget adjacent to the slider indicates which axis this rotation is about.
+</p>  
+
+<a name="wp1005240"> </a><h4 class="pHeading3">
+Zoom %
+</h4>  
+
+<a name="wp1005241"> </a><p class="pBody">
+Use this slider to set the zoom factor percent. Depending upon the view rotations, Slicer3 may override this setting to ensure that all eight corners of the data cube are within the window.
+</p>  
+
+<a name="wp1005242"> </a><h4 class="pHeading3">
+Z %
+</h4>  
+
+<a name="wp1005243"> </a><p class="pBody">
+Use this slider to set a scale factor for the Z axis (to compensate for the data's aspect ratio).
+</p>  
+
+<a name="wp1005244"> </a><h3 class="pHeading2">
+Examples
+</h3>  
+
+
+<a name="wp1005245"> </a><h4 class="pHeading3">
+Example 1
+</h4>  
+
+<a name="wp1005246"> </a><p class="pBody">
+Create a data save file suitable for dynamic loading into Slicer3.
+</p>  
+
+<div class="pPreformatted"><pre class="pPreformatted">
+; Store some 3D data in a variable called &quot;data_1&quot;.  
+data_1 = INDGEN(20,30,40)  
+  
+; Store some 3D data in a variable called &quot;data_2&quot;.  
+data_2 = FINDGEN(20,30,40)  
+  
+; Define the names for the datasets (their names will  
+; appear in the &quot;Data:&quot; pull-down menu in Slicer3.  
+  
+data_1_name = `Test Data 1'  
+data_2_name = `Data 2'  
+  
+; Select a data file name.  
+dataFile = PICKFILE()  
+  
+; Write the file.  
+  
+GET_LUN, lun  
+OPENW, lun, dataFile  
+  
+WRITEU, lun, SIZE(data_1)  
+WRITEU, lun, STRLEN(data_1_name)  
+WRITEU, lun, BYTE(data_1_name)  
+WRITEU, lun, data_1  
+  
+WRITEU, lun, SIZE(data_2)  
+WRITEU, lun, STRLEN(data_2_name)  
+WRITEU, lun, BYTE(data_2_name)  
+WRITEU, lun, data_2  
+  
+CLOSE, lun  
+FREE_LUN, lun  
+</pre>
+<a name="wp1005279"> </a><h4 class="pHeading3">
+Example 2
+</h4>  
+
+<a name="wp1005280"> </a><p class="pBody">
+Run Slicer3 with data passed to it at startup.
+</p>  
+
+<div class="pPreformatted"><pre class="pPreformatted">
+; Create some 3D data.  
+data = INDGEN(20,30,40)  
+  
+; Create a pointer to the data, and use the &quot;/NO_COPY&quot;  
+; keyword to save memory.  
+h_data = PTR_NEW(data, /NO_COPY)  
+  
+; Start up Slicer3.  
+SLICER3, h_data, /MODAL  
+  
+; If the user did not interactively load any data into  
+; Slicer3 (via the &quot;File/Load&quot; menu), then the original  
+; pointer to the data still exists (and the original data  
+; will still reside in memory). To free it, use:  
+  
+if PTR_VALID(h_data) then PTR_FREE, h_data  
+  
+; If the pointer is no longer valid, then that indicates  
+; that the user interactively loaded data into Slicer3.  
+; Any data that is loaded interactively is automatically  
+; deleted when the user exits Slicer3.  
+  
+; Note that the last contents of the main view window in  
+; Slicer3 still resides in the Z-buffer. To access this  
+; image after exiting Slicer3, perform the following actions:  
+  
+current_device = !D.Name  
+SET_PLOT, `Z'  
+image_buffer = TVRD()  
+depth_buffer = TVRD(CHANNEL=1, /WORDS)  
+SET_PLOT, current_device  
+TV, image_buffer  
+</pre>
+</div>
+<a name="wp1005314"> </a><p class="pBody">
+Note that the image contained in &quot;image_buffer&quot; will look &quot;correct&quot; only if the colors loaded by Slicer3 have not been changed since the user exited Slicer3.
+</p>  
+
+<a name="wp1005641"> </a><p class="pBody">
+
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

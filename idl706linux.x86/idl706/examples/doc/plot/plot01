@@ -1,0 +1,33 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/plot01#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file defines variables used in examples in
+; Chapter 10, "Plotting" of _Using IDL_.
+
+; The following are example data from a fictitious study of Pacific
+; Northwest Salmon fisheries. In the examples, these data are used
+; to represent fish populations sampled in the years 1967, 1970, and
+; from 1975 to 1983. The vectors defined  represent the number of
+; fish counted, in thousands.
+
+SOCKEYE=[463, 459, 437, 433, 431, 433, 431, 428, 430, 431, 430]
+COHO=[468, 461, 431, 430, 427, 425, 423, 420, 418, 421, 420]
+CHINOOK=[514, 509, 495, 497, 497, 494, 493, 491, 492, 493, 493]
+HUMPBACK=[467, 465, 449, 446, 445, 444, 443, 443, 443, 443, 445]
+
+; Construct an array containing all of the SAT data.
+
+ALLPTS = [[COHO], [SOCKEYE], [HUMPBACK], [CHINOOK]]
+
+; Construct a vector in which each element contains the year of the score.
+; Create a variable containing the number of elements in the YEAR vector
+; minus one.
+
+YEAR = [1967, 1970, INDGEN(9) + 1975]
+N1 = N_ELEMENTS(YEAR) - 1
+; Construct a vector of names for lines.
+
+NAMES=['Coho','Sockeye','Humpback', 'Chinook']
+

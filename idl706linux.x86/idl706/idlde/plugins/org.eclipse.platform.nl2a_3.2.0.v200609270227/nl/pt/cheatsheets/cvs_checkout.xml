@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Dar saída de um projecto CVS">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Esta folha de apontamentos explica como explorar um repositório CVS e dar
+      saída de um projecto. Se necessitar de ajuda, pode, a qualquer momento, fazer clique no ícone (?)
+      à direita.
+    </description>
+  </intro>
+
+  <item
+      title="Abrir a perspectiva de exploração do repositório CVS"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+      No menu principal, seleccione Janela &gt; Abrir perspectiva &gt; Outra...,
+      e seleccione a perspectiva <b>Exploração de repositório CVS</b>.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="Adicionar um repositório CVS"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+      Na vista Repositórios CVS, faça clique no botão <b>Adicionar um repositório CVS</b>
+      da barra de ferramentas. Introduza a localização e informação de autenticação do
+      repositório. Por exemplo, para o repositório <b>eclipse</b>, introduza o seguinte:<br/>
+      <br/>
+      Sistema central: dev.eclipse.org<br/>
+      Caminho do repositório: /home/eclipse<br/>
+      Utilizador: anónimo<br/>
+      Tipo de ligação: pserver<br/>
+      <br/>
+      Para o resto, use as predefinições e faça clique em Terminar.
+    </description>
+  </item>
+
+  <item
+      title="Localizar o projecto"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+      Expanda o nó <b>HEAD</b> abaixo do repositório que acaba de acrescentar e
+      localize o projecto do qual pretende dar saída (por exemplo, o código fonte
+      da vista da folha de apontamentos encontra-se em org.eclipse.ui.cheatsheets).
+    </description>
+  </item>
+
+  <item
+      title="Dar saída do projecto"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+      Faça clique com o botão diretio do rato no projecto do qual pretende dar
+      saída e seleccione <b>Dar saída</b>. Descarregará, assim, o conteúdo mais recente
+      do repositório para o espaço de trabalho.
+    </description>
+  </item>
+
+  <item
+      title="Visualizar o espaço de trabalho"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+      Para ver o projecto no seu espaço de trabalho, mude para a perspectiva <b>Recurso</b>,
+      através da opção Janela &gt; Abrir perspectiva &gt; Recurso, e verá o projecto na vista
+      <b>Navegador</b>. Pode agora visualizar e trabalhar com o conteúdo deste projecto.
+    </description>
+  </item>
+
+</cheatsheet>

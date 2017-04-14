@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:15" />
+  <title>Create Table Statement</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp512606"> </a><h1 class="pNewHTMLPageNoNum">
+Create Table Statement
+</h1>
+<hr /><a name="wp512607"> </a><p class="pBody">
+The Create Table statement is used to create database files. The form of the Create Table statement is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE TABLE <em class="cEmphasis">filename</em> (<em class="cEmphasis">col_definition</em>[,<em class="cEmphasis">col_definition</em>,...])<a name="wp512623"> </a>
+</pre></div>
+<a name="wp512628"> </a><p class="pBody">
+<em class="cEmphasis">filename</em> can be a simple name or a full name. A simple file name is preferred for portability to other SQL data sources. If it is a simple file name, the file is created in the directory you specified as the database directory in the connection string. If you did not specify a database directory in the connection string, the file is created in the directory you specified as the database directory in the Registry. If you did not specify a database directory in either place, the file is created in the current working directory at the time you connected to the driver.
+</p>
+<a name="wp512633"> </a><p class="pBody">
+<em class="cEmphasis">col_definition</em> is the column name, followed by the data type, Default clause, followed by an optional column constraint definition. Values for column names are database specific. The data type specifies a column&#8217;s data type.
+</p>
+<a name="wp512639"> </a><p class="pBody">
+The only column constraint definition currently supported by some flat-file drivers is &quot;not null.&quot; Not all flat-file database files support &quot;not null&quot; columns. In the cases where &quot;not null&quot; is not supported, this restriction is ignored and the driver returns a warning if &quot;not null&quot; is specified for a column. The &quot;not null&quot; column constraint definition is allowed in the driver so that you can write a database-independent application (and not be concerned about the driver raising an error on a Create Table statement with a &quot;not null&quot; restriction).
+</p>
+<a name="wp512640"> </a><p class="pBody">
+A sample Create Table statement to create a Paradox database file named emp is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE TABLE emp (last_name CHAR(20) NOT NULL DEFAULT 
+&#39;JOHNSON&#39;, first_name CHAR(12) NOT NULL, 
+salary NUMERIC (10,2) NOT NULL, hire_date DATE NOT NULL)<a name="wp512665"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

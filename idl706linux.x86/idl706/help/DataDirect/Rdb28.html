@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:29:55" />
+  <title>Data Types</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp645869"> </a><h1 class="pNewHTMLPageNoNum">
+Data Types
+</h1>
+<hr /><a name="wp645873"> </a><p class="pBody">
+<a  href="Rdb28.html#wp645658">Table&#160;3-2</a> shows how the DB2 data types map to the standard ODBC data types. <a  href="Rdb29.html#wp647745">&quot;Unicode Support&quot;</a> lists additional Unicode data types.
+</p>
+<a name="wp645735"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp645658"> </a><div class="pTableTitleBold">
+Table 3-2.  DB2 Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp652700"> </a><div class="pCellHeading">
+DB2
+</div>
+</th>
+    <th><a name="wp652702"> </a><div class="pCellHeading">
+ODBC
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp645662"> </a><div class="pCellBody">
+Bigint<font size="1"><sup>1</sup></font>
+</div>
+</td>
+    <td><a name="wp645664"> </a><div class="pCellBody">
+SQL_BIGINT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645666"> </a><div class="pCellBody">
+Blob<font size="1"><sup>2</sup></font>
+</div>
+</td>
+    <td><a name="wp645668"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645670"> </a><div class="pCellBody">
+Char
+</div>
+</td>
+    <td><a name="wp645672"> </a><div class="pCellBody">
+SQL_CHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645674"> </a><div class="pCellBody">
+Char() for Bit Data
+</div>
+</td>
+    <td><a name="wp645676"> </a><div class="pCellBody">
+SQL_BINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645678"> </a><div class="pCellBody">
+Clob<font size="1"><sup>3</sup></font>
+</div>
+</td>
+    <td><a name="wp645680"> </a><div class="pCellBody">
+SQL_LONGVARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645682"> </a><div class="pCellBody">
+Date
+</div>
+</td>
+    <td><a name="wp645684"> </a><div class="pCellBody">
+SQL_TYPE_DATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645690"> </a><div class="pCellBody">
+Decimal
+</div>
+</td>
+    <td><a name="wp645692"> </a><div class="pCellBody">
+SQL_DECIMAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645694"> </a><div class="pCellBody">
+Float
+</div>
+</td>
+    <td><a name="wp645696"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645698"> </a><div class="pCellBody">
+Integer
+</div>
+</td>
+    <td><a name="wp645700"> </a><div class="pCellBody">
+SQL_INTEGER
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645702"> </a><div class="pCellBody">
+Long Varchar
+</div>
+</td>
+    <td><a name="wp645704"> </a><div class="pCellBody">
+SQL_LONGVARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645706"> </a><div class="pCellBody">
+Long Varchar for Bit Data
+</div>
+</td>
+    <td><a name="wp645708"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645710"> </a><div class="pCellBody">
+Smallint
+</div>
+</td>
+    <td><a name="wp645712"> </a><div class="pCellBody">
+SQL_SMALLINT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645714"> </a><div class="pCellBody">
+Time
+</div>
+</td>
+    <td><a name="wp645716"> </a><div class="pCellBody">
+SQL_TYPE_TIME
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645718"> </a><div class="pCellBody">
+Timestamp
+</div>
+</td>
+    <td><a name="wp645720"> </a><div class="pCellBody">
+SQL_TYPE_TIMESTAMP
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645722"> </a><div class="pCellBody">
+Varchar
+</div>
+</td>
+    <td><a name="wp645724"> </a><div class="pCellBody">
+SQL_VARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp645726"> </a><div class="pCellBody">
+Varchar() for Bit Data
+</div>
+</td>
+    <td><a name="wp645728"> </a><div class="pCellBody">
+SQL_VARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td colspan="2" rowspan="1"><a name="wp645730"> </a><div class="pCellBody">
+<font size="1"><sup>1</sup></font>Supported on DB2 Universal Database v8.1 and V5R2 (AS/400) 
+</div>
+<a name="wp645731"> </a><div class="pCellBody">
+<font size="1"><sup>2</sup></font>Supported on DB2 Universal Database v8.1 and V5R2 (AS/400), and DB2 for OS/390 and z/OS v7.<em class="cEmphasis">x</em>
+</div>
+<a name="wp645732"> </a><div class="pCellBody">
+<font size="1"><sup>3</sup></font>On DB2 Universal Database versions previous to v8.1 and V5R2 (AS/400), only the first 32 KB of the Clob data type are returned when fetching, and only 32 KB can be inserted and updated.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp647763"> </a><p class="pBody">
+See <a  href="Rstart9.html#wp596069">&quot;Retrieving Data Type Information&quot;</a> for more information about data types.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

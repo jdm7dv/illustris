@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Merge CVS branches">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+I den här guiden får du hjälp med att sammanfoga ändringar från en gren i CVS till en annan, eller till HEAD. Om du behöver hjälp vid något av stegen klickar du på ikonen (?) till höger.
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Determine branch and version information">
+    <description>
+Det första steget är att bestämma <b>vilka</b> två grenar som ska sammanfogas, vid vilken <b>version</b> innehållet förgrenades samt vad <b>målgrenen</b> ska vara (var resultatet av sammanfogningen ska ta vägen). När du har den informationen kan du gå vidare till nästa steg.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Check out the project">
+    <description>
+Före sammanfogningen måste du <b>checka ut</b> projektet du vill sammanfoga och hämta till arbetsytan. Det kan du göra antingen via importguiden eller genom att lägga till lagret från perspektivet Lagerutforskning i CVS. Du kan också klicka på ikonen (?) om du vill ha hjälp.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="Load the destination into your workspace">
+    <description>
+Högerklicka på projektet i navigeringsvyn och välj Ersätt med &gt; En annan gren eller version. Välj målgren. Grenens senaste innehåll läses då in till arbetsytan.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Merge details">
+    <description>
+Högerklicka på projektet igen och välj <b>Grupp</b> &gt; <b>Sammanfoga</b>. Slutför sedan stegen i guiden. I den här guiden anger du detaljerna för sammanfogningen.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Work with the Merge editor">
+    <description>
+I sammanfogningsredigeraren sammanfogar du ändringarna manuellt. Under det här steget läses de ändringar som krävs in på arbetsytan. När du har sammanfogat alla ändringar och är nöjd med resultat går du vidare till nästa steg.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Commit your changes">
+    <description>
+Högerklicka på projektet och välj <b>Grupp</b> &gt; <b>Synkronisera med lager</b> och bekräfta sedan alla ändringar till lagret. Under det här steget slutförs överföringen av ändringarna från arbetsytan till CVS-lagret och därmed sammanfogningen.     </description>
+  </item>
+
+</cheatsheet>

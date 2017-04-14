@@ -1,0 +1,49 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc06#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a plot of the power spectrum of
+; a simulated signal, after a Hanning window
+; has been applied.
+
+; Compute time data sequence u
+N = 1024
+
+delt = 0.02
+u = -0.3 $
+   + 1.0 * SIN(2 * !DPI * 2.8d * delt * DINDGEN(N)) $
+   + 1.0 * SIN(2 * !DPI * 6.25d * delt * DINDGEN(N)) $
+   + 1.0 * SIN(2 * !DPI * 11.0d * delt * DINDGEN(N))
+time = DINDGEN(N)*delt
+
+hanWindow = HANNING(n, /DOUBLE)
+; freq = [0.0, 1.0/(N*delt), ... , 1.0/(2.0*delt)]:
+freq = FINDGEN(N/2+1) / (N*delt)
+
+; Fourier power spectrum with Hanning.
+v_n = FFT(hanWindow*U)
+powerV = ABS(v_n[0:N/2])^2
+
+; Fourier power spectrum without Hanning.
+fftU = FFT(U)
+powerU = ABS(fftU[0:N/2])^2
+
+PRINT, 'Variance ratio = ', TOTAL(ABS(v_n)^2)/TOTAL(ABS(fftU)^2)
+
+IPLOT, time, hanWindow*u, VIEW_GRID=[2,1], $
+   TITLE='Power Spectrum of u(k)' $
+   +' with Hanning Window (solid) and Without (dashed)', $
+    XTITLE='Time (seconds)', YTITLE='u(k)', $
+    YRANGE=[-4,4]
+IPLOT, time, hanWindow, /OVERPLOT
+IPLOT, time, -hanWindow, /OVERPLOT
+
+; Create log-log plot of power spectrum:
+IPLOT, freq, powerV, /VIEW_NEXT, $
+   DIMENSIONS=[800,400], YTITLE='Power Spectrum', $
+   XTITLE='Frequency in cycles / second'
+
+; Overplot without hanning window:
+IPLOT, freq, powerU, LINESTYLE=2, $
+   /X_LOG, /Y_LOG, /OVERPLOT

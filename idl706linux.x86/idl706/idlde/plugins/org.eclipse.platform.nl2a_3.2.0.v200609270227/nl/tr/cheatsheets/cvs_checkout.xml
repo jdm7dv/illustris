@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Bir CVS projesinin dışarı alınması">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Bu yardımcı bilgi yaprağı, bir CVS havuzuna bağlanmayı ve bir projeyi
+      dışarı almayı öğrenmenizi sağlar. Herhangi bir aşamada
+      yardıma gerek duyarsanız, sağdaki (?) simgesini tıklatın .
+    </description>
+  </intro>
+
+  <item
+      title="CVS havuzunu keşfetme perspektifinin açılması"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+      Ana menüde Pencere &gt; Perspektifi Aç &gt; Diğer... öğelerini seçtikten
+      sonra <b>CVS Havuzunu Keşfet</b> perspektifini seçin.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="CVS havuzu eklenmesi"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+      CVS Havuzları görünümünde <b>CVS Havuzu Ekle</b> araç çubuğu düğmesini
+      tıklatın. Havuz için yer ve kimlik doğrulama bilgilerini girin. Örneğin,
+      <b>eclipse</b> havuzu için şunları girin:<br/>
+      <br/>
+      Anasistem: dev.eclipse.org<br/>
+      Havuz yolu: /home/eclipse<br/>
+      Kullanıcı: anonymous<br/>
+      Bağlantı tipi: pserver<br/>
+      <br/>
+      Geri kalanlar için varsayılan değerleri kullanın ve Son düğmesini tıklatın.
+    </description>
+  </item>
+
+  <item
+      title="Projenin bulunması"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+      Yeni eklenen havuzun altında <b>HEAD</b> düğümünü genişletin ve dışarı almak
+      istediğiniz projeyi bulun (örneğin, yardımcı bilgi yaprağı görünümüne ilişkin
+      kaynak kodu org.eclipse.ui.cheatsheets içinde bulursunuz).
+    </description>
+  </item>
+
+  <item
+      title="Projenin dışarı alınması"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+      Dışarı almak istediğiniz projeyi farenin sağ düğmesiyle tıklatın ve <b>Dışarı
+      Al</b> öğesini seçin. En yeni içerik havuzdan çalışma alanınıza yüklenir.
+    </description>
+  </item>
+
+  <item
+      title="Çalışma alanının görüntülenmesi"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+      Projeyi çalışma alanınızda görmek için, Pencere &gt; Perspektifi Aç &gt; Kaynak
+      öğelerini tıklatarak <b>Kaynak</b> perspektifine geçin; <b>Dolaşma Aracı</b>
+      görünümünde projeyi göreceksiniz. Şimdi projenin içindekileri görüntüleyebilir
+      ve bunlarla çalışabilirsiniz.
+    </description>
+  </item>
+
+</cheatsheet>

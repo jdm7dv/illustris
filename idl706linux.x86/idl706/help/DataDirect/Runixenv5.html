@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:44" />
+  <title>demoodbc</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp556391"> </a><h1 class="pNewHTMLPageNoNum">
+demoodbc
+</h1>
+<hr /><a name="wp556392"> </a><p class="pBody">
+DataDirect ships an application, called demoodbc, which is installed in the demo subdirectory beneath the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> installation directory. Once you have set up your environment and data source, you can use the demoodbc application to test your connection. The syntax to run the application is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+demoodbc <code><em>data_source_name</em></code> -uid <code><em>user_name</em></code> -pwd <code><em>password</em></code><a name="wp556393"> </a>
+</pre></div>
+<a name="wp556394"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+demoodbc DataSource3 -uid johndoe -pwd secret<a name="wp556395"> </a>
+</pre></div>
+<a name="wp556396"> </a><p class="pBody">
+The demoodbc application is coded to execute a Select statement from a table named emp. If you have an emp table in your database, the results are returned. If you do not have an emp table, you receive the message, <code class="cCode">The specified table (emp) is not in the database</code>. This message should be viewed as a successful connection to the database.
+</p>
+<a name="wp556397"> </a><p class="pBody">
+See the readme in the demo directory for an explanation of how to build and use this application. See <a  href="Rdiagnostic2.html#wp515158">&quot;demoodbc Application&quot;</a> for additional information.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

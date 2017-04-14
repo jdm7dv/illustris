@@ -1,0 +1,15 @@
+Logon to Oracle Dialog Box
+
+SERVER NAME: Type the Client connection string of the computer containing the Oracle database tables that you want to access.
+
+USER NAME: If required, type your Oracle user name.
+
+PASSWORD: If required, type your Oracle password.
+
+OK
+Completes the logon and writes the values to the system 
+information.
+
+CANCEL
+Closes the dialog box without writing the values to the system information.
+

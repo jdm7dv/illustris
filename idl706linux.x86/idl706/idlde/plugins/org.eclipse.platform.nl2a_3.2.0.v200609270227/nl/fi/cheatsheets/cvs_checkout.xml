@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="CVS-projektin kuittaus ulos">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Tämän muistilistan avulla voit tarkastella CVS-tietovaraston tietoja ja kuitata projektin ulos tietovarastosta. Saat lisätietoja muistilistojen käytöstä napsauttamalla oikeassa
+      yläkulmassa olevaa ohjepainiketta (?).
+    </description>
+  </intro>
+
+  <item
+      title="CVS-tietovaraston tarkastelu -perspektiivin avaus"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+      Valitse ensin päävalikon vaihtoehdot Ikkuna &gt; Avaa perspektiivi &gt; Muu... ja sitten
+      vaihtoehto <b>CVS-tietovaraston tarkastelu</b>.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="CVS-tietovaraston lisäys"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+      Napsauta CVS-tietovarastot-näkymän <b>Lisää CVS-tietovarasto</b>-painiketta. Anna tietovaraston
+sijainti- ja todennustiedot. Jos määrität esimerkiksi <b>eclipse</b>-tietovaraston, anna seuraavat tiedot:<br/>
+      <br/>
+      Pääkone: dev.eclipse.org<br/>
+      Tietovaraston polku: /home/eclipse<br/>
+      Käyttäjä: anonymous<br/>
+      Yhteyslaji: pserver<br/>
+      <br/>
+      Käytä muissa valinnoissa oletusarvoja ja napsauta Valmis-painiketta.
+    </description>
+  </item>
+
+  <item
+      title="Projektin paikannus"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+      Laajenna uuden tietovaraston <b>HEAD</b>-solmu ja paikanna uloskuitattava projekti
+      (esimerkiksi Muistilistat-näkymän lähdekoodi löytyy projektista org.eclipse.ui.cheatsheets).
+    </description>
+  </item>
+
+  <item
+      title="Projektin kuittaus ulos"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+Napsauta uloskuitattavaa projektia hiiren kakkospainikkeella ja valitse vaihtoehto <b>Kuittaa
+      ulos</b>. Toiminto lataa tietovaraston viimeisimmän sisällön työtilaan.
+    </description>
+  </item>
+
+  <item
+      title="Työtilan tarkastelu"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+      Voit tarkastella projektia työtilan <b>Navigaattorissa</b> siirtymällä ensin <b>Resurssi</b>-perspektiiviin
+      vaihtoehtojen Ikkuna &gt; Avaa perspektiivi &gt; Resurssi avulla. Nyt voit aloittaa projektin sisällön käsittelyn.
+    </description>
+  </item>
+
+</cheatsheet>

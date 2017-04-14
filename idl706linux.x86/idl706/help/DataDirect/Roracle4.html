@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:59:53" />
+  <title>Connecting to a Data Source Using a Logon Dialog Box</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp572190"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Logon Dialog Box
+</h1>
+<hr /><a name="wp572193"> </a><p class="pBody">
+Some ODBC applications display a logon dialog box when you are connecting to a data source. In these cases, the data source name has already been specified. For Oracle, the dialog box is as follows:
+</p>
+<a name="wp572203"> </a><p class="pBody">
+In this dialog box, perform the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp572204"> </a><div class="pSmartList1"><li>In the Server Name field, type the client connection string of the computer containing the Oracle database tables you want to access. Or, on Windows, select the string from the Server Name drop-down list, which displays the names you specified in the ODBC Oracle driver Setup dialog box.</li></div><a name="wp607751"> </a><p class="pBodyIndent12pxBeforeAfter">
+For local servers, the SQL*Net connection string has the form <code><em>database_name</em></code>, where <code><em>database_name</em></code> identifies your Oracle database.
+</p>
+<a name="wp607752"> </a><p class="pBodyIndent12pxBeforeAfter">
+If the SQL*Net connection string contains semicolons, enclose it in quotation marks. See your SQL*Net documentation for more information.
+</p>
+<a name="wp607753"> </a><p class="pBodyIndent12pxBeforeAfter">
+For Oracle7 and Oracle8 remote servers, the Oracle TNS Client connection string has the form, <code><em>TNSNAME</em></code>, where <code><em>TNSNAME</em></code> is the alias name of the Oracle Listener on your network.
+</p>
+<a name="wp572205"> </a><div class="pSmartList1"><li>If required, type your Oracle user name.</li></div><a name="wp572206"> </a><div class="pSmartList1"><li>If required, type your Oracle password.</li></div><a name="wp572207"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> to log on to the Oracle database installed on the server you specified and to update the values in the Registry.</li></div></ol></div>
+<a name="wp572208"> </a><p class="pBody">
+NOTE: You can also use OS Authentication to connect to an Oracle database. See <a  href="Roracle7.html#wp572469">&quot;OS Authentication&quot;</a> for details.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

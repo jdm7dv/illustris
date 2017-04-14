@@ -1,0 +1,453 @@
+                      MAP DEMO
+
+   This demonstration is a tool for experimenting      
+   with common map projections and great circle paths.
+   All of the map projections are drawn by the MAP_SET
+   IDL User's Library Procedure. The forward and
+   inverse map transformations are built into IDL.
+   The projections are described in more detail below.
+
+   You can draw the great circle connecting two 
+   selected points or cities, showing both the route 
+   and distance.
+
+   A small data base of approximately 50 cities is 
+   included. We apologize in advance if your favorite
+   city is not included. Inverse map transformations 
+   are demonstrated by moving the mouse on the map,
+   displaying the latitude and longitude of the 
+   selected point. The center of projection may be 
+   moved by dragging your mouse from one point on the 
+   map to another.
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+      Select "Quit" to exit the Map Demo and return 
+      to the IDL Demo main screen.
+   
+   Edit Menu:
+      Select the "Reset" button to set the center 
+      latitude, longitude, and rotation to zero.
+      The selected projection is then redrawn.
+
+   View Menu:
+
+       Continents
+       This menu allows the display of continental
+       outlines, filled continents, or continental
+       elevations. Elevations are displayed by warping
+       a digital elevation grid over the current map. 
+       o Select "None" to disable the display of
+         continental outlines, filled continents or
+         continental elevation data.
+       o Select "Outlines" to draw continental outlines.
+       o Select "Fill" to display the continents as 
+         filled polygons.
+       o Select "Low Res Elevations" to set the resolution
+         to a two-degree square elevation grid.
+       o Select "Medium Res" to set the resolution to a 
+         one-degree square elevation grid. 
+       o Select "High Res" to use a more accurate, but 
+         slower interpolation method.
+
+       Interpolation
+       IDL provides two algorithms for interpolating 
+       sampled data to maps: MAP_IMAGE, an image space
+       algorithm and MAP_PATCH, an object space 
+       algorithm. 
+       o Image space algorithms perform an inverse 
+         map transformation to obtain the latitude and
+         longitude coordinates of each screen point. 
+       o Object space algorithms operate in the 
+         opposite direction, interpolating the mesh 
+         described by the data points onto the screen,
+         and then filling the resulting polygons.
+
+       Rivers
+       Draw rivers on the map.
+
+       Boundaries
+       Draw country boundaries on the map. State 
+       boundaries for the United States are also
+       drawn.
+
+       Cities
+       Draw selected cities on the map.
+
+       Isotropy
+       Non-scale maps may be displayed isotropically, 
+       with an equal scale in the X and Y directions,
+       or with the map scaled to fit the window in
+       both the X and Y directions.
+
+
+   Cities Menu:
+
+       Mark All
+       Displays the cities on the current map.
+
+       Find
+       Displays the City menu.  Selecting a city from 
+       the list displays its location on the map and 
+       displays its latitude and longitude at the 
+       bottom right of the demo window.
+
+
+   Great Circles Menu:
+
+       Connect Two Points
+       Draw the great circle connecting two points 
+       by clicking on the "Connect two points" button,
+       and then clicking on the two points. You can
+       also connect cities by selecting "Find" from 
+       the Cities menu after clicking "Connect two
+       points". The distance between the cities along 
+       the great circle is also shown.
+
+       Draw
+       Draw the great circle along the prime meridian
+       or draw the last drawn meridian in a different
+       color. 
+
+   About Menu:
+       Select "About Maps" for information about the 
+       Map Demo.
+
+
+
+   FEATURES
+   --------
+
+   <<PROJECTION>> list
+   Click on the name of the desired projection.  
+   Projections supplied by IDL are described in more 
+   detail after the FEATURES section.
+
+   <<CENTER LONGITUDE>> slider
+   Vary the longitude of the center of the projection.
+   Positive longitudes are east of the prime meridian;
+   negative longitudes are west of the prime meridian.
+
+   <<CENTER LATITUDE>> slider
+   Vary the latitude of the center of the projection.
+
+   <<ROTATION>> slider
+   Set the rotation of the earth with respect to 
+   the vertical polar axis.
+
+   <<Scale>> field
+   If the scale is set to zero, the map is sized to 
+   fit the drawing window.  Otherwise, the map is 
+   drawn with the designated true scale about the 
+   center.  Usable scales range from about 1 million 
+   to one (15 miles per inch, or 10Km/Cm), to 300 
+   million to one (4700 inches/mile, or 3000 Km/Cm).
+
+   You can also rotate the globe interactively. 
+   Position the cursor on the image and, while holding
+   down the left mouse button, move the cursor to 
+   rotate the globe. Release the mouse button when you
+   are satisfied with the position of the globe. 
+
+
+
+
+*********   PROJECTIONS    **********
+
+
+   AZIMUTHAL PROJECTIONS
+   ---------------------
+   With azimuthal projections, the UV plane is tangent
+   to the globe.  The point of tangency is projected 
+   onto the center of the plane and its latitude and 
+   longitude are P0lat and P0lon respectively.  Rot 
+   is the angle between North and the V-axis.
+
+   Important characteristics of azimuthal maps include
+   the fact that directions or azimuths are correct 
+   from the center of the projection to any other 
+   point and great circles through the center are 
+   projected to straight lines on the plane.
+
+   The IDL mapping package includes the following 
+   azimuthal projections: Stereographic, Orthographic,
+   Gnomonic, Lambert's Azimuthal Equal Area
+   and the Azimuthal Equidistant projection.
+
+
+   STEREOGRAPHIC
+   -------------
+   The stereographic projection is an azimuthal, 
+   true perspective projection with the globe being 
+   projected onto the UV plane from the point P on 
+   the globe diametrically opposite to the point of 
+   UV tangency. The whole globe except P is mapped 
+   onto the UV plane. There is, of course, great 
+   distortion for regions close to P, since P maps
+   to infinity.
+
+   The stereographic projection is commonly used for 
+   polar projections (set Center latitude to + or - 90
+   degrees). All great or small circles are shown as 
+   circular arcs or straight lines.
+
+
+   ORTHOGRAPHIC
+   ------------
+   The orthographic projection is an azimuthal 
+   perspective projection with point of perspective at
+   infinity.  As such, it maps one hemisphere of the 
+   globe into the UV plane. Distortions are greatest
+   along the rim of the hemisphere where distances and
+   land masses are compressed.
+
+   The primary usage is for pictorial views of the 
+   Earth, resembling those seen from space.
+   All great circles are shown as elliptical arcs or 
+   straight lines.
+
+
+   LAMBERT CONIC
+   -------------
+   The conic projection in this mapping package is 
+   Lambert's conformal conic with two standard 
+   parallels. It is constructed by projecting the 
+   globe onto a cone passing through two parallels.
+   There is additional scaling to achieve 
+   conformality. The pole under the cone's apex is
+   transformed to a point and the other pole is mapped
+   to infinity. The scale is correct along the two 
+   standard parallels. Parallels are projected onto 
+   circles and meridians onto equally spaced straight
+   lines.
+ 
+   For this projection only, the Center Latitude 
+   Slider controls the latitude of one standard 
+   parallel, and the Center Longitude Slider controls 
+   the latitude of the other standard parallel.
+
+   The primary usage is for large-scale mapping of 
+   areas of largely east-west extent. 
+
+   LAMBERT'S AZIMUTHAL
+   -------------------
+   Lambert's cylindrical equal area projection adjusts
+   projected distances in order to preserve area. 
+   Hence, it is not a true perspective projection.
+
+   Like the stereographic projection, it maps to 
+   infinity the point P diametrically opposite the 
+   point of tangency. Note also that to preserve area,
+   distances between points must become more 
+   contracted as the points become closer to P. 
+   Lambert's equal area projection has less overall 
+   scale variation than the other azimuthal 
+   projections in this package.
+
+   Recommended for equal-area mapping of regions near 
+   the Equator.
+
+   GNOMIC
+   --------
+   The Gnomic (or Gnomonic) projection is the 
+   perspective, azimuthal projection with point of 
+   perspective at the center of the globe. Hence, with 
+   the gnomonic projection, the interior of a 
+   hemispherical region of the globe is projected to 
+   the UV plane with the rim of the hemisphere going 
+   to infinity. Except at the center, there is great 
+   distortion of shape, area and scale.
+
+   All great circles are shown as straight lines. Used
+   by navigators and aviators for determining courses.
+   There is too much distortion for many uses.
+
+
+   AZIMUTHAL EQUIDISTANT
+   ---------------------
+   The azimuthal equidistant projection is also not a 
+   true perspective projection, because it preserves 
+   correctly the distances between the tangent point 
+   and all other points on the globe. The point P 
+   opposite the tangent point is mapped to a circle 
+   on the UV plane and hence the whole globe is mapped
+   to the plane. There is, of course, infinite
+   distortion close to the outer rim of the map, which
+   is the circular image of P.
+
+   The polar aspect is used for polar regions. The 
+   oblique aspect is used for world maps, centered on 
+   important cities.
+
+
+   SATELLITE
+   ---------
+   The satellite projection requires your input; the 
+   Satellite Projection Parameters dialog appears when 
+   you select the Satellite projection. 
+   o  The Altitude ranges from 100 km to 15000 km above 
+      the Earth. Use it to zoom in on specific areas of 
+      the globe.
+   o  The Alpha (up) angle refers to the angle of the 
+      perspective plane with respect to the globe.
+      which the globe is drawn.
+   o  The Beta (rotation) angle defines the angle 
+      through which to rotate the polar axis, which is 
+      vertical by default with Beta set to 0.
+
+
+   CYLINDRICAL
+   -----------
+   The cylindrical equidistant projection is one of the 
+   simplest projections to construct. If EQ is the 
+   equator, this projection simply lays out horizontal 
+   and vertical distances on the cylinder to coincide
+   numerically with their measurements in latitudes and 
+   longitudes on the sphere. Hence, the equidistant 
+   cylindrical projection maps the entire globe to a 
+   rectangular region bounded by
+
+   -180 <= u <= 180, and -90 <= v <= 90.
+
+   If EQ is the equator, meridians and parallels will be
+   equally spaced parallel lines.
+
+
+   MERCATOR
+   --------
+   Mercator's projection is partially developed by 
+   projecting the globe onto the cylinder from the 
+   center of the globe. This is a partial explanation 
+   of the projection because vertical distances are 
+   subjected to additional transformations to achieve 
+   conformality -- that is, local preservation of shapes.
+   To properly use the projection, the user should be 
+   aware that the two points on the globe 90 degrees 
+   from EQ (e.g., the North and South poles in the case
+   that EQ is the equator) are mapped to infinite 
+   distances.
+
+   MOLLWEIDE
+   ---------
+   With the Mollweide projection, the central meridian 
+   is a straight line, the meridians 90 degrees from the
+   central meridian are circular arcs and all other 
+   meridians are elliptical arcs.  The Mollweide 
+   projection maps the entire globe onto an ellipse in 
+   the UV plane. The circular arcs encompass a 
+   hemisphere and the rest of the globe is contained in 
+   the lines on either side.
+
+
+   SINUSOIDAL
+   ----------
+   With the sinusoidal projection, the central meridian
+   is a straight line and all other meridians are 
+   equally spaced sinusoidal curves. The scaling is true
+   along the central meridian as well as along all
+   parallels.
+
+   For this projection only, the Center Latitude and 
+   Rotation Sliders have no effect.
+
+
+   AITOFF
+   ------
+
+   The Aitoff projection modifies the equatorial aspect 
+   of one hemisphere of the azimuthal equidistant 
+   projection, described above. Lines parallel to the 
+   equator are stretched horizontally and meridian 
+   values are doubled, thereby displaying the world as 
+   an ellipse with axes in a 2:1 ratio. Both the equator
+   and the central meridian are represented at true 
+   scale; however, distances measured between the point 
+   of tangency and any other point on the map are no 
+   longer true to scale.
+
+
+   HAMMER-AITOFF
+   -------------
+
+   The Hammer-Aitoff projection is derived from the 
+   equatorial aspect of Lambert's equal area projection,
+   limited to a hemisphere (in the same way Aitoff's 
+   projection is derived from the equatorial aspect of 
+   the azimuthal equidistant projection). The 
+   hemisphere is represented inside an ellipse with the 
+   rest of the world in the lunes of the ellipse.
+
+   Because the Hammer-Aitoff projection produces an 
+   equal area map of the entire globe, it is useful 
+   for visual representations of geographically related 
+   statistical data and distributions. Astronomers use 
+   this projection to show the entire celestial sphere 
+   on one map in a way that accurately depicts the 
+   relative distribution of the stars in different 
+   regions of the sky.
+
+
+   Alber's Equal Area Conic
+   ------------------------
+
+   The Albers Equal-Area Conic is like most other 
+   conics in that meridians are equally spaced radii, 
+   parallels are concentric arcs of circles and scale is
+   constant along any parallel. To maintain equal area, 
+   the scale factor along meridians is the reciprocal of
+   the scale factor along parallels, with the scale 
+   along the parallels between the two standard 
+   parallels set too small, and the scale beyond the 
+   standard parallels set too large. Standard parallels 
+   are correct in scale along the parallel, as well as 
+   in every direction. 
+
+   The Albers projection is particularly useful for 
+   predominantly east-west regions. Any keywords for 
+   the Lambert conformal conic also apply to the Albers 
+   conic projection.
+
+
+   Transverse Mercator
+   -------------------
+
+   The Transverse Mercator (also called the UTM, and 
+   Gauss-Krueger in Europe) projection rotates the 
+   equator of the Mercator projection 90 degrees so that
+   it follows a specified central meridian. In other 
+   words, the Transverse Mercator involves projecting 
+   the Earth onto a cylinder which is always in contact 
+   with a meridian instead of with the Equator.
+
+   The central meridian intersects two meridians and the
+   Equator at right angles; these four lines are 
+   straight. All other meridians and parallels are 
+   complex curves which are concave toward the central 
+   meridian. Shape is true only within small areas and 
+   the areas increase in size as they move away from the
+   central meridian. Most other IDL projections are 
+   scaled in the range of +/- 1 to +/- 2 Pi; the UV 
+   plane of the Transverse Mercator projection is scaled
+   in meters. The conformal nature of this projection 
+   and its use of the meridian makes it useful for 
+   north-south regions.
+
+
+   Miller Cylindrical
+   ------------------
+
+   The Miller projection is a simple mathematical 
+   modification of the Mercator projection, 
+   incorporating some aspects of cylindrical 
+   projections. It is not equal-area, conformal or 
+   equidistant along the meridians. Meridians are 
+   equidistant from each other, but latitude parallels 
+   are spaced farther apart as they move away from the 
+   Equator, thereby keeping shape and area distortion to
+   a minimum. The meridians and parallels intersect each
+   other at right angles, with the poles shown as 
+   straight lines. The Equator is the only line shown 
+   true to scale and free of distortion.

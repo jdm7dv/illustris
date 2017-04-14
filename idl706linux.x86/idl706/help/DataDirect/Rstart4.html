@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/14/04 11:47:58" />
+  <title>Using Connection Failover</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp583803"> </a><h1 class="pNewHTMLPageNoNum">
+Using Connection Failover
+</h1>
+<hr /><a name="wp596164"> </a><p class="pBody">
+Connection failover is a useful feature that is available in the following DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers: DB2 Wire Protocol, Informix Wire Protocol, Oracle Wire Protocol, Oracle, SQL Server Wire Protocol (UNIX only), and Sybase Wire Protocol.
+</p>
+<a name="wp583136"> </a><p class="pBody">
+<em class="cEmphasis">Connection failover</em> allows an application to connect to an alternate, or backup, database server if the primary database server is unavailable, for example, because of a hardware failure or traffic overload. Connection failover ensures that the data on which your critical ODBC applications depend is always available.
+</p>
+<a name="wp583138"> </a><p class="pBody">
+You can customize the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers for connection failover by configuring a list of alternate database servers that are tried if the primary server is not accepting connections. Connection attempts continue until a connection is successfully established or until all the alternate database servers have been tried the specified number of times. 
+</p>
+<a name="wp583140"> </a><p class="pBody">
+For example, suppose you have the environment shown in <a  href="Rstart4.html#wp606432">Figure&#160;2-1</a> with multiple database servers: Database Server A, B, and C. Database Server A is designated as the primary database server, Database Server B is the first alternate server, and Database Server C is the second alternate server.
+</p>
+<a name="wp606432"> </a><div class="pTableTitleBold">
+Figure 2-1.  Connection Failover
+</div>
+<a name="wp606462"> </a><div style="color: #000000; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+</div><div align="left"><img src="images/failover.gif" height="211" width="372" border="0" hspace="0" vspace="0" alt="Connection Failover Diagram"/></div><div style="color: #000000; font-size: 9pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: left; text-decoration: none; text-indent: 0pt; text-transform: none">
+</div>
+<a name="wp606503"> </a><p class="pBody">
+First, the application attempts to connect to the primary database server, Database Server A (<b class="cBold">1</b>). If connection failover is enabled and Database Server A fails to accept the connection, the application attempts to connect to Database Server B (<b class="cBold">2</b>). If that connection attempt also fails, the application attempts to connect to Database Server C (<b class="cBold">3</b>). 
+</p>
+<a name="wp592513"> </a><p class="pBody">
+In this scenario, it is probable that at least one connection attempt would succeed, but if no connection attempt succeeds, the driver can retry each alternate database server (primary and alternate) for a specified number of attempts. You can specify the number of attempts that are made through the <em class="cEmphasis">connection retry</em> feature. You can also specify the number of seconds of delay, if any, between attempts through the <em class="cEmphasis">connection delay</em> feature. For more information about connection retry, see <a  href="Rstart6.html#wp592469">&quot;Using Connection Retry&quot;</a>.
+</p>
+<a name="wp583189"> </a><p class="pBody">
+A DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> driver fails over to the next alternate database server only if a successful connection cannot be established with the current alternate server. If the driver successfully establishes communication with a database server and the connection request is rejected by the database server because, for example, the login information is invalid, then the driver generates an error and does not try to connect to the next database server in the list. It is assumed that each alternate server is a mirror of the primary and that all authentication parameters and other related information are the same.
+</p>
+<a name="wp583517"> </a><p class="pBody">
+Connection failover provides protection for new connections only and does not preserve states for transactions or queries. For details on configuring connection failover for your driver, see the appropriate driver chapter. 
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

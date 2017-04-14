@@ -1,0 +1,133 @@
+       Image Reconstruction from Projections
+
+IDL is the industrial-strength processing and
+visualization environment used by many major
+equipment medical imaging equipment manufacturers
+and radiology professionals. This demonstration
+illustrates the mechanics of reconstructing the
+cross section of an object, given projections
+through the object from multiple directions. Many
+modern medical imaging modalities, including
+computerized tomography (CT) magnetic resonance
+imaging (MRI) and positron emission tomography (PET)
+employ reconstruction to synthesize images from a
+series of scans acquired at different orientations.
+
+This demonstration begins with the actual cross
+section of a simulated object, called the phantom.
+A projection contains M points. There is a total
+of N projections that have an equal angular distance
+from each another. The N projections are constructed
+by summing along lines drawn through the object.
+Stacking the N projections to form an M column by N
+row matrix forms a "sinogram" which is shown in the
+lower left corner. This simulates the actual data 
+that would be acquired by an actual instrument.
+
+From the sinogram, each row (projection) is convolved
+with the selected filter. Then they are summed 
+(back-projected) into a matrix. The reconstructed
+image, after all projections have been summed, 
+is shown in the upper right corner. The difference
+between the reconstructed and the original slices
+is shown in the lower right corner.
+
+This demonstration is interactive in that the "ray"
+through the original image corresponding to each
+point of the sinogram is drawn by clicking the
+mouse on the sinogram image.  Conversely, all
+points of the sinogram that pass through a given
+point of the original (phantom) image are
+illustrated by clicking on that image.  Clicking on
+the error image displays a plot of the horizontal
+profiles through the original and reconstructed
+images.
+
+The IDL RIEMANN function is used to compute both
+the projections and to sum the back-projections.
+
+
+                OPERATION
+
+Operation of this demonstration is quite simple.
+First select the reconstruction parameters,
+using the buttons at the lower left, and then
+press the "Reconstruct" button. After two or more
+reconstructions have been computed, they may be
+compared by pressing the "Compare" button.
+
+
+MENU OPTIONS
+------------
+
+File Menu:
+
+    Select one of the various simulated objects (including
+    Shepp-Logan Phantom, Circles, Squares, or Computerized
+    Tomography scanning slice) from the "Objects" sub-menu.
+
+    Select "Reconstruct" to perform the numerical
+    reconstruction and display the images.
+
+    Select "Quit" to exit the demo.
+
+Edit Menu:
+    
+    Select "Color Palette" to activate a palette chooser
+    and manipulator tool for fine-tuning of the color
+    palette and display contrast.
+
+View Menu:
+
+    Select "Redraw" to redraw the images minus the line
+    overlays.
+
+    Select "Compare" to display the four most recent
+    reconstructions.
+
+About Menu:
+  
+    Select "About Reconstruction" to display this help text.
+
+
+FEATURES OF THE RECONSTRUCTION DEMO
+-----------------------------------
+
+<<Number of angles droplist>>
+    Select the number of views or angles. Note that on
+    small screen monitors, the image size might be smaller
+    than the number of angles and the sinogram views will
+    not show the image in its entirety.
+   
+<<Filter type droplist>> 
+    Selects the type of filter (or none) used to convolve
+    each projection before back-projecting.
+
+<<Kernel size droplist>>    
+    Select the half-width of the filter convolution kernel.
+    Larger values give better results.
+
+<<Interpolation droplist>>  
+    Select either nearest neighbor, linear, or cubic
+    interpolation. Cubic interpolation provides the best
+    results, but takes longest to compute.
+
+<<Left Mouse Button>>
+
+    In the original display (top left viewing area):
+        Selecting a point in the original
+        image draws a line through the sinogram
+        over the points whose rays are derived
+        from the selected point.
+
+    In the Sinogram (Lower left viewing area):
+        Selecting a point in the sinogram draws
+        the corresponding ray in the Phantom
+        image and the profile of the ray sum
+        (line integral) all parallel rays.
+
+    In the Error window (Bottom right viewing area):
+        Selecting a point makes a plot showing
+        horizontal profiles through the selected
+        row of the original phantom (solid line),
+        and the reconstructed image (points).

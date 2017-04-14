@@ -1,0 +1,503 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:57">
+    <title>Mapping</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_imageproc.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_mathstat.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004620"> </a><h2 class="pHeading1">
+Mapping
+</h2>  
+
+<a name="wp1004622"> </a><p class="pBody">
+This demonstration is a tool for experimenting with common map projections and great circle paths. All of the map projections are drawn by the MAP_SET IDL User's Library Procedure. The forward and inverse map transformations are built into IDL. The projections are described in more detail below. 
+</p>  
+
+<a name="wp1004623"> </a><p class="pBody">
+You can draw the great circle connecting two selected points or cities, showing both the route and distance. 
+</p>  
+
+<a name="wp1004624"> </a><p class="pBody">
+A small data base of approximately 50 cities is included. We apologize in advance if your favorite city is not included. Inverse map transformations are demonstrated by moving the mouse on the map, displaying the latitude and longitude of the selected point. The center of projection may be moved by dragging your mouse from one point on the map to another. 
+</p>  
+
+<a name="wp1004625"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004626"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004627"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit the Map Demo and return to the IDL Demo main screen.
+</p>  
+
+<a name="wp1004628"> </a><h4 class="pHeading3">
+Edit Menu
+</h4>  
+
+<a name="wp1004629"> </a><p class="pBody">
+Select the &quot;Reset&quot; button to set the center latitude, longitude, and rotation to zero. The selected projection is then redrawn.
+</p>  
+
+<a name="wp1004630"> </a><h4 class="pHeading3">
+View Menu
+</h4>  
+
+<a name="wp1004631"> </a><h5 class="pHeading4">
+Continents
+</h5>  
+
+<a name="wp1004632"> </a><p class="pBody">
+This menu allows the display of continental outlines, filled continents, or continental elevations. Elevations are displayed by warping a digital elevation grid over the current map. Select &quot;None&quot; to disable the display of continental outlines, filled continents or continental elevation data.
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004633"> </a><div class="pSmartList1"><li>Select &quot;Outlines&quot; to draw continental outlines.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004634"> </a><div class="pSmartList1"><li>Select &quot;Fill&quot; to display the continents as filled polygons.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004635"> </a><div class="pSmartList1"><li>Select &quot;Low Res Elevations&quot; to set the resolution to a two-degree square elevation grid.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004636"> </a><div class="pSmartList1"><li>Select &quot;Medium Res&quot; to set the resolution to a one-degree square elevation grid. </li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004637"> </a><div class="pSmartList1"><li>Select &quot;High Res&quot; to use a more accurate, but slower interpolation method.</li></div>  
+
+</ul></div>
+<a name="wp1004638"> </a><h5 class="pHeading4">
+Interpolation
+</h5>  
+
+<a name="wp1004639"> </a><p class="pBody">
+IDL provides two algorithms for interpolating sampled data to maps: MAP_IMAGE, an image space algorithm and MAP_PATCH, an object space algorithm.
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004640"> </a><div class="pSmartList1"><li>Image space algorithms perform an inverse map transformation to obtain the latitude and longitude coordinates of each screen point. </li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004641"> </a><div class="pSmartList1"><li>Object space algorithms operate in the opposite direction, interpolating the mesh described by the data points onto the screen, and then filling the resulting polygons.</li></div>  
+
+</ul></div>
+<a name="wp1004642"> </a><h5 class="pHeading4">
+Rivers
+</h5>  
+
+<a name="wp1004643"> </a><p class="pBody">
+Draw rivers on the map.
+</p>  
+
+<a name="wp1004644"> </a><h5 class="pHeading4">
+Boundaries
+</h5>  
+
+<a name="wp1004645"> </a><p class="pBody">
+Draw country boundaries on the map. State boundaries for the United States are also drawn.
+</p>  
+
+<a name="wp1004646"> </a><h5 class="pHeading4">
+Cities
+</h5>  
+
+<a name="wp1004647"> </a><p class="pBody">
+Draw selected cities on the map.
+</p>  
+
+<a name="wp1004648"> </a><h5 class="pHeading4">
+Isotropy
+</h5>  
+
+<a name="wp1004649"> </a><p class="pBody">
+Non-scale maps may be displayed isotropically, with an equal scale in the X and Y directions, or with the map scaled to fit the window in both the X and Y directions. 
+</p>  
+
+<a name="wp1004650"> </a><h4 class="pHeading3">
+Shapefiles
+</h4>  
+
+<a name="wp1004651"> </a><h5 class="pHeading4">
+Import Shapefile
+</h5>  
+
+<a name="wp1004652"> </a><p class="pBody">
+Import data from a specified shapefile (*.shp). After being imported, the shapefile data is shown on the current map projection. Applying this data to the current projection may change the display. The new display will be centered around this imported shapefile data.
+</p>  
+
+<a name="wp1004653"> </a><h5 class="pHeading4">
+Shape Information
+</h5>  
+
+<a name="wp1004654"> </a><p class="pBody">
+Displays a floating control panel, which lists the entities contained within the shapefile structure. Selecting an entity within the list outputs its information to the table within the panel and draws the entity in red on the current map display.
+</p>  
+
+<a name="wp1004655"> </a><h4 class="pHeading3">
+Cities Menu
+</h4>  
+
+<a name="wp1004656"> </a><h5 class="pHeading4">
+Mark All
+</h5>  
+
+<a name="wp1004657"> </a><p class="pBody">
+Displays the cities on the current map.
+</p>  
+
+<a name="wp1004658"> </a><h5 class="pHeading4">
+Find
+</h5>  
+
+<a name="wp1004659"> </a><p class="pBody">
+Displays the City menu. Selecting a city from the list displays its location on the map and displays its latitude and longitude at the bottom right of the demo window. 
+</p>  
+
+<a name="wp1004660"> </a><h4 class="pHeading3">
+Great Circles Menu
+</h4>  
+
+<a name="wp1004661"> </a><h5 class="pHeading4">
+Connect Two Points
+</h5>  
+
+<a name="wp1004662"> </a><p class="pBody">
+Draw the great circle connecting two points by clicking on the &quot;Connect two points&quot; button, and then clicking on the two points. You can also connect cities by selecting &quot;Find&quot; from the Cities menu after clicking &quot;Connect two points&quot;. The distance between the cities along the great circle is also shown. 
+</p>  
+
+<a name="wp1004663"> </a><h5 class="pHeading4">
+Draw
+</h5>  
+
+<a name="wp1004664"> </a><p class="pBody">
+Draw the great circle along the prime meridian or draw the last drawn meridian in a different color. 
+</p>  
+
+<a name="wp1004665"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1004666"> </a><p class="pBody">
+Select &quot;About Maps&quot; for information about the Map Demo.
+</p>  
+
+<a name="wp1004667"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1004668"> </a><h4 class="pHeading3">
+Projection list
+</h4>  
+
+<a name="wp1004669"> </a><p class="pBody">
+Click on the name of the desired projection. Projections supplied by IDL are described in more detail after the features section.
+</p>  
+
+<a name="wp1004670"> </a><h4 class="pHeading3">
+Center Longitude slider
+</h4>  
+
+<a name="wp1004671"> </a><p class="pBody">
+Vary the longitude of the center of the projection. Positive longitudes are east of the prime meridian; negative longitudes are west of the prime meridian. 
+</p>  
+
+<a name="wp1004672"> </a><h4 class="pHeading3">
+Center Latitude slider
+</h4>  
+
+<a name="wp1004673"> </a><p class="pBody">
+Vary the latitude of the center of the projection.
+</p>  
+
+<a name="wp1004674"> </a><h4 class="pHeading3">
+Rotation slider
+</h4>  
+
+<a name="wp1004675"> </a><p class="pBody">
+Set the rotation of the earth with respect to the vertical polar axis.
+</p>  
+
+<a name="wp1004676"> </a><h4 class="pHeading3">
+Scale field
+</h4>  
+
+<a name="wp1004677"> </a><p class="pBody">
+If the scale is set to zero, the map is sized to 
+</p>  
+
+<a name="wp1004678"> </a><p class="pBody">
+fit the drawing window. Otherwise, the map is drawn with the designated true scale about the center. Usable scales range from about 1 million to one (15 miles per inch, or 10Km/Cm), to 300 million to one (4700 inches/mile, or 3000 Km/Cm). 
+</p>  
+
+<a name="wp1004679"> </a><p class="pBody">
+You can also rotate the globe interactively. Position the cursor on the image and, while holding down the left mouse button, move the cursor to rotate the globe. Release the mouse button when you are satisfied with the position of the globe. 
+</p>  
+
+<a name="wp1004680"> </a><h3 class="pHeading2">
+Projections
+</h3>  
+
+
+<a name="wp1004681"> </a><h4 class="pHeading3">
+Azimuthal Projections
+</h4>  
+
+<a name="wp1004682"> </a><p class="pBody">
+With azimuthal projections, the UV plane is tangent to the globe. The point of tangency is projected onto the center of the plane and its latitude and longitude are P0lat and P0lon respectively. Rot is the angle between North and the V-axis. 
+</p>  
+
+<a name="wp1004683"> </a><p class="pBody">
+Important characteristics of azimuthal maps include the fact that directions or azimuths are correct from the center of the projection to any other point and great circles through the center are projected to straight lines on the plane. 
+</p>  
+
+<a name="wp1004684"> </a><p class="pBody">
+The IDL mapping package includes the following azimuthal projections: Stereographic, Orthographic, Gnomonic, Lambert's Azimuthal Equal Area and the Azimuthal Equidistant projection. 
+</p>  
+
+<a name="wp1004685"> </a><h4 class="pHeading3">
+Stereographic
+</h4>  
+
+<a name="wp1004686"> </a><p class="pBody">
+The stereographic projection is an azimuthal, true perspective projection with the globe being projected onto the UV plane from the point P on the globe diametrically opposite to the point of UV tangency. The whole globe except P is mapped onto the UV plane. There is, of course, great distortion for regions close to P, since P maps to infinity. 
+</p>  
+
+<a name="wp1004687"> </a><p class="pBody">
+The stereographic projection is commonly used for polar projections (set Center latitude to + or - 90 degrees). All great or small circles are shown as circular arcs or straight lines. 
+</p>  
+
+<a name="wp1004688"> </a><h4 class="pHeading3">
+Orthographic
+</h4>  
+
+<a name="wp1004689"> </a><p class="pBody">
+The orthographic projection is an azimuthal perspective projection with point of perspective at infinity. As such, it maps one hemisphere of the globe into the UV plane. Distortions are greatest along the rim of the hemisphere where distances and land masses are compressed. 
+</p>  
+
+<a name="wp1004690"> </a><p class="pBody">
+The primary usage is for pictorial views of the Earth, resembling those seen from space. All great circles are shown as elliptical arcs or straight lines. 
+</p>  
+
+<a name="wp1004691"> </a><h4 class="pHeading3">
+Lambert Conic
+</h4>  
+
+<a name="wp1004692"> </a><p class="pBody">
+The conic projection in this mapping package is Lambert's conformal conic with two standard parallels. It is constructed by projecting the globe onto a cone passing through two parallels. There is additional scaling to achieve conformality. The pole under the cone's apex is transformed to a point and the other pole is mapped to infinity. The scale is correct along the two standard parallels. Parallels are projected onto circles and meridians onto equally spaced straight lines. 
+</p>  
+
+<a name="wp1004693"> </a><p class="pBody">
+For this projection only, the Center Latitude Slider controls the latitude of one standard parallel, and the Center Longitude Slider controls the latitude of the other standard parallel. 
+</p>  
+
+<a name="wp1004694"> </a><p class="pBody">
+The primary usage is for large-scale mapping of areas of largely east-west extent. 
+</p>  
+
+<a name="wp1004695"> </a><h4 class="pHeading3">
+Lambert's Azimuthal
+</h4>  
+
+<a name="wp1004696"> </a><p class="pBody">
+Lambert's cylindrical equal area projection adjusts projected distances in order to preserve area. Hence, it is not a true perspective projection. 
+</p>  
+
+<a name="wp1004697"> </a><p class="pBody">
+Like the stereographic projection, it maps to infinity the point P diametrically opposite the point of tangency. Note also that to preserve area, distances between points must become more contracted as the points become closer to P. Lambert's equal area projection has less overall scale variation than the other azimuthal projections in this package. 
+</p>  
+
+<a name="wp1004698"> </a><p class="pBody">
+Recommended for equal-area mapping of regions near the Equator.
+</p>  
+
+<a name="wp1004699"> </a><h4 class="pHeading3">
+Gnomic
+</h4>  
+
+<a name="wp1004700"> </a><p class="pBody">
+The Gnomic (or Gnomonic) projection is the perspective, azimuthal projection with point of perspective at the center of the globe. Hence, with the gnomonic projection, the interior of a hemispherical region of the globe is projected to the UV plane with the rim of the hemisphere going to infinity. Except at the center, there is great distortion of shape, area and scale. 
+</p>  
+
+<a name="wp1004701"> </a><p class="pBody">
+All great circles are shown as straight lines. Used by navigators and aviators for determining courses. There is too much distortion for many uses. 
+</p>  
+
+<a name="wp1004702"> </a><h4 class="pHeading3">
+Azimuthal Equidistant
+</h4>  
+
+<a name="wp1004703"> </a><p class="pBody">
+The azimuthal equidistant projection is also not a true perspective projection, because it preserves correctly the distances between the tangent point and all other points on the globe. The point P opposite the tangent point is mapped to a circle on the UV plane and hence the whole globe is mapped to the plane. There is, of course, infinite distortion close to the outer rim of the map, which is the circular image of P. 
+</p>  
+
+<a name="wp1004704"> </a><p class="pBody">
+The polar aspect is used for polar regions. The oblique aspect is used for world maps, centered on important cities. 
+</p>  
+
+<a name="wp1004705"> </a><h4 class="pHeading3">
+Satellite
+</h4>  
+
+<a name="wp1004706"> </a><p class="pBody">
+The satellite projection requires your input; the Satellite Projection Parameters dialog appears when you select the Satellite projection. The Altitude ranges from 100 km to 15000 km above the Earth. Use it to zoom in on specific areas of the globe.
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004707"> </a><div class="pSmartList1"><li>The Alpha (up) angle refers to the angle of the perspective plane with respect to the globe.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004708"> </a><div class="pSmartList1"><li>The Beta (rotation) angle defines the angle through which to rotate the polar axis, which is vertical by default with Beta set to 0.</li></div>  
+
+</ul></div>
+<a name="wp1004709"> </a><h4 class="pHeading3">
+Cylindrical
+</h4>  
+
+<a name="wp1004710"> </a><p class="pBody">
+The cylindrical equidistant projection is one of the simplest projections to construct. If EQ is the equator, this projection simply lays out horizontal and vertical distances on the cylinder to coincide numerically with their measurements in latitudes and longitudes on the sphere. Hence, the equidistant cylindrical projection maps the entire globe to a rectangular region bounded by 
+</p>  
+
+<a name="wp1004711"> </a><p class="pBody">
+-180 &lt;= u &lt;= 180, and -90 &lt;= v &lt;= 90.
+</p>  
+
+<a name="wp1004712"> </a><p class="pBody">
+If EQ is the equator, meridians and parallels will be equally spaced parallel lines.
+</p>  
+
+<a name="wp1004713"> </a><h4 class="pHeading3">
+Mercator
+</h4>  
+
+<a name="wp1004714"> </a><p class="pBody">
+Mercator's projection is partially developed by projecting the globe onto the cylinder from the center of the globe. This is a partial explanation of the projection because vertical distances are subjected to additional transformations to achieve conformality -- that is, local preservation of shapes. To properly use the projection, the user should be aware that the two points on the globe 90 degrees from EQ (e.g., the North and South poles in the case that EQ is the equator) are mapped to infinite distances. 
+</p>  
+
+<a name="wp1004715"> </a><h4 class="pHeading3">
+Mollweide
+</h4>  
+
+<a name="wp1004716"> </a><p class="pBody">
+With the Mollweide projection, the central meridian is a straight line, the meridians 90 degrees from the central meridian are circular arcs and all other meridians are elliptical arcs. The Mollweide projection maps the entire globe onto an ellipse in the UV plane. The circular arcs encompass a hemisphere and the rest of the globe is contained in the lines on either side. 
+</p>  
+
+<a name="wp1004717"> </a><h4 class="pHeading3">
+Sinusoidal
+</h4>  
+
+<a name="wp1004718"> </a><p class="pBody">
+With the sinusoidal projection, the central meridian is a straight line and all other meridians are equally spaced sinusoidal curves. The scaling is true along the central meridian as well as along all parallels.
+</p>  
+
+<a name="wp1004719"> </a><p class="pBody">
+For this projection only, the Center Latitude and Rotation Sliders have no effect.
+</p>  
+
+<a name="wp1004720"> </a><h4 class="pHeading3">
+Aitoff
+</h4>  
+
+<a name="wp1004721"> </a><p class="pBody">
+The Aitoff projection modifies the equatorial aspect of one hemisphere of the azimuthal equidistant projection, described above. Lines parallel to the equator are stretched horizontally and meridian values are doubled, thereby displaying the world as an ellipse with axes in a 2:1 ratio. Both the equator and the central meridian are represented at true scale; however, distances measured between the point of tangency and any other point on the map are no longer true to scale. 
+</p>  
+
+<a name="wp1004722"> </a><h4 class="pHeading3">
+Hammer-Aitoff
+</h4>  
+
+<a name="wp1004723"> </a><p class="pBody">
+The Hammer-Aitoff projection is derived from the equatorial aspect of Lambert's equal area projection, limited to a hemisphere (in the same way Aitoff's projection is derived from the equatorial aspect of the azimuthal equidistant projection). The hemisphere is represented inside an ellipse with the rest of the world in the lunes of the ellipse. 
+</p>  
+
+<a name="wp1004724"> </a><p class="pBody">
+Because the Hammer-Aitoff projection produces an equal area map of the entire globe, it is useful for visual representations of geographically related statistical data and distributions. Astronomers use this projection to show the entire celestial sphere on one map in a way that accurately depicts the relative distribution of the stars in different regions of the sky. 
+</p>  
+
+<a name="wp1004725"> </a><h4 class="pHeading3">
+Alber's Equal Area Conic
+</h4>  
+
+<a name="wp1004726"> </a><p class="pBody">
+The Albers Equal-Area Conic is like most other conics in that meridians are equally spaced radii, parallels are concentric arcs of circles and scale is constant along any parallel. To maintain equal area, the scale factor along meridians is the reciprocal of the scale factor along parallels, with the scale along the parallels between the two standard parallels set too small, and the scale beyond the standard parallels set too large. Standard parallels are correct in scale along the parallel, as well as in every direction. 
+</p>  
+
+<a name="wp1004727"> </a><p class="pBody">
+The Albers projection is particularly useful for predominantly east-west regions. Any keywords for the Lambert conformal conic also apply to the Albers conic projection. 
+</p>  
+
+<a name="wp1004728"> </a><h4 class="pHeading3">
+Transverse Mercator
+</h4>  
+
+<a name="wp1004729"> </a><p class="pBody">
+The Transverse Mercator (also called the UTM, and Gauss-Krueger in Europe) projection rotates the equator of the Mercator projection 90 degrees so that it follows a specified central meridian. In other words, the Transverse Mercator involves projecting the Earth onto a cylinder which is always in contact with a meridian instead of with the Equator. 
+</p>  
+
+<a name="wp1004730"> </a><p class="pBody">
+The central meridian intersects two meridians and the Equator at right angles; these four lines are straight. All other meridians and parallels are complex curves which are concave toward the central meridian. Shape is true only within small areas and the areas increase in size as they move away from the central meridian. Most other IDL projections are scaled in the range of +/- 1 to +/- 2 Pi; the UV plane of the Transverse Mercator projection is scaled in meters. The conformal nature of this projection and its use of the meridian makes it useful for north-south regions. 
+</p>  
+
+<a name="wp1004731"> </a><h4 class="pHeading3">
+Miller Cylindrical
+</h4>  
+
+<a name="wp1004732"> </a><p class="pBody">
+The Miller projection is a simple mathematical modification of the Mercator projection, incorporating some aspects of cylindrical projections. It is not equal-area, conformal or equidistant along the meridians. Meridians are equidistant from each other, but latitude parallels are spaced farther apart as they move away from the Equator, thereby keeping shape and area distortion to a minimum. The meridians and parallels intersect each other at right angles, with the poles shown as straight lines. The Equator is the only line shown true to scale and free of distortion.
+</p>  
+
+<a name="wp1004733"> </a><h4 class="pHeading3">
+Robinson
+</h4>  
+
+<a name="wp1004734"> </a><p class="pBody">
+This pseudocylindrical projection was designed by Arthur Robinson in 1963 for Rand McNally. It is suitable for world maps and is a compromise to best fulfill a number of conflicting requirements, including an uninterrupted format, minimal shearing, minimal apparent area-scale distortion for major continents, and simplicity. It was designed to make the world &quot;look&quot; right. Since its introduction, it has been adapted by the National Geographic Society for many of their world maps.
+</p>  
+
+<a name="wp1004735"> </a><h4 class="pHeading3">
+Lambert Conic Ellipsoid
+</h4>  
+
+<a name="wp1004736"> </a><p class="pBody">
+The Lambert Conic Ellipsoid projection is similar to the Lambert Conic, described above. This projection for the ellipsoidal case is also available in IDL to support mapping of small regions, and for use with the State Plane systems.
+</p>  
+
+<a name="wp1004737"> </a><h4 class="pHeading3">
+Goode Homolosine
+</h4>  
+
+<a name="wp1004738"> </a><p class="pBody">
+The Goode interrupted Homolosine projection is designed for World maps to show the continents with minimal scale and shape distortion. This is accomplished by interrupting the projection and choosing several central meridians to coincide with large land masses. This projection is a fusion of the Sinusoidal projection between the latitudes of 44.7 degrees North and South, and the Mollweide projection between these parallels and the poles.
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

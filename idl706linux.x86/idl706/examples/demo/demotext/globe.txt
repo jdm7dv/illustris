@@ -1,0 +1,98 @@
+        WELCOME TO THE GLOBE DEMO
+
+   The globe demo illustrates a number of features of
+   the IDL language, including texture mapping, model
+   rotations, and the concept of a color palette.
+
+   The globe demo illustrates texture mapping,
+   a method of warping images to polygons. The 
+   polygons in this demo make up the Earth. Specifically,
+   the datasets are texture mapped onto a sphere object.
+   You can change the texture map that is displayed over 
+   the continents or over the oceans.
+
+   You can also rotate the globe interactively. Position
+   the cursor on the image and, while holding down the 
+   left mouse button, move the cursor to rotate the 
+   globe. Release the mouse button when you are 
+   satisfied with the position of the globe. This 
+   is implemented with IDL's object graphics, including
+   the Trackball object for rotation of the scene.
+
+   The globe demo also illustrates the concept of
+   a color palette.  A color palette is a color lookup 
+   table used to map values (of an image) to red, green, 
+   and blue intensities. Temperatures are displayed with 
+   colors that range from red to blue and topography is 
+   displayed in grayscale.  The color palette is divided 
+   so that one dataset uses one portion of the color
+   palette and another dataset uses another portion of
+   the color palette.
+
+   You can also "stretch" the color palette within the
+   globe demo, which alters only the color palette; 
+   image values remain constant. A stretch remaps the 
+   red, green, and blue values to new image values. For
+   instance, the red to blue portion of the color
+   palette is mapped to the temperature values. You
+   can shift the color palette associated with
+   temperatures so that red is mapped to lower 
+   temperatures.  The entire color palette is stretched 
+   with this shift.  Conversely, one may shift the color 
+   palette so that blue is mapped to higher 
+   temperatures. Shifting the color palette can 
+   accentuate image features. In this demo, you can 
+   emphasize regional variability in temperature or 
+   topography.
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+      Select "Quit" to exit the Globe Demo and return to
+      the IDL Demo main screen.
+
+   Options Menu:
+      Select "Reset Orientation" to return to the initial
+      globe perspective. 
+ 
+   Help Menu:
+      Select "About the Globe Demo" for information about 
+      the Globe Demo.
+
+
+   FEATURES
+   --------
+
+   <<Continents:Temperature/Topography>> radio button
+      Displays either temperatures or topography over 
+      the continents.
+ 
+   <<Oceans:Temperature/Topography>> radio button
+      Displays either temperatures or topography over
+      the oceans.
+
+   <<Stretch temperature minimum>> slider
+       Stretches the temperature color palette; the
+       color associated with the minimum temperature
+       is shifted to a higher temperature. The entire
+       temperature palette is stretched.
+ 
+   <<Stretch temperature maximum>> slider
+       Stretches the temperature color palette; the
+       color associated with the maximum temperature
+       is shifted to a lower temperature. The entire
+       temperature palette is stretched.
+ 
+    <<Stretch topography minimum>> slider
+       Stretches the topography color palette; the
+       color associated with the minimum elevation
+       is shifted to a higher elevation. The entire
+       topography palette is stretched.
+ 
+    <<Stretch topography maximum>>
+       Stretches the topography color palette; the
+       color associated with the maximum elevation
+       is shifted to a lower elevation. The entire
+       topography palette is stretched.

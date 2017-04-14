@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:54">
+    <title>Environmental Modeling</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_contour.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_filter.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004266"> </a><h2 class="pHeading1">
+Environmental Modeling
+</h2>  
+
+<a name="wp1004268"> </a><p class="pBody">
+This demonstration is an Environmental Modeling application that shows the leakage from an array of underground storage tanks. The display has the following features: 
+</p>  
+
+<a name="wp1004269"> </a><h3 class="pHeading2">
+Bore Holes
+</h3>  
+
+
+<a name="wp1004270"> </a><p class="pBody">
+A series of bore holes were drilled into a test site to sample two contamination values in the soil. These contaminants are called Element 1 and Element 2. The bore holes are represented in the visualization using colored polylines, with the colors derived from the values of element 1 along the bore hole. The bore hole data is then stored as an irregular grid of values, which are read into IDL and gridded using IDL's 3D gridding routines. This produces a 3D array of data values on a regular uniform grid. 
+</p>  
+
+<a name="wp1004271"> </a><h3 class="pHeading2">
+Contamination Plume
+</h3>  
+
+
+<a name="wp1004272"> </a><p class="pBody">
+The 3D volume is used to compute 3D contours (isosurfaces) given a contour level (isosurface level) for a particular element. This contour level is controlled by the slider under the &quot;Isosurface Controls&quot;. When the contour is generated, you can choose to use Element 1 or Element 2 for the isosurface to represent a contamination plume for the specified value. You can also choose to compute colors based on a different contaminant. This allows the user to view the relationship between the two elements at the same time.
+</p>  
+
+<a name="wp1004273"> </a><p class="pBody">
+Notice that when selecting the same element for both the Isosurface and the Colors, that the resulting surface is a constant color. 
+</p>  
+
+<a name="wp1004274"> </a><p class="pBody">
+The contamination plume can also be displayed using volume rendering by selecting the Element 1 or Element 2 buttons under Volume Render. 
+</p>  
+
+<a name="wp1004275"> </a><p class="pBody">
+The high and low values are the laboratory test results.
+</p>  
+
+<a name="wp1004276"> </a><h3 class="pHeading2">
+Tank Geometry
+</h3>  
+
+
+<a name="wp1004277"> </a><p class="pBody">
+The storage tank geometry is generated using the IDL function MESH_OBJ to create a surface of revolution given a profile curve. The output of MESH_OBJ is then used to create IDL Object Graphics IDLgrPolygon objects, which represent the individual storage tanks. 
+</p>  
+
+<a name="wp1004278"> </a><p class="pBody">
+You can rotate the display by positioning the mouse in the draw widget, holding down the left mouse button, and dragging the mouse. 
+</p>  
+
+<a name="wp1004279"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004280"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004281"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit the demo.
+</p>  
+
+<a name="wp1004282"> </a><h4 class="pHeading3">
+Isosurface Menu
+</h4>  
+
+<a name="wp1004283"> </a><p class="pBody">
+Select &quot;Flat&quot; or &quot;Gouraud&quot; from the &quot;Shading&quot; sub-menu to alter the type of shading used in displaying the contamination plumes. 
+</p>  
+
+<a name="wp1004284"> </a><p class="pBody">
+Select &quot;Wire&quot; or &quot;Solid&quot; from the &quot;Style&quot; sub-menu to alter the surface representation of the contamination plumes. 
+</p>  
+
+<a name="wp1004285"> </a><h4 class="pHeading3">
+View Menu
+</h4>  
+
+<a name="wp1004286"> </a><p class="pBody">
+Select an item from the &quot;Show Object&quot; sub-menu to toggle display of that object on and off in the display area. 
+</p>  
+
+<a name="wp1004287"> </a><p class="pBody">
+Select &quot;Low&quot; or &quot;High&quot; from the &quot;Drag Quality&quot; sub-menu to change the appearance of the display during rotation. Selecting &quot;Low&quot; will increase the speed of rotation operations. This setting only affects the quality of the image during rotation. 
+</p>  
+
+<a name="wp1004288"> </a><p class="pBody">
+Select &quot;Reset Orientation&quot; from the &quot;Reset&quot; sub-menu to restore the display to its original orientation.
+</p>  
+
+<a name="wp1004289"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1004290"> </a><p class="pBody">
+Select &quot;About Environmental Modeling&quot; to display this help text.
+</p>  
+
+<a name="wp1004291"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1004292"> </a><p class="pBody">
+The following graphical user interface elements allow you to control the demo.
+</p>  
+
+<a name="wp1004293"> </a><h4 class="pHeading3">
+Element Selections Radio Buttons
+</h4>  
+
+<a name="wp1004294"> </a><p class="pBody">
+Select one button from the &quot;Isosurface&quot; button group to display the isosurface contours for either Element1 or Element2. 
+</p>  
+
+<a name="wp1004295"> </a><p class="pBody">
+Select one button from the &quot;Shaded Colors&quot; button group to display the concentrations of the selected element using color. 
+</p>  
+
+<a name="wp1004296"> </a><p class="pBody">
+Note that if the same element is selected from both the &quot;Isosurface&quot; and &quot;Shaded Colors&quot; groups, the surfaces will be a single color. If different elements are selected, the concentration of the element selected in the &quot;Shaded Colors&quot; button group is overlaid on the isosurface data for the other element. 
+</p>  
+
+<a name="wp1004297"> </a><h4 class="pHeading3">
+Isosurface Controls Slider
+</h4>  
+
+<a name="wp1004298"> </a><p class="pBody">
+Adjust this slider to adjust the value used to determine whether a given location is contaminated or not. If the value of the specified element at a given location is higher than the value of the Isosurface slider, that location will appear within the isosurface. 
+</p>  
+
+<a name="wp1004299"> </a><h4 class="pHeading3">
+Volume Render Buttons
+</h4>  
+
+<a name="wp1004300"> </a><p class="pBody">
+Select the Element 1 or Element 2 buttons from the &quot;Volume Render&quot; button group to display the contamination plume as a volume with transparency. This option may be combined with the isosurface display. Note that only one volume may be rendered at a time. 
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

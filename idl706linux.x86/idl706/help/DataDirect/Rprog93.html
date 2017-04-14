@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:20" />
+  <title>Configuring Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp520976"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Data Sources
+</h1>
+<hr /><a name="wp534310"> </a><p class="pBody">
+When you configure a data source, you store default connection values in a data source definition that is used each time you connect to the data source. You can change these defaults by modifying the definition or you can override the defaults at the time of connection by using a connection string.
+</p>
+<a name="wp530830"> </a><p class="pBody">
+If you choose to use a connection string, you must use specific connection string attributes. See <a  href="Rprog95.html#wp525172">Table&#160;14-1</a> for a complete description of driver connection string attributes and their values.
+</p>
+<a name="wp534316"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixe2.gif" height="38" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, data sources are configured and modified by editing the system information file (by default, odbc.ini) and storing default connection values there. See <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a> for detailed information about editing the system information file. See <a  href="unixenviron.html#wp518848"><a  href="unixenviron.html#wp518848">&quot;The UNIX Environments&quot;</a> </a>for detailed information about the specific steps necessary to configure the UNIX environment and connect with the driver.
+</p>
+<a name="wp532624"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp532625"> </a><p class="pBody">
+<a  href="Rprog95.html#wp525172">Table&#160;14-1</a> lists the connection values, in the form of connection string attributes, that must be used in the system information file. Note that only the long name of the attribute can be used in the file.
+</p>
+<a name="wp534329"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwine3.gif" height="30" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, data sources are configured and modified through the ODBC Administrator using a driver Setup dialog box. Default connection values are specified through the options on the tabs of the Setup dialog box and are stored in the Windows Registry. Connection string attributes that override these options have the same names as the options unless noted otherwise. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp532184"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp528554"> </a><p class="pBody">
+<b class="cBold">To configure a Progress SQL92 data source on Windows:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp513075"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources.</li></div><a name="wp513076"> </a><div class="pSmartList1"><li>If you are configuring an existing data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC Progress SQL92 Driver Setup dialog box.</li></div><a name="wp513077"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add</b> to display a list of installed drivers. Select the Progress SQL92 driver and click <b class="cBold">Finish</b> to display the ODBC Progress SQL92 Driver Setup dialog box.
+</p>
+<a name="wp524354"> </a><p class="pBodyRelative">
+NOTE: The General tab displays only fields that are required for creating a data source. The fields on all other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp524355"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply.</b></li></div><a name="wp523302"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Identifies this Progress SQL92 data source configuration. Examples include &quot;Accounting&quot; or &quot;PROGServ1.&quot;
+</p>
+<a name="wp513083"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: An optional long description of a data source name. For example, &quot;My Accounting Database&quot; or &quot;Progress on Server number&#160;1.&quot;
+</p>
+<a name="wp521756"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Host Name:</b> The name of the system where the database is stored.
+</p>
+<a name="wp521764"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Port Number:</b> The system port number setup for the database listener process.
+</p>
+<a name="wp513084"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Name</b>: The name of the database to which you want to connect by default.
+</p>
+<a name="wp529881"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">User ID:</b> The default logon ID (user name) used to connect to your Progress SQL92 database. This ID is case-sensitive. Your ODBC application may override this value or you may override it in the Logon dialog box or connection string.
+</p>
+<a name="wp529882"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is LogonID.
+</p>
+<a name="wp529885"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab to specify data source settings.</li></div><a name="wp524360"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply</b>.
+</p>
+<a name="wp534039"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Default Isolation Level:</b> Select the default isolation level for concurrent transactions. The values are READ COMMITTED, READ UNCOMMITTED, REAPEATABLE READ, and SERIALIZABLE. See <a  href="Rlock3.html#wp509911">&quot;Isolation Levels&quot;</a> for definitions of these values.
+</p>
+<a name="wp534043"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Fetch Array Size</b>: The number of rows the driver retrieves when fetching from the server. This is not the number of rows given to the user. The default is 50 rows.
+</p>
+<a name="wp534044"> </a><p class="pBodyIndent12pxBeforeAfter">
+You should set this option to the approximate number of rows being fetched. This reduces the number of round trips on the network, thereby increasing performance.
+</p>
+<a name="wp534045"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is ArraySize.
+</p>
+<a name="wp524475"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the driver Setup dialog box. A logon dialog box appears; see <a  href="Rprog94.html#wp512390">&quot;Connecting to a Data Source Using a Logon Dialog Box&quot;</a> for details.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp524239"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a &quot;connection established&quot; message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp524240"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message.</li></div>
+<a name="wp524241"> </a><p class="pBodyRelative">
+Verify that all required client software is properly installed. If it is not, you will see the message:
+</p>
+<a name="wp524242"> </a><p class="pSyntaxEmbed">
+Specified driver could not be loaded due to system error [xxx].
+</p>
+<a name="wp524243"> </a><p class="pBodyRelative">
+Click <b class="cBold">OK</b>.
+</p>
+</ul></div>
+<a name="wp523078"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

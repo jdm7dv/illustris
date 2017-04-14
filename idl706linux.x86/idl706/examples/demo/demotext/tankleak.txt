@@ -1,0 +1,132 @@
+
+            ENVIRONMENTAL MODELING
+       LEAKY UNDERGROUND STORAGE TANKS
+
+This demonstration is an Environmental Modeling application
+that shows the leakage from an array of underground storage
+tanks. The display has the following features:
+
+Bore Holes
+----------
+A series of bore holes were drilled into a test site to 
+sample two contamination values in the soil. These contaminants 
+are called Element 1 and Element 2. The bore holes are 
+represented in the visualization using colored polylines,  
+with the colors derived from the values of element 1 along the 
+bore hole. The bore hole data is then stored as an irregular 
+grid of values, which are read into IDL and gridded using
+IDL's 3D gridding routines. This produces a 3D array of data
+values on a regular uniform grid.
+
+  
+Contamination Plume
+-------------------
+The 3D volume is used to compute 3D contours (isosurfaces) 
+given a contour level (isosurface level) for a particular 
+element. This contour level is controlled by the slider under 
+the "Isosurface Controls".  When the contour is generated, 
+you can choose to use Element 1 or Element 2 for the isosurface
+to represent a contamination plume for the specified value. 
+You can also choose to compute colors based on a different
+contaminant. This allows the user to view the relationship
+between the two elements at the same time.
+
+Notice that when selecting the same element for both the 
+Isosurface and the Colors, that the resulting surface is a 
+constant color.
+
+The contamination plume can also be displayed using volume
+rendering by selecting the Element 1 or Element 2 buttons
+under Volume Render.
+
+The high and low values are the laboratory test results.
+
+Tank Geometry
+-------------
+The storage tank geometry is generated using the IDL function 
+MESH_OBJ to create a surface of revolution given a profile 
+curve. The output of MESH_OBJ is then used to create IDL
+Object Graphics IDLgrPolygon objects, which represent the
+individual storage tanks.
+
+You can rotate the display by positioning the mouse
+in the draw widget, holding down the left mouse button,
+and dragging the mouse.
+
+MENU OPTIONS
+------------
+
+File Menu:
+
+    Select "Quit" to exit the demo.
+
+Isosurface Menu:
+
+    Select "Flat" or "Gouraud" from the "Shading" sub-menu
+    to alter the type of shading used in displaying the
+    contamination plumes.
+
+    Select "Wire" or "Solid" from the "Style" sub-menu to
+    alter the surface representation of the contamination
+    plumes.
+
+View Menu:
+
+    Select an item from the "Show Object" sub-menu to 
+    toggle display of that object on and off in the 
+    display area.
+
+    Select "Low" or "High" from the "Drag Quality"
+    sub-menu to change the appearance of the display
+    during rotation. Selecting "Low" will increase
+    the speed of rotation operations. This setting
+    only affects the quality of the image during
+    rotation.
+    
+    Select "Reset Orientation" from the "Reset" sub-menu
+    to restore the display to its original orientation.
+
+About Menu:
+
+    Select "About Environmental Modeling" to display this
+    help text.
+
+FEATURES OF THE ENVIRONMENTAL MODELING DEMO
+-------------------------------------------
+
+    The following graphical user interface elements
+    allow you to control the demo.
+
+<<Element Selections Radio Buttons>>
+    
+    Select one button from the "Isosurface" button group
+    to display the isosurface contours for either Element1
+    or Element2. 
+
+    Select one button from the "Shaded Colors" button
+    group to display the concentrations of the selected
+    element using color.
+    
+    Note that if the same element is selected from both
+    the "Isosurface" and "Shaded Colors" groups, the surfaces
+    will be a single color. If different elements are 
+    selected, the concentration of the element selected
+    in the "Shaded Colors" button group is overlaid on
+    the isosurface data for the other element.
+
+<<Isosurface Controls Slider>>
+
+    Adjust this slider to adjust the value used to determine
+    whether a given location is contaminated or not. If the
+    value of the specified element at a given location is
+    higher than the value of the Isosurface slider, that
+    location will appear within the isosurface.
+
+<<Volume Render Buttons>>
+
+    Select the Element 1 or Element 2 buttons from the
+    "Volume Render" button group to display the contamination
+    plume as a volume with transparency.  This option may be
+    combined with the isosurface display.  Note that only one
+    volume may be rendered at a time.
+

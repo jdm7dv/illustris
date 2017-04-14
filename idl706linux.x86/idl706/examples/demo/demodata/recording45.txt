@@ -1,0 +1,28 @@
+;if art_screen ne 'Visualization' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Return to Main Screen"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L} 
+;if art_screen ne 'Visualization' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Visualization"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Medical Volumes Demo"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+void = 5 ; Pause
+D_VOLRENDREVENT, {WIDGET_DROPLIST, ID: demo_find_wid("d_volrendr:mouse_mode"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), INDEX:            6L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       0, X:     311, Y:     810, PRESS:   1B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     314, Y:     806, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     354, Y:     781, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     437, Y:     735, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     521, Y:     714, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     668, Y:     689, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     731, Y:     685, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     898, Y:     681, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     935, Y:     681, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     975, Y:     685, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     982, Y:     689, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       1, X:     982, Y:     689, PRESS:   0B, RELEASE:   1B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_DRAW, ID: demo_find_wid("d_volrendr:draw"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), TYPE:       2, X:     988, Y:     689, PRESS:   0B, RELEASE:   0B, CLICKS:            1L, MODIFIERS: 0L, CH: 0B, KEY: 0L}
+D_VOLRENDREVENT, {WIDGET_BUTTON, ID: demo_find_wid("d_volrendr:axes"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), SELECT:            1L}
+widget_control, demo_find_wid("d_volrendr:wVolBGroup"), set_value=1
+D_VOLRENDREVENT, {ID: demo_find_wid("d_volrendr:wVolBGroup"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), SELECT:           1L, VALUE:        1}
+D_VOLRENDREVENT, {WIDGET_DROPLIST, ID: demo_find_wid("d_volrendr:iron_opacity"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), INDEX:            2L}
+widget_control, demo_find_wid("d_volrendr:autorender"), set_button=1
+D_VOLRENDREVENT, {WIDGET_BUTTON, ID: demo_find_wid("d_volrendr:autorender"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), SELECT:            1L}
+widget_control, demo_find_wid("d_volrendr:quality_radio"), set_value=1
+D_VOLRENDREVENT, {ID: demo_find_wid("d_volrendr:quality_radio"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb"), SELECT:           1L, VALUE:        1}
+art_screen = 'Visualization'
+D_VOLRENDREVENT, {WIDGET_KILL_REQUEST, ID: demo_find_wid("d_volrendr:tlb"), TOP: demo_find_wid("d_volrendr:tlb"), HANDLER: demo_find_wid("d_volrendr:tlb") }

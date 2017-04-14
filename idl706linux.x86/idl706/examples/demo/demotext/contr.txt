@@ -1,0 +1,133 @@
+
+        WELCOME TO THE CONTOUR DEMO
+
+   This application shows IDL contouring
+   capabilities.
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+       Select Quit to exit the Contour demo and
+       return to the IDL Demo main screen.
+
+   About Menu:
+       Select "About contours" for information
+       about the Contour plot demo.
+
+
+   DATASETS
+   --------
+
+   <<World Elevation>>
+       Select this dataset to see examples of IDL's
+       direct graphics contouring.
+
+   <<Terrain Elevation>>
+   <<Vehicle Tire>>
+       Select these datasets to see examples of IDL's
+       object graphics contouring.
+
+
+   WORLD ELEVATION CONTROLS 
+   ------------------------
+
+   <<Number of levels>> slider
+       Select the number of contour levels. You can
+       choose 7, 11, or 15 levels.  This slider's
+       numerical readout indicates the number of
+       bands delimited by contour lines.  For
+       example, with the slider at "7", and the
+       "Colored Lines" checkbox selected, you will
+       see contour lines at 6 elevations,
+       delimiting 7 bands of elevation.
+
+   <<Basic>> checkbox
+       Displays the contour lines with solid white
+       lines.
+
+   <<Colored lines>> checkbox
+       Displays the contour lines with solid lines
+       in different colors.
+
+   <<Fill>> checkbox
+       Fills the areas between the contour lines
+       with different colors.
+
+   <<Linestyle>> checkbox
+       Displays the contour lines with various
+       linestyles.
+
+   <<Annotation>> checkbox
+       Annotates contour lines with their
+       respective values. The "Number of levels"
+       slider is disabled.
+
+   <<Fill and lines>> checkbox
+       Displays a filled contour plot with the
+       contour lines shown as solid white lines.
+
+   TERRAIN ELEVATION CONTROLS
+   --------------------------
+   <<Number of levels>> slider
+       Select the number of levels.  This slider's
+       numerical readout indicates the number of
+       bands delimited by contour lines.  For
+       example, with the slider at "3", and the
+       "Contour Lines" checkbox selected, you will
+       see contour lines at two elevations,
+       delimiting three bands of elevation.
+
+   <<Lines>> checkbox
+       Displays contour lines on top of a texture
+       mapped surface.
+
+   <<Fill>> checkbox
+       Displays 3-D filled contours.
+
+   Right-clicking on the terrain surface:
+
+       When line contours are displayed, you can
+       select custom contour levels by
+       right-clicking on the terrain surface.  (If
+       you only have one mouse-button, and you are
+       on a Macintosh computer, hold down the
+       Command key while pressing the mouse button
+       to simulate a "right" mouse-button press.)
+
+   VEHICLE TIRE CONTROLS
+   --------------------------
+   <<Contour Lines>> checkbox
+       Displays color contour lines in 3D.  The
+       values being contoured represent percent
+       change in distance from a the center of the
+       tire.  A non-deformed tire is the baseline
+       against which percentages are calculated.
+
+   <<Filled Contours>> checkbox
+       Displays filled color contours.
+
+   <<Mesh>> checkbox
+       Displays the geometry of the tire as a wire
+       mesh, without contours.
+
+   <<Colored Mesh>> checkbox
+       Displays the geometry of the tire as a
+       vertex-colored mesh, without contours.
+
+   <<Surface>> checkbox
+       Displays the geometry or the tire as filled
+       polygons, without contours.
+
+   <<Colored Surface>> checkbox
+       Displays the geometry of the tire as filled
+       polygons with colored vertices.  No contour
+       object is displayed.
+
+   <<Mesh and Contours>> checkbox
+       Displays the geometry of the tire as a wire
+       mesh, and displays color contour lines.
+
+   <<Deformation Parameter>> slider
+       Move this slider to change the amount of
+       deformation applied to the tire.  

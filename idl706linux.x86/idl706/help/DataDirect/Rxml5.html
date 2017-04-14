@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>Defining Locations</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp556366"> </a><h1 class="pNewHTMLPageNoNum">
+Defining Locations
+</h1>
+<hr /><a name="wp556367"> </a><p class="pBody">
+When configuring an XML data source, you must define the location of the XML or HTML documents that the driver will access. The locations can be either from a local file system or from a Web server. 
+</p>
+<a name="wp556516"> </a><p class="pBody">
+The types of locations are:
+</p>
+<a name="wp570139"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp556513"> </a><div class="pCellBody">
+Folder
+</div>
+</td>
+    <td><a name="wp556515"> </a><div class="pCellBody">
+Implies that each XML file is a single table. When defining a Folder location, you specify only a directory as the location (not a directory and a file name), for example, C:\xmlsample.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp556396"> </a><div class="pCellBody">
+XML Document
+</div>
+</td>
+    <td><a name="wp582131"> </a><div class="pCellBody">
+Implies that the full path to the XML document, including the XML file name, is the location. Using this type of location, each document can have one or more tables and can be a hierarchical-formatted XML document. When defining an XML Document location, you specify a path and an XML file name as the location, for example:
+</div>
+<a name="wp582146"> </a><div class="pCellBody">
+C:\xmlsample\file.xml
+</div>
+<a name="wp582149"> </a><div class="pCellBody">
+You can also specify a web service through a URL, for example:
+</div>
+<a name="wp582152"> </a><div class="pCellBody">
+http://xxx.company.com/search=XML&amp;mode=books
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp556488"> </a><div class="pCellBody">
+HTML Document 
+</div>
+</td>
+    <td><a name="wp556490"> </a><div class="pCellBody">
+Implies the use of an HTML document with embedded XML data islands. Using this type of location, each document can have one or more tables. When defining an HTML Document location, you specify a path and an HTML file name, for example, C:\htmlsample\file.html, as the location.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

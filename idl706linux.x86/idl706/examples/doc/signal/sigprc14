@@ -1,0 +1,49 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc14#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a plot of the impulse response and the 
+; frequency response of a notch filter, an Infinite Impulse 
+; Response filter.
+
+; Load the coefficients for the notch filter.
+@sigprc13     
+
+na = N_ELEMENTS(A)-1 ; degree of denominator polynomial
+nb = N_ELEMENTS(B)-1 ; degree of numerator polynomial
+N = 1024L
+
+; Set the input u to an impulse
+U = FLTARR(N)
+U[0] = FLOAT(N)
+
+Y = FLTARR(N)
+Y[0] = B[2]*U[0] / A[na]
+
+; Recursively compute the filtered signal. 
+FOR K = 1, N-1 DO $ 
+   Y(K) = ( TOTAL( B[nb-K>0:nb  ]*U[K-nb>0:K  ] ) $
+          - TOTAL( A[na-K>0:na-1]*Y[K-na>0:K-1] ) ) / A[na]
+
+; Compute spectrum V.
+V = FFT(Y) 
+
+; F = [0.0, 1.0/(N*delt), ... , 1.0/(2.0*delt)]
+F = FINDGEN(N/2+1) / (N*delt) 
+mag = ABS(V(0:N/2)); magnitude of first half of v
+phi = ATAN(V(0:N/2), /PHASE) ; phase of first half of v
+
+; Log plots of magnitude in dB and phase in degrees
+; Set up for two plots in iPlot window.
+IPLOT, F, 20*ALOG10(mag), DIMENSIONS=[550,800], $
+   VIEW_GRID=[1,2], YTITLE='Magnitude in dB', $
+   XTITLE='Frequency in cycles / second', $
+   /X_LOG, XRANGE=[1.0,1.0/(2.0*delt)], $
+   TITLE='Frequency Response Function of b(z)/a(z)'
+
+IPLOT, F, phi/!DTOR, $
+   /VIEW_NEXT, YTITLE='Phase in degrees', $
+   YRANGE=[-180,180], YTICKS=4, YMINOR=3, $
+   XTITLE='Frequency in cycles / second', /X_LOG, $
+   XRANGE=[1.0,1.0/(2.0*delt)]

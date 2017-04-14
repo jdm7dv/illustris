@@ -1,0 +1,21 @@
+Logon to Sybase Dialog Box
+
+NETWORK ADDRESS: Type an IP address as follows: "<servername or 
+IP address>, <port number>".  For example, if your network 
+supports named servers, you may specify an address such as "Sybaseserver, 5000". You may also specify the IP address 
+directly such as "199.226.224.34, 5000".
+
+LOGIN ID: If required, type your login ID (case-sensitive).
+
+PASSWORD: If required, type your password for the system (case-sensitive).
+
+DATABASE: Type the name of the database you that want to access 
+(case-sensitive).
+
+OK
+Completes the logon and writes the values to the system 
+information.
+
+CANCEL
+Closes the dialog box without writing the values to the system information.
+

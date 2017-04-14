@@ -1,0 +1,139 @@
+IDL/widgets Programming Tips and Techniques
+
+
+Widgets and Widget Applications
+
+In this document, an individual graphical user interface element (e.g., a
+slider, button, menu, et cetera) is called a "widget". A group of widgets
+that work together to perform a task is called a "widget application". 
+
+
+
+Basic Configuration of Widget Applications
+
+A widget application contains at least two procedures. One procedure creates
+the widgets and another serves as an event handler for the created widgets.
+Both procedures are usually contained within the same text file with the
+event handler procedure listed first and the widget creation procedure listed
+last. Look at the files used in the "Simple Widgets" for examples.
+
+Note that you can write and run the "widget creation" procedure part of a
+widget application before writing the "event handler" part. In this way, you
+can prototype your user interfaces before actually "hooking up" the buttons,
+sliders, and other widgets to perform real actions.
+
+
+
+Use a Template when Creating New Widget Applications
+
+A good place to start your widget applications is with the procedure
+XMNG_TMPL.PRO.  This file is a template for writing widget applications. At
+the top of this file is a documentation header. An event handler procedure
+and widget creation procedure follow. Note that a "Done" button and "Tools"
+menu are already "hooked up". By using this template as a starting place,
+your widget applications will be easier to create and will be written in a
+style consistent with the widget applications provided with IDL.
+Make a copy of XMNG_TMPL.PRO with the appropriate new file name and add your
+own functionality to it using the "Simple Widget Examples" as a guide.
+
+
+
+WIDGET ID's, "event.id", VALUES, and USER VALUES
+
+Every widget created has a unique "widget ID" associated with it. This ID is
+held in the variable that was used in the initial widget creation call. For
+example, the widget ID of the following slider:
+
+     coolslider = WIDGET_SLIDER(base, TITLE = 'Cool Slider')
+
+is held in the variable "coolslider".
+
+Many widgets also have VALUES. The meanings of widget VALUES and their
+variable types are different for different types of widgets. The VALUE of a
+button widget is the button label.  The VALUE of a draw widget is its IDL
+window number. The VALUE of a label widget is the label's text. The VALUE of
+a list widget is the array of list elements. The VALUE of a text widget is
+the string contents of the text widget. The initial value of a widget is set
+using the VALUE keyword to the widget creation function. The VALUE of a
+widget can be examined by using the GET_VALUE keyword to the WIDGET_CONTROL
+routine. The VALUE of a widget can be changed by using the SET_VALUE keyword
+to the WIDGET_CONTROL procedure.
+
+Every widget can also have a user-specified value associated with it. This
+value is called a USER VALUE. A USER VALUE is simply a "parasite" that is
+associated with a widget but performs no function by itself. The initial USER
+VALUE is specified using the UVALUE keyword to the widget creation function,
+and the USER VALUE can be of any type. The USER VALUE of a widget can be
+examined by using the GET_UVALUE keyword to the WIDGET_CONTROL procedure.
+USER VALUES can be changed by using the SET_UVALUE keyword to the
+WIDGET_CONTROL procedure.
+
+When a widget is manipulated by a user, an event structure is returned. This
+event structure is an IDL structure that has different fields depending upon
+the type of widget that has been manipulated. One of the fields that is
+always returned, no matter what type of widget is manipulated, is the "id"
+field. This field contains the widget ID of the most recently manipulated
+widget. The event.id field can be used to find out which widget was
+manipulated and act accordingly. For example, to find the USER VALUE of the
+most recently manipulated widget, use the command:
+
+     WIDGET_CONTROL, event.id, GET_UVALUE = eventval
+
+The variable "eventval" will hold the USER VALUE of the most recently
+manipulated widget.  If you want to act based on widget VALUES instead, use
+the command:
+
+     WIDGET_CONTROL, event.id, GET_VALUE = eventval
+
+The variable "eventval" will hold the VALUE of the most recently manipulated
+widget. Note that the GET_UVALUE and GET_VALUE keywords perform a sort of
+reverse assignment operation -- the VALUE or USER VALUE is put into
+"eventval", not vice versa.
+Of course, both techniques could be used simultaneously with the command:
+
+     WIDGET_CONTROL, event.id, GET_VALUE = eventval, GET_UVALUE = eventuval
+
+Now you would know both the VALUE and the USER VALUE of the most recently
+manipulated widget.
+
+Once the USER VALUE and/or VALUE of a widget is known, it is easy to use a
+CASE statement to perform different actions based upon either the VALUE or
+USER VALUE. Almost all of the Simple Widget Examples use a CASE statement
+that performs different functions based upon USER VALUES.
+
+Another field that is always returned in the event structure is "event.top",
+the widget ID of the top-level base. This field is most often used for
+supplying a widget ID to the "WIDGET_CONTROL, event.top, /DESTROY" command. 
+
+
+
+COMMON Blocks
+
+Sometimes it is necessary for both a widget creation routine and its
+associated event handler routine to explicitly know about a variable,
+especially a widget's "widget ID". To let both procedures know the necessary
+variables or widget ID's, use a COMMON block.
+For example, if the label on a button whose widget ID is held in the variable
+"changebutton" needs to change after some arbitrary event, both the creation
+and event handler procedures would need a common block similar to this one:
+
+COMMON widgetblock, changebutton
+
+A call to WIDGET_CONTROL in the event handler procedure could then be used to
+change the button's label with the command line:
+
+     WIDGET_CONTROL, changebutton, SET_VALUE = 'New Value'
+
+Unfortunately, when a COMMON block is used in this manner, only one copy of
+the widget application should be allowed to run at a time. If multiple copies
+are allowed, the multiple copies of the application will share the same
+COMMON block and errors and general confusion may result. To ensure that only
+one copy of a widget application is allowed at a time, put the line:
+
+     IF (XREGISTERED("name") NE 0) THEN RETURN
+
+where "name" is the name of the procedure, near the top of the widget
+creation procedure part of your widget application.
+For other examples of using COMMON blocks with widget ID's, see the code for
+the "Label/Text Widget" and the "Slot Machine Demo".
+

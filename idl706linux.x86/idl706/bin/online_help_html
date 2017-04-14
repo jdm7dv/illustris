@@ -1,0 +1,147 @@
+#!/bin/sh
+#
+# $Id: //depot/idl/IDL_70/idldir/bin/unix/online_help_html#2 $
+#
+# Unix IDL executes this script when the ONLINE_HELP command is given an
+# HTML file to display. It is called with the following syntax:
+#
+#	online_help_html file &
+#
+# where the single argument contains the fully qualified name of the
+# HTML file to display (an absolute path, not a relative path).
+# The job is run in the background (hence the &), meaning that
+# IDL does not wait for it to finish before it continues on.
+#
+# Typically, web browsers are configured so that the browser's
+# executable file can be found via user's PATH environment variable.
+# If this is not the case with your preferred browser, you have several
+# options:
+#
+#	- Make a symlink from a directory that _is_ included in the
+#	  PATH environment variable pointing at the browser. For example,
+#	  it is common to place such a link in /usr/local/bin.
+#	- Alter your PATH environment variable so it includes the
+#	  directory containing your desired browser.
+#	- Modify a copy of this script to include the full path to
+#	  your browser's executable, and set the IDL_ONLINE_HELP_CMD
+#	  environment variable to point to the modified script (see below).
+#
+# Two environment variables control how this feature works:
+#
+#    IDL_ONLINE_HELP_HTML_CMD
+#	Normally, ONLINE_HELP runs the online_help_html script found in
+#	the bin directory of the IDL distribution. However, if
+#	IDL_ONLINE_HELP_HTML_CMD is set, the script it specifies is used
+#	instead. The Unix world has many browsers, many of which are not
+#	known to the standard ITT-supplied script. This feature allows
+#	you to make a copy of the default script, modify it to suit
+#	your purposes, and then instruct IDL to use it without altering
+#	the one in the IDL distribution (which should generally be left
+#	as is).
+#
+#	Note:
+#	If you add support for a browser, consider sending the necessary
+#	changes back to ITT for inclusion in the next release.
+#
+#    IDL_ONLINE_HELP_HTML_BROWSER
+#	Normally, ONLINE_HELP looks for one of the browsers Firefox, Mozilla
+#	or Netscape on platforms other than Mac OSX and uses the system
+#	default on Mac OSX (Safari). Set this environment variable 
+#	to the name of a different browser to make it your default.
+#	Note that this variable should be set equal to the _name_ of
+#	the browser, not the path to its executable file. 
+#	The name must correspond to one of the browsers defined in
+#	the 'case' statement below.
+#
+
+
+# If browser is not specified by the environment variable, then use the default
+BROWSER=$IDL_ONLINE_HELP_HTML_BROWSER
+if [ "$BROWSER" = "" ]; then
+  if [ `uname` = "Darwin" ]; then
+    BROWSER=darwin_open
+  else
+    firefoxFound=`which firefox 2>/dev/null`
+    if test "$firefoxFound"
+    then BROWSER=firefox
+    else mozillaFound=`which mozilla 2>/dev/null`
+      if test "$mozillaFound"
+      then BROWSER=mozilla
+      else netscapeFound=`which netscape 2>/dev/null`
+        if test "$netscapeFound"
+        then BROWSER=netscape
+        else echo "$0:"
+          echo "Unable to find browser in execution path."
+          echo "Update execution path to include firefox, mozilla or netscape."
+          exit
+        fi # netscape
+      fi # mozilla
+    fi # firefox
+  fi # Darwin
+fi # $BROWSER
+
+
+case "$BROWSER" in
+
+"darwin_open")
+    # Mac OS X has the concept of documents and associated files, and
+    # all that is necessary to display a given document is to use the
+    # open command. open will launch the default web browser using the
+    # same standard system mechanism used by the desktop when you double
+    # click on a file.
+    href="\"file://$1\""
+    osascript -e  'open location '$href
+    ;;
+
+"lynx")
+    # Lynx is a completely text based browser, so it is not clear that
+    # running it within an xterm is always a good thing. However, since
+    # IDL is not blocked waiting for us, it would be very antisocial to
+    # simple splatter a lynx session into the middle of IDL's tty.
+    xterm -e lynx "$1" &
+    ;;
+
+"mozilla")
+    # Mozilla is pretty much like Netscape (no surprise given its lineage).
+    mozilla -remote "openURL(file:$1, new-tab)" 2>/dev/null
+    if [ $? != 0 ]; then
+	mozilla "file:$1" &
+    fi
+    ;;
+
+"firefox")
+    # Firefox is just like Mozilla (no surprise given its lineage).
+    firefox -remote "openURL(file:$1, new-tab)" 2>/dev/null
+    if [ $? != 0 ]; then
+	firefox "file:$1" &
+    fi
+    ;;
+
+"netscape")
+    # If you just start a new copy of netscape, and one is already
+    # running, the user gets a dialog about the netscape lock file.
+    # This is undesirable, and even if it worked, results in a cluttered
+    # screen. The solution is to use -remote to try and use an existing
+    # browser. If there is one, the command will succeed, and return status
+    # will be 0. If it fails, an error is written to stderr, and the exit
+    # status is non-0. If this happens, then start a fresh copy.
+    netscape -remote "openURL(file:$1)" 2>/dev/null
+    if [ $? != 0 ]; then
+	netscape "$1" &
+    fi
+    ;;
+
+"opera")
+    # Opera copies the netscape -remote feature too, but is smart enough
+    # that if there is no existing browser, it just starts one. Smart!
+    opera -remote "openURL(file:$1)" &
+    ;;
+
+*)
+    echo "$0: The $BROWSER browser is not known to ONLINE_HELP."
+    exit 1
+    ;;
+
+esac
+
+exit 0

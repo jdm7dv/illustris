@@ -1,0 +1,34 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc04#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a plot of the magnitude and phase
+; of the simulated signal.
+
+; Compute time sequence data:
+@sigprc01
+
+; Compute spectrum v:
+V = FFT(U)
+
+; F = [0.0, 1.0/(N*delt), ... , 1.0/(2.0*delt)]:
+F = FINDGEN(N/2+1) / (N*delt)
+
+; Magnitude of first half of v:
+mag = ABS(V(0:N/2))
+
+; Phase of first half of v:
+phi = ATAN(V(0:N/2), /PHASE)
+
+; Create log plots of magnitude in dB (solid blue line)
+; and phase in degrees (dashed black line):
+IPLOT, F, 20*ALOG10(mag),$
+   YTITLE='Magnitude in dB / Phase in degrees', $
+   XTITLE='Frequency in cycles / second', COLOR=[72,72,255], $
+   TITLE='Magnitude (solid) and Phase (dashed)'
+IPLOT, F, phi/!DTOR, $
+   YRANGE=[-180,180],   YMAJOR=7, /X_LOG, $
+   XRANGE=[1.0,1.0/(2.0*delt)], $
+   LINESTYLE=2,  /OVERPLOT
+

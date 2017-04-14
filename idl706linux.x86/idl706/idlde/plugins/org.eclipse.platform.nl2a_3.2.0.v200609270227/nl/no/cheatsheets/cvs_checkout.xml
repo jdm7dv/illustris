@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Hent ut et CVS-prosjekt">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+Denne jukselappen viser hvordan du utforsker et CVS-datalager og henter ut
+et prosjekt. Hvis du trenger hjelp til et trinn, kan du klikke på ikonet (?) til
+høyre.
+    </description>
+  </intro>
+
+  <item
+      title="Åpne perspektivet Utforsking av CVS-datalager"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+Fra hovedmenyen velger du Vindu &gt; Åpne perspektiv &gt; Annet..., og
+velger deretter perspektivet <b>Utforsking av CVS-datalager</b>.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="Legge til et CVS-datalager"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+I visningen CVS-datalagre klikker du på knappen <b>Legg til CVS-datalager</b>
+på verktøylinjen. Oppgi plasseringen og autentiseringsinformasjonen for
+datalageret. For datalageret <b>eclipse</b> oppgir du for eksempel
+følgende:<br/>
+      <br/>
+      Vert: dev.eclipse.org<br/>
+      Datalagerbane: /home/eclipse<br/>
+      Bruker: anonymous<br/>
+      Tilkoblingstype: pserver<br/>
+      <br/>
+Bruk standardverdiene for resten av feltene og klikk på Fullfør.
+    </description>
+  </item>
+
+  <item
+      title="Finne prosjektet"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+Utvid noden <b>HEAD</b> under det nye datalageret du har tilføyd, og finn
+prosjektet du vil hente ut (hvis du for eksempel vil finne kildekoden for
+jukselappvisningen, er dette i org.eclipse.ui.cheatsheets).
+    </description>
+  </item>
+
+  <item
+      title="Hente ut prosjektet"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+Høyreklikk på prosjektet du vil hente ut, og velg <b>Hent
+ut</b>. Da blir det nyeste innholdet lastet ned fra datalageret til
+arbeidsområdet.
+    </description>
+  </item>
+
+  <item
+      title="Vise arbeidsområdet"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+Hvis du vil se prosjektet i arbeidsområdet, bytter du til perspektivet <b>Ressurs</b>
+via Vindu &gt; Åpne perspektiv &gt; Ressurs for å se
+prosjektet i visningen <b>Navigator</b>. Nå kan du se på og arbeide med
+innholdet i prosjektet.
+    </description>
+  </item>
+
+</cheatsheet>

@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:56">
+    <title>Image Processing</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_hydrogen.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_map.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004545"> </a><h2 class="pHeading1">
+Image Processing
+</h2>  
+
+<a name="wp1004547"> </a><p class="pBody">
+Image processing can improve the way an image looks. Image-processed data, or a processed image helps you distinguish and recognize more subtle characteristics of the original image. 
+</p>  
+
+<a name="wp1004548"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004549"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004550"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit the Image Processing Demo and return to the IDL Demo main screen. 
+</p>  
+
+<a name="wp1004551"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1004552"> </a><p class="pBody">
+Select &quot;About image processing&quot; for information about the Image Processing Demo.
+</p>  
+
+<a name="wp1004553"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1004554"> </a><p class="pBody">
+IDL offers several ways to process an image, some of which are introduced below:
+</p>  
+
+<a name="wp1004555"> </a><h4 class="pHeading3">
+Zooming
+</h4>  
+
+<a name="wp1004556"> </a><p class="pBody">
+Smaller sub-sections of large datasets can be manipulated.
+</p>  
+
+<a name="wp1004557"> </a><p class="pBody">
+The image shown here is an aerial view of New York City. A section of lower Manhattan is enlarged using the REBIN function on a subscripted section of the original image array. To reposition the zooming area, click your mouse on the area you would like to see more closely. 
+</p>  
+
+<a name="wp1004558"> </a><h4 class="pHeading3">
+Fourier filtering
+</h4>  
+
+<a name="wp1004559"> </a><p class="pBody">
+IDL's Fast Fourier Transform (FFT) function can process vectors and 2D array in either forward or reverse. 
+</p>  
+
+<a name="wp1004560"> </a><h5 class="pHeading4">
+Filter width slider
+</h5>  
+
+<a name="wp1004561"> </a><p class="pBody">
+Selects the filter width. A higher filter width gives the filtered image higher resolution.
+</p>  
+
+<a name="wp1004562"> </a><h4 class="pHeading3">
+Pixel scaling
+</h4>  
+
+<a name="wp1004563"> </a><p class="pBody">
+The BYTSCL (byte scale) command scales pixel values into the range of available colors.
+</p>  
+
+<a name="wp1004564"> </a><h5 class="pHeading4">
+Minimum slider
+</h5>  
+
+<a name="wp1004565"> </a><p class="pBody">
+You can specify the minimum byte value allowed in the reconstructed image.
+</p>  
+
+<a name="wp1004566"> </a><h5 class="pHeading4">
+Maximum slider
+</h5>  
+
+<a name="wp1004567"> </a><p class="pBody">
+You can specify the maximum byte value allowed in the reconstructed image.
+</p>  
+
+<a name="wp1004568"> </a><h4 class="pHeading3">
+Histogram
+</h4>  
+
+<a name="wp1004569"> </a><p class="pBody">
+Histogram equalization can be used to change the visible contrast of an image.
+</p>  
+
+<a name="wp1004570"> </a><h5 class="pHeading4">
+Minimum slider
+</h5>  
+
+<a name="wp1004571"> </a><p class="pBody">
+You can specify the minimum byte value allowed in the reconstructed image.
+</p>  
+
+<a name="wp1004572"> </a><h5 class="pHeading4">
+Maximum slider
+</h5>  
+
+<a name="wp1004573"> </a><p class="pBody">
+You can specify the maximum byte value allowed in the reconstructed image.
+</p>  
+
+<a name="wp1004574"> </a><h4 class="pHeading3">
+Edges
+</h4>  
+
+<a name="wp1004575"> </a><p class="pBody">
+The SOBEL function performs edge enhancement on an images.
+</p>  
+
+<a name="wp1004576"> </a><h5 class="pHeading4">
+Smooth width slider
+</h5>  
+
+<a name="wp1004577"> </a><p class="pBody">
+Sets the width of the smoothing function. A higher width produces a reconstructed image with lower resolution.
+</p>  
+
+<a name="wp1004578"> </a><h4 class="pHeading3">
+Dilate and Erode
+</h4>  
+
+<a name="wp1004579"> </a><p class="pBody">
+IDL's Dilate and Erode functions operate on shapes within an image. In this example, before we start dilating and eroding, a threshold mask is derived from the grayscale intensities in the image. All values less than a given percent of the image's maximum intensity are masked.
+</p>  
+
+<a name="wp1004580"> </a><h5 class="pHeading4">
+Break Mask
+</h5>  
+
+<a name="wp1004581"> </a><p class="pBody">
+Click this button to Erode and then Dilate the shape of the mask. This has the effect of &quot;breaking off&quot; details in the mask's shape. This operation is known as Binary Morphological Opening. 
+</p>  
+
+<a name="wp1004582"> </a><h5 class="pHeading4">
+Fuse Mask
+</h5>  
+
+<a name="wp1004583"> </a><p class="pBody">
+Click this button to Dilate and then Erode the shape of the mask. This has the effect of &quot;fusing together&quot; parts of the mask's shape. This operation is known as Binary Morphological Closing. 
+</p>  
+
+<a name="wp1004584"> </a><h5 class="pHeading4">
+Neighborhood Mins. 
+</h5>  
+
+<a name="wp1004585"> </a><p class="pBody">
+Click this button to perform grayscale erode and then grayscale dilate on the image itself, where masked. This yields neighborhood minimums in the masked regions of the image. Thus bridges and other details are removed. This operation is known as Grayscale Morphological Opening.
+</p>  
+
+<a name="wp1004586"> </a><h4 class="pHeading3">
+Convolution
+</h4>  
+
+<a name="wp1004587"> </a><p class="pBody">
+Convolutions may be performed on arrays of 1, 2, and 3 dimensions. This screen shows the effects of convolving an image with a kernel. 
+</p>  
+
+<a name="wp1004588"> </a><p class="pBody">
+Use your left mouse button to click on the squares of the kernel grid, toggling them on or off. 
+</p>  
+
+<a name="wp1004589"> </a><h5 class="pHeading4">
+Convolve button
+</h5>  
+
+<a name="wp1004590"> </a><p class="pBody">
+Computes and displays the convolved image.
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

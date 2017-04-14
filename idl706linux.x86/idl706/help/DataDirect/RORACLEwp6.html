@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:55:21" />
+  <title>Performance Considerations</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp574836"> </a><h1 class="pNewHTMLPageNoNum">
+Performance Considerations
+</h1>
+<hr /><a name="wp611378"> </a><p class="pBody">
+The following connection options can enhance performance. The option names found on the tabs of the driver Setup dialog box are the same as the connection string attribute names unless otherwise noted in parentheses. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp611416"> </a><p class="pBody">
+<b class="cBold">Application Using Threads (ApplicationUsingThreads)</b>: The driver coordinates operations from different threads by acquiring locks. Although locking prevents errors in the driver, it also decreases performance. If the application does not make ODBC calls from different threads, there is no reason for the driver to coordinate operations. Disabling the Application Using Threads option prevents the driver from coordinating operations and improves performance for single-threaded applications.
+</p>
+<a name="wp611417"> </a><p class="pBody">
+NOTE: If you are using a multi-threaded application, you must enable the Application Using Threads option.
+</p>
+<a name="wp574840"> </a><p class="pBody">
+<b class="cBold">Array Size</b><b class="cBold"> (ArraySize)</b>: Values for this option can be an integer from 1 to 4,294,967,296 (4GB); the default is 60000. The value 1 is a special value that does not define the number of bytes but, instead, causes the driver to allocate space for exactly one row of data. Larger values increase throughput by reducing the number of times the driver fetches data across the network when retrieving multiple rows. Smaller values increase response time, as there is less of a delay waiting for the server to transmit data.
+</p>
+<a name="wp574841"> </a><p class="pBody">
+<b class="cBold">Cached Cursor Limit</b><b class="cBold"> (</b><b class="cBold">CachedCursorLimit</b><b class="cBold">)</b>: Each concurrent open Select statement requires one Oracle Cursor Identifier. Performance is improved if this Cursor Identifier can be retrieved from a cache rather than being created for each connection. When this option is enabled and a Select statement is closed, the driver stores the Identifier in its cache rather than closing the Identifier. When an Identifier is needed, the driver takes one from its cache, if one is available, rather than creating a new one. Cached Cursor Identifiers are closed when the connection is closed. The default value is 32.
+</p>
+<a name="wp574842"> </a><p class="pBody">
+<b class="cBold">Cached Description Limit</b><b class="cBold"> (</b><b class="cBold">CachedDescriptionLimit</b><b class="cBold">)</b>: The driver can cache descriptions of Select statements. If a description is not cached when a non-prepared Select statement is executed, the description must be retrieved from Oracle, which reduces performance. The value of this option corresponds to the number of descriptions that the driver saves for Select statements. These descriptions include the number of columns and the data type, length, and scale for each column. The matching is done by an exact-text match through the From clause. When this option is set to a value other than the default (0), applications that issue a Select statement that returns a few rows repeatedly can realize a significant performance benefit. If the statement contains a Union or a nested Select, the description is <em class="cEmphasis">not</em> cached.
+</p>
+<a name="wp574843"> </a><p class="pBody">
+<b class="cBold">Catalog Functions Include Synonyms (CatalogIncludesSynonyms)</b>: Standard ODBC behavior is to include synonyms in the result sets of calls to the following catalog functions: SQLProcedures, SQLStatistics, and SQLProcedureColumns. Retrieving information about synonyms is very expensive with Oracle. The Catalog Functions Include Synonyms option allows you to improve your application&#39;s performance by excluding synonyms from these results sets. If your application does not need synonyms to be returned by these catalog functions, disable this option.
+</p>
+<a name="wp574844"> </a><p class="pBody">
+<b class="cBold">Default Buffer Size for Long/LOB Columns (DefaultLongDataBuffLen)</b>: This value specifies the size of the buffer used when fetching data from Long/LOB columns. The buffer size should only be large enough to accommodate the maximum amount of data that you want to retrieve from these types of columns; otherwise, performance is reduced by transferring large amounts of data into an oversized buffer. You will need to increase the value of this option from the default of 1024 if the total size of any Long data exceeds 1 MB. The value must be in multiples of 1024 (for example, 2048). 
+</p>
+<a name="wp574845"> </a><p class="pBody">
+<b class="cBold">Describe At Prepare</b><b class="cBold"> (</b><b class="cBold">DescribeAtPrepare</b><b class="cBold">)</b>: When enabled, this option causes two round trips across the network&#8212;one for prepare and one for describe. If your application does not require result set information at prepare time (for instance, you request information about the result set using SQLColAttribute(s), SQLDescribeCol, SQLNumResultCols, etc. before calling SQLExecute on a prepared statement), you can increase performance by disabling this option.
+</p>
+<a name="wp574846"> </a><p class="pBody">
+<b class="cBold">Enable Static Cursors for Long Data</b><b class="cBold"> (</b><b class="cBold">EnableStaticCursorsForLong Data</b><b class="cBold">)</b>: This option enables the driver to support Long columns when using a static cursor, but also reduces performance. If your application does not need to support Long columns and does not use static cursors, performance is increased by disabling this option.
+</p>
+<a name="wp574847"> </a><p class="pBody">
+<b class="cBold">Procedure Returns Results (ProcedureRetResults)</b>: When Procedure Returns Results is enabled, the driver returns result sets from stored procedures/functions. In addition, SQLGetInfo(SQL_MULT_RESULTS_SETS) will return &quot;Y&quot; and SQLGetInfo(SQL_BATCH_SUPPORT) will return SQL_BS_SELECT_PROC. If this option is enabled and you execute a stored procedure that does not return result sets, you will incur a performance penalty.
+</p>
+<a name="wp581765"> </a><p class="pBody">
+<b class="cBold">Server Process Type (ServerType)</b>: Oracle offers two modes of server connections: dedicated and shared. When using a dedicated server connection, a server process on UNIX (a thread on Windows) is created to serve only your application connection. When you disconnect, the process goes away. The socket connection is made directly between your application and this dedicated server process. This can provide tremendous performance improvements, but will use significantly more resources on UNIX servers. Because this is a thread on Oracle servers running on Windows platforms, the additional resource usage on the server is significantly less. Use this option when you have a batch environment with lower numbers of connections or if you have a performance-sensitive application that would be degraded by sharing Oracle resources with other applications.
+</p>
+<a name="wp613261"> </a><p class="pBody">
+When using a shared server connection, the server process comes from a pool. The request for a socket connection between the application and server is made to a dispatcher process on the server. The dispatcher directs a request to whichever server process is available to service that request. Communication is slower in this mode because there is an extra process involved and client requests may have to wait for a server process to become available. Because you can have more connections than actual server processes, use this setting when a server handles a large number of connections.
+</p>
+<a name="wp613262"> </a><p class="pBody">
+NOTE: The server must be configured for shared connections (the SHARED_SERVERS initialization parameter on the server has a value greater than 0) for the driver to be able to specify the shared server process type.
+</p>
+<a name="wp613263"> </a><p class="pBody">
+<b class="cBold">Use Current Schema for SQLProcedures (UseCurrentSchema)</b>: When enabled, this option specifies that the driver return only procedures owned by the current user when executing SQLProcedures. Also, when this option is enabled, the call for SQLProcedures is optimized by grouping queries, but only procedures owned by the current user are returned. Enabling this option is equivalent to passing the Login ID used on the connection as the SchemaName argument to the SQLProcedures call.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:15" />
+  <title>Create and Drop Index Statements</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510424"> </a><h1 class="pNewHTMLPageNoNum">
+Create and Drop Index Statements
+</h1>
+<hr /><a name="wp510430"> </a><p class="pBody">
+The Paradox driver supports SQL statements to create and delete indexes. The Create Index Primary statement is used to create primary indexes. The Create Index statement is used to create non-primary indexes. The Drop Index statement is used to delete indexes.
+</p>
+<a name="wp510432"> </a><h3 class="pHeading2">
+Create Index Primary Statement
+</h3>
+<a name="wp510434"> </a><p class="pBody">
+The syntax for creating a primary index is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE [UNIQUE] INDEX PRIMARY ON 
+<code><em>filename</em></code> (<code><em>column</em></code> [,<code><em>column</em></code>...])<a name="wp510436"> </a>
+</pre></div>
+<a name="wp510438"> </a><p class="pBody">
+The UNIQUE keyword is optional; the index is unique whether or not you include this keyword.
+</p>
+<a name="wp510440"> </a><p class="pBody">
+<em class="cEmphasis">filename</em> is the name of the Paradox database file on which the index is to be based.
+</p>
+<a name="wp510442"> </a><p class="pBody">
+<em class="cEmphasis">column</em> is the name of a column that is included as the key field for the index. The column list must contain one or more consecutive fields in the database file, beginning with the first field in the database file.
+</p>
+<a name="wp510444"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE UNIQUE INDEX PRIMARY ON emp (emp_id)<a name="wp510446"> </a>
+</pre></div>
+<a name="wp510448"> </a><p class="pBody">
+Be careful when you create a primary key because any rows that have a primary key duplication are deleted when you execute the Create Index Primary statement.
+</p>
+<a name="wp510450"> </a><h3 class="pHeading2">
+Create Index Statement
+</h3>
+<a name="wp510452"> </a><p class="pBody">
+For Paradox 3.0, 3.5, 4.0, 4.5, and 5.0 database files, the syntax for creating a non-primary index is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE INDEX <code><em>index_name</em></code><a name="wp510454"> </a>
+[/NON_MAINTAINED] [/CASE_INSENSITIVE] ON<a name="wp518577"> </a>
+<code><em>filename</em></code> (<code><em>column</em></code> [, <code><em>column</em></code>...])<a name="wp518578"> </a>
+</pre></div>
+<a name="wp511705"> </a><p class="pBody">
+For Paradox 7, 8, 9, and 10 database files, the syntax for creating a non-primary index is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE [UNIQUE] INDEX <em class="cEmphasis">index_name</em><a name="wp512741"> </a>
+[/NON_MAINTAINED] [/CASE_INSENSITIVE] ON<a name="wp518582"> </a>
+<em class="cEmphasis">filename</em> [column [DESC] [,<em class="cEmphasis">column</em>...]<a name="wp518586"> </a>
+</pre></div>
+<a name="wp516657"> </a><p class="pBody">
+For Paradox 7, 8, 9, and 10 database files only (when the Create Type is 7, 8, 9 or 10), the optional UNIQUE keyword prevents duplicate values in the non-primary index.
+</p>
+<a name="wp512742"> </a><p class="pBody">
+<em class="cEmphasis">index_name</em> identifies the index. If the name contains blanks or special characters, or does not begin with a letter, surround it with the grave character ( ` ) (ASCII 96).
+</p>
+<a name="wp510458"> </a><p class="pBody">
+The NON_MAINTAINED switch makes the index non-maintained. The default is to create a maintained index.
+</p>
+<a name="wp510460"> </a><p class="pBody">
+The CASE_INSENSITIVE switch makes the index case-insensitive. The default is to create a case-sensitive index.
+</p>
+<a name="wp510462"> </a><p class="pBody">
+<em class="cEmphasis">filename</em> is the name of the Paradox database file on which the index is to be based.
+</p>
+<a name="wp510464"> </a><p class="pBody">
+<em class="cEmphasis">column</em> is the name of a column that is included as the key field for the index.
+</p>
+<a name="wp512766"> </a><p class="pBody">
+For Paradox 7, 8, 9 or 10 database files only (when the Create Type is 7, 8, 9 or 10), the DESC keyword creates a non-primary index that uses descending keys.
+</p>
+<a name="wp512753"> </a><p class="pBody">
+Paradox 3.0 and 3.5 database files cannot have composite or case-insensitive indexes. When you create a non-primary index for Paradox 3.0 and 3.5 database files, follow these rules:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp510468"> </a><div class="pSmartList1"><li>Specify only one column name.</li></div><a name="wp510470"> </a><div class="pSmartList1"><li>Do not use the CASE_INSENSITIVE switch.</li></div><a name="wp510472"> </a><div class="pSmartList1"><li>Use the column name as the index name.</li></div></ul></div>
+<a name="wp510474"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+CREATE INDEX last_name ON emp (last_name)<a name="wp510476"> </a>
+</pre></div>
+<a name="wp510478"> </a><h3 class="pHeading2">
+Drop Index Statement
+</h3>
+<a name="wp510484"> </a><p class="pBody">
+The syntax for dropping a primary index is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP INDEX <code><em>path_name</em></code>.PRIMARY<a name="wp510486"> </a>
+</pre></div>
+<a name="wp510488"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP INDEX emp.PRIMARY<a name="wp510490"> </a>
+</pre></div>
+<a name="wp510492"> </a><p class="pBody">
+The syntax for dropping a non-primary index is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP INDEX <code><em>path_name</em></code>.<code><em>index_name</em></code><a name="wp510494"> </a>
+</pre></div>
+<a name="wp510496"> </a><p class="pBody">
+<em class="cEmphasis">path_name</em> is the name of the Paradox database file from which the index is being dropped. The pathname can be either the fully qualified pathname or, if the database file is specified with the Database attribute of the connection string, a simple database file name.
+</p>
+<a name="wp510498"> </a><p class="pBody">
+<em class="cEmphasis">index_name</em> is the name that was given to the index when it was created. If the name contains blanks or special characters, or does not begin with a letter, surround it with the grave character ( ` ) (ASCII 96). Use the column name as the index name when dropping indexes from Paradox 3.5 or 3.0 database files.
+</p>
+<a name="wp510500"> </a><p class="pBody">
+For example:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DROP INDEX emp.last_name<a name="wp510502"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

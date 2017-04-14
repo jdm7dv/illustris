@@ -1,0 +1,42 @@
+!	$Id: //depot/idl/IDL_70/idldir/resource/X11/lib/X11/app-defaults/Idl#2 $
+!
+! This application defaults file provides values used by IDL.
+
+Idl*fontList: 			fixed
+
+! The following resources are now handled by IDL's preference
+! system. Setting them may cause IDL to display messages to
+! this effect at startup.
+!Idl.retain:			1
+!Idl.graphicsWindowWidth:	640
+!Idl.graphicsWindowHeight:	512
+!Idl.graphicsWindow14Screen:	True
+
+! Set reasonable foreground, background color
+!
+Idl*background:                 #C0C0C0
+Idl*foreground:                 Black
+
+#ifdef sun
+!
+! Motif Sun IDL. Make the Delete key work in text widgets.
+!
+Idl*XmText.translations:   #override \n\
+	<Key>osfDelete:    delete-previous-character()\n
+Idl*XeTextEd.translations:   #override \n\
+	<Key>osfDelete:    delete-previous-character()\n
+#endif
+
+! Size, resize behavior of the File Selection box, dialog_pickfile()
+Idl*XmFileSelectionBox.resizePolicy:	XmRESIZE_GROW
+Idl*XmFileSelectionBox.width:		400
+
+! Make a scroll wheel work in IDL widgets
+Idl*XmScrollBar.baseTranslations:       #augment <Btn4Down>:    IncrementUpOrLeft(0) IncrementUpOrLeft(1)\n\
+        <Btn5Down>:     IncrementDownOrRight(0) IncrementDownOrRight(1)\n
+Idl*XmText.baseTranslations:    #augment Shift<Btn4Down>:       page-left()\n\
+        Shift<Btn5Down>:        page-right()\n\
+        <Btn5Down>:     scroll-one-line-up()\n\
+        <Btn4Down>:     scroll-one-line-down()\n
+
+

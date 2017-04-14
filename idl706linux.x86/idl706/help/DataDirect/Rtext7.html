@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:22" />
+  <title>Date Masks</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp526823"> </a><h1 class="pNewHTMLPageNoNum">
+Date Masks
+</h1>
+<hr /><a name="wp526824"> </a><p class="pBody">
+Date masks tell the driver how a date is stored in a text file. When a value is inserted into a text file, the date is formatted so that it matches the mask. When reading a text file, the driver converts the formatted date into a date data type.
+</p>
+<a name="wp526828"> </a><p class="pBody">
+<a  href="Rtext7.html#wp526835">Table&#160;15-2</a> lists the symbols to use when specifying the date mask.
+</p>
+<a name="wp526898"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp526835"> </a><div class="pTableTitleBold">
+Table 15-2.  Date Masks for Text Driver&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp526839"> </a><div class="pCellHeading">
+Symbol
+</div>
+</th>
+    <th><a name="wp526841"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp526843"> </a><div class="pCellBody">
+m
+</div>
+</td>
+    <td><a name="wp526845"> </a><div class="pCellBody">
+Output the month&#8217;s number (1&#8211;12).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526847"> </a><div class="pCellBody">
+mm
+</div>
+</td>
+    <td><a name="wp526849"> </a><div class="pCellBody">
+Output a leading zero if the month number is less than 10.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526851"> </a><div class="pCellBody">
+mmm, Mmm, MMM
+</div>
+</td>
+    <td><a name="wp526853"> </a><div class="pCellBody">
+Output the three-letter abbreviation for the month depending on the case of the Ms (that is, jan, Jan, JAN).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526855"> </a><div class="pCellBody">
+mmmm, Mmmm, MMMM
+</div>
+</td>
+    <td><a name="wp526857"> </a><div class="pCellBody">
+Output the name of the full month depending on the case of the Ms (that is, january, January, JANUARY).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526859"> </a><div class="pCellBody">
+d
+</div>
+</td>
+    <td><a name="wp526861"> </a><div class="pCellBody">
+Output the day number (1&#8211;31).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526863"> </a><div class="pCellBody">
+dd
+</div>
+</td>
+    <td><a name="wp526865"> </a><div class="pCellBody">
+Output a leading zero if the day number is less than 10.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526867"> </a><div class="pCellBody">
+ddd, Ddd, DDD
+</div>
+</td>
+    <td><a name="wp526869"> </a><div class="pCellBody">
+Output the three-letter day abbreviation depending on the case of the Ds (that is, mon, Mon, MON).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526871"> </a><div class="pCellBody">
+dddd, Dddd, DDDD
+</div>
+</td>
+    <td><a name="wp526873"> </a><div class="pCellBody">
+Output the name of the full day depending on the case of the Ds (that is, monday, Monday, MONDAY).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526875"> </a><div class="pCellBody">
+yy
+</div>
+</td>
+    <td><a name="wp526877"> </a><div class="pCellBody">
+Output the last two digits of the year.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526879"> </a><div class="pCellBody">
+yyyy
+</div>
+</td>
+    <td><a name="wp526881"> </a><div class="pCellBody">
+Output the full four digits of the year.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526883"> </a><div class="pCellBody">
+J
+</div>
+</td>
+    <td><a name="wp526885"> </a><div class="pCellBody">
+Output the Julian value for the date. The Julian value is the number of days since 4712 BC.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526887"> </a><div class="pCellBody">
+\ - .  :  , (space)
+</div>
+</td>
+    <td><a name="wp526889"> </a><div class="pCellBody">
+Special characters used to separate the parts of a date.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526891"> </a><div class="pCellBody">
+\
+</div>
+</td>
+    <td><a name="wp526893"> </a><div class="pCellBody">
+Output the next character. For example, if the mask is mm/dd/yyyy \A\D, the value appears as 10/01/2003 AD in the text file.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526895"> </a><div class="pCellBody">
+&quot;string&quot;, &#39;string&#39;
+</div>
+</td>
+    <td><a name="wp526897"> </a><div class="pCellBody">
+Output the string in the text file.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp526903"> </a><p class="pBody">
+<a  href="Rtext7.html#wp526907">Table&#160;15-3</a> shows some example date values, masks, and how the date appears in the text file.
+</p>
+<a name="wp526936"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp526907"> </a><div class="pTableTitleBold">
+Table 15-3.  Date Mask Examples
+</div>
+</caption>
+  <tr align="left">    <td><a name="wp526913"> </a><div class="pCellHeading">
+Date
+</div>
+</td>
+    <td><a name="wp526915"> </a><div class="pCellHeading">
+Mask
+</div>
+</td>
+    <td><a name="wp526917"> </a><div class="pCellHeading">
+Value
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526919"> </a><div class="pCellBody">
+2003-10-01
+</div>
+</td>
+    <td><a name="wp526921"> </a><div class="pCellBody">
+yyyy-mm-dd
+</div>
+</td>
+    <td><a name="wp526923"> </a><div class="pCellBody">
+2003-10-01
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526925"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp526927"> </a><div class="pCellBody">
+m/d/yy
+</div>
+</td>
+    <td><a name="wp526929"> </a><div class="pCellBody">
+10/1/03
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp526931"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp526933"> </a><div class="pCellBody">
+Ddd, Mmm dd, yyyy
+</div>
+</td>
+    <td><a name="wp526935"> </a><div class="pCellBody">
+Fri, Oct 01, 2003
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

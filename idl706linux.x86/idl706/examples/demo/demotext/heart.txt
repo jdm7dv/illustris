@@ -1,0 +1,121 @@
+
+	WELCOME to The BEATING HEART DEMO
+
+
+   Data Courtesy of:
+
+   Dr. Stephan Nekolla                         
+   Leiter Medizinische Datenverarbeitung      
+   Klinik und Poliklinik fuer Nuklearmedizin 
+   Klinikum rechts der Isar der Technischen
+   Universitaet Muenchen 
+   Ismaningerstr. 22 D-81675 Muenchen
+
+
+   Generating the Heart:
+   ---------------------
+   The heart geometry is generated from triangulating
+   an array of points into a series of quad polygons.
+   Each step in the sequence of the beating heart
+   consists of 3 parts: Inner Surface, Outer Surface,
+   and Bottom (connecting) surface.
+
+   The colors are determined using a color lookup
+   value from a 3D array of perfusion values stored
+   for every point. The object geometry representing
+   the heart is manipulated based on the data for each
+   of the above steps to show the shape of the heart
+   through one heartbeat cycle.
+
+   
+   IDL Features:
+   -----------------
+   This demo uses the following features from IDL 
+   Object Graphics:
+
+   o  Interactive 3D graphics to control the object 
+      transformation (rotation) with the mouse.
+
+   o  Geometry creation using "IDLgrPolygon" and
+      "IDLgrPolyline" to represent the heart light
+      source icons.
+
+   o  Light source shading, using 2 "Positional" 
+      light sources.
+
+
+
+   MENU OPTIONS
+   ------------
+
+   File Menu:
+      Select "Quit" to exit the Beating Heart Demo and 
+      return to the IDL Demo main screen.
+
+   Options Menu:
+   
+      Shading
+      Select either Flat or Gouraud shading for the 
+      solid. Gouraud shading results in a more realistic
+      appearance. Shading is only enabled when the 
+      Style is set to Solid.
+
+      Style
+      Select either Wire or Solid to represent the 
+      surface of the heart.
+
+      Drag Quality
+      Select either Low or High quality for when you
+      rotate the solid by dragging the mouse. Low 
+      quality shows a wire surface when dragging while
+      High quality retains the surface displayed.
+
+   Help Menu:
+      Select "About Beating Heart" for information about
+      the Beating Heart Demo.
+
+
+   FEATURES
+   --------
+
+   <<OBJECT VISIBILITY>> checklist   
+
+   Select one or all of the following choices for 
+   displaying the heart. A check next to the item 
+   specifies that it is enabled.
+
+   o  Outer surface
+   o  Inner surface
+   o  Bottom surface
+   o  Axis 3D
+   o  Light icons
+   o  Annotations
+
+
+   <<Start>> button
+      Starts the sequence of steps showing the heart
+      through one heartbeat cycle.
+
+   <<Step>> button
+      Displays each step in order.
+
+   <<Reset Orientation>> button
+      Reset the heart to its initial orientation.
+
+
+   INTERACTIVE MOVEMENT
+      Use your left mouse button to interactively 
+      rotate the heart. Position the cursor on the 
+      image and, while holding down the left mouse 
+      button, move the cursor to rotate the heart. 
+      Release the mouse button when you are satisfied 
+      with the position of the heart.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:15" />
+  <title>Connecting to a Data Source Using a Connection String</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510266"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Connection String
+</h1>
+<hr /><a name="wp525004"> </a><p class="pBody">
+If your application requires a connection string for connecting to a database, you must specify the data source name that tells the driver where to find the default connection information. Optionally, you may specify <em class="cEmphasis">attribute=value</em> pairs in the connection string to override the default values stored in the data source definition.
+</p>
+<a name="wp525005"> </a><p class="pBody">
+The connection string has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=<code><em>data_source_name</em></code>[;<code><em>attribute=value</em></code>[;<code><em>attribute=value</em></code>]...]<a name="wp525006"> </a>
+</pre></div>
+<a name="wp525011"> </a><p class="pBody">
+<a  href="Rparadox5.html#wp516157">Table&#160;12-1</a> gives the long and short names for each attribute, as well as a description. You can specify either long or short names in the connection string. Connection string attribute names are the same as the option names on the driver Setup dialog box tabs unless otherwise noted. The connection string attribute name does not have spaces between the words. For example, the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em> is equivalent to the option name <em class="cEmphasis">Application Using Threads</em>.
+</p>
+<a name="wp525012"> </a><p class="pBody">
+The defaults listed in the table are initial defaults that apply when no value is specified in either the data source definition or in the connection string. If you specified a value for the attribute when configuring the data source, that value is the default.
+</p>
+<a name="wp510282"> </a><p class="pBody">
+An example of a connection string for Paradox is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=PARADOXDBFILES;DB=C:\ODBC\EMP;PW=ABC,DEF,GHI<a name="wp510284"> </a>
+</pre></div>
+<a name="wp516213"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp516157"> </a><div class="pTableTitleBold">
+Table 12-1.  Paradox Connection String Attributes&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp516161"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp516163"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp516165"> </a><div class="pCellBody">
+ApplicationUsing<br />Threads (AUT)
+</div>
+</td>
+    <td><a name="wp529687"> </a><div class="pCellBody">
+ApplicationUsingThreads={0 | 1}. Determines whether or not the driver works with multi-threaded applications. 
+</div>
+<a name="wp529688"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver is thread-safe and is ensured to work with multi-threaded applications. 
+</div>
+<a name="wp529689"> </a><div class="pCellBody">
+When using the driver with single-threaded applications, you can set this option to 0 to avoid additional processing required for ODBC thread-safety standards.&#160;&#160;&#160;
+</div>
+<a name="wp528958"> </a><p class="pBody">
+&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516169"> </a><div class="pCellBody">
+CreateType (CT)
+</div>
+</td>
+    <td><a name="wp516171"> </a><div class="pCellBody">
+CreateType={3 | 4 | 5 | 7 | 8 | 9 | 10 | null (blank)}. Specifies the database file version for Create Table statements. The numeric values map to the major revision numbers of the Paradox family of products. To override another CreateType setting chosen during data source configuration with the default create type determined by the Level setting in the Paradox section of the IDAPI configuration file, set CreateType= (null). 
+</div>
+<a name="wp516172"> </a><div class="pCellBody">
+NOTE: When CreateType is set to 7, 8, 9 or 10, the Paradox driver supports database file names can be a maximum of 128 characters. For all other CreateType settings, the driver supports database file names of a maximum of 8 characters.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516174"> </a><div class="pCellBody">
+Database (DB)
+</div>
+</td>
+    <td><a name="wp516176"> </a><div class="pCellBody">
+The directory in which the Paradox database files are stored.
+</div>
+<a name="wp516177"> </a><div class="pCellBody">
+For this attribute, you can also specify aliases that are defined in your IDAPI configuration file, if you have one. To do this, enclose the alias name in colons. For example, to use the alias MYDATA, specify <code class="cCode">&quot;Database=:MYDATA:&quot;</code>.
+</div>
+<a name="wp526034"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Database Directory.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516179"> </a><div class="pCellBody">
+DataSourceName (DSN)
+</div>
+</td>
+    <td><a name="wp516181"> </a><div class="pCellBody">
+A string that identifies a Paradox data source configuration. Examples include &quot;Accounting&quot; or &quot;Paradox-Serv1.&quot;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516183"> </a><div class="pCellBody">
+DeferQueryEvaluation (DQ)
+</div>
+</td>
+    <td><a name="wp516185"> </a><div class="pCellBody">
+DeferQueryEvaluations={0 | 1}. Determines when a query is evaluated&#8212;after all records are read or each time a record is fetched.
+</div>
+<a name="wp516186"> </a><div class="pCellBody">
+When set to 0, the driver generates a result set when the first record is fetched. The driver reads all records, evaluates each one against the Where clause, and compiles a result set containing the records that satisfy the search criteria. This process slows performance when the first record is fetched, but activity performed on the result set after this point is much faster, because the result set has already been created. You do not see any additions, deletions, or changes in the database that occur while working from this result set.
+</div>
+<a name="wp516187"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver evaluates the query each time a record is fetched, and stops reading through the records when it finds one that matches the search criteria. This setting avoids the slowdown while fetching the first record, but each fetch takes longer because of the evaluation taking place. The data you retrieve reflect the latest changes to the database; however, a result set is still generated if the query is a Union of multiple Select statements, if it contains the Distinct keyword, or if it has an Order By or Group By clause.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516189"> </a><div class="pCellBody">
+FileOpenCache (FOC)
+</div>
+</td>
+    <td><a name="wp516191"> </a><div class="pCellBody">
+The maximum number of unused file opens to cache. For example, when FileOpenCache=4, and a user opens and closes four database files, the files are not actually closed. The driver keeps them open so that if another query uses one of these database files, the driver does not have to perform another open, which is expensive. The advantage of using file open caching is increased performance. The disadvantage is that a user who tries to open the database file exclusively may get a locking conflict even though no one appears to have the database file open. 
+</div>
+<a name="wp518818"> </a><div class="pCellBody">
+The initial default is 0, which means no file open caching.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516193"> </a><div class="pCellBody">
+IntlSort (IS)
+</div>
+</td>
+    <td><a name="wp516195"> </a><div class="pCellBody">
+IntlSort={0 | 1}. Determines the order in which records are retrieved when you issue a Select statement with an Order By clause. 
+</div>
+<a name="wp518825"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver uses the ASCII sort order. This order sorts items alphabetically with uppercase letters preceding lowercase letters. For example, &quot;A, b, C&quot; is sorted as &quot;A, C, b.&quot;
+</div>
+<a name="wp516196"> </a><div class="pCellBody">
+When set to 1, the driver uses the international sort order as defined by your operating system. This order is always alphabetic, regardless of case; the letters from the previous example are sorted as &quot;A, b, C.&quot; See your operating system documentation concerning the sorting of accented characters.
+</div>
+<a name="wp526035"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is International Sort.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516198"> </a><div class="pCellBody">
+NetDir (ND)
+</div>
+</td>
+    <td><a name="wp516200"> </a><div class="pCellBody">
+The directory containing the PARADOX.NET file that corresponds to the database you have specified. If the Paradox database you are using is shared on a network, then every user who accesses it must set this value to point to the same PARADOX.NET file. 
+</div>
+<a name="wp529003"> </a><div class="pCellBody">
+If a value is not specified, this value is determined by the NetDir setting in the Paradox section of the IDAPI configuration file. If you are not sure how to set this value, contact your network administrator.
+</div>
+<a name="wp526036"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Network Directory.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516202"> </a><div class="pCellBody">
+Passwords (PW)
+</div>
+</td>
+    <td><a name="wp516204"> </a><div class="pCellBody">
+A password or list of passwords. You can add 1 to 50 passwords into the system using a comma-separated list of passwords. Passwords are case-sensitive. For example, Passwords=psw1, psw2, psw3.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516206"> </a><div class="pCellBody">
+UltraSafeCommit (USF)
+</div>
+</td>
+    <td><a name="wp516208"> </a><div class="pCellBody">
+UltraSafeCommit={0 | 1}. Determines when the driver flushes its changes to disk.
+</div>
+<a name="wp518841"> </a><div class="pCellBody">
+When set to 0, (the initial default), the driver flushes its changes to disk when the database file is closed or when internal buffers are full. In this case, a machine &quot;crash&quot; before closing a database file may cause recent changes to be lost.
+</div>
+<a name="wp519001"> </a><div class="pCellBody">
+When set to 1, the driver flushes its changes to disk at each COMMIT. This decreases performance. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp516210"> </a><div class="pCellBody">
+UseLongQualifiers (ULQ)
+</div>
+</td>
+    <td><a name="wp516212"> </a><div class="pCellBody">
+UseLongQualifiers={0 | 1}. Determines whether the driver uses long path names as database file qualifiers. 
+</div>
+<a name="wp519057"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver does not use long path names as database file qualifiers (the maximum path name length is 128 characters).
+</div>
+<a name="wp519062"> </a><div class="pCellBody">
+When set to 1, the driver uses long path names (the maximum path name length is 255 characters). 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

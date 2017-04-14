@@ -1,0 +1,164 @@
+
+
+
+       WELCOME TO THE OBJECT WORLD DEMO
+
+
+Object World allows you to manipulated a three
+dimensional scene using IDL's Object
+Graphics. Object Graphics, IDL's object-oriented,
+OpenGL-based graphics system allows rapid
+interactive visualization of complex data without
+expensive visualization hardware.
+
+Click and drag with your mouse to manipulate
+objects in the view. Because views are retained in
+memory, re-rendering is virtually instantaneous.
+While not necessary, if your system supports OpenGL
+hardware rendering, IDL automatically takes
+advantage of it, resulting in the fastest graphics
+performance possible.
+
+   CONTROLS
+   --------
+   <<Translate, Rotate and Scale>> Buttons
+      Select the current mode of manipulation which
+      will be applied to the currently selected
+      object
+
+   <<Add>> Button
+      Add an object to the view.
+
+   <<Add Child>> Button
+      Add an object as a "child" of a currently
+      selected object.  A child object gets
+      selected along with its parent when the
+      parent is selected.  Thus, a child will
+      translate, rotate and scale along with its
+      parent when such operations are applied to
+      the parent.
+
+   <<Delete>> Button
+      Delete a currently selected object.  Deleting
+      a parent object will also delete all its
+      child objects.
+
+   <<Select>> Button
+      Select an object.
+
+   <<Unselect>> Button
+      Unselect all objects.  When no objects are
+      selected you can rotate the checkered
+      base-plate grid, and all the objects that are
+      with it in a view, by clicking and dragging
+      the left mouse-button
+
+   MENUS
+   -----
+   <<File | load>>
+      Load objects from a previously saved
+      selection into the current scene.  After
+      being loaded, the objects become the current
+      selection.
+
+   <<File | Save Selection>>
+      Write an IDL save file with an objworld
+      object in it.
+
+   <<File | Print>>
+      Print the objworld scene.
+
+   <<File | Export VRML>>   
+      Save the current view to a Virtual Reality
+      Modeling Language (VRML) file.  VRML is a
+      standard language for describing interactive
+      3-D objects and worlds delivered across the
+      Internet.  Be sure when viewing these images
+      that your VRML browser supports the VRML 2.0
+      format.  We have had good results using the
+      CosmoPlayer 2.0, available free from
+      http://cosmosoftware.com.
+
+   <<File | Quit>>
+      Close the Objworld program.
+
+   <<Options | Drag Quality>> 
+      Set the quality at which graphics will appear
+      when being dragged or rotated with the
+      mouse.
+
+   <<Options | Show Grid>>
+      Turn off or turn on the display of the
+      "checkerboard" grid.
+
+   <<Options | Anti-Alias>>
+      Apply full-scene anti-aliasing.  This is
+      most useful on 24-bit displays to provide
+      smoother lines and polygon edges.
+
+   <<Options | Manipulate Views>>
+      Turn off or on a mode in which additional
+      objworld views can be added.  Scale the views
+      by clicking and dragging in their corners.
+      Move the views by clicking and dragging
+      them.
+ 
+   <<Options | Copy to Clipboard>>
+      Copy the current display to the system clipboard.
+
+   <<About | About Object World>>
+      Display this message.
+
+
+   MOUSE BUTTONS
+   -------------
+   Note: On Windows platforms with a 2 button
+   mouse, you can use <CTRL-Left mouse-button> to
+   emulate the middle mouse-button.  On Macintosh
+   computers hold down the Option key while
+   pressing the mouse-button to emulate a "middle"
+   mouse-button, or hold down the Command key while
+   pressing the mouse-button to emulate a "right"
+   mouse-button.
+
+   Left Button:  
+      Click and drag to manipulate a currently
+      selected object.  If no object is currently
+      selected, clicking and dragging will rotate
+      all objects in a view.
+
+   Middle Button:
+      Click and drag to to rotate all ojects in a
+      view.  
+
+      Note that the use of a middle mouse-button is
+      optional.  The same operation can be
+      performed with the left mouse-button when all
+      objects are unselected.
+
+   Right Button:
+      Click on objects to select them.  Re-click on
+      selected objects to cycle through the
+      Translate, Rotate and Scale manipulation
+      modes.  Click in the background to unselect
+      all objects.
+
+      Note that the use of a right mouse-button
+      is optional.  The same operations can be
+      performed via the "Select", "Unselect",
+      "Translate", "Scale", and "Rotate" GUI
+      control buttons to the left of the scene.
+
+
+   HOTKEYS
+   -------
+   Keyboard shortcuts:
+
+      <spacebar> = select
+      u = unselect
+      s = scale
+      r = rotate
+      t = translate
+      d = delete
+      v = toggle view manipulation mode
+   

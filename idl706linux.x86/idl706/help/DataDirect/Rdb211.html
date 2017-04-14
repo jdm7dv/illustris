@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:29:55" />
+  <title>Persisting a Result Set as an XML Data File</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp645258"> </a><h1 class="pNewHTMLPageNoNum">
+Persisting a Result Set as an XML Data File
+</h1>
+<hr /><a name="wp655177"> </a><p class="pBody">
+This driver allows you to persist a result set as an XML data file with embedded schema. To implement XML persistence, a client application must do the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp655178"> </a><div class="pSmartList1"><li>Turn on STATIC cursors. For example:</li></div><a name="wp655179"> </a><p class="pSyntaxEmbed">
+SQLSetStmtAttr (hstmt, SQL_ATTR_CURSOR_TYPE, SQL_CURSOR_STATIC, SQL_IS_INTEGER)
+</p>
+<a name="wp655180"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: A result set can be persisted as an XML data file only if the result set is generated using STATIC cursors. Otherwise, the following error is returned:
+</p>
+<a name="wp655181"> </a><p class="pSyntaxEmbed">
+Driver only supports XML persistence when using driver&#8217;s static cursors.
+</p>
+<a name="wp655182"> </a><div class="pSmartList1"><li>Execute a SQL statement. For example:</li></div><a name="wp655183"> </a><p class="pSyntaxEmbed">
+SQLExecDirect (hstmt, &quot;SELECT * FROM GTABLE&quot;, SQL_NTS)
+</p>
+<a name="wp655184"> </a><div class="pSmartList1"><li>Persist the result set as an XML data file. For example:</li></div><a name="wp655185"> </a><p class="pSyntaxEmbed">
+SQLSetStmtAttr (hstmt, SQL_PERSIST_AS_XML, &quot;c:\temp\GTABLE.XML&quot;, SQL_NTS)
+</p>
+<a name="wp655186"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: A new statement attribute is available to support XML persistence, SQL_PERSIST_AS_XML. A client application must call SQLSetStmtAttr with this new attribute as an argument. See the following table for the definition of valid arguments for SQLSetStmtAttr.
+</p>
+</ol></div>
+<a name="wp655208"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp655189"> </a><div class="pCellHeading">
+Argument
+</div>
+</th>
+    <th><a name="wp655191"> </a><div class="pCellHeading">
+Definition
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp655193"> </a><div class="pCellBody">
+<em class="cEmphasis">StatementHandle</em>
+</div>
+</td>
+    <td><a name="wp655195"> </a><div class="pCellBody">
+The handle of the statement that contains the result set to persist as XML.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp655197"> </a><div class="pCellBody">
+<em class="cEmphasis">Attribute</em>
+</div>
+</td>
+    <td><a name="wp655199"> </a><div class="pCellBody">
+SQL_PERSIST_AS_XML. This new statement attribute can be found in the file qesqlext.h, which is installed with the driver.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp655201"> </a><div class="pCellBody">
+<em class="cEmphasis">ValuePtr</em>
+</div>
+</td>
+    <td><a name="wp655203"> </a><div class="pCellBody">
+Pointer to a URL that specifies the full path name of the XML data file to be generated. The directory specified in the path name must exist, and if the specified file name exists, the file will be overwritten.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp655205"> </a><div class="pCellBody">
+<em class="cEmphasis">StringLength</em>
+</div>
+</td>
+    <td><a name="wp655207"> </a><div class="pCellBody">
+The length of the string pointed to by ValuePtr or SQL_NTS if ValuePtr points to a null terminated string.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp655209"> </a><p class="pBody">
+A client application can choose to persist the data at any time that the statement is in an executed or cursor-positioned state. At any other time, the driver returns the following message:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Function Sequence Error<a name="wp655210"> </a>
+</pre></div>
+<a name="wp655214"> </a><h3 class="pHeading2">
+</h3><div align="left"><img src="images/iconwin10.gif" height="32" width="27" border="0" hspace="0" vspace="0"/></div><h3 class="pHeading2">Using the Windows XML Persistence Demo Tool
+</h3>
+<a name="wp655215"> </a><p class="pBody">
+On Windows, DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers are shipped with an XML persistence demo tool. This tool is installed in the installation directory. 
+</p>
+<a name="wp655216"> </a><p class="pBody">
+The tool has a graphical user interface and allows you to persist data as an XML data file. To use this tool, take the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp655217"> </a><div class="pSmartList1"><li>From the DataDirect program group, select <b class="cBold">XML Persistence Demo</b>. The XML Persistence dialog box appears.</li></div><a name="wp655226"> </a><div class="pSmartList1"><li>First, you must connect to the database. Click <b class="cBold">Connect</b>. The Select Data Source dialog box appears.</li></div><a name="wp655235"> </a><div class="pSmartList1"><li>You must either select an existing data source or create a new one. Take one of the following actions:</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp655236"> </a><div class="pSmartList2Rel"><li>Select an existing data source and click <b class="cBold">OK</b>.</li></div>
+<a name="wp655237"> </a><div class="pSmartList2Rel"><li>Create a new file data source by clicking <b class="cBold">New</b>. The Create New Data Source dialog box appears. Follow the instructions in the dialog box.</li></div>
+<a name="wp655238"> </a><div class="pSmartList2Rel"><li>Create a new machine data source by clicking the Machine Data Source tab and clicking <b class="cBold">New</b>. The Create New Data Source dialog box appears. Follow the instructions in the dialog box.</li></div>
+</ul></div>
+<a name="wp655239"> </a><div class="pSmartList1"><li>After you have connected to a database, type a SQL Select statement in the Query text box of the XML Persistence dialog box. Then, click <b class="cBold">Persist</b>. The Save As dialog box appears.</li></div><a name="wp655240"> </a><div class="pSmartList1"><li>Specify a name and location for the XML data file that will be created. Then, click <b class="cBold">OK</b>.</li></div><a name="wp655241"> </a><p class="pBodyIndent12pxBeforeAfter">
+Note that the Status box in the XML Persistence dialog box displays whether or not the action failed or succeeded.
+</p>
+<a name="wp655242"> </a><div class="pSmartList1"><li>Click <b class="cBold">Disconnect</b> to disconnect from the database.</li></div><a name="wp655243"> </a><div class="pSmartList1"><li>Click <b class="cBold">Close</b> to exit the tool.</li></div></ol></div>
+<a name="wp655247"> </a><h3 class="pHeading2">
+</h3><div align="left"><img src="images/iconunixb11.gif" height="35" width="27" border="0" hspace="0" vspace="0"/></div><h3 class="pHeading2">Using the UNIX XML Persistence Demo Tool
+</h3>
+<a name="wp655248"> </a><p class="pBody">
+On UNIX, DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> drivers are shipped with an XML persistence demo tool named demoodbc. This tool is installed in the demo subdirectory of the installation directory. For information about how to use this tool, refer to the demoodbc.txt file installed in the demo directory.
+</p>
+<a name="wp628275"> </a><p class="pBody">
+&#160;&#160;
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

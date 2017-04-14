@@ -1,0 +1,21 @@
+Logon to Oracle Wire Protocol Dialog Box
+
+HOST: Type either the name or the IP address of the server to 
+which you want to connect.
+
+PORT NUMBER: Type the system port number for the Oracle listener.
+
+SID: Type the Oracle System Identifier that refers to the instance 
+of Oracle running on the server.
+
+USER NAME: If required, type your Oracle user name.
+
+PASSWORD: If required, type your Oracle password.
+
+OK
+Completes the logon and writes the values to the system 
+information.
+
+CANCEL
+Closes the dialog box without writing the values to the system information.
+

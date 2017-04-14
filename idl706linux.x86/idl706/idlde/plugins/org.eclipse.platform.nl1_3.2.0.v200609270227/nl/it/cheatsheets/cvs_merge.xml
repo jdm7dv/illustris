@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Merge CVS branches">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Questa pagina di aiuto mostra i passi di unione delle modifiche da una sezione CVS
+      all'altra o in HEAD. In caso di aiuto durante un qualsiasi passo, selezionare l'icona (?)
+      sulla
+      destra.
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Determine branch and version information">
+    <description>
+      Il primo passo consiste nel decidere <b>quali</b> delle due sezioni verranno unite,
+      a quale <b>version</b> è stato suddiviso in sezioni il contenuto e quale sarà la
+      <b>destination</b> (destinazione del risultato della unione).
+      Una volta ottenute tali informazioni, è possibile passare al passo successivo.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Check out the project">
+    <description>
+      Prima dell'unione, è necessario <b>estrarre</b> il progetto che si desidera
+      unire e riportarlo nello spazio di lavoro. È possibile effettuare tale operazione mediante la
+      procedura guidata di importazione o aggiungendo il repository dalla prospettiva
+      Esplorazione repository CVS oppure fare clic sul pulsante (?) per aiuto.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="Load the destination into your workspace">
+    <description>
+      Nella barra di navigazione, fare clic con il tasto destro del mouse sul progetto
+      e selezionare Sostituisci con &gt;
+      Un'altra sezione o versione. Selezionare la sezione di destinazione. Ciò consentirà di
+      caricare il contenuto più aggiornato della sezione nello spazio di lavoro.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Merge details">
+    <description>
+      Ancora dalla barra di navigazione, fare clic con il tasto destro del mouse sul progetto e selezionare <b>Team</b>
+      &gt; <b>Unisci</b> e completare i passi contenuti nella procedura guidata. In tale procedura guidata
+      specificare le informazioni dettagliate della unione.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Work with the Merge editor">
+    <description>
+      Nell'editor Unione vengono unite le modifiche manualmente. Questo passo consente di caricare le modifiche richieste nello spazio di lavoro. Una volta unite tutte le modifiche
+      passare al passo successivo.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Commit your changes">
+    <description>
+      Fare clic con il tasto destro del mouse sul progetto e selezionare <b>Team</b> &gt; <b>Sincronizza con repository</b> ed eseguire il commit di tutte le
+      modifiche nel repository. Questo passo completa il trasferimento delle modifiche dallo spazio di lavoro al repository CVS e completa l'unione.     </description>
+  </item>
+
+</cheatsheet>

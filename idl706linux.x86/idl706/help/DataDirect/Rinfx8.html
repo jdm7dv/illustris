@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:16:47" />
+  <title>MTS Support</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp537626"> </a><h1 class="pNewHTMLPageNoNum">
+MTS Support
+</h1>
+<hr /><a name="wp563391"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwind10.gif" height="29" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, the driver can take advantage of Microsoft Transaction Server (MTS) capabilities, specifically, the Distributed Transaction Coordinator (DTC) using the XA Protocol. For a general discussion of MTS and DTC, refer to the help file of the &quot;Microsoft Transaction Server SDK.&quot;
+</p>
+<a name="wp563392"> </a><p class="pBody">
+NOTE: The DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> 32-bit drivers can operate in a 64-bit Windows environment; however, they do not support DTC in this environment. Only the DataDirect Connect64 <font size="1"><em>for</em></font> <font size="1">ODBC</font> 64-bit drivers support DTC in a 64-bit Windows environment.
+</p>
+<a name="wp558563"> </a><p class="pBody">
+To enable DTC support, you must be using Informix Connect version 2.20 or higher clients.
+</p>
+<a name="wp537627"> </a><p class="pBody">
+<b class="cBold">To enable support for the DTC:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp537628"> </a><div class="pSmartList1"><li>Use the <b class="cBold">Setnet32</b> utility supplied by Informix to define:</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp537629"> </a><div class="pSmartList2Rel"><li>The INFORMIXDIR environment variable, which identifies the location of the client programs, library files, message files, header files, and other Informix software components</li></div>
+<a name="wp537630"> </a><div class="pSmartList2Rel"><li>The INFORMIXSERVER environment variable, which identifies the default database server </li></div>
+<a name="wp537631"> </a><div class="pSmartList2Rel"><li>An Informix server, which identifies either an existing Informix database server or a new one</li></div>
+<a name="wp537632"> </a><div class="pSmartList2Rel"><li>A host name, which identifies the host computer with the database server you want to use</li></div>
+<a name="wp537633"> </a><div class="pSmartList2Rel"><li>A user name, which identifies a user name for an account on the currently selected host computer</li></div>
+<a name="wp537634"> </a><div class="pSmartList2Rel"><li>A password for the specified user name, if required</li></div>
+<a name="wp537635"> </a><p class="pBodyIndent12pxBeforeAfter">
+When enlisting in a distributed transaction, the Informix clients only use the defaults specified in <b class="cBold">Setnet32</b>.
+</p>
+</ul></div>
+<a name="wp537636"> </a><div class="pSmartList1"><li>Run the <b class="cBold">regcopy</b> utility provided with INFORMIX-Connect to copy the registry entries created by <b class="cBold">Setnet32</b> to an area in the registry that is accessible by the DTC. The DTC is a service, and services do not search for configuration information in the Windows registry where <b class="cBold">Setnet32</b> stores client products environment variables. Therefore, if you do not run regcopy after setting the defaults in <b class="cBold">Setnet32</b>, enlistment in a distributed transaction will fail.</li></div></ol></div>
+<a name="wp537637"> </a><p class="pBody">
+For information on using the <b class="cBold">Setnet32</b> and <b class="cBold">regcopy</b> utilities, see the Informix documentation.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

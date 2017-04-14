@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:49" />
+  <title>Troubleshooting</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp515641"> </a><h1 class="pNewHTMLPageNoNum">
+Troubleshooting
+</h1>
+<hr /><a name="wp514436"> </a><p class="pBody">
+When you are having an issue while using DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font>, the first thing to do is determine the type of issue that you are seeing:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp514488"> </a><div class="pSmartList1"><li>Setup/connection</li></div><a name="wp514489"> </a><div class="pSmartList1"><li>Interoperability (ODBC application, ODBC driver, ODBC Driver Manager, and/or data source) </li></div><a name="wp514490"> </a><div class="pSmartList1"><li>Performance</li></div></ul></div>
+<a name="wp514502"> </a><p class="pBody">
+This section describes these three types of issues, provides some typical causes of the issues, lists some diagnostic tools that are useful to troubleshoot the issues, and, in some cases, explains possible actions you can take to resolve the issues.
+</p>
+<a name="wp514491"> </a><h3 class="pHeading2">
+Setup/Connection Issues
+</h3>
+<a name="wp514498"> </a><p class="pBody">
+You are experiencing a setup/connection issue if you are encountering an error or hang while you are trying to make a database connection with the ODBC driver or are trying to configure the ODBC driver.
+</p>
+<a name="wp514508"> </a><p class="pBody">
+Some common errors that are returned by the ODBC driver if you are experiencing a setup/connection issue are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp514509"> </a><div class="pSmartList1"><li>Specified driver could not be loaded</li></div><a name="wp514510"> </a><div class="pSmartList1"><li>Data source name not found and no default driver specified</li></div><a name="wp514511"> </a><div class="pSmartList1"><li>Cannot open share library: libodbc.sl</li></div><a name="wp514512"> </a><div class="pSmartList1"><li>ORA-12203: Unable to connect to destination</li></div><a name="wp514513"> </a><div class="pSmartList1"><li>ORA-01017: invalid username/password; logon denied</li></div></ul></div>
+<a name="wp514576"> </a><h4 class="pHeading3">
+Troubleshooting the Issue
+</h4>
+<a name="wp514583"> </a><p class="pBody">
+Some common reasons that setup/connection issues occur are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp514587"> </a><div class="pSmartList1"><li>The library path environment variable is not set correctly for the ODBC drivers:</li></div><div class="pSmartList2"><ul class="pSmartList2">
+<a name="wp514588"> </a><div class="pSmartList2"><li>PATH on Windows</li></div>
+<a name="wp514589"> </a><div class="pSmartList2"><li>LD_LIBRARY_PATH on Solaris and Linux</li></div>
+<a name="wp514590"> </a><div class="pSmartList2"><li>LIBPATH on AIX</li></div>
+<a name="wp514591"> </a><div class="pSmartList2"><li>SHLIB_PATH on HP</li></div>
+</ul></div>
+<a name="wp514610"> </a><div class="pSmartList1"><li>The ODBCINI environment variable is not set correctly for the ODBC drivers on UNIX.</li></div><a name="wp514614"> </a><div class="pSmartList1"><li>The ODBC driver&#8217;s connection attributes are not set correctly in the system information file (odbc.ini in most cases) on UNIX. For example, the host name or port number are not correctly configured. See each individual driver chapter for a list of connection string attributes that are required for each driver to connect properly to the underlying database.</li></div><a name="wp514629"> </a><div class="pSmartList1"><li>The database and/or listener are not started.</li></div></ul></div>
+<a name="wp517677"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunix15.gif" height="29" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">For UNIX users: See <a  href="Runixenv2.html#wp527917">&quot;Environment Variables&quot;</a> for more information. See also <a  href="Rdiagnostic2.html#wp514401">&quot;ivtestlib Tool&quot;</a> for information about a helpful diagnostic tool.
+</p>
+<a name="wp514651"> </a><h3 class="pHeading2">
+Interoperability Issues
+</h3>
+<a name="wp514657"> </a><p class="pBody">
+Interoperability issues are ones that occur when you have a working ODBC application in place. In these cases, the issue occurs in one or more of the following components of ODBC&#8212;the ODBC application, ODBC driver, ODBC Driver Manager, and/or data source.
+</p>
+<a name="wp514955"> </a><p class="pBody">
+Some common examples of what you might experience if you have an interoperability issue are:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp514666"> </a><div class="pSmartList1"><li>SQL statements fail to execute</li></div><a name="wp514667"> </a><div class="pSmartList1"><li>Data is returned/updated/deleted/inserted incorrectly</li></div><a name="wp514668"> </a><div class="pSmartList1"><li>A hang or core dump</li></div></ul></div>
+<a name="wp514676"> </a><h4 class="pHeading3">
+Troubleshooting the Issue
+</h4>
+<a name="wp514655"> </a><p class="pBody">
+When you experience an interoperability issue, you must isolate in which component the issue is occurring. Is it an ODBC application, an ODBC driver, an ODBC Driver Manager, or a data source issue?
+</p>
+<a name="wp515028"> </a><p class="pBody">
+<b class="cBold">The first step</b>
+</p>
+<a name="wp514719"> </a><p class="pBody">
+First, test to see if your ODBC application is the source of the problem. To do this, replace your ODBC application with a smaller, simpler application. If you can reproduce the issue using a simpler ODBC application, then you know your ODBC application is <b class="cBold">not</b> the cause of the issue. 
+</p>
+<a name="wp515025"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwinf7.gif" height="35" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, you can use ODBC Test, which is part of the Microsoft ODBC SDK, or the example application that is shipped with DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font>. See <a  href="Rdiagnostic2.html#wp514483">&quot;ODBC Test&quot;</a> and <a  href="Rdiagnostic2.html#wp515230">&quot;example Application&quot;</a> for details.
+</p>
+<a name="wp515034"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixb6.gif" height="29" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, you can use the example application that is shipped with DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font>. See <a  href="Rdiagnostic2.html#wp515230">&quot;example Application&quot;</a> for details.
+</p>
+<a name="wp515040"> </a><p class="pBody">
+<b class="cBold">The second step</b>
+</p>
+<a name="wp515041"> </a><p class="pBody">
+Second, test to see if the data source is the source of the problem. To do this, use the native database tools that are provided by your database vendor.
+</p>
+<a name="wp515023"> </a><p class="pBody">
+<b class="cBold">The third step</b>
+</p>
+<a name="wp515046"> </a><p class="pBody">
+If you find that neither the ODBC application nor the data source is the source of your problem, you then can troubleshoot the ODBC driver and the ODBC Driver Manager.
+</p>
+<a name="wp515051"> </a><p class="pBody">
+In this case, we recommend that you create an ODBC trace log so that you can provide this to DataDirect technical support. See <a  href="Rdiagnostic2.html#wp514374">&quot;Diagnostic Tools&quot;</a> for details.
+</p>
+<a name="wp514733"> </a><h3 class="pHeading2">
+Performance Issues
+</h3>
+<a name="wp514760"> </a><p class="pBody">
+Developing performance-oriented ODBC applications is not an easy task. You must be willing to change your application and do some testing to see if your changes helped performance. Microsoft&#8217;s <em class="cEmphasis">ODBC Programmer&#8217;s Reference</em> does not provide information about system performance. In addition, ODBC drivers and the ODBC Driver Manager do not return warnings when applications run inefficiently. 
+</p>
+<a name="wp515744"> </a><p class="pBody">
+Some general guidelines for developing performance-oriented ODBC applications include:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp514761"> </a><div class="pSmartList1"><li>	Use catalog functions appropriately</li></div><a name="wp514762"> </a><div class="pSmartList1"><li>Retrieve only required data </li></div><a name="wp514763"> </a><div class="pSmartList1"><li>Select functions that optimize performance</li></div><a name="wp514764"> </a><div class="pSmartList1"><li>	Manage connections and updates</li></div></ul></div>
+<a name="wp514756"> </a><p class="pBody">
+
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,53 @@
+# Microsoft Windows makefile for 64-bit calltest callable application.
+# This makefile is for use with the Microsoft-specific nmake command.
+#
+# To build a debug version of calltest:
+#
+#        nmake
+#
+# To build a non-debug version:
+#
+#        nmake nodebug=1
+#
+# This makefile has been tested with the Microsoft VC++ 8.0 compiler. You
+# may need to make adjustments to your copy if using a different compiler
+#
+
+#  Copyright (c) 1995-2008, ITT Visual Information Solutions. All
+#  rights reserved. Reproduction by any means whatsoever is prohibited
+#  without express written permission.
+
+!include <ntwin32.mak>
+CC = cl
+
+CFLAGS_CALLPROXY =
+IDLLIB = idl.lib
+
+# [CALLPROXY]
+#
+# By default, this makefile builds calltest linked directly against
+# the IDL DLL. If you wish to build using the IDL call proxy library
+# instead, uncomment these lines.
+#CFLAGS_CALLPROXY = -DIDL_CALLPROXY_LIB="\"..\\..\\bin\\bin.x86_64\\idl.dll\""
+#IDLLIB = idl_callproxy.lib
+
+
+CFLAGS = $(CFLAGS_CALLPROXY) -DWIN32 -DMS_WIN -D_DLL -D_MT $(cflags) 
+CLIB      = /nodefaultlib $(guilibs) msvcrt.lib
+LIBS      = $(CLIB) ..\..\bin\bin.x86_64\$(IDLLIB)
+INCLUDES  = -I..\include
+
+
+SRC =  calltest.c calltest_win.c
+OBJ =  calltest.obj calltest_win.obj
+
+.c.obj:
+	$(CC) $(cdebug) $(CFLAGS) $(INCLUDES) $<
+
+calltest.exe : $(OBJ)
+	link $(guiflags) $(ldebug) $(OBJ) /out:calltest.exe $(LIBS)
+	mt -manifest calltest.exe.manifest -outputresource:calltest.exe;1
+
+clean :
+	del calltest.exe $(OBJ) *.pdb *.manifest
+

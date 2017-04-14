@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="org.eclipse.ui.workbench" name="Área de trabalho" alt-style="css/overview.properties" style="css/overview.css" path="overview/@">
+  		<group style-id="content-group" id="content-group">
+			<link style-id="content-link" label="Conceitos básicos da área de trabalho" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.platform.doc.user/gettingStarted/intro/overview.htm" id="basics">
+          		<text>Saiba mais sobre os conceitos básicos da área de trabalho Eclipse</text>
+       		</link>
+       		<link style-id="content-link" label="Suporte de equipa" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.platform.doc.user/concepts/concepts-26.htm" id="team">
+          		<text>Saiba como colaborar com outros programadores</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+</introContent>

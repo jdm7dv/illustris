@@ -1,0 +1,971 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:26" />
+  <title>Data Types</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp542824"> </a><h1 class="pNewHTMLPageNoNum">
+Data Types
+</h1>
+<hr /><a name="wp545655"> </a><p class="pBody">
+This section provides three tables that show how the data types for each supported tabular-formatted XML document map to the standard ODBC data types, as follows:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp546066"> </a><div class="pSmartList1"><li><a  href="Rxml11.html#wp535002">Table&#160;16-3</a></li></div><a name="wp546074"> </a><div class="pSmartList1"><li><a  href="Rxml11.html#wp545829">Table&#160;16-4</a></li></div><a name="wp546774"> </a><div class="pSmartList1"><li><a  href="Rxml11.html#wp546598">Table&#160;16-5</a></li></div></ul></div>
+<a name="wp534999"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp535002"> </a><div class="pTableTitleBold">
+Table 16-3.  Data Islands Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp535006"> </a><div class="pCellHeading">
+<br />Data Islands
+</div>
+</th>
+    <th><a name="wp545688"> </a><div class="pCellHeading">
+Internal XML Name
+</div>
+</th>
+    <th><a name="wp535008"> </a><div class="pCellHeading">
+<br />ODBC
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp537885"> </a><div class="pCellBody">
+binhex	
+</div>
+</td>
+    <td><a name="wp545690"> </a><div class="pCellBody">
+bin.hex
+</div>
+</td>
+    <td><a name="wp537887"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537889"> </a><div class="pCellBody">
+boolean	
+</div>
+</td>
+    <td><a name="wp545692"> </a><div class="pCellBody">
+boolean
+</div>
+</td>
+    <td><a name="wp537891"> </a><div class="pCellBody">
+SQL_BIT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537897"> </a><div class="pCellBody">
+currency	
+</div>
+</td>
+    <td><a name="wp545694"> </a><div class="pCellBody">
+fixed.14.4
+</div>
+</td>
+    <td><a name="wp537899"> </a><div class="pCellBody">
+SQL_DECIMAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537901"> </a><div class="pCellBody">
+date
+</div>
+</td>
+    <td><a name="wp545696"> </a><div class="pCellBody">
+date
+</div>
+</td>
+    <td><a name="wp537903"> </a><div class="pCellBody">
+SQL_TYPE_DATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537905"> </a><div class="pCellBody">
+dateTime
+</div>
+</td>
+    <td><a name="wp545698"> </a><div class="pCellBody">
+dateTime
+</div>
+</td>
+    <td><a name="wp537907"> </a><div class="pCellBody">
+SQL_TYPE_TIMESTAMP
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537909"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp545700"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp537911"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537913"> </a><div class="pCellBody">
+i1	
+</div>
+</td>
+    <td><a name="wp545702"> </a><div class="pCellBody">
+i1
+</div>
+</td>
+    <td><a name="wp537915"> </a><div class="pCellBody">
+SQL_TINYINT SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537917"> </a><div class="pCellBody">
+i2
+</div>
+</td>
+    <td><a name="wp545704"> </a><div class="pCellBody">
+i2
+</div>
+</td>
+    <td><a name="wp537919"> </a><div class="pCellBody">
+SQL_SMALLINT SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537925"> </a><div class="pCellBody">
+i4	
+</div>
+</td>
+    <td><a name="wp545706"> </a><div class="pCellBody">
+i4
+</div>
+</td>
+    <td><a name="wp537927"> </a><div class="pCellBody">
+SQL_INTEGER SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537921"> </a><div class="pCellBody">
+int
+</div>
+</td>
+    <td><a name="wp545708"> </a><div class="pCellBody">
+int
+</div>
+</td>
+    <td><a name="wp537923"> </a><div class="pCellBody">
+SQL_INTEGER SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537929"> </a><div class="pCellBody">
+number
+</div>
+</td>
+    <td><a name="wp545710"> </a><div class="pCellBody">
+number
+</div>
+</td>
+    <td><a name="wp537931"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537933"> </a><div class="pCellBody">
+r4
+</div>
+</td>
+    <td><a name="wp545712"> </a><div class="pCellBody">
+r4
+</div>
+</td>
+    <td><a name="wp537935"> </a><div class="pCellBody">
+SQL_REAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537937"> </a><div class="pCellBody">
+r8	
+</div>
+</td>
+    <td><a name="wp545714"> </a><div class="pCellBody">
+r8
+</div>
+</td>
+    <td><a name="wp537939"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537941"> </a><div class="pCellBody">
+singleChar
+</div>
+</td>
+    <td><a name="wp545716"> </a><div class="pCellBody">
+singleChar
+</div>
+</td>
+    <td><a name="wp537943"> </a><div class="pCellBody">
+SQL_SMALLINT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545740"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp545742"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp545744"> </a><div class="pCellBody">
+SQL_WLONGVARCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537945"> </a><div class="pCellBody">
+time
+</div>
+</td>
+    <td><a name="wp545718"> </a><div class="pCellBody">
+time
+</div>
+</td>
+    <td><a name="wp537947"> </a><div class="pCellBody">
+SQL_TYPE_TIME
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537949"> </a><div class="pCellBody">
+ui1	
+</div>
+</td>
+    <td><a name="wp545720"> </a><div class="pCellBody">
+ui1
+</div>
+</td>
+    <td><a name="wp537951"> </a><div class="pCellBody">
+SQL_TINYINT UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537953"> </a><div class="pCellBody">
+ui2	
+</div>
+</td>
+    <td><a name="wp545722"> </a><div class="pCellBody">
+ui2
+</div>
+</td>
+    <td><a name="wp537955"> </a><div class="pCellBody">
+SQL_SMALLINT UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp537957"> </a><div class="pCellBody">
+ui4
+</div>
+</td>
+    <td><a name="wp545724"> </a><div class="pCellBody">
+ui4
+</div>
+</td>
+    <td><a name="wp537959"> </a><div class="pCellBody">
+SQL_INTEGER UNSIGNED
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp545825"> </a><p class="pBody">
+
+</p>
+<a name="wp550417"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp545829"> </a><div class="pTableTitleBold">
+Table 16-4.  ADO 2.5 Persisted Files Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp545835"> </a><div class="pCellHeading">
+ADO 2.5 Persisted Files
+</div>
+</th>
+    <th><a name="wp545837"> </a><div class="pCellHeading">
+Internal XML Name
+</div>
+</th>
+    <th><a name="wp545839"> </a><div class="pCellHeading">
+<br />ODBC
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp546016"> </a><div class="pCellBody">
+binhex	
+</div>
+</td>
+    <td><a name="wp546018"> </a><div class="pCellBody">
+bin.hex
+</div>
+</td>
+    <td><a name="wp546020"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545847"> </a><div class="pCellBody">
+boolean	
+</div>
+</td>
+    <td><a name="wp545849"> </a><div class="pCellBody">
+boolean
+</div>
+</td>
+    <td><a name="wp545851"> </a><div class="pCellBody">
+SQL_BIT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545853"> </a><div class="pCellBody">
+currency	
+</div>
+</td>
+    <td><a name="wp545855"> </a><div class="pCellBody">
+fixed.14.4
+</div>
+</td>
+    <td><a name="wp545857"> </a><div class="pCellBody">
+SQL_DECIMAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545859"> </a><div class="pCellBody">
+date
+</div>
+</td>
+    <td><a name="wp545861"> </a><div class="pCellBody">
+date
+</div>
+</td>
+    <td><a name="wp545863"> </a><div class="pCellBody">
+SQL_TYPE_DATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545865"> </a><div class="pCellBody">
+dateTime
+</div>
+</td>
+    <td><a name="wp545867"> </a><div class="pCellBody">
+dateTime
+</div>
+</td>
+    <td><a name="wp545869"> </a><div class="pCellBody">
+SQL_TYPE_TIMESTAMP
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545871"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp545873"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp545875"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545877"> </a><div class="pCellBody">
+i1	
+</div>
+</td>
+    <td><a name="wp545879"> </a><div class="pCellBody">
+i1
+</div>
+</td>
+    <td><a name="wp545881"> </a><div class="pCellBody">
+SQL_TINYINT SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545883"> </a><div class="pCellBody">
+i2
+</div>
+</td>
+    <td><a name="wp545885"> </a><div class="pCellBody">
+i2
+</div>
+</td>
+    <td><a name="wp545887"> </a><div class="pCellBody">
+SQL_SMALLINT SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545889"> </a><div class="pCellBody">
+i4	
+</div>
+</td>
+    <td><a name="wp545891"> </a><div class="pCellBody">
+i4
+</div>
+</td>
+    <td><a name="wp545893"> </a><div class="pCellBody">
+SQL_INTEGER SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545988"> </a><div class="pCellBody">
+i8
+</div>
+</td>
+    <td><a name="wp545990"> </a><div class="pCellBody">
+i8
+</div>
+</td>
+    <td><a name="wp545992"> </a><div class="pCellBody">
+SQL_BIGINT SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545895"> </a><div class="pCellBody">
+int
+</div>
+</td>
+    <td><a name="wp545897"> </a><div class="pCellBody">
+int
+</div>
+</td>
+    <td><a name="wp545899"> </a><div class="pCellBody">
+SQL_INTEGER UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545901"> </a><div class="pCellBody">
+number
+</div>
+</td>
+    <td><a name="wp545903"> </a><div class="pCellBody">
+number
+</div>
+</td>
+    <td><a name="wp545905"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545907"> </a><div class="pCellBody">
+r4
+</div>
+</td>
+    <td><a name="wp545909"> </a><div class="pCellBody">
+r4
+</div>
+</td>
+    <td><a name="wp545911"> </a><div class="pCellBody">
+SQL_REAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545913"> </a><div class="pCellBody">
+r8	
+</div>
+</td>
+    <td><a name="wp545915"> </a><div class="pCellBody">
+r8
+</div>
+</td>
+    <td><a name="wp545917"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545919"> </a><div class="pCellBody">
+singleChar
+</div>
+</td>
+    <td><a name="wp545921"> </a><div class="pCellBody">
+singleChar
+</div>
+</td>
+    <td><a name="wp545923"> </a><div class="pCellBody">
+SQL_SMALLINT SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545931"> </a><div class="pCellBody">
+time
+</div>
+</td>
+    <td><a name="wp545933"> </a><div class="pCellBody">
+time
+</div>
+</td>
+    <td><a name="wp545935"> </a><div class="pCellBody">
+SQL_TYPE_TIME
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545937"> </a><div class="pCellBody">
+ui1	
+</div>
+</td>
+    <td><a name="wp545939"> </a><div class="pCellBody">
+ui1
+</div>
+</td>
+    <td><a name="wp545941"> </a><div class="pCellBody">
+SQL_TINYINT UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545943"> </a><div class="pCellBody">
+ui2	
+</div>
+</td>
+    <td><a name="wp545945"> </a><div class="pCellBody">
+ui2
+</div>
+</td>
+    <td><a name="wp545947"> </a><div class="pCellBody">
+SQL_SMALLINT UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp545949"> </a><div class="pCellBody">
+ui4
+</div>
+</td>
+    <td><a name="wp545951"> </a><div class="pCellBody">
+ui4
+</div>
+</td>
+    <td><a name="wp545953"> </a><div class="pCellBody">
+SQL_INTEGER UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546000"> </a><div class="pCellBody">
+ui8
+</div>
+</td>
+    <td><a name="wp546002"> </a><div class="pCellBody">
+ui8
+</div>
+</td>
+    <td><a name="wp546004"> </a><div class="pCellBody">
+SQL_BIGINT UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp576275"> </a><div class="pCellBody">
+wchar
+</div>
+</td>
+    <td><a name="wp576277"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp576279"> </a><div class="pCellBody">
+SQL_CHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546034"> </a><div class="pCellBody">
+wchar
+</div>
+</td>
+    <td><a name="wp546036"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp546038"> </a><div class="pCellBody">
+SQL_WCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp576269"> </a><div class="pCellBody">
+wlvarchar
+</div>
+</td>
+    <td><a name="wp576271"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp576273"> </a><div class="pCellBody">
+SQL_WLONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546028"> </a><div class="pCellBody">
+wvarchar
+</div>
+</td>
+    <td><a name="wp546030"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp546032"> </a><div class="pCellBody">
+SQL_WVARCHAR
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp550529"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp546598"> </a><div class="pTableTitleBold">
+Table 16-5.  DataDirect Format Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp546604"> </a><div class="pCellHeading">
+<br />DataDirect 
+</div>
+</th>
+    <th><a name="wp546606"> </a><div class="pCellHeading">
+Internal XML Name
+</div>
+</th>
+    <th><a name="wp546608"> </a><div class="pCellHeading">
+<br />ODBC
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp546610"> </a><div class="pCellBody">
+binary	
+</div>
+</td>
+    <td><a name="wp546612"> </a><div class="pCellBody">
+binary
+</div>
+</td>
+    <td><a name="wp546614"> </a><div class="pCellBody">
+SQL_BINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546616"> </a><div class="pCellBody">
+boolean	
+</div>
+</td>
+    <td><a name="wp546618"> </a><div class="pCellBody">
+boolean
+</div>
+</td>
+    <td><a name="wp546620"> </a><div class="pCellBody">
+SQL_BIT
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546622"> </a><div class="pCellBody">
+byte
+</div>
+</td>
+    <td><a name="wp546624"> </a><div class="pCellBody">
+byte
+</div>
+</td>
+    <td><a name="wp546626"> </a><div class="pCellBody">
+SQL_TINYINT SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546628"> </a><div class="pCellBody">
+date
+</div>
+</td>
+    <td><a name="wp546630"> </a><div class="pCellBody">
+date
+</div>
+</td>
+    <td><a name="wp546632"> </a><div class="pCellBody">
+SQL_TYPE_DATE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546634"> </a><div class="pCellBody">
+decimal
+</div>
+</td>
+    <td><a name="wp546636"> </a><div class="pCellBody">
+decimal
+</div>
+</td>
+    <td><a name="wp546638"> </a><div class="pCellBody">
+SQL_NUMERIC
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546640"> </a><div class="pCellBody">
+double
+</div>
+</td>
+    <td><a name="wp546642"> </a><div class="pCellBody">
+double
+</div>
+</td>
+    <td><a name="wp546644"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546646"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp546648"> </a><div class="pCellBody">
+float
+</div>
+</td>
+    <td><a name="wp546650"> </a><div class="pCellBody">
+SQL_REAL
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546652"> </a><div class="pCellBody">
+int
+</div>
+</td>
+    <td><a name="wp546654"> </a><div class="pCellBody">
+int
+</div>
+</td>
+    <td><a name="wp546656"> </a><div class="pCellBody">
+SQL_INTEGER UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546658"> </a><div class="pCellBody">
+long
+</div>
+</td>
+    <td><a name="wp546660"> </a><div class="pCellBody">
+long
+</div>
+</td>
+    <td><a name="wp546662"> </a><div class="pCellBody">
+SQL_BIGINT SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546664"> </a><div class="pCellBody">
+lvarbinary
+</div>
+</td>
+    <td><a name="wp546666"> </a><div class="pCellBody">
+binary
+</div>
+</td>
+    <td><a name="wp546668"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546670"> </a><div class="pCellBody">
+short
+</div>
+</td>
+    <td><a name="wp546672"> </a><div class="pCellBody">
+short
+</div>
+</td>
+    <td><a name="wp546674"> </a><div class="pCellBody">
+SQL_SMALLINT SIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546676"> </a><div class="pCellBody">
+time
+</div>
+</td>
+    <td><a name="wp546678"> </a><div class="pCellBody">
+time
+</div>
+</td>
+    <td><a name="wp546680"> </a><div class="pCellBody">
+SQL_TYPE_TIME
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546682"> </a><div class="pCellBody">
+timeInstant	
+</div>
+</td>
+    <td><a name="wp546684"> </a><div class="pCellBody">
+timeInstant
+</div>
+</td>
+    <td><a name="wp546686"> </a><div class="pCellBody">
+SQL_TYPE_TIMESTAMP
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546688"> </a><div class="pCellBody">
+unsignedByte
+</div>
+</td>
+    <td><a name="wp546690"> </a><div class="pCellBody">
+unsignedByte
+</div>
+</td>
+    <td><a name="wp546692"> </a><div class="pCellBody">
+SQL_TINYINT UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546694"> </a><div class="pCellBody">
+unsignedInt
+</div>
+</td>
+    <td><a name="wp546696"> </a><div class="pCellBody">
+unsignedInt
+</div>
+</td>
+    <td><a name="wp546698"> </a><div class="pCellBody">
+SQL_INTEGER UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546700"> </a><div class="pCellBody">
+unsignedLong
+</div>
+</td>
+    <td><a name="wp546702"> </a><div class="pCellBody">
+unsignedLong
+</div>
+</td>
+    <td><a name="wp546704"> </a><div class="pCellBody">
+SQL_BIGINT UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546706"> </a><div class="pCellBody">
+unsignedShort
+</div>
+</td>
+    <td><a name="wp546708"> </a><div class="pCellBody">
+unsignedShort
+</div>
+</td>
+    <td><a name="wp546710"> </a><div class="pCellBody">
+SQL_SMALLINT UNSIGNED
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546712"> </a><div class="pCellBody">
+varbinary
+</div>
+</td>
+    <td><a name="wp546714"> </a><div class="pCellBody">
+binary
+</div>
+</td>
+    <td><a name="wp546716"> </a><div class="pCellBody">
+SQL_VARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp576281"> </a><div class="pCellBody">
+wchar
+</div>
+</td>
+    <td><a name="wp576283"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp576285"> </a><div class="pCellBody">
+SQL_CHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546718"> </a><div class="pCellBody">
+wchar
+</div>
+</td>
+    <td><a name="wp546720"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp546722"> </a><div class="pCellBody">
+SQL_WCHAR
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp576258"> </a><div class="pCellBody">
+wlvarchar
+</div>
+</td>
+    <td><a name="wp576260"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp576262"> </a><div class="pCellBody">
+SQL_WLONGVARBINARY
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp546724"> </a><div class="pCellBody">
+wvarchar
+</div>
+</td>
+    <td><a name="wp546726"> </a><div class="pCellBody">
+string
+</div>
+</td>
+    <td><a name="wp546728"> </a><div class="pCellBody">
+SQL_WVARCHAR
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp590880"> </a><p class="pBody">
+See <a  href="Rstart9.html#wp596069">&quot;Retrieving Data Type Information&quot;</a> for more information about data types.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

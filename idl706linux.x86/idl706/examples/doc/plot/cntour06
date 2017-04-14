@@ -1,0 +1,40 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/plot/cntour06#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a contour plot and a 2-D plot using
+; a three-dimensional transformation. This example is from
+; Chapter 11, "Plotting Multi-dimensional Arrays", of _Using IDL_.
+
+; Create the Z variable
+Z = SHIFT(DIST(40), 20, 20)
+Z = EXP(-(Z/10)^2)
+
+; NX and NY are the X and Y dimensions of the Z array
+NX = (SIZE(Z))(1)
+NY = (SIZE(Z))(2)
+
+; Set up !P.T with default SURFACE transformation.
+SCALE3
+
+; Define the three-dimensional plot window: x = 0.1 to 1, Y=0.1 to 1,
+; and z = 0 to 1.
+POS=[.1, .1, 1, 1, 0, 1]
+
+; Make the stacked contours. Use 10 contour levels. 
+CONTOUR, Z, /T3D, NLEVELS=10, /NOCLIP, POSIT=POS, CHARSIZE=2
+
+; Swap y and z axes. The original xyz system is now xzy.
+T3D, /YZEXCH
+
+; Plot the column sums in front of the contour plot.
+PLOT, Z#REPLICATE(1., NY), /NOERASE, /NOCLIP, /T3D, $
+    TITLE='COLUMN SUMS', POSITION = POS, CHARSIZE = 2
+
+; Swap x and z-original xyz is now yzx
+T3D, /XZEXCH
+
+; Plot the row sums along the right side of the contour plot. 
+PLOT, REPLICATE(1., NX)#Z, /NOERASE, /T3D, /NOCLIP, $
+    TITLE = 'ROW SUMS', POSITION = POS, CHARSIZE = 2

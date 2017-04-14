@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="CVS dallarının birleştirilmesi">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+      Bu yardımcı bilgi yaprağı, bir CVS dalındaki değişiklikliklerin diğer bir
+      dalda ya da HEAD düğümünde birleştirilmesini gösterir. Herhangi bir aşamada
+      yardıma gerek duyarsanız, sağdaki (?) simgesini tıklatın
+.
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Dal ve sürüm bilgilerinin belirlenmesi">
+    <description>
+      İlk adım, <b>hangi</b> iki dalın birleştirileceğine, içeriğin hangi <b>sürümde</b>
+      dallandırıldığına ve <b>hedef</b> dalın hangisi olacağına (birleştirmenin
+      sonucunun nereye konacağına) karar vermektir.
+Bu bilgiler sağlandıktan sonra
+      sonraki adıma geçilebilir.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Projenin dışarı alınması">
+    <description>
+      Birleştirmeden önce, birleştirmek istediğini projeyi <b>dışarı almanız</b>
+      ve çalışma alanınıza getirmeniz gerekir. Bunu içe aktarma sihirbazıyla
+      ya da CVS Havuzunu Keşfet perspektifinden havuzunuzu ekleyerek yapabilirsiniz.
+      Ya da yardım almak için (?) düğmesini tıklatın.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="Hedefin çalışma alanınıza yüklenmesi">
+    <description>
+      Dolaşma aracında projeyi farenin sağ düğmesiyle tıklatın ve Bununla Değiştir &gt;
+      Başka Bir Dal ya da Sürüm öğelerini seçin. Hedef dalı seçin. Dalın en yeni
+      içeriği çalışma alanınıza yüklenir.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Ayrıntıların birleştirilmesi">
+    <description>
+      Dolaşma aracında projeyi farenin sağ düğmesiyle tıklatıp <b>Ekip</b> &gt; <b>Birleşir</b>
+      öğelerini seçin ve sihirbazdaki adımları tamamlayın. Bu sihirbazda birleştirmenin
+      ayrıntılarını belirtirsiniz.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Birleştirme düzenleyicisiyle çalışılması">
+    <description>
+      Birleştirme düzenleyicisinde değişiklikleri el ile birleştirin. Bu
+      adım, gerekli değişiklikleri çalışma alanına yükler. Tüm değişiklikleri
+      birleştirdikten sonra sonuçtan hoşnutsanız sonrak adıma geçin.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Değişikliklerinizin kesinleştirilmesi">
+    <description>
+      Projeyi farenin sağ düğmesiyle tıklatıp <b>Ekip</b> &gt; <b>Havuzla Uyumlulaştır</b>
+      öğelerini seçin ve havuzda tüm değişiklikleri kesinleştirin. Bu adım, değişikliklerin
+      çalışma alanından CVS havuzuna aktarılmasını tamamlar ve birleştirmeyi kesinleştirir.
+    </description>
+  </item>
+
+</cheatsheet>

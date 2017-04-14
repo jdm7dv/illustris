@@ -1,0 +1,18 @@
+uniform sampler2D Clouds;
+uniform sampler2D _IDL_ImageTexture;
+uniform vec2 Scrape;
+
+void main()
+{
+	vec3 clouds  = vec3(texture2D(Clouds, gl_TexCoord[0].st).r);
+	vec3 daytime = texture2D(_IDL_ImageTexture, gl_TexCoord[0].st).rgb;
+
+	vec3 color = daytime;
+	vec2 f = Scrape - gl_TexCoord[0].st; 
+	f.s *= 2.0;  // aspect ratio correction
+
+	if (length(f) > 0.02)
+		color = mix(daytime, clouds, clouds.r);
+
+	gl_FragColor = vec4(color, 1.0);
+}

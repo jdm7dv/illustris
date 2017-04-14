@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:30:04">
+    <title>Volume Rendering</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_uscensus.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_people.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1005471"> </a><h2 class="pHeading1">
+Volume Rendering
+</h2>  
+
+<a name="wp1005473"> </a><p class="pBody">
+This program shows two separate visualizations using IDL's volume rendering capabilities.
+</p>  
+
+<a name="wp1005474"> </a><h5 class="pHeading4">
+Dual Volume PET MRI visualization
+</h5>  
+
+<a name="wp1005475"> </a><p class="pBody">
+The Dual Volume PET MRI visualization includes both registered positron emission tomography (PET) and magnetic resonance imaging (MRI) scans of a human brain. The demonstration modulates the values of one of the scans by the values of the other scan. The resolution of the PET and MRI brain data is 1mm in the X, Y and Z dimensions. 
+</p>  
+
+<a name="wp1005476"> </a><p class="pBody">
+The PET and MRI data sets were provided by Dr. Hanna Damasio and Dr. Thomas Grabowski, Department of Neurology, Division of Behavioral and Neurology and Cognitive Neuroscience, University of Iowa College of Medicine. 
+</p>  
+
+<a name="wp1005477"> </a><h5 class="pHeading4">
+Electron Probability Density visualization
+</h5>  
+
+<a name="wp1005478"> </a><p class="pBody">
+The Electron Probability Density visualization is a quantum mechanics calculation of a one-electron orbital of a four-iron, eight-sulfur cluster found in many natural proteins. The data is the squared magnitude of the wave-function `psi' at each point. This is the probability density of the electron at that point. The atoms are arranged in a cube of alternating iron and sulfur atoms, with sulfur and methyl (CH3) groups on the iron corners. This orbital, the highest occupied molecular orbital [HOMO], has high intensity joining two irons across a face diagonal. It is level 28a or level number 213. 
+</p>  
+
+<a name="wp1005479"> </a><p class="pBody">
+The quantum mechanics data is from Louis Noodleman and David Case, Scripps Clinic, La Jolla, California. 
+</p>  
+
+<a name="wp1005480"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1005481"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1005482"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit the demo and return to the main IDL Demo screen.
+</p>  
+
+<a name="wp1005483"> </a><h4 class="pHeading3">
+Options Menu
+</h4>  
+
+<a name="wp1005484"> </a><p class="pBody">
+Select &quot;Wire box&quot; to display (or hide) a rectangular box drawn around the rendered volume. 
+</p>  
+
+<a name="wp1005485"> </a><p class="pBody">
+Select &quot;Solid plane&quot; to display (or hide) a plane intersecting the rendered volume.
+</p>  
+
+<a name="wp1005486"> </a><p class="pBody">
+Select &quot;Axis lines&quot; to display (or hide) three orthogonal lines, one red, one green, and one blue. The lines intersect at the center of the volume. The red line represents the X axis, green represents Y, and blue represents Z. 
+</p>  
+
+<a name="wp1005487"> </a><p class="pBody">
+Select &quot;3D Cursor&quot; to display (or hide) a set of orthogonal lines drawn through the rendered volume The intersection of these lines can be moved by clicking the right mouse button on a rendered volume. (If you only have one mouse-button, and you are on a Macintosh computer, hold down the Command key while pressing the mouse button to simulate a &quot;right&quot; mouse-button press.) The new intersection will be shown the next time a volume is rendered. 
+</p>  
+
+<a name="wp1005488"> </a><h4 class="pHeading3">
+About Menu
+</h4>  
+
+<a name="wp1005489"> </a><p class="pBody">
+Select &quot;About volumes&quot; to display this text.
+</p>  
+
+<a name="wp1005490"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1005491"> </a><h4 class="pHeading3">
+Dual Volume PET MRI
+</h4>  
+
+<a name="wp1005492"> </a><p class="pBody">
+Select the human brain data set.
+</p>  
+
+<a name="wp1005493"> </a><h4 class="pHeading3">
+Electron Potential Cloud
+</h4>  
+
+<a name="wp1005494"> </a><p class="pBody">
+Select the an electron probability cloud data set.
+</p>  
+
+<a name="wp1005495"> </a><h4 class="pHeading3">
+Render Button
+</h4>  
+
+<a name="wp1005496"> </a><p class="pBody">
+Click on this button to execute rendering computations and display the current volume. If &quot;Auto-Render&quot; is on, this button will be grayed out. 
+</p>  
+
+<a name="wp1005497"> </a><h4 class="pHeading3">
+Auto-Render Button
+</h4>  
+
+<a name="wp1005498"> </a><p class="pBody">
+Select this option to have rendering executed automatically after each change you make to the volume or view. If &quot;Auto render&quot; is off, you must manually click the &quot;Render&quot; button to see changes you have made to a volume or view. If &quot;Auto-Render&quot; is on, the &quot;Render&quot; button will be grayed out. 
+</p>  
+
+<a name="wp1005499"> </a><h4 class="pHeading3">
+Gradient Shading Button
+</h4>  
+
+<a name="wp1005500"> </a><p class="pBody">
+A light object (i.e. an IDLgrLight) is shining directional light (parallel rays) on the rendered volumes in this demonstration program. To see the effect of this light, turn gradient shading on. Local gradients (computed at each voxel in the current volume) will reflect the light. When &quot;Gradient Shading&quot; is turned off, no effect from directional light can be seen. 
+</p>  
+
+<a name="wp1005501"> </a><p class="pBody">
+Note: Because normals must be computed for all voxels in a lighted view, enabling gradient shading increases the rendering time. 
+</p>  
+
+<a name="wp1005502"> </a><h4 class="pHeading3">
+PET Colors or Colors Droplist
+</h4>  
+
+<a name="wp1005503"> </a><p class="pBody">
+Depending on which of the &quot;Dual Volume PET MRI&quot; and &quot;Electron Probability Density&quot; volumes you have selected, a &quot;PET Colors&quot; droplist or a &quot;Colors&quot; droplist will be visible. Select from the current (visible) droplist to apply a color table to the current volume. 
+</p>  
+
+<a name="wp1005504"> </a><h4 class="pHeading3">
+PET opacities or Opacities
+</h4>  
+
+<a name="wp1005505"> </a><p class="pBody">
+Depending on which of the two volumes, &quot;Dual Volume PET MRI&quot; and &quot;Electron Probability Density&quot;, you have selected, a &quot;PET Opacities&quot; droplist or an &quot;Opacities&quot; droplist will be visible. Select from the current (visible) droplist to apply an opacity table to the current volume. 
+</p>  
+
+<a name="wp1005506"> </a><h4 class="pHeading3">
+Rendering Quality Radio buttons
+</h4>  
+
+<a name="wp1005507"> </a><p class="pBody">
+Select &quot;medium (faster)&quot; or &quot;high&quot; to affect the speed and accuracy of rendering.
+</p>  
+
+<a name="wp1005508"> </a><h4 class="pHeading3">
+Left Mouse-Button Action
+</h4>  
+
+<a name="wp1005509"> </a><p class="pBody">
+Select from this list of options to change how left-click-and-dragging in the graphic will change the view. 
+</p>  
+
+<a name="wp1005510"> </a><h4 class="pHeading3">
+Cutting Plane %
+</h4>  
+
+<a name="wp1005511"> </a><p class="pBody">
+Move the &quot;Cutting Plane %&quot; slider to cut away part of the volume in the volume's X dimension. The slider value shows a percentage of the distance from the current volume's front to the current volume's back.
+</p>  
+
+<a name="wp1005512"> </a><h4 class="pHeading3">
+Left-Click-and-dragging on the Graphic
+</h4>  
+
+<a name="wp1005513"> </a><p class="pBody">
+To change your view of the volume, position the mouse pointer in the graphics area, hold down the left mouse button, and drag the mouse. The current Left Mouse-Button Action will be applied as you drag. If you have the &quot;Auto-Render&quot; feature turned off, you will need to click the &quot;Render&quot; button to see the volume after you have changed your view. 
+</p>  
+
+<a name="wp1005514"> </a><p class="pBody">
+Tip: If you have the &quot;rotate in screen Z&quot; Left Mouse-Button Action selected, click and drag in a motion arcing about the center of the graphics area for consistent rotation speed. The farther from the center you make your arc, the slower the rotation. 
+</p>  
+
+<a name="wp1005515"> </a><h4 class="pHeading3">
+Right-clicking on the graphic.
+</h4>  
+
+<a name="wp1005516"> </a><p class="pBody">
+When the current volume is rendered, you can select voxels on the volume's exterior with the right mouse button. (If you only have one mouse-button, and you are on a Macintosh computer, hold down the Command key while pressing the mouse button to simulate a &quot;right&quot; mouse-button press.) The x-position, y-position, z-position, and voxel value for the currently selected voxel are displayed in the lower right panel beneath the graphics area. 
+</p>  
+
+<a name="wp1005517"> </a><h3 class="pHeading2">
+Hotkeys
+</h3>  
+
+
+<a name="wp1005518"> </a><p class="pBody">
+You can use your keyboard to select from the Left Mouse-Button Action menu. To select one of the rotation constraints type: 
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005519"> </a><div class="pSmartList1"><li>X</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005520"> </a><div class="pSmartList1"><li>Y</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005521"> </a><div class="pSmartList1"><li>Z</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005522"> </a><div class="pSmartList1"><li>R</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005523"> </a><div class="pSmartList1"><li>G</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005524"> </a><div class="pSmartList1"><li>B</li></div>  
+
+</ul></div>
+<a name="wp1005525"> </a><p class="pBody">
+To select &quot;Scale&quot; from the Left Mouse-Button Action menu, type:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005526"> </a><div class="pSmartList1"><li>S</li></div>  
+
+</ul></div>
+<a name="wp1005527"> </a><p class="pBody">
+To select &quot;Rotate Unconstrained&quot; from the Left Mouse-Button Action menu, type:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1005528"> </a><div class="pSmartList1"><li>U</li></div>  
+
+</ul></div>
+<a name="wp1005641"> </a><p class="pBody">
+
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

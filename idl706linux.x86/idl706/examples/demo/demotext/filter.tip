@@ -1,0 +1,7 @@
+2 3
+welcome|IDL contains a variety of filtering
+signal|capabilities. Fourier transforms can be
+dsp|applied to both plots and images.
+select|You can select how to display and process
+convolution|the data with the options below and
+slider|to the left of the processed image.

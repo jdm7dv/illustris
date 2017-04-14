@@ -1,0 +1,52 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc11#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a plot and a bandstop filter which suppresses
+; frequencies between 7 cycles per second and 15 cycles per second for
+; data sampled every 0.02 seconds, using the Hanning window.
+
+delt = 0.02 ; sampling period in seconds
+f_low = 15. ; frequencies above f_low will be passed
+f_high = 7. ; frequencies below f_high will be passed
+nfilt = 81 ; the length of the filter
+
+f_filt = FINDGEN(nfilt/2+1) / (nfilt*delt)
+
+; Pass frequencies greater than f_low or 
+; pass frequencies less than f_high.
+ideal_fr = (f_filt GT f_low) $ 
+        OR (f_filt LT F_high)  
+
+; Convert from byte to floating point
+ideal_fr = FLOAT(ideal_fr) 
+
+; Replicate to obtain values for negative frequencies:
+ideal_fr = [ideal_fr, REVERSE(ideal_fr(1:*))]
+
+; Now use an inverse FFT to get the impulse response 
+; of the ideal filter. The ideal_fr is an even function,
+; so the result is real.
+ideal_ir = FLOAT(FFT(ideal_fr, /INVERSE)) 
+
+; Scale by the # of points and shift it before applying the window.
+ideal_ir = ideal_ir / nfilt 
+ideal_ir = SHIFT(ideal_ir, nfilt/2)  
+
+; Apply a Hanning window to the shifted ideal impulse response. 
+; These are the coefficients of the filter.
+bs_ir_n = ideal_ir*HANNING(nfilt)
+
+; The frequency response of the filter is the FFT of 
+; its impulse response. Scale by the number of points.
+bs_fr_n = FFT(bs_ir_n) * nfilt 
+
+; Log plot of magnitude in dB. The mag of Hanning 
+; bandstop filter x'fer f'n
+mag = ABS(bs_fr_n(0:nfilt/2))   
+
+IPLOT, f_filt, 20*ALOG10(mag), YTITLE='Magnitude in dB', $
+    XTITLE='Frequency in cycles / second', /X_LOG, $
+    XRANGE=[1.0,1.0/(2.0*delt)], $
+    TITLE='Frequency Response for Bandstop FIR Filter (Hanning)'

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Изъять проект CVS">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+Эта памятка иллюстрирует процесс развертывания хранилища CVS и изъятия проекта.
+Для получения справки в любой момент можно нажать кнопку (?) справа.
+    </description>
+  </intro>
+
+  <item
+      title="Открыть проекцию Обзор хранилища CVS"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1h.htm">
+    <description>
+В главном меню выберите Окно &gt; Открыть проекцию &gt; Прочее..., затем выберите <b>Просмотр хранилищ CVS</b>.
+    </description>
+    <command
+        serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.cvs.ui.cvsPerspective)"
+        confirm="true">
+    </command>
+  </item>
+
+  <item
+      title="Добавление хранилища CVS"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-92.htm">
+    <description>
+На панели Хранилища CVS нажмите кнопку <b>Добавить хранилище CVS</b> на панели инструментов.
+Укажите расположение и идентификационную информацию для хранилища.
+Например, для того чтобы использовать хранилище <b>eclipse</b>, введите следующее:<br/>
+      <br/>
+Хост: dev.eclipse.org<br/>
+Путь к хранилищу: /home/eclipse<br/>
+Пользователь: anonymous<br/>
+Тип соединения: pserver<br/>
+      <br/>
+Примите значения по умолчанию для остальных параметров и нажмите Готово.
+    </description>
+  </item>
+
+  <item
+      title="Поиск проекта"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-1i.htm">
+    <description>
+Разверните узел <b>HEAD</b> в добавленном хранилище и найдите проект, который необходимо
+изъять (например, исходный код для памяток находится в org.eclipse.ui.cheatsheets).
+    </description>
+  </item>
+
+  <item
+      title="Изъятие проекта"
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm">
+    <description>
+Щелкните правой кнопкой на проекте, который необходимо изъять, и выберите <b>Изъять</b>.
+Текущее содержимое будет загружено из хранилища в рабочую область.
+    </description>
+  </item>
+
+  <item
+      title="Просмотр рабочей области"
+      href="/org.eclipse.platform.doc.isv/guide/resInt_workspace.htm">
+    <description>
+Для того чтобы увидеть проект в рабочей области, переключитесь на проекцию <b>Ресурс</b>,
+выбрав Окно &gt; Открыть проекцию &gt; Ресурс. Проект будет показан в панели
+<b>Навигатор</b>. Теперь вы можете работать с проектом и просматривать его содержимое.
+    </description>
+  </item>
+
+</cheatsheet>

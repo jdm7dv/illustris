@@ -1,0 +1,263 @@
+#!/bin/sh 
+#
+#	$Id: //depot/idl/IDL_70/idldir/bin/unix/post_unpack#3 $
+#
+# unpack_idl
+#
+# This script expects to be run from the top level ITT directory
+# after IDL has been unpacked from the distribution media. It performs
+# tasks that need to be run on the target machine to complete localization.
+#
+#	$1 - If $1 is non-empty, this script assumes that it's being
+#	     run directly from the tty and offers the user the option
+#	     of trimming excess binaries from the IDL tree. Otherwise, it
+#	     limits itself to non-interactive setup tasks.
+
+VERSION=706
+
+IDL_DIR=`pwd`/idl$VERSION
+IDL_BIN=$IDL_DIR/bin
+IDL_OBJBRIDGE_DIR=$IDL_DIR/resource/bridges/import/java
+SCRIPT=`basename $0`
+UDIR=`pwd`
+ITT_DIR=`pwd`
+UNAME=`uname`
+
+# Generate idldemo command.
+echo "#! /bin/sh
+# Defines the environment variables required to get an unlicensed IDL
+# residing in a non-standard location up and running the IDL demo. This
+# lets people give IDL a quick demo without having to get installation
+# and license management done first.
+#
+
+if [ \"\$IDL_DIR\" = \"\" ]; then
+    IDL_DIR=$IDL_DIR
+    export IDL_DIR
+fi
+
+IDL_DEVICE=X
+export IDL_DEVICE
+
+if [ ! -f \$IDL_DIR/lib/hook/demo.sav ]; then
+   echo \"	The IDL Demos have not been installed.  Please consult the
+	installation guide for instructions on installing the demos.\"
+   exit 0
+fi
+
+
+\$IDL_DIR/bin/idl "\$*" -em=\$IDL_DIR/lib/hook/demo.sav" > $IDL_BIN/idldemo
+chmod 755 $IDL_BIN/idldemo
+
+# Generate ittlicense command.
+echo "#! /bin/sh
+# Executed the IDL-based ITT license wizard.
+#
+
+if [ \"\$IDL_DIR\" = \"\" ]; then
+    IDL_DIR=$IDL_DIR
+    export IDL_DIR
+fi
+
+IDL_DEVICE=X
+export IDL_DEVICE
+
+if [ ! -f \$IDL_DIR/lib/hook/ittlicense.sav ]; then
+   echo \"	The License wizard has not been installed.  Please consult the
+	installation guide for instructions on installing the Program Files.\"
+   exit 0
+fi
+
+# Define an environment variable to cache the real value of HOME
+# so that the ittlicense app can set HOME to this after IDL initialization
+# This is needed because we will be setting HOME to a temporary location
+# for IDL initialization to prevent creation of the user's .idl directory.
+ITTLICENSE_HOMEREAL=\$HOME
+export ITTLICENSE_HOMEREAL
+
+# Define a temporary home dir so that the IDL session running
+# ittlicense creates a temporary .idl directory instead of the
+# user's actual .idl directory. This is necessary since the user
+# installing IDL may have used sudo to get root permission, but
+# running IDL later without root permission would not be able to
+# access the .idl directory created by the session invoked with sudo.
+ITTLICENSE_HOMETMP=\$HOME/.ittlicense_tmp
+HOME=\$ITTLICENSE_HOMETMP
+export HOME
+ 
+\$IDL_DIR/bin/idl "\$*" -em=\$IDL_DIR/lib/hook/ittlicense.sav
+ 
+rm -r \$ITTLICENSE_HOMETMP" > $IDL_BIN/ittlicense
+
+chmod 755 $IDL_BIN/ittlicense
+
+# Create the shell scripts idl_setup and idl_setup.ksh which can be used
+# to set up the environment variables and aliases required by IDL
+# related commands (idl, idlde, idlhelp, idldemo) if the links to
+# the default directory (/usr/local/itt/idl) are not being used.
+#
+# C shell users should source idl_setup or envi_setup from their .cshrc files,
+# using the full path to the IDL directory as follows:
+#    source full_path_to_IDL_Directory/idl_setup
+# Korn shell users should run idl_setup.ksh or envi_setup.ksh from their
+# .profile file (using the ". idl_setup.ksh" notation), as follows:
+#    . full_path_to_IDL_Directory/idl_setup.ksh
+#
+
+echo "# C shell commands to define IDL environment variables and aliases.
+#
+# This script can be used by IDL users who use csh as their interactive shell
+# to define the environment variables and aliases required by IDL
+# related commands (idl, idlde, idlhelp, idldemo) if the symbolic links to
+# the default directory (/usr/local/itt/idl) are not being used.
+#
+# csh users should source idl_setup from their .cshrc files,
+# using the following command:
+#
+#    source $IDL_DIR/bin/idl_setup
+#
+
+setenv ITT_DIR $ITT_DIR
+setenv IDL_DIR $IDL_DIR
+alias ittlicense \$IDL_DIR/bin/ittlicense
+alias idl \$IDL_DIR/bin/idl
+alias idlde \$IDL_DIR/bin/idlde
+alias idlhelp \$IDL_DIR/bin/idlhelp
+alias idlman \$IDL_DIR/bin/idlman
+alias idlrpc \$IDL_DIR/bin/idlrpc
+alias idldemo \$IDL_DIR/bin/idldemo" > $IDL_BIN/idl_setup
+chmod 755 $IDL_BIN/idl_setup
+
+
+echo "# Korn shell commands to define IDL environment variables and aliases.
+#
+# This script can be used by IDL users who use ksh as their interactive shell
+# to define the environment variables and aliases required by IDL
+# related commands (idl, idlde, idlhelp, idldemo) if the symbolic links to
+# the default directory (/usr/local/itt/idl) are not being used.
+#
+# ksh users should run idl_setup from their .profile file 
+# using the following command:
+#
+#    . $IDL_DIR/bin/idl_setup.ksh
+#
+ITT_DIR=$ITT_DIR
+IDL_DIR=$IDL_DIR
+export IDL_DIR ITT_DIR
+alias -x ittlicense=\$IDL_DIR/bin/ittlicense
+alias -x idl=\$IDL_DIR/bin/idl
+alias -x idlde=\$IDL_DIR/bin/idlde
+alias -x idlhelp=\$IDL_DIR/bin/idlhelp
+alias -x idlman=\$IDL_DIR/bin/idlman
+alias -x idlrpc=\$IDL_DIR/bin/idlrpc
+alias -x idldemo=\$IDL_DIR/bin/idldemo" > $IDL_BIN/idl_setup.ksh
+chmod 755 $IDL_BIN/idl_setup.ksh
+
+
+echo "# Bash shell commands to define IDL environment variables and aliases.
+#
+# This script can be used by IDL users who use Bash as their interactive shell
+# to define the environment variables and aliases required by IDL
+# related commands (idl, idlde, idlhelp, idldemo) if the symbolic links to
+# the default directory (/usr/local/itt/idl) are not being used.
+#
+# Bash users should run idl_setup from their .profile file 
+# using the following command:
+#
+#    . $IDL_DIR/bin/idl_setup.bash
+#
+ITT_DIR=$ITT_DIR
+IDL_DIR=$IDL_DIR
+export IDL_DIR ITT_DIR
+alias ittlicense=\$IDL_DIR/bin/ittlicense
+alias idl=\$IDL_DIR/bin/idl
+alias idlde=\$IDL_DIR/bin/idlde
+alias idlhelp=\$IDL_DIR/bin/idlhelp
+alias idlman=\$IDL_DIR/bin/idlman
+alias idlrpc=\$IDL_DIR/bin/idlrpc
+alias idldemo=\$IDL_DIR/bin/idldemo" > $IDL_BIN/idl_setup.bash
+chmod 755 $IDL_BIN/idl_setup.bash
+
+# Run Connectivity bridge post_unpack script
+
+
+if [ -x $IDL_BIN/bridge_post_unpack ]; then
+  $IDL_BIN/bridge_post_unpack
+fi
+
+# Call script to generate the odbc.ini file for the platforms
+# which support it.
+if [ -x $IDL_BIN/gen_odbc_ini ]; then
+  $IDL_BIN/gen_odbc_ini $IDL_DIR SOLARIS2
+  $IDL_BIN/gen_odbc_ini $IDL_DIR LINUX
+fi
+
+# Update INSTALL_DIR in startapp/lmremove
+if [ -w $IDL_BIN/idl ]; then
+sed "s|INSTALL_DIR=.*|INSTALL_DIR=$ITT_DIR|" $IDL_BIN/idl.orig > $IDL_BIN/idl
+fi
+if [ -w $IDL_BIN/lmremove ]; then
+sed "s|INSTALL_DIR=.*|INSTALL_DIR=$ITT_DIR|" $IDL_BIN/idl.orig > $IDL_BIN/lmremove
+fi
+if [ -w $IDL_BIN/idlhelp ]; then
+sed "s|INSTALL_DIR=.*|INSTALL_DIR=$ITT_DIR|" $IDL_BIN/idl.orig > $IDL_BIN/idlhelp
+fi
+
+if [ -w $IDL_OBJBRIDGE_DIR ]; then
+  sed "s|.JAVABRIDGE_DIR|$IDL_OBJBRIDGE_DIR|g" $IDL_OBJBRIDGE_DIR/.idljavabrc.orig > $IDL_OBJBRIDGE_DIR/.idljavabrc
+fi
+
+if [ -f $IDL_BIN/sys5_idl_lmgrd.orig ]; then
+
+  sed "s|ITT_DIR=.*|ITT_DIR=$ITT_DIR|" $IDL_BIN/sys5_idl_lmgrd.orig > $IDL_BIN/sys5_idl_lmgrd
+
+  chmod 750 $IDL_BIN/sys5_idl_lmgrd
+fi
+
+if [ -f $IDL_BIN/sys5_idl_dicomexstorscp.orig ]; then
+
+  sed "s|ITT_DIR=.*|ITT_DIR=$ITT_DIR|" $IDL_BIN/sys5_idl_dicomexstorscp.orig > $IDL_BIN/sys5_idl_dicomexstorscp
+
+  chmod 750 $IDL_BIN/sys5_idl_dicomexstorscp
+fi
+
+if [ "$1" = "INTERACTIVE" ]; then
+
+  # How many sets of binaries are there?
+  NUM=0
+  for FILE in $IDL_BIN/bin.*; do
+    if [ $FILE != "*.tar.Z" ]; then
+      NUM=`expr $NUM + 1`
+    fi
+  done
+
+  echo "        This distribution supports $NUM operating
+         system/hardware combination(s).
+"
+
+  # If this distribution supports multiple OS/hardware combinations, offer
+  # to remove some of them to save room.
+  if [ $NUM != 1 ]; then
+    echo "
+        This distribution is able to support multiple hardware/operating
+        systems. This is done by providing multiple copies of the IDL
+        binaries. If you do not need all the combinations present,
+        you can remove the unwanted ones and save disk space. You will
+        now be given a description of each one and then asked if it
+        should be deleted.
+"
+    if [ `sh $IDL_BIN/yesno "Do you wish to remove excess binaries"` = 1 ]; then
+      for FILE in $IDL_BIN/bin.*; do
+        if [ -f $FILE/DESCRIP ]; then
+          echo " "
+          cat $FILE/DESCRIP
+          if [ `sh $IDL_BIN/yesno "Delete"` = 1 ]; then
+            echo "    Removing " $FILE
+            rm -r $FILE
+          fi
+        fi
+      done
+    fi
+  fi
+
+fi

@@ -1,0 +1,20 @@
+2 3
+welcome|IDL's mathematics and statistics
+showing|routines help you analyze your data
+feature|quickly and easily.
+integ|Compute the area under the curve
+curve|with integration.
+blank| 
+solve1|Click on the plot to select a point for
+solve2|which the equations should be solved.
+optim1|Click on the plot to select a point for
+optim2|which the local minimum is computed.
+regre1|Use the sliders to specify the number of
+regre2|outliers. The best fit for the data is 
+regre3|computed with two different methods.
+polyn1|Use the sliders to describe the data and 
+polyn2|degree of the polynomial to be fitted.
+polyn3|The best fit polynomial is shown.
+surfa1|Use the sliders to describe the data to
+surfa2|be randomly generated. The best fit
+surfa3|surface is shown.

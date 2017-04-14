@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+   This file is used in the example of the xmlstruct parser object
+   class, described in the "Using the XML Parser Object Class"
+   chapter of _Building IDL Applications_.
+-->
+
+<!DOCTYPE Solar_System [
+   <!ELEMENT Solar_System (Planet+)>
+   <!ELEMENT Planet (Orbit, Period, Moons)>
+   <!ATTLIST Planet NAME CDATA "Sol">
+   <!ELEMENT Orbit (#PCDATA)>
+   <!ATTLIST Orbit UNITS CDATA "kilometers">
+   <!ATTLIST Orbit TYPE CDATA "ulong64">
+   <!ELEMENT Period (#PCDATA)>
+   <!ATTLIST Period UNITS CDATA "kilometers">
+   <!ATTLIST Period TYPE CDATA "float">
+   <!ELEMENT Moons (#PCDATA)>
+   <!ATTLIST Moons TYPE CDATA "int">
+]>
+
+<Solar_System>  
+   <Planet NAME='Mercury'>
+      <Orbit UNITS='kilometers' TYPE='ulong64'>579100000</Orbit>
+      <Period UNITS='days' TYPE='float'>87.97</Period>
+      <Moons TYPE='int'>0</Moons>
+   </Planet>
+   <Planet NAME='Venus'>
+      <Orbit UNITS='kilometers' TYPE='ulong64'>108200000</Orbit>
+      <Period UNITS='days' TYPE='float'>224.70</Period>
+      <Moons TYPE='int'>0</Moons>
+   </Planet>
+   <Planet NAME='Earth'>
+      <Orbit UNITS='kilometers' TYPE='ulong64'>149600000</Orbit>
+      <Period UNITS='days' TYPE='float'>365.26</Period>
+      <Moons TYPE='int'>1</Moons>
+   </Planet>
+   <Planet NAME='Mars'>
+      <Orbit UNITS='kilometers' TYPE='ulong64'>227940000</Orbit>
+      <Period UNITS='days' TYPE='float'>686.98</Period>
+      <Moons TYPE='int'>2</Moons>
+   </Planet>
+   <Planet NAME='Jupiter'>
+      <Orbit UNITS='kilometers' TYPE='ulong64'>778330000</Orbit>
+      <Period UNITS='days' TYPE='float'>4332.71</Period>
+      <Moons TYPE='int'>16</Moons>
+   </Planet>
+   <Planet NAME='Saturn'>
+      <Orbit UNITS='kilometers' TYPE='ulong64'>1429400000</Orbit>
+      <Period UNITS='days' TYPE='float'>10759.50</Period>
+      <Moons TYPE='int'>18</Moons>
+   </Planet>
+   <Planet NAME='Uranus'>
+      <Orbit UNITS='kilometers' TYPE='ulong64'>2870990000</Orbit>
+      <Period UNITS='days' TYPE='float'>30685.00</Period>
+      <Moons TYPE='int'>21</Moons>
+   </Planet>
+   <Planet NAME='Neptune'>
+      <Orbit UNITS='kilometers' TYPE='ulong64'>4504300000</Orbit>
+      <Period UNITS='days' TYPE='float'>60190.00</Period>
+      <Moons TYPE='int'>8</Moons>
+   </Planet>
+   <Planet NAME='Pluto'>
+      <Orbit UNITS='kilometers' TYPE='ulong64'>5913520000</Orbit>
+      <Period UNITS='days' TYPE='float'>90800.00</Period>
+      <Moons TYPE='int'>1</Moons>
+   </Planet>
+</Solar_System>

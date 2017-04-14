@@ -1,0 +1,13 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc13#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file computes the coefficients of a discrete transfer
+; function used in the Infinite Impulse Respose filter example.
+
+delt = 0.02
+f0 = 6.5 ; notch frequency in cycles / second
+C = (1.0-!PI*f0*delt) / (1.0+!PI*f0*delt)
+B = [(1+C^2)/2, -2*C, (1+C^2)/2]
+A = [   C^2,    -2*C,     1    ]

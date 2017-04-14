@@ -1,0 +1,29 @@
+;if art_screen ne 'Visualization' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Return to Main Screen"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L} 
+;if art_screen ne 'Visualization' then demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Visualization"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:US Census Demo"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}
+D_USCENSUS_EVENT, {WIDGET_BUTTON, ID: demo_find_wid("D_Uscensus:animate"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb"), SELECT:            1L}
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+D_USCENSUS_EVENT, {WIDGET_TIMER, ID: demo_find_wid("D_Uscensus:controls_base"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+art_screen = 'Visualization'
+D_USCENSUS_EVENT, {WIDGET_KILL_REQUEST, ID: demo_find_wid("D_Uscensus:tlb"), TOP: demo_find_wid("D_Uscensus:tlb"), HANDLER: demo_find_wid("D_Uscensus:tlb") }
+;demoEvent, {WIDGET_BUTTON, ID: demo_find_wid("demo:Return to Main Screen"), TOP: demo_find_wid("demo:mainWinBase"), HANDLER: demo_find_wid("demo:mainWinBase"), SELECT:            1L}

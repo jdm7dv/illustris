@@ -1,0 +1,123 @@
+#!/bin/sh 
+#
+#       $Id: //depot/idl/IDL_70/idldir/bin/unix/www_install#2 $
+#
+# unpack
+#
+# This script expects to find a directory containing 
+# a ITT product distribution. When executed, it
+#  performs post unpack steps to complete the installation .
+#
+
+SCRIPT=`basename $0`
+
+INS_TYPE="IDL"
+PROD_VERSION=706
+IDL_VERSION=706
+ION_VERSION=64
+
+IDLDIR=`pwd`/idl$IDL_VERSION
+IDLBIN=`pwd`/idl$IDL_VERSION/bin
+IONDIR=`pwd`/idl$IDL_VERSION/products/ion$ION_VERSION
+
+TR=tr
+if [ -x /usr/bin/tr ]; then
+   TR=/usr/bin/tr
+fi
+
+
+if [ "$INS_TYPE" != "" ]; then
+  NAME=`echo $INS_TYPE | $TR '[a-z]' '[A-Z]'`
+  PRODUCT=`echo $INS_TYPE | $TR '[A-Z]' '[a-z]'`
+  if [ "$PRODUCT" != "idl" ]; then
+    LAYERED=1                   # There is product in the products directory
+    PRODDIR=${IDLDIR}/products/${PRODUCT}$PROD_VERSION
+    PRODBIN=${PRODDIR}/bin
+  fi
+fi
+
+
+
+
+if [ -f /etc/chown ]; then
+    CHOWN=/etc/chown
+else
+    CHOWN=/bin/chown
+fi
+
+
+if [ ! -x $IDLBIN/post_unpack ]; then
+  echo "
+    The current directory must be set to the ITT directory.
+    Change the default to the ITT directory and re-run
+    this script.
+        "
+  exit 1
+fi
+
+# Make sure whoami is found on Solaris
+PATH="$PATH:/usr/ucb"
+
+# logged in as root?
+if [ `whoami` = "root" ]; then
+  ROOT=1
+  # Preserve file modes in the tar files and ensure access to this directory.
+  umask 000
+  chmod o+rx-w .
+else
+  ROOT=0
+fi
+
+
+# logged in as root and files writable? Make files  belong to this account.
+if [ $ROOT = 1 -a -w . ]; then
+    $CHOWN -R root idl$IDL_VERSION > /dev/null 2>&1
+fi
+
+
+# Finish the unpack operation.
+$IDLBIN/post_unpack 
+
+
+# Finish the unpack operation for layered product
+if [ "$PRODUCT" != "idl" ]; then
+   $PRODBIN/post_unpack 
+fi
+
+if [ "$PRODUCT" != "idl" ]; then
+# Offer to run the install command now
+echo "
+        The $NAME version $PROD_VERSION tree has been unpacked. To complete
+        the installation, it is now necessary to execute the command:
+
+    ${PRODBIN}/install
+
+"
+if [ `sh $IDLBIN/yesno "Execute the install command now"` = 1 ]; then
+    ${PRODBIN}/install LICENSE
+fi
+
+else
+echo "
+        The IDL version $IDL_VERSION tree has been unpacked. To complete
+        the installation, it is now necessary to execute the command:
+
+    $IDLBIN/install
+
+"
+if [ `sh $IDLBIN/yesno "Execute the install command now"` = 1 ]; then
+  ./idl$IDL_VERSION/bin/install LICENSE
+fi
+fi
+
+
+if [ -x $IDLDIR/lib/dicomex ]; then
+   echo " "
+   if [ `sh $IDLBIN/yesno "Do you want to start the DICOM Network Services at boot time?  Root permissions are required."` = 1 ]; then
+          ./idl$IDL_VERSION/bin/dicomexstorscp_install
+   fi
+fi
+
+
+
+exit 0;

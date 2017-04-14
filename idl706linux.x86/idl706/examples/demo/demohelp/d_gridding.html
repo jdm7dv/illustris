@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:56">
+    <title>Gridding</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_globe.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_hydrogen.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004478"> </a><h2 class="pHeading1">
+Gridding
+</h2>  
+
+<a name="wp1004480"> </a><p class="pBody">
+This demo shows the gridding of unevenly spaced data and various interpolation methods.
+</p>  
+
+<a name="wp1004481"> </a><p class="pBody">
+A random set of data in 3D space is generated. The Delauney triangulation method connects the data, forming triangles. The triangulated data is then interpolated to a location in a 3D grid. IDL offers several interpolation techniques. 
+</p>  
+
+<a name="wp1004482"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004483"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004484"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit the Grid Demo and return to the IDL Demo main screen.
+</p>  
+
+<a name="wp1004485"> </a><h4 class="pHeading3">
+Data Menu
+</h4>  
+
+<a name="wp1004486"> </a><p class="pBody">
+Select &quot;Generate new data&quot; to create a new set of random data points (X, Y, Z).
+</p>  
+
+<a name="wp1004487"> </a><h4 class="pHeading3">
+Help Menu
+</h4>  
+
+<a name="wp1004488"> </a><p class="pBody">
+Select &quot;About interpolation and gridding&quot; for information about the Grid Demo.
+</p>  
+
+<a name="wp1004489"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1004490"> </a><h4 class="pHeading3">
+X-Y Point Locations
+</h4>  
+
+<a name="wp1004491"> </a><p class="pBody">
+Shows the X-Y locations of randomly-generated data points in 3D space.
+</p>  
+
+<a name="wp1004492"> </a><h4 class="pHeading3">
+Delauney Triangulation
+</h4>  
+
+<a name="wp1004493"> </a><p class="pBody">
+The random data points are connected using the Delauney triangulation method.
+</p>  
+
+<a name="wp1004494"> </a><h4 class="pHeading3">
+Bilinear Interpolation
+</h4>  
+
+<a name="wp1004495"> </a><p class="pBody">
+After the triangulation is performed, the data is interpolated linearly, generating a series of flat, interconnected surfaces. Data points located outside the outer edges of the triangulated surface are not interpolated. These points are assigned values of -20.
+</p>  
+
+<a name="wp1004496"> </a><h4 class="pHeading3">
+Quintic Interpolation
+</h4>  
+
+<a name="wp1004497"> </a><p class="pBody">
+After the triangulation is performed, the data is interpolated using the quintic method. Data points located outside the outer edges of the triangulated surface are not interpolated. These points are assigned values of -20. 
+</p>  
+
+<a name="wp1004498"> </a><h4 class="pHeading3">
+Smooth Interpolation
+</h4>  
+
+<a name="wp1004499"> </a><p class="pBody">
+After the triangulation is performed, the data is interpolated using the `Smooth' method, which computes a boxcar average, given a width. The result is a smooth continuous surface, without a skirt. Data outside the triangulated surface can be extrapolated. 
+</p>  
+
+<a name="wp1004500"> </a><h4 class="pHeading3">
+Kriging Interpolation
+</h4>  
+
+<a name="wp1004501"> </a><p class="pBody">
+Also known as `Optimal interpolation', this method uses an exponential scheme. It is widely accepted by the scientific community. The result is a smooth surface. Data outside the triangulated surface can be extrapolated. 
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

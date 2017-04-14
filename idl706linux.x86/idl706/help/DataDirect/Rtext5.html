@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:22" />
+  <title>Defining Table Structure</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp526649"> </a><h1 class="pNewHTMLPageNoNum">
+Defining Table Structure
+</h1>
+<hr /><a name="wp526654"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwine7.gif" height="31" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">Note that this section does not apply to the UNIX platforms. See <a  href="Rtext6.html#wp526714">&quot;Defining Table Structure on UNIX Platforms&quot;</a> for information on how to define table structure on the UNIX platforms.
+</p>
+<a name="wp526658"> </a><p class="pBody">
+Because text files do not all have the same structure, the driver provides the option of defining the structure of an existing file. Although defining the structure is not mandatory (the driver can attempt to guess the names and types of the columns), this feature is extremely useful.
+</p>
+<a name="wp526659"> </a><p class="pBody">
+Define the structure of a file as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp526660"> </a><div class="pSmartList1"><li>Display the ODBC Text Driver Setup dialog box through the ODBC Administrator. Click the <b class="cBold">Advanced</b> tab; then, click <b class="cBold">Define</b> to display the Define File dialog box.</li></div><a name="wp526669"> </a><div class="pSmartList1"><li>Select the correct file and click <b class="cBold">Open</b> to display the Define Table dialog box.</li></div><a name="wp526678"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Name:</b> This field displays the name of the database directory that you selected in the Define File dialog box.
+</p>
+<a name="wp526679"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">File:</b> This field displays the name of the file that you selected in the Define File dialog box.
+</p>
+<a name="wp526680"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Table:</b> Type a table name in the Table field. This name specifies the table name associated with the text file you selected earlier. The name can be a maximum of 32 characters and must be unique. This name is returned by SQLTables. By default, it is the file name without its extension (for example, Trc_read).
+</p>
+<a name="wp526681"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Column Names in First Line: </b>Select this check box if the first line of the file contains column names; otherwise, do not select this box.
+</p>
+<a name="wp526682"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Table Type:</b> Select the type of text file, either comma, tab, fixed, character, or stream.
+</p>
+<a name="wp526684"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Delimiter Character:</b> If the table type is Character, type the delimiter used in character-separated files. The value can be any printable character except single and double quotes.
+</p>
+<a name="wp526685"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Decimal Symbol:</b> Type the decimal separator used when data is stored. Valid values are a comma or a period. The international decimal symbol (.) must be used in DML statements and parameter buffers.
+</p>
+<a name="wp526686"> </a><div class="pSmartList1"><li>If you specified a comma-separated, tab-separated, or character-separated type in the Table Type field, the Guess/Parse button displays Guess. Click <b class="cBold">Guess</b> to have the driver guess at the column names and display them in the list box of the Column Information pane.</li></div><a name="wp526688"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you specified a fixed-length or stream type in the Table Type field, the Guess/Parse button displays Parse. Click <b class="cBold">Parse</b> to have the driver display the Parse Table dialog box and define the table columns.
+</p>
+<a name="wp526697"> </a><p class="pBodyIndent12pxBeforeAfter">
+This dialog box displays the first line of the file. You must mark where <span style="font-style: italic">each</span> field begins and ends by enclosing it in square brackets [ ]. These brackets indicate the position and length of each field value in the record. Click <b class="cBold">OK</b> to close the Parse Table dialog box. The driver will suggest column names in the list box of the Column Information pane.
+</p>
+<a name="wp526698"> </a><div class="pSmartList1"><li>If you do not want the driver to guess or parse, enter values in the following fields to define each column. Click <b class="cBold">Add</b> to add the column name to the Column Information box.</li></div><a name="wp526699"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Name:</b> Type the name of the column.
+</p>
+<a name="wp526700"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Type:</b> Select the data type of the column. If the field type is Date, the Mask field is enabled and you must select a date mask or type one in. See <a  href="Rtext7.html#wp526823">&quot;Date Masks&quot;</a> for more information.
+</p>
+<a name="wp535834"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Mask:</b> Select a date mask. If you selected Date for the Type field, you must select a date mask for the field or type one in. See <a  href="Rtext7.html#wp526823">&quot;Date Masks&quot;</a> for more information.
+</p>
+<a name="wp526704"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Precision:</b> Type the precision of the column. The precision of numeric data types is defined as the maximum number of digits used by the data type of the column. For character types, this is the length in characters of the data. Note that the precision and scale values determine how numeric data is to be returned.
+</p>
+<a name="wp526705"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Scale:</b> Type the scale of the column. The scale of numeric data types is defined as the maximum number of digits to the right of the decimal point. Note that the precision and scale values determine how numeric data is to be returned.
+</p>
+<a name="wp526706"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Length:</b> If you specified a fixed-length table type, type the length, which is the number of bytes the data takes up in storage.
+</p>
+<a name="wp526707"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Offset:</b> If you specified a fixed-length table type, type the offset, which is the number of bytes from the start of the table to the start of the field.
+</p>
+<a name="wp526708"> </a><div class="pSmartList1"><li>To modify an existing column definition, select the column name in the Column Information box. Modify the values for that column name; then, click <b class="cBold">Modify</b>.</li></div><a name="wp526709"> </a><div class="pSmartList1"><li>To delete an existing column definition, select a column name in the Column Information box and click <b class="cBold">Remove</b>.</li></div><a name="wp526710"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> to define the table.</li></div></ol></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

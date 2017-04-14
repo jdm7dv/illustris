@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:15" />
+  <title>Index Files</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp510386"> </a><h1 class="pNewHTMLPageNoNum">
+Index Files
+</h1>
+<hr /><a name="wp510392"> </a><p class="pBody">
+An index is used to read records in sorted order and to improve performance when selecting records and joining database files. Paradox indexes are stored in separate files and are either <em class="cEmphasis">primary</em> or <em class="cEmphasis">non-primary</em>.
+</p>
+<a name="wp510394"> </a><h3 class="pHeading2">
+Primary Index
+</h3>
+<a name="wp510398"> </a><p class="pBody">
+A primary index is made up of one or more fields from the Paradox database file. The primary key fields of a primary index consist of one or more consecutive fields in the database file, beginning with the first field in the database file. A database file can have only one primary index.
+</p>
+<a name="wp510400"> </a><p class="pBody">
+Collectively, the primary key fields uniquely identify each record in the Paradox database file. Thus, no two records in a Paradox database file can share the same values in their primary key fields. Once a primary index is created for a Paradox database file, the database file&#8217;s records are re-ordered based on the primary key fields. At the time a primary index is created, if any records have matching primary key field values, Paradox deletes all but the first record. Paradox creates this index as maintained; that is, if you modify, add, or delete records in the database file, the primary index is updated automatically to reflect these changes.
+</p>
+<a name="wp510402"> </a><p class="pBody">
+A primary index is a single file with the same name as the database file on which it is based but with a .PX extension.
+</p>
+<a name="wp510404"> </a><p class="pBody">
+To lock records, you must have a primary index.
+</p>
+<a name="wp510406"> </a><h3 class="pHeading2">
+Non-Primary Index
+</h3>
+<a name="wp510412"> </a><p class="pBody">
+Paradox 7, 8, 9, and 10 database files support UNIQUE secondary indexes. Refer to <a  href="Rparadox12.html#wp510424">&quot;Create and Drop Index Statements&quot;</a> for more information.
+</p>
+<a name="wp512721"> </a><p class="pBody">
+A non-primary index is defined by specifying one or more fields in the Paradox database file that constitute the non-primary key field. It allows Paradox to sort each record in the database file according to the values of the non-primary key fields.
+</p>
+<a name="wp510414"> </a><p class="pBody">
+There are two kinds of non-primary indexes: maintained and non-maintained. A maintained index is automatically updated when the database file is changed, whereas a non-maintained index is not. Instead, a non-maintained index is tagged out-of-date and is updated when the index is used again.
+</p>
+<a name="wp510416"> </a><p class="pBody">
+You must have a primary index on a database file before you create a maintained, non-primary index.
+</p>
+<a name="wp510418"> </a><p class="pBody">
+The Paradox driver uses non-maintained indexes only for read-only queries on locked database files. A primary index is not required for the non-maintained index to be used.
+</p>
+<a name="wp510420"> </a><p class="pBody">
+For Paradox 3.<em class="cEmphasis">x</em>, a single non-primary index consists of a pair of files with the same name as the database file on which the non-primary index is based; one of these files has an .X<em class="cEmphasis">nn</em> extension while the other has a .Y<em class="cEmphasis">nn</em> extension (where the hexadecimal number <em class="cEmphasis">nn</em> corresponds to the field number of the non-primary key field for the non-primary index).
+</p>
+<a name="wp510422"> </a><p class="pBody">
+For Paradox 4.<em class="cEmphasis">x</em>, 5, 7, 8, 9, and 10 single-field, non-primary indexes that are case-sensitive have the same name as their associated database file and are assigned file extensions .X01 through .XFF, depending on the number of the field on which the index is based. Single-field, non-primary indexes that are case insensitive and composite indexes have the same name as the database file on which they are based. They are assigned file extensions sequentially starting with .XG0 (with hexadecimal increments).
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

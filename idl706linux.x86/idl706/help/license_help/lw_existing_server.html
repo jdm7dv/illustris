@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="$RSI_UsesSymbol;">
+    <meta name="TEMPLATEBASE" content="Dynamic HTML">
+    <meta name="LASTUPDATED" content="03/10/08 11:18:55">
+    <title>Connecting to an Existing License Server</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+  <table width=100% cols=3 cellpadding="0">
+  <tr>
+  <td width=20% valign=top bgcolor="#E2E2E2" class="toc">
+  <h2  class="pHeading1">Table of Contents</h2>
+  <p class="pTOC1"><a href="lw_options.html">License Wizard Options</a></p>
+  <p class="pTOC1"><a href="lw_connecting.html">Using the Licensing Web Site</a></p>
+  <p class="pTOC1"><a href="lw_entering.html">Entering a License</a></p>
+  <p class="pTOC1"><a href="lw_existing_server.html">Connecting to an Existing License Server</a></p>
+  <p class="pTOC1"><a href="lw_trouble.html">Troubleshooting</a></p>
+  
+  </td>
+  <td width=1%>&nbsp;</td>
+  <td width=79% valign=top>
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom" >
+  <tr> 
+    <td width="10%">
+<a href="lw_entering.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<i></i>    </td>
+    <td width="10%" align="right">
+<a href="lw_complete_noserver.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp998640"> </a><h2 class="pHeading1">
+Connecting to an Existing License Server
+</h2><a name="wp998702"> </a><p class="pBody">
+If a license server for your product is already running on your organization's local network, you can connect to that license server without generating or retrieving a new license file for your machine. 
+</p>
+<a name="wp1000985"> </a><h3 class="pHeading2">
+Using the License Wizard
+</h3>
+<a name="wp1001053"> </a><p class="pBody">
+The easiest method is to place a copy of the server's <code class="cCode">license.dat</code> file in the <code class="cCode">license</code> subdirectory of your ITT product installation directory. If you have a copy of the <code class="cCode">license.dat</code> file, do the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+
+<a name="wp1001013"> </a><div class="pSmartList1"><li>
+Select <b class="cBold">Install a license you have received</b> from the main license wizard screen
+</li></div>
+<a name="wp1001025"> </a><div class="pSmartList1"><li>
+Select <b class="cBold">Activated License</b>
+</li></div>
+<a name="wp1001026"> </a><div class="pSmartList1"><li>
+Paste the text from your <code class="cCode">license.dat</code> file into the text area
+</li></div>
+<a name="wp1001027"> </a><div class="pSmartList1"><li>
+Click <b class="cBold">Next</b> and work through the remaining steps in the license wizard.
+</li></div>
+</ol></div>
+<a name="wp1000976"> </a><h3 class="pHeading2">
+Using an Environment Variable
+</h3>
+<a name="wp1001057"> </a><p class="pBody">
+Alternately, you can define the LM_LICENSE_FILE environment variable to specify the hostname and port used by the license server.
+</p>
+<a name="wp999797"> </a><br />
+<table border="0" bgcolor="#E2E2E2" cellpadding="5" width="98%">
+   <tr><td><b>Note</b><br />
+   Your organization may license multiple software products using the same license server. If the process outlined below does not allow you to get a license for your ITT product, consult the administrator of your organization's license server, or see the <i>Installation and Licensing Guide</i> in your product's online help system for additional details.</td></tr>
+</table>
+<br />
+
+<a name="wp999798"> </a><h4 class="pHeading3">
+Microsoft Windows
+</h4>
+<a name="wp999660"> </a><p class="pBody">
+To define the LM_LICENSE_FILE environment variable, do the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+
+<a name="wp999692"> </a><div class="pSmartList1"><li>
+Open the <b class="cBold">System</b> control panel.
+</li></div>
+<a name="wp999699"> </a><div class="pSmartList1"><li>
+Click the <b class="cBold">Advanced</b> tab, and click the <b class="cBold">Environment Variables</b> button. Click the <b class="cBold">New</b> button below the System Variables box and enter the following information:
+</li></div>
+<div class="pSmartList2"><ol type="A" class="pSmartList2">
+
+<a name="wp999700"> </a><div class="pSmartList2"><li>
+In the <b class="cBold">Variable Name</b> field, type LM_LICENSE_FILE in uppercase letters.
+</li></div>
+<a name="wp999701"> </a><div class="pSmartList2"><li>
+In the <b class="cBold">Variable Value</b> field, enter your server's<code class="cCode"> </code><i>port@host</i> value: for example, <code class="cCode">1700@hal</code>. This information is in your license file. The port number is the last number on the SERVER line. The host name immediately follows the word SERVER.
+</li></div>
+<a name="wp999702"> </a><p class="pIndentedRelative">
+If LM_LICENSE_FILE has already been defined for another software product, the definition of this license file can be appended using a semi-colon (;) as the delimiter. For example:
+</p>
+<pre class="pPreformatted">
+C:\Program Files\ITT\License\mylicense.dat;1700@hal
+</pre><a name="wp999780"> </a>
+
+</ol></div>
+<a name="wp999703"> </a><div class="pSmartList1"><li>
+Save the settings.
+</li></div>
+</ol></div>
+<a name="wp999661"> </a><p class="pBody">
+If you choose to copy the <code class="cCode">license.dat</code> file from the server to your local machine, place it in the license subdirectory of your ITT product directory. If the license directory does not already exist, you can create it. If your ITT product is installed in the default location, the license directory would be
+</p>
+<pre class="pPreformatted">
+C:\Program Files\ITT\License
+</pre><a name="wp999646"> </a>
+
+<a name="wp999647"> </a><h4 class="pHeading3">
+UNIX and Macintosh OS X
+</h4>
+<a name="wp999733"> </a><p class="pBody">
+To define the LM_LICENSE_FILE environment variable, do the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+
+<a name="wp999761"> </a><div class="pSmartList1"><li>
+Modify your <code class="cCode">.cshrc</code>, <code class="cCode">.profile</code>, or <code class="cCode">.bashrc</code> file using any text editor. You must define the UNIX environment variable for LM_LICENSE_FILE to point to the server and port of the machine running the license manager. The syntax for the defining the environment variable is:
+</li></div>
+<pre class="pPreformatted">
+port@host
+</pre><a name="wp999762"> </a>
+
+<a name="wp999767"> </a><p class="pIndentedRelative">
+For example, if you are running the license manager on a machine named &quot;hal&quot; with a port of 1700, then enter the following:
+</p>
+<a name="wp999768"> </a><p class="pIndentedRelative">
+For C shell: <code class="cCode">setenv LM_LICENSE_FILE 1700@hal</code>
+</p>
+<a name="wp999769"> </a><p class="pIndentedRelative">
+For Korn or Bash shell: <code class="cCode">export LM_LICENSE_FILE=1700@hal</code>
+</p>
+<a name="wp999808"> </a><p class="pIndentedRelative">
+If LM_LICENSE_FILE has already been defined for another software product, the definition of this license file can be appended using a colon (;) as the delimiter. For example:
+</p>
+<pre class="pPreformatted">
+/usr/local/myapplication/license.dat:1700@al
+</pre><a name="wp999809"> </a>
+
+<a name="wp999752"> </a><div class="pSmartList1"><li>
+Log out and log back in to execute the <code class="cCode">.cshrc</code>, <code class="cCode">.profile</code>, or <code class="cCode">.bashrc</code> file, or execute the file from the home directory using one of the following commands.
+</li></div>
+<a name="wp999753"> </a><p class="pIndentedRelative">
+For C shell: <code class="cCode">source .cshrc</code>
+</p>
+<a name="wp999754"> </a><p class="pIndentedRelative">
+For Korn shell: <code class="cCode">. .profile</code>
+</p>
+<a name="wp999755"> </a><p class="pIndentedRelative">
+For Bash shell: <code class="cCode">. .bashrc</code>
+</p>
+</ol></div>
+<a name="wp999669"> </a><p class="pBody">
+If you choose to copy the <code class="cCode">license.dat</code> file from the server to your local machine, place it in the license subdirectory of your ITT product directory. If the license directory does not already exist, you can create it. If your ITT product is installed in the default location, the license directory would be
+</p>
+<pre class="pPreformatted">
+/usr/local/ITT/license
+</pre><a name="wp999670"> </a>
+
+<a name="wp999679"> </a><p class="pBody">
+on a UNIX system, or
+</p>
+<pre class="pPreformatted">
+/Applications/ITT/license
+</pre><a name="wp999680"> </a>
+
+<a name="wp999681"> </a><p class="pBody">
+on a Macintosh system
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;ITT Visual Information Solutions (March 10, 2008)</FONT></P>
+  </td>
+  </tr>
+  </table>
+
+  </body>
+</html>

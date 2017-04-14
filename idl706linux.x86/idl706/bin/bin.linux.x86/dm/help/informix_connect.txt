@@ -1,0 +1,21 @@
+Logon to INFORMIX Dialog Box
+
+DATABASE NAME: Type the name of the database that you want to 
+access.
+
+HOST NAME: Type the name of the machine on which the INFORMIX 
+server resides.
+
+USER NAME: If required, type the name of the user as specified 
+on the INFORMIX server.
+
+PASSWORD: If required, type the user's password.
+
+OK
+Completes the logon and writes the values to the system 
+information.
+
+CANCEL
+Closes the dialog box without writing the values to the system 
+information.
+

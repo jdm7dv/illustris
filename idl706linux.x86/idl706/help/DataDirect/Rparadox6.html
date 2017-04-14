@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:15" />
+  <title>Data Types</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp516216"> </a><h1 class="pNewHTMLPageNoNum">
+Data Types
+</h1>
+<hr /><a name="wp516881"> </a><p class="pBody">
+<a  href="Rparadox6.html#wp521770">Table&#160;12-2</a> shows how the Paradox data types are mapped to the standard ODBC data types. It also identifies the types supported by Paradox versions 3.<em class="cEmphasis">x</em>, 4.<em class="cEmphasis">x</em>, and 5.<em class="cEmphasis">x</em> and higher. These Paradox data types can be used in a Create Table statement. See <a  href="Rparadox9.html#wp512606">&quot;Create Table Statement&quot;</a> for the syntax of the Create Table statement.
+</p>
+<a name="wp519884"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp521770"> </a><div class="pTableTitleBold">
+Table 12-2.  Paradox Data Types&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp521780"> </a><div class="pCellHeading">
+<br />Paradox
+</div>
+</th>
+    <th><a name="wp521782"> </a><div class="pCellHeading">
+<br />ODBC
+</div>
+</th>
+    <th><a name="wp521784"> </a><div class="pCellHeading">
+3.x Support
+</div>
+</th>
+    <th><a name="wp521786"> </a><div class="pCellHeading">
+4.x Support
+</div>
+</th>
+    <th><a name="wp521788"> </a><div class="pCellHeading">
+5.x and Higher Support
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp521790"> </a><div class="pCellBody">
+Alpha
+</div>
+</td>
+    <td><a name="wp521792"> </a><div class="pCellBody">
+SQL_CHAR
+</div>
+</td>
+    <td><a name="wp521794"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521796"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521798"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521800"> </a><div class="pCellBody">
+AutoIncrement
+</div>
+</td>
+    <td><a name="wp521802"> </a><div class="pCellBody">
+SQL_INTEGER
+</div>
+</td>
+    <td><a name="wp521804"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521806"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521808"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521810"> </a><div class="pCellBody">
+BCD
+</div>
+</td>
+    <td><a name="wp521812"> </a><div class="pCellBody">
+SQL_DECIMAL
+</div>
+</td>
+    <td><a name="wp521814"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521816"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521818"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521820"> </a><div class="pCellBody">
+Binary*
+</div>
+</td>
+    <td><a name="wp521822"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+    <td><a name="wp521824"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521826"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521828"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521830"> </a><div class="pCellBody">
+Bytes*
+</div>
+</td>
+    <td><a name="wp521832"> </a><div class="pCellBody">
+SQL_BINARY
+</div>
+</td>
+    <td><a name="wp521834"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521836"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521838"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521840"> </a><div class="pCellBody">
+Date
+</div>
+</td>
+    <td><a name="wp521842"> </a><div class="pCellBody">
+SQL_TYPE_DATE
+</div>
+</td>
+    <td><a name="wp521844"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521846"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521848"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521850"> </a><div class="pCellBody">
+Formatted Memo*
+</div>
+</td>
+    <td><a name="wp521852"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+    <td><a name="wp521854"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521856"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521858"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521860"> </a><div class="pCellBody">
+Graphic*
+</div>
+</td>
+    <td><a name="wp521862"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+    <td><a name="wp521864"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521866"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521868"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521870"> </a><div class="pCellBody">
+Logical*
+</div>
+</td>
+    <td><a name="wp521872"> </a><div class="pCellBody">
+SQL_BIT
+</div>
+</td>
+    <td><a name="wp521874"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521876"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521878"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521880"> </a><div class="pCellBody">
+Long Integer
+</div>
+</td>
+    <td><a name="wp521882"> </a><div class="pCellBody">
+SQL_INTEGER
+</div>
+</td>
+    <td><a name="wp521884"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521886"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521888"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521890"> </a><div class="pCellBody">
+Memo*
+</div>
+</td>
+    <td><a name="wp521892"> </a><div class="pCellBody">
+SQL_LONGVARCHAR
+</div>
+</td>
+    <td><a name="wp521894"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521896"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521898"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521900"> </a><div class="pCellBody">
+Money
+</div>
+</td>
+    <td><a name="wp521902"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+    <td><a name="wp521904"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521906"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521908"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521910"> </a><div class="pCellBody">
+Number
+</div>
+</td>
+    <td><a name="wp521912"> </a><div class="pCellBody">
+SQL_DOUBLE
+</div>
+</td>
+    <td><a name="wp521914"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521916"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521918"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521920"> </a><div class="pCellBody">
+OLE*
+</div>
+</td>
+    <td><a name="wp521922"> </a><div class="pCellBody">
+SQL_LONGVARBINARY
+</div>
+</td>
+    <td><a name="wp521924"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521926"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521928"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521930"> </a><div class="pCellBody">
+Short
+</div>
+</td>
+    <td><a name="wp521932"> </a><div class="pCellBody">
+SQL_SMALLINT
+</div>
+</td>
+    <td><a name="wp521934"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+    <td><a name="wp521936"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521938"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521940"> </a><div class="pCellBody">
+Time
+</div>
+</td>
+    <td><a name="wp521942"> </a><div class="pCellBody">
+SQL_TYPE_TIME
+</div>
+</td>
+    <td><a name="wp521944"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521946"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521948"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp521950"> </a><div class="pCellBody">
+TimeStamp
+</div>
+</td>
+    <td><a name="wp521952"> </a><div class="pCellBody">
+SQL_TYPE_TIMESTAMP
+</div>
+</td>
+    <td><a name="wp521954"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521956"> </a><div class="pCellBody">
+No
+</div>
+</td>
+    <td><a name="wp521958"> </a><div class="pCellBody">
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left">    <td colspan="5" rowspan="1"><a name="wp521960"> </a><div class="pCellBody">
+*	Cannot be used in an index. Of these types, only Logical can be used in a Where clause.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp528611"> </a><p class="pBody">
+See <a  href="Rstart9.html#wp596069">&quot;Retrieving Data Type Information&quot;</a> for more information about data types.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

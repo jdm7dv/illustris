@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:29:55" />
+  <title>Configuring Data Sources</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp600827"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Data Sources
+</h1>
+<hr /><a name="wp651679"> </a><p class="pBody">
+When you configure a data source, you store default connection values in a data source definition that is used each time you connect to the data source. You can change these defaults by modifying the definition or you can override the defaults at the time of connection by using a connection string.
+</p>
+<a name="wp607988"> </a><p class="pBody">
+If you choose to use a connection string, you must use specific connection string attributes. See <a  href="Rdb26.html#wp650333">Table&#160;3-1</a> for a complete description of driver connection string attributes and their values.
+</p>
+<a name="wp651691"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunix8.gif" height="38" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, data sources are configured and modified by editing the system information file (by default, odbc.ini) and storing default connection values there. See <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a> for detailed information about editing the system information file. See <a  href="unixenviron.html#wp518848"><a  href="unixenviron.html#wp518848">&quot;The UNIX Environments&quot;</a> </a>for detailed information about the specific steps necessary to configure the UNIX environment and connect with the driver.
+</p>
+<a name="wp624547"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+<a name="wp630726"> </a><p class="pBody">
+<a  href="Rdb26.html#wp650333">Table&#160;3-1</a> lists driver connection string attributes that must be used in the system information file. Note that only the long name of the attribute can be used in the file.
+</p>
+<a name="wp651710"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwina7.gif" height="30" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, data sources are configured and modified through the ODBC Administrator using a driver Setup dialog box. Default connection values are specified through the options on the tabs of the Setup dialog box and are stored in the Windows Registry. Connection string attributes that override these options have the same names as the options unless noted otherwise. The connection string attribute name does not have spaces between the words. For example, the option name <em class="cEmphasis">Application Using Threads</em> is equivalent to the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em>.
+</p>
+<a name="wp600849"> </a><p class="pBody">
+<b class="cBold">To configure a DB2 data source on Windows:</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp600850"> </a><div class="pSmartList1"><li>Start the ODBC Administrator to display a list of data sources.</li></div><a name="wp600851"> </a><div class="pSmartList1"><li>If you are configuring an existing data source, select the data source name and click <b class="cBold">Configure</b> to display the ODBC DB2 Wire Protocol Driver Setup dialog box.</li></div><a name="wp600852"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you are configuring a new data source, click <b class="cBold">Add</b> to display a list of installed drivers. Select the DB2 Wire Protocol driver and click <b class="cBold">Finish</b> to display the ODBC DB2 Wire Protocol driver Setup dialog box. 
+</p>
+<a name="wp600865"> </a><p class="pBodyRelative">
+NOTE: The General tab displays only fields that are required for creating a data source. The fields on other tabs are optional, unless noted otherwise.
+</p>
+<a name="wp600867"> </a><div class="pSmartList1"><li>On the General tab, provide the following information; then, click <b class="cBold">Apply.</b></li></div><a name="wp600868"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Data Source Name</b>: Type a string that identifies this DB2 data source configuration. Examples include &quot;Accounting&quot; or &quot;DB2-Serv1.&quot;
+</p>
+<a name="wp600869"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Description</b>: Type an optional long description of a data source name. For example, &quot;My Accounting Database&quot; or &quot;DB2 files on Server number 1.&quot;
+</p>
+<a name="wp600870"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Ip Address</b>: Type the IP (Internet Protocol) address of the machine where the catalog tables are stored. Specify the address using the machine&#39;s numeric address (for example, 123.456.78.90) or specify its host name. If you enter a host name, the driver must find this name (with the correct address assignment) in the HOSTS file on the workstation or in a DNS server.
+</p>
+<a name="wp600871"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Tcp Port</b>: Type the port number that is assigned to the DB2 DRDA listener process on the server host machine. Specify either this port&#39;s numeric address or its service name (50000 is the default port address). If you specify a service name, the driver must find this name (with the correct port assignment) in the SERVICES file on the workstation. Refer to the Tcp Port description under <a  href="Rdb24.html#wp600986">&quot;Configuration of DB2 for AS/400&quot;</a> for AS/400.
+</p>
+<a name="wp600872"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Location Name</b>: This field is valid only if you are connecting to a DB2 database on OS/390 or AS/400. Type the DB2 location name. Use the name defined during the local DB2 installation. Refer to the Location Name description under <a  href="Rdb24.html#wp600945">&quot;Configuration of DB2 for OS/390&quot;</a> and <a  href="Rdb24.html#wp600986">&quot;Configuration of DB2 for AS/400&quot;</a> for OS/390 and AS/400, respectively.
+</p>
+<a name="wp610425"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This field is disabled if the Database Name field is populated.
+</p>
+<a name="wp609716"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Location.
+</p>
+<a name="wp600873"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Collection</b>: This field is valid only if you are connecting to a DB2 database on OS/390 or AS/400. By default, the User ID is used for Collection; otherwise, type the name that identifies a logical group of database objects. On AS/400, it is also the current Schema. These objects include the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> DB2 Wire Protocol driver packages. Refer to the Collection description under <a  href="Rdb24.html#wp600945">&quot;Configuration of DB2 for OS/390&quot;</a> and <a  href="Rdb24.html#wp600986">&quot;Configuration of DB2 for AS/400&quot;</a> for OS/390 and AS/400, respectively.
+</p>
+<a name="wp610424"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This field is disabled if the Database Name field is populated.
+</p>
+<a name="wp609358"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Database Name</b>: This field is valid only if you are connecting to a DB2 database on Windows or UNIX. Type the name of the database to which you want to connect. 
+</p>
+<a name="wp609362"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This field is disabled if the Location Name and Collection fields are populated.
+</p>
+<a name="wp610429"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is Database.
+</p>
+<a name="wp600876"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Default User ID</b>: Type the default logon ID used to connect to your DB2 database. Your ODBC application may override this value or you may override it in the logon dialog box or connection string. This field is optional.
+</p>
+<a name="wp621045"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is LogonID.
+</p>
+<a name="wp615728"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Security Mechanism</b>: Select the security method the driver uses to authenticate the user to the DB2 server when a connection is established. 
+</p>
+<a name="wp615729"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0 - No Encryption (the default), the driver sends the user ID and password in clear text to the DB2 server for authentication.
+</p>
+<a name="wp615730"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 - Encrypt Password, the driver sends an encrypted password to the DB2 server for authentication.
+</p>
+<a name="wp615731"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 2 - Encrypted UID and Password, the driver sends an encrypted user ID and password to the DB2 server for authentication.
+</p>
+<a name="wp615732"> </a><p class="pBodyIndent12pxBeforeAfter">
+If the specified authentication method is not supported by the DB2 server, the connection fails and the driver generates an error.
+</p>
+<a name="wp600877"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Advanced</b> tab to specify data source settings.</li></div><a name="wp600892"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp640895"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Add to Create Table</b>: Type a string that is automatically added to all Create Table statements. This field is primarily for users who need to add an &quot;in database&quot; clause.
+</p>
+<a name="wp640896"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is AddStringToCreateTable.
+</p>
+<a name="wp640902"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Alternate ID</b>: Type the default qualifier for unqualified object names in SQL statements that will be substituted at connect time for the current schema. This sets. If the attempt to change the current schema fails, the connection fails and you receive the message, <code class="cCode">Invalid value for Alternate ID</code>. DB2 permissions must be set to SYSADM. (Not valid for AS/400 V4R5 and V5R1.)
+</p>
+<a name="wp614241"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Catalog Schema</b>: Type the DB2 schema to use for Catalog functions. The value must be the name of a valid DB2 schema. If you do not specify a value, the driver uses SYSIBM when connected to OS/390, QSYS2 when connected to AS/400, and SYSCAT when connected to Windows/UNIX.
+</p>
+<a name="wp641039"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Default Isolation Level</b>: Select the method by which locks are acquired and released by the system (see <a  href="locking.html#wp509899">&quot;Locking and Isolation Levels&quot;</a> for details). 
+</p>
+<a name="wp641043"> </a><p class="pBodyIndent12pxBeforeAfter">
+ODBC isolation levels map to DB2 isolation levels as follows:
+</p>
+<a name="wp641065"> </a><p class="pBodyRelative">
+<div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="center">    <th><a name="wp641046"> </a><div class="pCellHeading">
+ODBC
+</div>
+</th>
+    <th><a name="wp641048"> </a><div class="pCellHeading">
+DB2
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp641050"> </a><div class="pCellBody">
+Read Uncommitted
+</div>
+</td>
+    <td><a name="wp641052"> </a><div class="pCellBody">
+Uncommitted Read
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp641054"> </a><div class="pCellBody">
+Read Committed
+</div>
+</td>
+    <td><a name="wp641056"> </a><div class="pCellBody">
+Cursor Stability
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp641058"> </a><div class="pCellBody">
+Repeatable Read
+</div>
+</td>
+    <td><a name="wp641060"> </a><div class="pCellBody">
+Read Stability
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp641062"> </a><div class="pCellBody">
+Serializable
+</div>
+</td>
+    <td><a name="wp641064"> </a><div class="pCellBody">
+Repeatable Read
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp641066"> </a><p class="pBodyIndent12pxBeforeAfter">
+Valid values are:
+</p>
+<div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp641067"> </a><div class="pSmartList2Rel"><li>0 - READ_UNCOMMITTED&#8212;Allows other processes to read from the database. Only modified data is locked until the end of the transaction.</li></div>
+<a name="wp641068"> </a><div class="pSmartList2Rel"><li>1 - READ_COMMITTED&#8212;(The default) allows other processes to change a row that your application has read if the cursor is not on the row you want to change. Prevents other processes from changing records that your application has changed until your program commits them or terminates. Prevents your program from reading a modified record that has not been committed by another process.</li></div>
+<a name="wp641069"> </a><div class="pSmartList2Rel"><li>2 - REPEATABLE_READ&#8212;Prevents any other process from accessing data that your application has read or modified. All read or modified data is locked until the end of the transaction.</li></div>
+<a name="wp641070"> </a><div class="pSmartList2Rel"><li>3 - SERIALIZABLE&#8212;Prevents other processes from changing records that are read or changed by your application (including phantom records) until your program commits them or terminates. Prevents the application from reading modified records that have not been committed by another process. If your program opens the same query during a single unit of work under this isolation level, the results table will be identical to the previous table; however, it can contain updates made by your program.</li></div>
+<a name="wp641071"> </a><div class="pSmartList2Rel"><li>4 - NONE&#8212;Allows your program to read modified records even if they have not been committed by another person. (On AS/400, this is the only isolation level that works for collections that have journaling enabled.)</li></div>
+</ul></div>
+<a name="wp614762"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Character Set for CCSID 65535</b>: This option specifies a character set from which to convert when fetching character columns (char, varchar, longvarchar, clob, char for bit data, varchar for bit data, longvarchar for bit data) defined with Coded Character Set Identifier (CCSID) 65535.
+</p>
+<a name="wp614763"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you do not specify a value, the driver returns these columns as binary columns (SQL_BINARY, SQL_VARBINARY, SQL_LONGVARBINARY) and does no conversion of the data.
+</p>
+<a name="wp614764"> </a><p class="pBodyIndent12pxBeforeAfter">
+When you specify any valid IANA code page value, the driver returns these columns as character columns and assumes they are being returned in the character set specified. The driver does no conversion of data supplied in bound parameters. See <a  href="Rdb217.html#wp644769">&quot;IBM to IANA Code Page Values&quot;</a> for a table of IANA and IBM code page equivalents.
+</p>
+<a name="wp614028"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: All columns defined as char for bit data, varchar for bit data, and longvarchar for bit data will be affected by this option. By definition, columns created with these types have a CCSID of 65535.
+</p>
+<a name="wp616066"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is CharsetFor65535.
+</p>
+<a name="wp651719"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Report Codepage Conversion Errors</b>: Select the method by which the driver handles code page conversion errors.
+</p>
+<a name="wp651720"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 0 - Ignore Errors (the default), if the driver encounters code page conversion errors (a character cannot be converted from one character set to another), it substitutes 0x1A for each character that cannot be converted and does not return a warning or error. 
+</p>
+<a name="wp651721"> </a><p class="pBodyIndent12pxBeforeAfter">
+Error and Warning apply both to all ODBC API calls that could cause a conversion error and to all code page conversions to/from the database and to/from the application. The error or warning returned is, <code class="cCode">Code page conversion error encountered</code>. In the case of parameter data conversion errors, the driver adds the following sentence: <code class="cCode">Error in parameter </code><code><em>x</em></code>, where <code><em>x</em></code> is the parameter number. The standard rules for returning specific row and column errors for bulk operations still apply.
+</p>
+<a name="wp651722"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 1 - Return Error, if the driver encounters code page conversion errors, it returns an error instead of substituting 0x1A for unconverted characters.
+</p>
+<a name="wp651723"> </a><p class="pBodyIndent12pxBeforeAfter">
+When set to 2 - Return Warning, if the driver encounters code page conversion errors, it substitutes 0x1A for each character that cannot be converted and returns a warning.
+</p>
+<a name="wp652971"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Application Using Threads</b>: Select this check box to ensure that the driver works with multi-threaded applications. You can clear this check box when using the driver with single-threaded applications. Turning off this setting avoids additional processing required for ODBC thread-safety standards.
+</p>
+<a name="wp651733"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="Rdb27.html#wp652286">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp615076"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Use Current Schema for Catalog Functions</b>: Select this check box to specify whether results are restricted to the tables in the current catalog if a catalog function call is made either without specifying a catalog or specifying the catalog as the wildcard character %. Restricting results to tables in the current catalog improves the performance of calls that do not specify a catalog. By default, this check box is not selected.
+</p>
+<a name="wp615077"> </a><p class="pBodyIndent12pxBeforeAfter">
+If this check box is not selected, the results of catalog function calls are not restricted.
+</p>
+<a name="wp616141"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is UseCurrentSchema.
+</p>
+<a name="wp615148"> </a><p class="pBodyIndent12pxBeforeAfter">
+This connection option can affect performance. See <a  href="Rdb27.html#wp652286">&quot;Performance Considerations&quot;</a> for details.
+</p>
+<a name="wp615153"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">With Hold Cursors</b>: Select this check box to specify the cursor behavior for the application used with this data source&#8212;either DB2 closes all open cursors after a commit or rollback (Delete cursors), or leaves them open (Preserve cursors).
+</p>
+<a name="wp646168"> </a><p class="pBodyIndent12pxBeforeAfter">
+When this check box is selected (the default), the cursor behavior is Preserve (SQLGetInfo( ) returns SQL_CB_PRESERVE for SQL_COMMIT_CURSOR_BEHAVIOR).
+</p>
+<a name="wp646170"> </a><p class="pBodyIndent12pxBeforeAfter">
+If the check box is not selected, the cursor behavior is Delete (SQLGetInfo( ) returns SQL_CB_DELETE). For information about this function, refer to the Microsoft ODBC API.
+</p>
+<a name="wp609574"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attribute is WithHold.
+</p>
+<a name="wp600902"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Translate: </b>Click <b class="cBold">Translate</b> to display the Select Translator dialog box, which lists the translators specified in the ODBC Translators section of the Registry. DataDirect provides a translator named &quot;OEM to ANSI&quot; that translates your data from the IBM PC character set to the ANSI character set.
+</p>
+<a name="wp600903"> </a><p class="pBodyIndent12pxBeforeAfter">
+Select a translator; then, click <b class="cBold">OK</b> to close this dialog box and perform the translation.
+</p>
+<a name="wp600906"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Modify Bindings </b>tab to configure options for creating or modifying bind packages.</li></div><a name="wp600907"> </a><p class="pBodyIndent12pxBeforeAfter">
+The Modify Bindings tab allows you to create or modify bind packages on the server accessed by the driver. If you connect with the driver before explicitly creating bind packages, the driver creates packages on the server automatically using the current values from the Setup dialog. Alternatively, you can create a bind package before testing the connection. You can also modify bind packages after their creation from the Modify Bindings tab. You must also provide appropriate values for the options on the General tab.
+</p>
+<a name="wp600920"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide the following information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp641462"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Dynamic Sections</b>: Type the number of SQL statements that the DB2 Wire Protocol driver package can prepare for a single user. The default is 200.
+</p>
+<a name="wp600932"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Package Owner</b>: Type the AuthID assigned to the package. This DB2 AuthID must have authority to execute all the SQL in the package (optional).
+</p>
+<a name="wp641468"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Grant Execute</b>: Select this check box to grant EXECUTE privileges on the bind packages that you are creating. By default, the check box is selected and the schema to which privileges are granted is PUBLIC.
+</p>
+<a name="wp650949"> </a><p class="pBodyIndent12pxBeforeAfter">
+If you want to grant EXECUTE privileges to a different schema, type a schema name. It must be a valid DB2 schema.
+</p>
+<a name="wp650944"> </a><p class="pBodyIndent12pxBeforeAfter">
+When this check box is cleared, EXECUTE privileges are granted to the schema that created the DB2 packages.
+</p>
+<a name="wp641469"> </a><p class="pBodyIndent12pxBeforeAfter">
+The equivalent connection string attributes for specifying to whom privileges are granted are GrandExecute and GrantAuthid.
+</p>
+<a name="wp600934"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Modify Bindings</b>: After you have specified values for the options on the General and Modify Bindings tabs, click <b class="cBold">Modify Bindings</b> to create or modify packages. When you click the Modify Bindings button, a logon dialog appears. Enter your user ID and password; then, click <b class="cBold">Login</b>. If packages are created and bound successfully, a message indicating success appears. If there are problems connecting or creating the packages, an appropriate error message appears.
+</p>
+<a name="wp613571"> </a><div class="pSmartList1"><li>Optionally, click the <b class="cBold">Failover</b> tab to specify connection failover data source settings.</li></div><a name="wp613580"> </a><p class="pBodyIndent12pxBeforeAfter">
+On this tab, provide any of the following optional information; then, click <b class="cBold">Apply.</b>
+</p>
+<a name="wp652939"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Load Balancing</b>: Select this check box to allow the driver to use client load balancing in its attempts to connect to primary and alternate database servers. In this case, the driver attempts to connect to the database servers in random order. See <a  href="Rstart5.html#wp583520"><a  href="Rstart5.html#wp583520">&quot;Using Client Load Balancing&quot;</a> </a>for more information.
+</p>
+<a name="wp652944"> </a><p class="pBodyIndent12pxBeforeAfter">
+If this check box is not selected (the default), client load balancing is not used and the driver connects to each database server based on its sequential order (primary server first, then, alternate servers in the order they are specified).
+</p>
+<a name="wp652945"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This option has no effect unless alternate servers are defined for the Alternate Servers connection option.&#160;&#160;&#160;&#160;
+</p>
+<a name="wp642233"> </a><p class="pBodyIndent12pxBeforeAfter">
+The Load Balancing option is an optional setting that you can use in conjunction with connection failover. See <a  href="Rdb210.html#wp649379">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</p>
+<a name="wp652950"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Alternate Servers</b>: Type a list of alternate database servers to which the driver will try to connect if the primary database server is unavailable. Specifying a value for this option enables connection failover for the driver.&#160;See <a  href="Rstart4.html#wp583803"><a  href="Rstart4.html#wp583803">&quot;Using Connection Failover&quot;</a></a> for a discussion of connection failover.
+</p>
+<a name="wp642995"> </a><p class="pBodyIndent12pxBeforeAfter">
+The value you specify must be in the form of a string that defines the physical location of each alternate server. All of the other required connection information for each alternate server is the same as what is defined for the primary server connection. 
+</p>
+<a name="wp642257"> </a><p class="pBodyIndent12pxBeforeAfter">
+For the DB2 Wire Protocol driver, you must specify the IP address and port number of each alternate server. The string has the format:
+</p>
+<a name="wp634618"> </a><p class="pSyntaxEmbed">
+(IPAddress=<code><em>ipvalue</em></code>;TcpPort=<code><em>portvalue</em></code>[, . . .])
+</p>
+<a name="wp634619"> </a><p class="pSyntaxEmbed">
+For example, the following Alternate Servers value defines two alternate database servers for connection failover:
+</p>
+<a name="wp617951"> </a><p class="pSyntaxEmbed">
+(IpAddress=123.456.78.90;TcpPort=5177, <br />IpAddress=223.456.78.90;TcpPort=5178)
+</p>
+<a name="wp643174"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="Rdb210.html#wp649379">&quot;Configuring Connection Failover&quot;</a> for information about other connection options that you can set for this feature.
+</p>
+<a name="wp652959"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Connection Retry Count:</b> Type a value to specify the number of times the driver tries to connect to the primary server and, if configured, to the alternate servers after the initial unsuccessful attempt. See <a  href="Rstart6.html#wp592469"><a  href="Rstart6.html#wp592469">&quot;Using Connection Retry&quot;</a></a> for more information about this feature.
+</p>
+<a name="wp652964"> </a><p class="pBodyIndent12pxBeforeAfter">
+Valid values are integers from 0 to 65535. When set to 0 (the default), the driver does not try to connect after the initial unsuccessful attempt.
+</p>
+<a name="wp652965"> </a><p class="pBodyIndent12pxBeforeAfter">
+If a connection is not established during the retry attempts, the driver returns an error that is generated by the last server to which it tried to connect.
+</p>
+<a name="wp652966"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option and the Connection Retry Delay connection option, which specifies the wait interval between attempts, can be used in conjunction with connection failover. &#160;&#160;&#160;
+</p>
+<a name="wp642274"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="Rdb210.html#wp649379">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</p>
+<a name="wp651620"> </a><p class="pBodyIndent12pxBeforeAfter">
+<b class="cBold">Connection Retry Delay</b>: Type a value to specify the number of seconds that the driver waits after the initial unsuccessful connection attempt before retrying a connection to the primary server and, if specified, to the alternate servers. 
+</p>
+<a name="wp651621"> </a><p class="pBodyIndent12pxBeforeAfter">
+Valid values are integers from 0 to 65535. The default value is 3 (seconds). When set to 0, there is no delay between retries.
+</p>
+<a name="wp651622"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: This option has no effect unless the Connection Retry Count connection option is set to an integer value greater than 0.
+</p>
+<a name="wp651623"> </a><p class="pBodyIndent12pxBeforeAfter">
+This option and the Connection Retry Count connection option, which specifies the number of times the driver tries to connect after the initial unsuccessful attempt, are used in conjunction with connection failover. &#160;&#160;&#160;
+</p>
+<a name="wp642294"> </a><p class="pBodyIndent12pxBeforeAfter">
+See <a  href="Rdb210.html#wp649379">&quot;Configuring Connection Failover&quot;</a> for a discussion of connection failover and for information about other connection options that you can set for this feature.
+</p>
+<a name="wp600937"> </a><div class="pSmartList1"><li>At any point during the configuration process, you can click <b class="cBold">Test Connect</b> to attempt to connect to the data source using the connection properties specified in the driver Setup dialog box. A logon dialog box appears; see <a  href="Rdb25.html#wp601028">&quot;Connecting to a Data Source Using a Logon Dialog Box&quot;</a> for details. Note that the information you enter in the logon dialog box during a test connect is not saved.</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp600941"> </a><div class="pSmartList2Rel"><li>If the driver can connect, it releases the connection and displays a <code class="cCode">Connection Established</code> message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp600942"> </a><div class="pSmartList2Rel"><li>If the driver cannot connect because of an improper environment or incorrect connection value, it displays an appropriate error message. Click <b class="cBold">OK</b>.</li></div>
+<a name="wp623499"> </a><p class="pBodyIndent12pxBeforeAfter">
+IMPORTANT: If you have not already created bind packages by clicking the Modify Bindings button on the Modify Bindings tab, the initial connection through the Test Connect button may take a few minutes because of the number and size of the packages that must be created on the server. Subsequent connections do not incur this delay.
+</p>
+<a name="wp649018"> </a><p class="pBodyIndent12pxBeforeAfter">
+NOTE: If you are configuring alternate servers for use with the connection failover feature, be aware that the Test Connect button tests only the primary server, not the alternate servers.
+</p>
+</ul></div>
+<a name="wp600943"> </a><div class="pSmartList1"><li>Click <b class="cBold">OK</b> or <b class="cBold">Cancel</b>. If you click <b class="cBold">OK</b>, the values you have specified become the defaults when you connect to the data source. You can change these defaults by using this procedure to reconfigure your data source. You can override these defaults by connecting to the data source using a connection string with alternate values.</li></div></ol></div>
+<a name="wp600945"> </a><h3 class="pHeading2">
+Configuration of DB2 for OS/390
+</h3>
+<a name="wp600946"> </a><p class="pBody">
+The following section provides specific instructions for configuring a data source on OS/390. These instructions assume that you have the ability to create and bind packages with your user ID. If you do not, a DB2 Database Administrator (DBA) or someone with the same privileges needs to create packages and a collection. If you have access to the console log, search on DSNL004I for location and port number. DSNTIJUZ is a job that is run at the time of DB2 installation and is where the required code pages are defined. As previously stated, the driver automatically creates packages the first time it connects. You can override the default bind package values before the driver connects for the first time or modify them after the bind packages are created.
+</p>
+<a name="wp600951"> </a><h4 class="pHeading3">
+</h4><div align="left"><img src="images/iconwin3.gif" height="34" width="29" border="0" hspace="0" vspace="0"/></div><h4 class="pHeading3">Windows
+</h4>
+<a name="wp600952"> </a><p class="pBody">
+On the General tab of the driver Setup dialog box:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp600954"> </a><div class="pSmartList1"><li><b class="cBold">Location Name</b>: Type the actual name of the database specified at installation time.</li></div><a name="wp600955"> </a><div class="pSmartList1"><li><b class="cBold">Collection</b>: By default, the User ID is used for Collection; otherwise, type the name of the library that contains the tables (physical files) that you want to access with the driver. This value is used as the schema for all tables in the library. If you want to access a table outside of this library, you need to specify the appropriate library/schema, for example, <code class="cCode">SELECT&#160;*&#160;FROM </code><code><em>Library.Tablename</em></code>.</li></div></ul></div>
+<a name="wp600956"> </a><p class="pBody">
+On the Modify Bindings tab, click <b class="cBold">Modify Bindings</b>. When you click the Modify Bindings button, a logon dialog appears. Enter your user ID and password; then, click <b class="cBold">Login</b>. If packages are created and bound successfully, a message indicating success appears. If there are problems connecting or creating the packages, an appropriate error message appears.
+</p>
+<a name="wp600962"> </a><h4 class="pHeading3">
+</h4><div align="left"><img src="images/iconunix4.gif" height="36" width="25" border="0" hspace="0" vspace="0"/></div><h4 class="pHeading3">UNIX
+</h4>
+<a name="wp600965"> </a><p class="pBody">
+Edit the system information file. See <a  href="Rdb23.html#wp651243">&quot;Binding&quot;</a> for information about the attributes associated with binding. For the Collection and Location attributes, use the OS/390 values described under <a  href="Rdb24.html#wp600951">&quot;Windows&quot;</a> in the OS/390 section.
+</p>
+<a name="wp623706"> </a><p class="pBody">
+The bind utility is located in <em class="cEmphasis">installation_directory</em>/lib. After specifying the appropriate connection attribute values, create or modify packages by entering the command:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">bind</code><code><em>xx</em></code><code class="cCode"> </code><code><em>dsn</em></code><a name="wp623535"> </a>
+</pre></div>
+<a name="wp623536"> </a><p class="pBody">
+where <code><em>xx</em></code> is driver level number in the driver file name and <code><em>dsn</em></code> is the ODBC data source name in the system information file.
+</p>
+<a name="wp646835"> </a><p class="pBody">
+You are prompted for a user ID and password if they are not stored in the data source. If packages are created and bound successfully, a message indicating success appears. If there are problems connecting or creating the packages, an appropriate error message appears.
+</p>
+<a name="wp600986"> </a><h3 class="pHeading2">
+Configuration of DB2 for AS/400
+</h3>
+<a name="wp646243"> </a><p class="pBody">
+The following section provides specific instructions for configuring a data source on OS/390. These instructions assume that you have the ability to create and bind packages with your user ID. If you do not, a DB2 Database Administrator (DBA) or someone with the same privileges needs to create packages and a collection. As previously stated, the driver automatically creates packages the first time it connects. You can override the default package values before the driver connects for the first time or modify them after the packages are created.
+</p>
+<a name="wp646735"> </a><h4 class="pHeading3">
+</h4><div align="left"><img src="images/iconwin6.gif" height="34" width="29" border="0" hspace="0" vspace="0"/></div><h4 class="pHeading3">Windows
+</h4>
+<a name="wp646745"> </a><p class="pBody">
+On the General tab of the driver Setup dialog box:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp646737"> </a><div class="pSmartList1"><li><b class="cBold">Tcp Port</b>: Type the port number for the DRDA listener. DRDA is the protocol for communicating with DB2. To determine the correct port number, execute &#39;NETSTAT&#39; from an AS/400 command line. Select option <b class="cBold">3</b> to display a list of active ports on the AS/400 machine. Find the entry for DRDA and press <br /><b class="cBold">F-14</b> to toggle and display the port number. If DRDA is not currently listening, the AS/400 command, <code class="cCode">CHGDDMTCPA AUTOSTART(*YES) PWDRQD(*YES)</code> starts the listener and insures that it is active at IPL.</li></div><a name="wp600996"> </a><div class="pSmartList1"><li><b class="cBold">Location Name</b>: Type the name of the DB2 database for AS/400. The AS/400 command &quot;WRKRDBDIRE&quot; provides you with a list of possible values for this setting.</li></div><a name="wp623610"> </a><div class="pSmartList1"><li><b class="cBold">Collection</b>: By default, the User ID is used for Collection; otherwise, type the name of the collection provided by your Database Administrator (DBA).</li></div></ul></div>
+<a name="wp623626"> </a><p class="pBody">
+On the Modify Bindings tab, click <b class="cBold">Modify Bindings</b>. When you click the Modify button, a logon dialog appears. Enter your user ID and password; then, click <b class="cBold">Login</b>. If packages are created and bound successfully, a message indicating success appears. If there are problems connecting or creating the packages, an appropriate error message appears.
+</p>
+<a name="wp623617"> </a><h4 class="pHeading3">
+</h4><div align="left"><img src="images/iconunix6.gif" height="36" width="25" border="0" hspace="0" vspace="0"/></div><h4 class="pHeading3">UNIX
+</h4>
+<a name="wp646844"> </a><p class="pBody">
+Edit the system information file. See <a  href="Rdb23.html#wp651243">&quot;Binding&quot;</a> for information about the attributes associated with binding. For the TCPPort, Collection and Location attributes, use the AS/400 values described under <a  href="Rdb24.html#wp646735">&quot;Windows&quot;</a> in the AS/400 section.
+</p>
+<a name="wp623835"> </a><p class="pBody">
+The bind utility is located in <em class="cEmphasis">installation_directory</em>/lib. After specifying the appropriate attribute values, create or modify packages by entering the command:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">bind</code><code><em>xx</em></code><code class="cCode"> </code><code><em>dsn</em></code><a name="wp623836"> </a>
+</pre></div>
+<a name="wp623837"> </a><p class="pBody">
+where <code><em>xx</em></code> is driver level number in the driver file name and <code><em>dsn</em></code> is the ODBC data source name in the system information file.
+</p>
+<a name="wp646898"> </a><p class="pBody">
+You are prompted for a user ID and password if they are not stored in the data source. If packages are created and bound successfully, a message indicating success appears. If there are problems connecting or creating the packages, an appropriate error message appears.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

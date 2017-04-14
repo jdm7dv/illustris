@@ -1,0 +1,92 @@
+#!/bin/sh
+# This script is intended to be run by the administrator of a UNIX system
+# who desires to start the IDL Dicom Storage SCP network service at system 
+# boot time.  A detailed description of the actions performed by this 
+# script are contained in the sys5_idl_dicomexstorscp script.
+#
+# Usage: This script must be run in the directory that contains 
+# the 'sys5_idl_dicomexstorscp' script (<IDL_DIR>/bin/). 
+#
+
+VERSION=706
+IDL_DIR=`pwd`/idl$VERSION
+IDL_BIN=$IDL_DIR/bin
+
+if [ ! -f $IDL_BIN/sys5_idl_dicomexstorscp ] ; then
+    echo "Cannot find sys5_idl_dicomexstorscp." 1>&2
+    echo "Please run this script from the directory containing your IDL distribution"  1>&2
+    exit 1
+fi
+
+UNAME=`uname`
+case $UNAME in
+
+    "Darwin")
+	if [ ! -d /Library/StartupItems ]; then
+	    mkdir /Library/StartupItems
+	fi
+	if [ ! -d /Library/StartupItems/IDL_DICOMEXSTORSCP ]; then
+	    mkdir /Library/StartupItems/IDL_DICOMEXSTORSCP
+	fi
+	cp $IDL_BIN/sys5_idl_dicomexstorscp /Library/StartupItems/IDL_DICOMEXSTORSCP/IDL_DICOMEXSTORSCP
+	echo "{
+    Description    = \"IDL Dicom Storage SCP Network Service\";
+    Provides       = (\"IDL_Dicomex_stor_scp_network_service\");
+    Requires       = (\"Network\");
+    OrderPreference = \"Late\";
+    Messages        = 
+	{
+	start = \"Starting the IDL Dicom Storage SCP Network Service\";
+	};
+}
+"> /Library/StartupItems/IDL_DICOMEXSTORSCP/StartupParameters.plist
+	;;
+
+    "SunOS")				# Solaris
+	if [ ! -w /etc/init.d ]; then
+            echo "You do not have write permissions to /etc/init.d." 1>&2
+            exit 1
+        fi
+	cp $IDL_BIN/sys5_idl_dicomexstorscp /etc/init.d
+	if [ -f /etc/rc3.d/S99sys5_idl_dicomexstorscp ]; then
+		rm -f /etc/rc3.d/S99sys5_idl_dicomexstorscp
+	fi
+	if [ -f /etc/rc0.d/K01sys5_idl_dicomexstorscp ]; then
+		rm -f /etc/rc0.d/K01sys5_idl_dicomexstorscp
+	fi
+        ln -s /etc/init.d/sys5_idl_dicomexstorscp /etc/rc3.d/S99sys5_idl_dicomexstorscp
+	ln -s /etc/init.d/sys5_idl_dicomexstorscp /etc/rc0.d/K01sys5_idl_dicomexstorscp
+	;;
+
+
+    "Linux")
+	if [ ! -w /etc/rc.d/init.d ]; then
+            echo "You do not have write permissions to /etc/rc.d/init.d." 1>&2
+            exit 1
+        fi
+	cp $IDL_BIN/sys5_idl_dicomexstorscp /etc/rc.d/init.d
+	if [ -f /etc/rc3.d/S99sys5_idl_dicomexstorscp ]; then
+		rm -f /etc/rc3.d/S99sys5_idl_dicomexstorscp
+	fi
+	if [ -f /etc/rc4.d/S99sys5_idl_dicomexstorscp ]; then
+		rm -f /etc/rc4.d/S99sys5_idl_dicomexstorscp
+	fi
+	if [ -f /etc/rc5.d/S99sys5_idl_dicomexstorscp ]; then
+		rm -f /etc/rc5.d/S99sys5_idl_dicomexstorscp
+	fi
+	if [ -f /etc/rc0.d/K01sys5_idl_dicomexstorscp ]; then
+		rm -f /etc/rc0.d/K01sys5_idl_dicomexstorscp
+	fi
+	ln -s /etc/rc.d/init.d/sys5_idl_dicomexstorscp /etc/rc3.d/S99sys5_idl_dicomexstorscp
+	ln -s /etc/rc.d/init.d/sys5_idl_dicomexstorscp /etc/rc4.d/S99sys5_idl_dicomexstorscp
+	ln -s /etc/rc.d/init.d/sys5_idl_dicomexstorscp /etc/rc5.d/S99sys5_idl_dicomexstorscp
+	ln -s /etc/rc.d/init.d/sys5_idl_dicomexstorscp /etc/rc0.d/K01sys5_idl_dicomexstorscp
+	;;
+		
+    *)
+	echo "$APPLICATION: Unable to recognize system architecture." 
+	exit 1
+	;;
+
+esac
+

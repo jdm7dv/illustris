@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 17:29:55" />
+  <title>Binding</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp651243"> </a><h1 class="pNewHTMLPageNoNum">
+Binding
+</h1>
+<hr /><a name="wp651227"> </a><p class="pBody">
+The driver will not work properly unless bind packages exist on every server to which you intend to connect. When connecting for the first time, the driver determines whether or not bind packages exist on the server. If packages do not exist, the driver creates them automatically using driver default values.
+</p>
+<a name="wp634268"> </a><p class="pBody">
+NOTE: The initial driver connection to a particular server may take a few minutes because of the number and size of the packages that must be created on the server. Subsequent connections do not incur this delay.
+</p>
+<a name="wp614858"> </a><p class="pBody">
+By default, the packages contain 200 dynamic sections and are created in the collection named from the User ID. You can override the default number of dynamic sections through the Dynamic Sections option on the Modify Bindings tab of the driver Setup dialog box or by setting the DynamicSections connection string attribute. Similarly, you can override the collection in which the packages are created through the Collection option on the General tab of the driver Setup dialog box or by setting the Collection attribute.
+</p>
+<a name="wp634266"> </a><p class="pBody">
+If you change default values in a data source before connecting with the driver for the first time, the new defaults are used when creating the packages. If you want to change these values after the packages have been created, you can re-create the packages with the new values by one of the following methods:
+</p>
+<a name="wp608267"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconwin8.gif" height="34" width="29" border="0" hspace="0" vspace="0"/></div><p class="pBody">On Windows, the driver allows you to create or modify packages from the Modify Bindings tab. See <a  href="Rdb24.html#wp600906">Step 5</a> under <a  href="Rdb24.html#wp600827">&quot;Configuring Data Sources&quot;</a> for details.
+</p>
+<a name="wp622507"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunix9.gif" height="36" width="25" border="0" hspace="0" vspace="0"/></div><p class="pBody">On UNIX, the driver allows you to create or modify packages through a special bind utility. The minimum connection string attributes that pertain to binding packages (depending on platform) are:
+</p>
+<a name="wp647190"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption></caption>
+  <tr align="left">    <td><a name="wp647361"> </a><div class="pCellBody">
+Collection
+</div>
+</td>
+    <td><a name="wp647363"> </a><div class="pCellBody">
+GrantExecute
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp647365"> </a><div class="pCellBody">
+Database
+</div>
+</td>
+    <td><a name="wp647367"> </a><div class="pCellBody">
+IpAddress
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp647445"> </a><div class="pCellBody">
+DynamicSections
+</div>
+</td>
+    <td><a name="wp647447"> </a><div class="pCellBody">
+Location
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp647449"> </a><div class="pCellBody">
+GrantAuthid
+</div>
+</td>
+    <td><a name="wp647451"> </a><div class="pCellBody">
+TcpPort
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+<a name="wp647191"> </a><p class="pBody">
+See <a  href="Rdb26.html#wp650333">Table&#160;3-1</a> under <a  href="Rdb26.html#wp601055">&quot;Connecting to a Data Source Using a Connection String&quot;</a> for a description of these connection string attributes and their values. You must use the default values or specify new ones for these attributes in the DB2 data source section of the system information file before binding. See <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a> for details on creating the DB2 data source.
+</p>
+<a name="wp609212"> </a><p class="pBody">
+The bind utility is located in <em class="cEmphasis">installation_directory</em>/lib. After specifying the appropriate connection string attribute values, create or modify packages by entering the command:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+<code class="cCode">bind</code><code><em>xx</em></code><code class="cCode"> </code><code><em>dsn</em></code><a name="wp608170"> </a>
+</pre></div>
+<a name="wp608171"> </a><p class="pBody">
+where <code><em>xx</em></code> is driver level number in the driver file name and <code><em>dsn</em></code> is the ODBC data source name in the system information file. You are prompted for a user ID and password if they are not stored in the data source. If packages are created and bound successfully, a message indicating success appears. If there are problems connecting or creating the packages, an appropriate error message appears.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

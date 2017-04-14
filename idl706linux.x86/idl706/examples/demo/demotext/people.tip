@@ -1,0 +1,14 @@
+2 3
+welcome|This demo shows image warping and morphing
+showing|using IDL.  Images of several employees 
+interact|are used to to warp and morph.
+selecto|Select an image to warp from the scrolling
+mouse|list, or by clicking on one of the images.
+show1|Select "Morphing" to morph two images.
+decom|Decompressing JPEG image
+resam|Resampling the image
+sele2|Select 2 people
+lmbut|with the left mouse button.
+secon|Select a second person
+mark3|Mark and drag at least 3 control point pairs
+tooma|Too many control points.

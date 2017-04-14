@@ -1,0 +1,40 @@
+;  $Id: //depot/idl/IDL_70/idldir/examples/doc/signal/sigprc12#2 $
+
+;  Copyright (c) 2005-2008, ITT Visual Information Solutions. All
+;       rights reserved.
+; 
+; This batch file creates a plot and digital filter. The frequency 
+; component at 11.0 cycles / second has been filtered out, while the 
+; frequency components at 2.8 and 6.25 cycles / second, as well as 
+; the DC component, have been passed by the filter. 
+
+@sigprc01   ; compute time data sequence u
+
+; Compute the kaiser filter coefficients:
+delt = 0.02 ; sampling period in seconds
+f_low = 15. ; frequencies above f_low will be passed
+f_high = 7. ; frequencies below f_high will be passed
+a_ripple = 50. ; ripple amplitude will be less than -50 dB
+nterms = 40 ; the order of the filter
+
+; Compute the impulse response = the filter coefficients
+bs_ir_k = DIGITAL_FILTER(f_low*2*delt, f_high*2*delt, $
+   a_ripple, nterms)
+
+; Convolve the Kaiser filter with the signal
+u_filt = BLK_CON(bs_ir_k, u)
+
+v = FFT(u) ; spectrum of original signal
+v_filt = FFT(u_filt) ; spectrum of filtered signal
+
+; Log-log plot of power spectra.
+; f = [0.0, 1.0/(N*delt), ... , 1.0/(2.0*delt)]
+f = FINDGEN(N/2+1) / (N*delt)
+
+IPLOT, f, ABS(v(0:N/2))^2, $
+   TITLE='Spectrum of u(k) Before (solid) and' $
+   +' After (dashed) Digital Filtering'
+IPLOT, f, ABS(v_filt(0:N/2))^2, LINESTYLE=2, /OVERPLOT, $
+   /Y_LOG,  YMINOR=0, YTITLE='Power Spectrum',$
+   /X_LOG, XRANGE=[1.0,1.0/(2.0*delt)],$
+   XTITLE='Frequency in cycles / second'

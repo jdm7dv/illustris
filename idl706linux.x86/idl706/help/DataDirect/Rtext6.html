@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:22" />
+  <title>Defining Table Structure on UNIX Platforms</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp526714"> </a><h1 class="pNewHTMLPageNoNum">
+Defining Table Structure on UNIX Platforms
+</h1>
+<hr /><a name="wp526718"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixc8.gif" height="29" width="28" border="0" hspace="0" vspace="0"/></div><p class="pBody">Because text files do not all have the same structure, the driver provides the option to define the structure of an existing file. Although defining the structure is not mandatory, because the driver can attempt to guess the names and types of the columns, this feature is extremely useful.
+</p>
+<a name="wp526719"> </a><p class="pBody">
+To define the structure of a text file, you create a QETXT.INI file using any plain text editor, such as vi. The file name must be in uppercase. All of the tables you want to define are specified in the QETXT.INI file. When you specify table attributes in QETXT.INI, you override the attributes specified in the system information file (odbc.ini) or in the connection string.
+</p>
+<a name="wp526720"> </a><p class="pBody">
+Define the QETXT.INI file as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<a name="wp526721"> </a><div class="pSmartList1"><li>Create a [Defined Tables] section and list all of the tables you are defining. Specify the text file name (in either upper or lowercase, depending on the file) followed by the name you want to give the table, for example:</li></div><a name="wp526722"> </a><p class="pSyntaxEmbed">
+emptext.txt=EMP 
+</p>
+<a name="wp526723"> </a><p class="pBodyIndent12pxBeforeAfter">
+Table names can be up to 32 characters in length and cannot be the same as another defined table in the database. This name is returned by SQLTables. By default, it is the file name without its extension.
+</p>
+<a name="wp526724"> </a><div class="pSmartList1"><li>For each table listed in the [Defined Tables] section, you must specify the text file (FILE=), the table type (TT=), whether the first line of the file contains column names (FLN=), and the delimiter character (DC=).</li></div><div class="pSmartList2Rel"><ul class="pSmartList2Rel">
+<a name="wp526725"> </a><div class="pSmartList2Rel"><li>Specify the text file name. For example:</li></div>
+<a name="wp526726"> </a><p class="pSyntaxEmbed">
+FILE=emptext.txt 
+</p>
+<a name="wp526727"> </a><div class="pSmartList2Rel"><li>To define the table type, specify how the fields are separated (comma, tab, fixed, or character). For example: </li></div>
+<a name="wp526728"> </a><p class="pSyntaxEmbed">
+TT=COMMA 
+</p>
+<a name="wp526729"> </a><div class="pSmartList2Rel"><li>If the table type is CHARACTER, specify the delimiter character. The value can be any printable character except single and double quotes. For example, if the fields are separated by comma:</li></div>
+<a name="wp526730"> </a><p class="pSyntaxEmbed">
+DC=,
+</p>
+<a name="wp526731"> </a><div class="pSmartList2Rel"><li>Specify whether the first line of the file contains column names, using 1 for yes and 0 for no. For example: </li></div>
+<a name="wp526732"> </a><p class="pSyntaxEmbed">
+FLN=0
+</p>
+</ul></div>
+<a name="wp526733"> </a><div class="pSmartList1"><li>Define the fields in the table, beginning with FIELD1. For each field, specify the field name, field type, precision, scale, length, offset (for fixed tables), and date/time mask. See <a  href="Rtext7.html#wp526823">&quot;Date Masks&quot;</a> for information about masks. </li></div><a name="wp526737"> </a><p class="pBodyIndent12pxBeforeAfter">
+Separate the values with commas. For example, to define two fields:
+</p>
+<a name="wp526738"> </a><p class="pSyntaxEmbed">
+FIELD1=EMP_ID,VARCHAR,6,0,6,0,
+</p>
+<a name="wp526739"> </a><p class="pSyntaxEmbed">
+FIELD2=HIRE_DATE,DATE,10,0,10,0,m/d/yy
+</p>
+<a name="wp526740"> </a><div class="pSmartList1"><li>Save the file as QETXT.INI. The driver looks for this file in the directory specified by the &quot;Database&quot; attribute in odbc.ini, or in the current directory.</li></div></ol></div>
+<a name="wp526741"> </a><h3 class="pHeading2">
+Example of QETXT.INI
+</h3>
+<a name="wp526742"> </a><p class="pBody">
+The following is an example of a QETXT.INI file. This file defines the structure of the emptext.txt file, which is a sample data file shipped with the DataDirect ODBC Text file. 
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+[Defined Tables]<a name="wp526743"> </a>
+emptext.txt=EMP<a name="wp526744"> </a>
+<a name="wp526745"> </a>
+[EMP]<a name="wp526746"> </a>
+FILE=emptext.txt<a name="wp526747"> </a>
+FLN=1<a name="wp526748"> </a>
+TT=Comma<a name="wp526749"> </a>
+FIELD1=FIRST_NAME,VARCHAR,10,0,10,0,<a name="wp526750"> </a>
+FIELD2=LAST_NAME,VARCHAR,9,0,9,0,<a name="wp526751"> </a>
+FIELD3=EMP_ID,VARCHAR,6,0,6,0,<a name="wp526752"> </a>
+FIELD4=HIRE_DATE,DATE,10,0,10,0,m/d/yy<a name="wp526753"> </a>
+FIELD5=SALARY,NUMERIC,8,2,8,0,<a name="wp526754"> </a>
+FIELD6=DEPT,VARCHAR,4,0,4,0,<a name="wp526755"> </a>
+FIELD7=EXEMPT,VARCHAR,6,0,6,0,<a name="wp526756"> </a>
+FIELD8=INTERESTS,VARCHAR,136,0,136,0,<a name="wp526757"> </a>
+</pre></div>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

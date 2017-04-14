@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:01" />
+  <title>Connecting to a Data Source Using a Connection String</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp532842"> </a><h1 class="pNewHTMLPageNoNum">
+Connecting to a Data Source Using a Connection String
+</h1>
+<hr /><a name="wp599495"> </a><p class="pBody">
+If your application requires a connection string for connecting to a database, you must specify the data source name that tells the driver where to find the default connection information. Optionally, you may specify <em class="cEmphasis">attribute=value</em> pairs in the connection string to override the default values stored in the data source definition.
+</p>
+<a name="wp599496"> </a><p class="pBody">
+The connection string has the form:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=<code><em>data_source_name</em></code>[;<code><em>attribute=value</em></code>[;<code><em>attribute=value</em></code>]...]<a name="wp599497"> </a>
+</pre></div>
+<a name="wp599502"> </a><p class="pBody">
+<a  href="Rdbasfox6.html#wp533562">Table&#160;9-1</a> gives the long and short names for each attribute, as well as a description. You can specify either long or short names in the connection string. Connection string attribute names are the same as the option names on the driver Setup dialog box tabs unless otherwise noted. The connection string attribute name does not have spaces between the words. For example, the connection string attribute name <em class="cEmphasis">ApplicationUsingThreads</em> is equivalent to the option name <em class="cEmphasis">Application Using Threads</em>.
+</p>
+<a name="wp599503"> </a><p class="pBody">
+The defaults listed in the table are initial defaults that apply when no value is specified in either the data source definition or in the connection string. If you specified a value for the attribute when configuring the data source, that value is the default.
+</p>
+<a name="wp519240"> </a><p class="pBody">
+An example of a connection string for dBASE is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=DBASE FILES;LCK=NONE;IS=0<a name="wp519241"> </a>
+</pre></div>
+<a name="wp548914"> </a><p class="pBody">
+</p><div align="left">
+<table border="1">
+  <caption><a name="wp533562"> </a><div class="pTableTitleBold">
+Table 9-1.  dBASE Connection String Attributes&#160;
+</div>
+</caption>
+  <tr align="center">    <th><a name="wp523794"> </a><div class="pCellHeading">
+Attribute
+</div>
+</th>
+    <th><a name="wp523796"> </a><div class="pCellHeading">
+Description
+</div>
+</th>
+</tr>
+  <tr align="left">    <td><a name="wp544861"> </a><div class="pCellBody">
+ApplicationUsing<br />Threads (AUT)
+</div>
+</td>
+    <td><a name="wp610252"> </a><div class="pCellBody">
+ApplicationUsingThreads={0 | 1}. Determines whether or not the driver works with multi-threaded applications. 
+</div>
+<a name="wp610253"> </a><div class="pCellBody">
+When set to 1 (the initial default), the driver is thread-safe and is ensured to work with multi-threaded applications. 
+</div>
+<a name="wp610254"> </a><div class="pCellBody">
+When using the driver with single-threaded applications, you can set this option to 0 to avoid additional processing required for ODBC thread-safety standards.&#160;&#160;&#160;
+</div>
+<a name="wp608547"> </a><p class="pBody">
+&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544865"> </a><div class="pCellBody">
+CacheSize (CSZ)
+</div>
+</td>
+    <td><a name="wp544867"> </a><div class="pCellBody">
+The number of 64KB blocks the driver uses to cache database records. The greater the number of blocks, the better the performance. The maximum number of blocks you can set depends on the system memory available. If the cache size is greater than 0, when browsing backwards, you will not be able to see updates made by other users until you run the Select statement again. 
+</div>
+<a name="wp553725"> </a><div class="pCellBody">
+The initial default is 4.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544869"> </a><div class="pCellBody">
+CreateType (CT)
+</div>
+</td>
+    <td><a name="wp544871"> </a><div class="pCellBody">
+CreateType={dBASE4 | dBASE5 | Clipper | FoxPro25 | FoxPro30}. Specifies the type of table or index to be created on a Create Table or Create Index statement. 
+</div>
+<a name="wp553724"> </a><div class="pCellBody">
+The initial default is dBASE5.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544876"> </a><div class="pCellBody">
+Database (DB)
+</div>
+</td>
+    <td><a name="wp602435"> </a><div class="pCellBody">
+The directory in which the dBASE files are stored.
+</div>
+<a name="wp599935"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is Database Directory.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544880"> </a><div class="pCellBody">
+DataFileExtension (DFE)
+</div>
+</td>
+    <td><a name="wp544882"> </a><div class="pCellBody">
+A string of three or fewer characters that specifies the file extension to use for data files. This value is used for all Create Table statements. If you execute a Create Table statement that uses an extension other than the one specified as the DataFileExtension, an error occurs.
+</div>
+<a name="wp544883"> </a><div class="pCellBody">
+In other SQL statements, such as Select or Insert, you can specify an extension other than the DataFileExtension value. If you do not specify an extension value in these cases, the DataFileExtension value is used.
+</div>
+<a name="wp553892"> </a><div class="pCellBody">
+The initial default is DBF.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544885"> </a><div class="pCellBody">
+DataSourceName<br />(DSN)
+</div>
+</td>
+    <td><a name="wp544887"> </a><div class="pCellBody">
+A string that identifies a dBASE data source configuration. Examples include &quot;Accounting&quot; or &quot;dBASE Files.&quot;
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544889"> </a><div class="pCellBody">
+ExtensionCase (EC)
+</div>
+<a name="wp544893"> </a><div class="pCellBody">
+<img src="images/iconunixa5.gif" height="31" width="26" border="0" hspace="0" vspace="0"/>
+</div>
+<a name="wp544894"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp544896"> </a><div class="pCellBody">
+ExtensionCase={LOWER | UPPER}. Specifies whether upper- or lowercase file extensions are accepted. 
+</div>
+<a name="wp553713"> </a><div class="pCellBody">
+When set to LOWER, lowercase extensions are accepted. 
+</div>
+<a name="wp553714"> </a><div class="pCellBody">
+When set to UPPER (the initial default), uppercase extensions are accepted.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544898"> </a><div class="pCellBody">
+FileOpenCache (FOC)
+</div>
+</td>
+    <td><a name="wp544900"> </a><div class="pCellBody">
+An integer value that determines the maximum number of used file handles to cache. For example, when FileOpenCache=4, and a user opens and closes four files, the files are not actually closed. The driver keeps them open so that if another query uses one of these files, the driver does not have to perform another open, which is expensive. The advantage of using file open caching is increased performance. The disadvantage is that a user who tries to open the file exclusively may get a locking conflict even though no one appears to have the file open. 
+</div>
+<a name="wp553723"> </a><div class="pCellBody">
+The initial default is 0, which means no file open caching.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp601706"> </a><div class="pCellBody">
+IANAAppCodePage (IACP)
+</div>
+<a name="wp601710"> </a><div class="pCellBody">
+<img src="images/iconunixc9.gif" height="31" width="26" border="0" hspace="0" vspace="0"/>
+</div>
+<a name="wp601711"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp610262"> </a><div class="pCellBody">
+See <a  href="appcodepage.html#wp526223"><a  href="appcodepage.html#wp526223">&quot;Values for IANAAppCodePage Connection String Attribute&quot;</a></a> for a list of valid values for this attribute. The code page that you specify must be the same as the code page used by your application. This attribute applies to UNIX only.
+</div>
+<a name="wp610264"> </a><div class="pCellBody">
+For this non-Unicode driver, the Driver Manager determines the value of the application&#8217;s code page by checking for an IANAAppCodePage value in the following order:
+</div>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp610265"> </a><div class="pSmartList1"><li>In the connection string</li></div><a name="wp610266"> </a><div class="pSmartList1"><li>In the DataSource section of the system information file (odbc.ini)</li></div><a name="wp610267"> </a><div class="pSmartList1"><li>In the ODBC section of the system information file (odbc.ini)</li></div></ul></div>
+<a name="wp610268"> </a><div class="pCellBody">
+If no IANAAppCodePage value is found, the driver uses the default value of 4 (ISO 8859-1 Latin-1). 
+</div>
+<a name="wp608595"> </a><p class="pBody">
+&#160;&#160;&#160;
+</p>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544902"> </a><div class="pCellBody">
+IntlSort (IS)
+</div>
+</td>
+    <td><a name="wp544904"> </a><div class="pCellBody">
+IntlSort={0 | 1}. Determines the order in which records are retrieved when you issue a Select statement with an Order By clause. 
+</div>
+<a name="wp553729"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver uses the ASCII sort order. This order sorts items alphabetically with uppercase letters preceding lowercase letters. For example, &quot;A, b, C&quot; is sorted as &quot;A, C, b.&quot;
+</div>
+<a name="wp544905"> </a><div class="pCellBody">
+When set to 1, the driver uses the international sort order as defined by your operating system. This order is always alphabetic, regardless of case; the letters from the previous example are sorted as &quot;A, b, C.&quot; See your operating system documentation concerning the sorting of accented characters.
+</div>
+<a name="wp599942"> </a><div class="pCellBody">
+The equivalent Setup dialog box option is International Sort.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp596991"> </a><div class="pCellBody">
+LockCompatibility (LCOMP)
+</div>
+</td>
+    <td><a name="wp596993"> </a><div class="pCellBody">
+LockCompatibility={Clipper | dBASE | Fox | Q+E | Q+EVirtual}. Specifies the locking scheme to be used in your dBASE tables. The advantage of using a Q+E locking scheme over dBASE locking is that, on Inserts and Updates, Q+E locks only individual index tags, while dBASE locks the entire index.
+</div>
+<a name="wp596994"> </a><div class="pCellBody">
+When set to Clipper, Clipper-compatible locking is specified.
+</div>
+<a name="wp596995"> </a><div class="pCellBody">
+When set to dBASE (the initial default), Borland-compatible locking is specified. 
+</div>
+<a name="wp596996"> </a><div class="pCellBody">
+When set to Fox, FoxPro-compatible locking is specified.
+</div>
+<a name="wp596997"> </a><div class="pCellBody">
+When set to Q+E, locks are placed on the actual bytes occupied by the record. Only applications that use the dBASE driver can read and write to the database. Other applications are locked out of the table completely (they cannot even read other records). This locking is compatible with earlier versions of Q+E products.
+</div>
+<a name="wp612355"> </a><div class="pCellBody">
+When set to Q+EVirtual, locks are placed on bytes beyond the physical end-of-file. Q+EVirtual is the same as Q+E except that other applications can open the table and read the data.
+</div>
+<a name="wp612356"> </a><div class="pCellBody">
+If you are accessing a table with an application that uses the dBASE driver, your locking scheme does not have to match the Create Type. If you are accessing a table with two applications, however, and only one uses the dBASE driver, set your locking scheme to match the other application. For example, you don&#8217;t have to set LCOMP=Fox to work with a FoxPro table. But if you are using a FoxPro application simultaneously with an application using the dBASE driver on the same set of tables, set LCOMP=Fox to ensure that your data does not get corrupted. Refer to <a  href="Rdbasfox14.html#wp514744">&quot;Locking&quot;</a> for details.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544907"> </a><div class="pCellBody">
+Locking (LCK)
+</div>
+</td>
+    <td><a name="wp544909"> </a><div class="pCellBody">
+Locking={NONE | RECORD | FILE}. Determines the level of locking for the database tables. 
+</div>
+<a name="wp544910"> </a><div class="pCellBody">
+When set to NONE, the best performance is offered, but is intended only for single-user environments.
+</div>
+<a name="wp544911"> </a><div class="pCellBody">
+When set to RECORD (the initial default), only the records affected by the statement are locked.
+</div>
+<a name="wp544912"> </a><div class="pCellBody">
+When set to FILE, all of the records in the table are locked.
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544954"> </a><div class="pCellBody">
+UltraSafeCommit (USF)
+</div>
+</td>
+    <td><a name="wp544956"> </a><div class="pCellBody">
+UltraSafeCommit={0 | 1}. Specifies when the driver flushes the file cache. 
+</div>
+<a name="wp553807"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver updates the directory entry when the file is closed. In this case, a machine &quot;crash&quot; before closing the file causes newly inserted records to be lost.
+</div>
+<a name="wp598590"> </a><div class="pCellBody">
+When set to 1, the driver updates directory entries after each Commit. This decreases performance. 
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544967"> </a><div class="pCellBody">
+UseLongNames (ULN)
+</div>
+<a name="wp544968"> </a><div class="pCellBody">
+&#160;
+</div>
+<a name="wp544969"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp544971"> </a><div class="pCellBody">
+UseLongNames={0 | 1}. Determines whether the driver uses long file names as table names. 
+</div>
+<a name="wp553815"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver does not use long file names. 
+</div>
+<a name="wp553814"> </a><div class="pCellBody">
+When set to 1, the driver uses long file names. The maximum table name length is specific to the environment in which you are running (for example, in Windows 98, the maximum table name length is 128).
+</div>
+</td>
+</tr>
+  <tr align="left">    <td><a name="wp544962"> </a><div class="pCellBody">
+UseLongQualifiers (ULQ)
+</div>
+<a name="wp544963"> </a><div class="pCellBody">
+&#160;
+</div>
+</td>
+    <td><a name="wp544965"> </a><div class="pCellBody">
+UseLongQualifiers={0 | 1}. Determines whether the driver uses long path names as table qualifiers. 
+</div>
+<a name="wp553822"> </a><div class="pCellBody">
+When set to 0 (the initial default), the driver does not use long path names (the maximum path name length is 128 characters). 
+</div>
+<a name="wp553823"> </a><div class="pCellBody">
+When set to 1, the driver uses long path names (the maximum path name length is 255 characters).
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pBody">
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,38 @@
+Logon to DB2 Wire Protocol Dialog Box
+
+IP ADDRESS: Type the IP (Internet Protocol) address of the machine where the catalog tables are stored. Specify the address using the machine's numeric address (for example, 123.456.78.90) or specify 
+its host name. If you enter a host name, the driver must find this 
+name (with the correct address assignment) in the HOSTS file on 
+the workstation or in a DNS server.
+
+TCP PORT: Type the port number that is assigned to the DB2 server 
+on the machine where the catalog tables are stored. Specify either 
+this port's numeric address or its service name (5179 is the 
+default port address). If you specify a service name, the driver 
+must find this name (with the correct port assignment) in the 
+SERVICES file on the workstation.
+
+LOCATION: If you are running DB2 on OS/390 or AS/400, type the DB2 location name. Use the name defined during the local DB2 
+installation.
+
+COLLECTION: If you are running DB2 on OS/390 or AS/400, type the 
+name that identifies a group of packages. These packages include 
+the Connect ODBC for DB2 Wire Protocol driver packages. The 
+default is DATADIRECT00.
+
+DATABASE NAME: If you are running DB2 on Windows NT or UNIX, type 
+the name of the remote database that you want to access. You must 
+have cataloged any database that you wish to access from the 
+client.
+
+USER NAME: If required, type your user name (logon ID).
+
+PASSWORD: If required, type your password.
+
+OK
+Completes the logon and writes the values to the system 
+information.
+
+CANCEL
+Closes the dialog box without writing the values to the system information.
+

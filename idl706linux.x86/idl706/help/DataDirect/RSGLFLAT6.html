@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:16:36" />
+  <title>Delete Statement</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp511495"> </a><h1 class="pNewHTMLPageNoNum">
+Delete Statement
+</h1>
+<hr /><a name="wp511499"> </a><p class="pBody">
+The SQL Delete statement is used to delete records from a database table. The form of the Delete statement supported for flat-file drivers is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DELETE FROM <span style="font-style: italic">table_name</span><a name="wp511501"> </a>
+[ WHERE { <span style="font-style: italic">conditions</span> | CURRENT OF <span style="font-style: italic">cursor_name</span> } ]<a name="wp511503"> </a>
+</pre></div>
+<a name="wp511505"> </a><p class="pBody">
+<em class="cEmphasis">table_name</em> may be a simple table name or a full pathname. A simple table name is preferred for portability to other SQL data sources.
+</p>
+<a name="wp511507"> </a><p class="pBody">
+The Where clause (any valid clause described in <a  href="RSGLFLAT2.html#wp510919">&quot;Select Statement&quot;</a>) determines which records are to be deleted. If you include only the keyword Where, all records in the table are deleted but the file is left intact.
+</p>
+<a name="wp511509"> </a><p class="pBody">
+The Where Current Of <em class="cEmphasis">cursor_name</em> clause can be used only by developers coding directly to the ODBC API. It causes the row at which <em class="cEmphasis">cursor_name</em> is positioned to be deleted. This is called a &quot;positional delete.&quot; You must first execute a Select...For Update statement with a named cursor and fetch the row to be deleted.
+</p>
+<a name="wp511511"> </a><p class="pBody">
+An example of a Delete statement on the employee table is:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DELETE FROM emp WHERE emp_id = &#39;E10001&#39;<a name="wp511513"> </a>
+</pre></div>
+<a name="wp511515"> </a><p class="pBody">
+Each Delete statement removes every record that meets the conditions in the Where clause. In this case every record having the employee ID E10001 is deleted. Because employee IDs are unique in the employee table, at most, one record is deleted.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Quadralay WebWorks Publisher 2003 for FrameMaker 8.0.5.1556">
+    <meta name="RSISYM" content="False">
+    <meta name="TEMPLATEBASE" content="DynHTML">
+    <meta name="LASTUPDATED" content="10/11/06 11:29:53">
+    <title>Beating Heart</title>
+    <link rel="StyleSheet" href="document.css" type="text/css" />
+    <link rel="StyleSheet" href="catalog.css" type="text/css" />
+  </head>
+
+  <body text="#000000" bgcolor="#FFFFFF">
+
+<table border="0" cellpadding="0" cellspacing="0" width="98%" bgcolor="#E2E2E2" valign="bottom">
+  <tr> 
+    <td width="10%">
+<a href="d_obj.html"><img src="images/prev.gif" border="0" alt="Previous"></a>    </td>
+    <td width="80%" align="center">
+<font size=-1><i>IDL Demo Library</i></font>    </td>
+    <td width="10%" align="right">
+<a href="d_contour.html"><img src="images/next.gif" border="0" alt="Next"></a>    </td>
+  </tr>
+</table>
+
+<a name="wp1004156"> </a><h2 class="pHeading1">
+Beating Heart
+</h2>  
+
+<a name="wp1004158"> </a><p class="pBody">
+The heart geometry is generated from triangulating an array of points into a series of quad polygons. Each step in the sequence of the beating heart consists of 3 parts: Inner Surface, Outer Surface, and Bottom (connecting) surface. 
+</p>  
+
+<a name="wp1004159"> </a><p class="pBody">
+The colors are determined using a color lookup value from a 3D array of perfusion values stored for every point. The object geometry representing the heart is manipulated based on the data for each of the above steps to show the shape of the heart through one heartbeat cycle. 
+</p>  
+
+<a name="wp1004160"> </a><h3 class="pHeading2">
+Data Courtesy of:
+</h3>  
+
+
+<a name="wp1004161"> </a><p class="pBody">
+Dr. Stephan Nekolla
+</p>  
+
+<a name="wp1004162"> </a><p class="pBody">
+Leiter Medizinische Datenverarbeitung
+</p>  
+
+<a name="wp1004163"> </a><p class="pBody">
+Klinik und Poliklinik fuer Nuklearmedizin
+</p>  
+
+<a name="wp1004164"> </a><p class="pBody">
+Klinikum rechts der Isar der Technischen
+</p>  
+
+<a name="wp1004165"> </a><p class="pBody">
+Universitaet Muenchen
+</p>  
+
+<a name="wp1004166"> </a><p class="pBody">
+Ismaningerstr. 22 D-81675 Muenchen
+</p>  
+
+<a name="wp1004167"> </a><h3 class="pHeading2">
+IDL Features
+</h3>  
+
+
+<a name="wp1004168"> </a><p class="pBody">
+This demo uses the following features from IDL Object Graphics:
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004169"> </a><div class="pSmartList1"><li>Interactive 3D graphics to control the object transformation (rotation) with the mouse.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004170"> </a><div class="pSmartList1"><li>Geometry creation using &quot;IDLgrPolygon&quot; and &quot;IDLgrPolyline&quot; to represent the heart light source icons.</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004171"> </a><div class="pSmartList1"><li>Light source shading, using 2 &quot;Positional&quot; light sources.</li></div>  
+
+</ul></div>
+<a name="wp1004172"> </a><h3 class="pHeading2">
+Menu Options
+</h3>  
+
+
+<a name="wp1004173"> </a><h4 class="pHeading3">
+File Menu
+</h4>  
+
+<a name="wp1004174"> </a><p class="pBody">
+Select &quot;Quit&quot; to exit the Beating Heart Demo and return to the IDL Demo main screen. 
+</p>  
+
+<a name="wp1004175"> </a><h4 class="pHeading3">
+Options Menu
+</h4>  
+
+<a name="wp1004176"> </a><h5 class="pHeading4">
+Shading
+</h5>  
+
+<a name="wp1004177"> </a><p class="pBody">
+Select either Flat or Gouraud shading for the solid. Gouraud shading results in a more realistic appearance. Shading is only enabled when the Style is set to Solid. 
+</p>  
+
+<a name="wp1004178"> </a><h5 class="pHeading4">
+Style
+</h5>  
+
+<a name="wp1004179"> </a><p class="pBody">
+Select either Wire or Solid to represent the surface of the heart.
+</p>  
+
+<a name="wp1004180"> </a><h5 class="pHeading4">
+Drag Quality
+</h5>  
+
+<a name="wp1004181"> </a><p class="pBody">
+Select either Low or High quality for when you rotate the solid by dragging the mouse. Low quality shows a wire surface when dragging while High quality retains the surface displayed. 
+</p>  
+
+<a name="wp1004182"> </a><h4 class="pHeading3">
+Help Menu
+</h4>  
+
+<a name="wp1004183"> </a><p class="pBody">
+Select &quot;About Beating Heart&quot; for information about the Beating Heart Demo.
+</p>  
+
+<a name="wp1004184"> </a><h3 class="pHeading2">
+Features
+</h3>  
+
+
+<a name="wp1004185"> </a><h4 class="pHeading3">
+Geometry Visibility checklist 
+</h4>  
+
+<a name="wp1004186"> </a><p class="pBody">
+Select one or all of the following choices for displaying the heart. A check next to the item specifies that it is enabled. 
+</p>  
+
+<div class="pSmartList1"><ul class="pSmartList1">
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004187"> </a><div class="pSmartList1"><li>Outer surface</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004188"> </a><div class="pSmartList1"><li>Inner surface</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004189"> </a><div class="pSmartList1"><li>Bottom surface</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004190"> </a><div class="pSmartList1"><li>3D Axis</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004191"> </a><div class="pSmartList1"><li>Light icons</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004192"> </a><div class="pSmartList1"><li>Annotations</li></div>  
+
+<P class="Ignore">&nbsp;</P>
+<a name="wp1004193"> </a><br />
+<table border="0" bgcolor="#E2E2E2" cellpadding="5" width="98%">
+   <tr><td><b>Note</b><br />
+   The axes are color-coded. The red line represents the X axis, green represents Y, and blue represents Z.</td></tr>
+</table>
+<br />  
+
+
+</ul></div>
+<a name="wp1004194"> </a><h4 class="pHeading3">
+Start button
+</h4>  
+
+<a name="wp1004195"> </a><p class="pBody">
+Starts the sequence of steps showing the heart through one heartbeat cycle.
+</p>  
+
+<a name="wp1004196"> </a><h4 class="pHeading3">
+Step button
+</h4>  
+
+<a name="wp1004197"> </a><p class="pBody">
+Displays each step in order.
+</p>  
+
+<a name="wp1004198"> </a><h4 class="pHeading3">
+Reset Orientation button
+</h4>  
+
+<a name="wp1004199"> </a><p class="pBody">
+Reset the heart to its initial orientation.
+</p>  
+
+<a name="wp1004200"> </a><h3 class="pHeading2">
+Interactive Movement
+</h3>  
+
+
+<a name="wp1004201"> </a><p class="pBody">
+Use your left mouse button to interactively rotate the heart. Position the cursor on the image and, while holding down the left mouse button, move the cursor to rotate the heart. Release the mouse button when you are satisfied with the position of the heart.
+</p>
+
+<P></P>
+<P></P>
+<P><FONT COLOR="gray" SIZE="-3">&nbsp;&nbsp;IDL Demo Online Help (October 11, 2006)</FONT></P>
+  </body>
+</html>

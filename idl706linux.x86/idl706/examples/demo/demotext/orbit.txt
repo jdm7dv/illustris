@@ -1,0 +1,79 @@
+
+
+
+          WELCOME TO ORBITING SATELLITE DEMO
+
+   
+This demo shows a satellite in orbit around the
+Earth.
+   
+The objects (Earth and satellite) are subject
+to 3 fundamental operations:
+  
+   1) Scaling       :  The size of the satellite
+                       can be scaled.
+ 
+   2) Translation   :  The satellite position 
+		       changes over time.
+
+   3) Rotation      :  The Earth, clouds, and the
+		       satellite all rotate. Notice
+		       that the rotation rate of
+		       the clouds is greater than
+		       of the Earth.
+
+The satellite's orbit parameters at the epoch
+time are:
+
+semi-major axis             :  9200  km
+eccentricity                :  0.3
+inclination                 :  75.0  degrees
+mean anomaly                :  38.0  degrees
+longitude of ascending node :  64.0  degrees
+argument of perigee         :  28.0  degrees
+
+
+You can rotate the entire image by positioning the mouse
+in the draw widget, holding down the left mouse button,
+and dragging the mouse.
+
+
+MENU OPTIONS
+------------
+
+File Menu:
+    Select "Quit" to exit the demo.
+
+About Menu:
+    Select "About Orbiting Satellite" to display this 
+    help text.
+
+
+FEATURES OF THE ORBITING SATELLITE DEMO
+---------------------------------------
+
+<<Start button>>
+    Start the animation.
+
+<<Stop button>>
+    Stop the animation.
+
+<<Reset button>>
+    Reset the initial orientation of the satellite
+    and the earth.
+
+<<Scaling slider>>
+    Adjust the slider to scale the size of the satellite
+    in the range 0.75 to 1.25.
+
+<<Animation step slider>>
+    Adjust the slider to control the size of the "steps"
+    the satellite takes in its orbit. A smaller value for
+    the step means the satellite moves less distance with
+    each translation, resulting in a smoother animation.
+
+    LEFT MOUSE BUTTON
+
+        Click-drag-release will rotate the
+        whole view.
+

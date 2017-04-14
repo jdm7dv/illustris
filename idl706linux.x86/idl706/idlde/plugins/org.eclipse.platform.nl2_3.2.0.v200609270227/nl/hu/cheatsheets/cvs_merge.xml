@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="CVS ágak összefésülése">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+Ez az áttekintő mutatja be, hogyan lehet összefésülni egy CVS ágat egy
+másikkal vagy a HEAD ággal. Ha bármilyen lépésnél segítségre van szüksége, kattintson a (?)
+      ikonra a jobb oldalon.
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Ág- és verzióinformációk meghatározása">
+    <description>
+Az első lépés annak elhatározása, hogy <b>melyik</b> két ág kerüljön
+összevonásra, melyik <b>verziónál</b> ágazott el a tartalom, és mi legyen
+a <b>cél</b> ág (ahova az összevonás eredménye kerül).
+Amint rendelkezik ezekkel az információkkal, továbbmehet a következő
+lépésre.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="A projekt kiiktatása">
+    <description>
+Az összefésülés előtt <b>ki kell iktatni</b> az összefésülni kívánt
+projektet, és importálni kell azt a munkaterületre. Ezt az importálás
+varázslóval illetve a CVS lerakatböngészőben a lerakat hozzáadásával
+végezheti el, és a (?) gombra is kattinthat, ha további információkra van
+szüksége.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="A cél betöltése a munkaterületre">
+    <description>
+A navigátorban kattintson a jobb egérgombbal a projektre, majd válassza az
+előugró menü Helyettesítés &gt; Másik ág vagy verzió menüpontját. Válassza
+ki a célágat. Ezzel az ág legfrissebb tartalma betöltődik a
+munkaterületre.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Összefésülés részletei">
+    <description>
+Ismét a navigátorban kattintson a jobb egérgombbal a projektre, majd
+válassza az előugró menü <b>Munkacsoport</b> &gt; <b>Összefésülés</b>
+menüpontját, és végezze el a megjelenő varázsló lépéseit. Ebben a varázsló
+ban lehet megadni az összefésülésre vonatkozó részleteket.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Összefésülés szerkesztő használata">
+    <description>
+Az Összefésülés szerkesztőben végezze el a módosítások összefésülését. A
+lépés során betöltődnek a munkaterületre a szükséges módosítások. Ha az
+összes változás összefésülésének eredményével elégedett, akkor
+továbbhaladhat a következő lépésre.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Véglegesítse a módosításokat">
+    <description>
+Kattintson a jobb egérgombbal a projektre, majd válassza az előugró menü
+<b>Munkacsoport</b> &gt; <b>Szinkronizálás a lerakattal</b> menüpontját,
+és véglegesítse a változásokat a lerakatban. Ez a lépés véglegesíti az
+összefésülést és a változások átvitelét a munkaterületről a lerakatba.
+    </description>
+  </item>
+
+</cheatsheet>

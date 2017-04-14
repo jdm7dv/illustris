@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:59:53" />
+  <title>Performance Considerations</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp572452"> </a><h1 class="pNewHTMLPageNoNum">
+Performance Considerations
+</h1>
+<hr /><a name="wp610034"> </a><p class="pBody">
+<b class="cBold">Application Using Threads (ApplicationUsingThreads)</b>: The driver coordinates operations from different threads by acquiring locks. Although locking prevents errors in the driver, it also decreases performance. If the application does not make ODBC calls from different threads, there is no reason for the driver to coordinate operations. Disabling the Application Using Threads option prevents the driver from coordinating operations and improves performance for single-threaded applications.
+</p>
+<a name="wp610035"> </a><p class="pBody">
+NOTE: If you are using a multi-threaded application, you must enable the Application Using Threads option.
+</p>
+<a name="wp572456"> </a><p class="pBody">
+<b class="cBold">Array Size</b><b class="cBold"> (ArraySize)</b>: Values for this option can be an integer from 1 to 4,294,967,296 (4GB); the default is 60000. The value 1 is a special value that does not define the number of bytes but, instead, causes the driver to allocate space for exactly one row of data. Larger values increase throughput by reducing the number of times the driver fetches data across the network when retrieving multiple rows. Smaller values increase response time, as there is less of a delay waiting for the server to transmit data.
+</p>
+<a name="wp572457"> </a><p class="pBody">
+<b class="cBold">Catalog Functions Include Synonyms (CatalogIncludesSynonyms)</b>: Standard ODBC behavior is to include synonyms in the result sets of calls to the following catalog functions: SQLProcedures, SQLStatistics, and SQLProcedureColumns. Retrieving information about synonyms is very expensive with Oracle. The Catalog Functions Include Synonyms option allows you to improve your application&#39;s performance by excluding synonyms from these results sets. If your application does not need synonyms to be returned by these catalog functions, disable this option.
+</p>
+<a name="wp572460"> </a><p class="pBody">
+<b class="cBold">Default Buffer Size for Long/LOB Columns (DefaultLongDataBuffLen)</b>: This value specifies the size of the buffer used when fetching data from Long/LOB columns. The buffer size should only be large enough to accommodate the maximum amount of data that you want to retrieve from these types of columns; otherwise, performance is reduced by transferring large amounts of data into an oversized buffer. You will need to increase the value of this option from the default of 1024 if the total size of any Long data exceeds 1 MB. The value must be in multiples of 1024 (for example, 2048). 
+</p>
+<a name="wp572461"> </a><p class="pBody">
+NOTE: This option is not used if the Optimize Long Performance option is enabled.
+</p>
+<a name="wp572462"> </a><p class="pBody">
+<b class="cBold">Describe At Prepare</b><b class="cBold"> (</b><b class="cBold">DescribeAtPrepare</b><b class="cBold">)</b>: When enabled, this option causes two round trips across the network&#8212;one for prepare and one for describe. If your application does not require result set information at prepare time (for instance, you request information about the result set using SQLColAttribute(s), SQLDescribeCol, SQLNumResultCols, etc. before calling SQLExecute on a prepared statement), you can increase performance by disabling this option.
+</p>
+<a name="wp572463"> </a><p class="pBody">
+<b class="cBold">Enable Static Cursors for Long Data</b><b class="cBold"> (</b><b class="cBold">EnableStaticCursorsForLong Data</b><b class="cBold">)</b>: This option enables the driver to support Long columns when using a static cursor, but also reduces performance. If your application does not need to support Long columns and does not use static cursors, performance is increased by disabling this option.
+</p>
+<a name="wp572464"> </a><p class="pBody">
+<b class="cBold">Optimize Long Performance</b><b class="cBold"> (</b><b class="cBold">OptimizeLongPerformance</b><b class="cBold">)</b>: When enabled, this option fetches Long data directly into the application&#39;s buffers rather than allocating buffers and making a copy. Also, when enabled, this option decreases fetch times on Long data; however, it can cause the application to be limited to one active statement per connection.
+</p>
+<a name="wp572465"> </a><p class="pBody">
+NOTE: If this option is enabled, the Default Buffer Size for Long/LOB Columns (DefaultLongDataBuffLen) option is not used.
+</p>
+<a name="wp572466"> </a><p class="pBody">
+<b class="cBold">Procedure Returns Results (ProcedureRetResults)</b>: When Procedure Returns Results is enabled, the driver returns result sets from stored procedures/functions. In addition, SQLGetInfo(SQL_MULT_RESULTS_SETS) will return &quot;Y&quot; and SQLGetInfo(SQL_BATCH_SUPPORT) will return SQL_BS_SELECT_PROC. If this option is enabled and you execute a stored procedure that does not return result sets, you will incur a performance penalty.
+</p>
+<a name="wp572467"> </a><p class="pBody">
+<b class="cBold">Use Current Schema for SQLProcedures (UseCurrentSchema)</b>: When enabled, this option specifies that the driver return only procedures owned by the current user when executing SQLProcedures. Also, when this option is enabled, the call for SQLProcedures is optimized by grouping queries, but only procedures owned by the current user are returned. Enabling this option is equivalent to passing the Login ID used on the connection as the SchemaName argument to the SQLProcedures call.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

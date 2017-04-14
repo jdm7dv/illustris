@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<cheatsheet title="Slå sammen CVS-grener">
+
+  <intro 
+      href="/org.eclipse.platform.doc.user/reference/ref-cheatsheets.htm">
+    <description>
+Denne jukselappen viser hvordan du slår sammen endringer fra en CVS-gren
+med en annen, eller med HEAD. Hvis du trenger hjelp til et trinn, kan du klikke på ikonet (?) til
+høyre.
+    </description>
+  </intro>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Fastsette gren- og versjonsinformasjon">
+    <description>
+Det første trinnet er å avgjøre <b>hvilke</b> to grener som skal slås sammen, ved
+hvilken <b>versjon</b> innholdet ble forgrenet, og hvilken gren som skal
+være <b>målgrenen</b> (der resultatet av sammenslåingen skal legges).
+Når du har denne informasjonen, kan du gå til neste trinn.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-96.htm"
+      title="Hente ut prosjektet">
+    <description>
+Før sammenslåingen må du <b>hente ut</b> prosjektet du vil slå sammen
+og legge det i arbeidsområdet. Dette kan du gjøre ved hjelp av importveiviseren
+eller ved å tilføye datalageret fra perspektivet Utforsking av CVS-datalager.
+Du kan også klikke på knappen (?) for å få hjelp.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-103.htm"
+      title="Laste målet inn i arbeidsområdet">
+    <description>
+I navigatoren høyreklikker du på prosjektet og velger Erstatt med &gt;
+En annen gren eller versjon. Velg målgrenen. Da blir det nyeste
+innholdet lastet inn i arbeidsområdet fra grenen.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Sammenslåingsdetaljer">
+    <description>
+I navigatoren høyreklikker du igjen på prosjektet, velger <b>Gruppe</b>
+&gt; <b>Slå sammen</b> og fullfører trinnene i veiviseren. I denne veiviseren oppgir du
+detaljene for sammenslåingen.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-100b.htm"
+      title="Arbeide med redigeringsprogrammet for sammenslåing">
+    <description>
+I redigeringsprogrammet for å slå sammen må du slå sammen endringene manuelt. Dette trinnet laster inn de nødvendige endringene i arbeidsområdet. Når du har slått sammen alle endringer
+og er fornøyd med resultatet, går du til neste trinn.
+    </description>
+  </item>
+
+  <item
+      href="/org.eclipse.platform.doc.user/tasks/tasks-114.htm"
+      title="Iverksette endringene">
+    <description>
+Høyreklikk på prosjektet, velg <b>Gruppe</b> &gt; <b>Synkroniser med
+datalager</b> og iverksett deretter alle endringer i datalageret. Dette trinnet sluttfører
+overføringen av endringer fra arbeidsområdet til CVS-datalageret og fullfører sammenslåingen.
+    </description>
+  </item>
+
+</cheatsheet>

@@ -1,0 +1,136 @@
+5		Warping and Morphing Demo
+
+This demo illustrates image warping, morphing (the
+gradual changing of one image to another), and image
+compression using IDL.  Images of several employees
+are used to demonstrate the features.
+
+The pictures are stored in JPEG compressed image format,
+which is fully supported by IDL. Each 192 by 192 image
+(36K bytes) is stored using JPEG in less than 6K bytes,
+resulting in approximately 6 to 1 compression.
+
+To experiment with image warping, first display a picture,
+then click the "Warping" button.  The warping control box
+should become visible on the right side of the demo widget.
+
+Control or "tie" points are used to specify how the image
+is to be warped.  Each control point in the original image
+is transformed to a designated point in the "warped" output
+image. To make a control point, position the cursor over the
+image, click the left mouse button, and drag the cursor to
+the place where that point should appear in the warped image.
+IDL will draw an arrow with the base at the control point's
+original position, and the head at the "warped" position. 
+At least three control points must be defined to warp an
+image.  Up to 100 control points may be defined.
+
+To make a control point with the same position in both the
+original and output image, click the left mouse button at
+that point. This has the effect of fixing that point at
+the same location in both images.
+
+Note: the output image is only defined over the convex
+hull of the control points. To include the entire image,
+use the "Mark Corners" button.
+
+
+MENU OPTIONS
+------------
+
+File Menu:
+    Select "Quit" to exit the demo.
+
+About Menu:
+    Select "About Warping and Morphing Demo" to display this 
+    help text.
+
+
+FEATURES OF THE WARPING AND MORPHING DEMO
+----------------------------------
+
+<<Warping button>>
+    Click this button to set the application to the warping
+    mode. This functionality is available when the image of
+    only one person is displayed.
+
+<<Morphing button>>
+    Click this button to set the application to the morphing
+    mode. This functionality is available when the image of
+    everyone is displayed.
+
+<<Group button>>
+    Click this button to display an image of four employees.
+
+<<People list>>
+    Select a name from the list to display the image
+    of the selected person.
+    
+  
+WARPING MODE FEATURES
+---------------------
+
+<<Undo button>>
+    Click this button to remove the most recently defined
+    control point.  
+
+<<Reset button>>
+    Click this button to display the original image (one
+    person) and clear the control points.
+
+<<Warp Linear button>>
+    Click this button to set the warping function to linear.
+    Display the warped image if 3 or more control points are
+    defined.
+
+<<Warp Smooth button>>
+    Click this button to set the warping function to smooth.
+    Display the warped image if 3 or more control points are
+    defined.
+
+<<Original button>>
+    Click this button to display the original image (one
+    person). The arrows connecting the control points are
+    shown.
+
+<<Surface>>
+    Click this button to display the warping X and Y
+    deformation surface function.
+
+<<Animate button>>
+    Click this button to display an animation tool that
+    illustrates the intermediate images between the original
+    image and the final warped image.
+
+<<Mark Corners on button>>
+    Click this button to place four control points in the corners
+    of the image. This fixes the corners of the output image to
+    the same positions.
+
+
+MORPHING MODE FEATURES
+----------------------
+
+<<Done button>>
+    Click this button to exit the morphing demo.
+
+<<Help button>>
+    Click this button to display a help file that explains
+    how to operate the morphing demo (not this file).
+
+<<Restart button>>
+    Click this button to reset the morphing procedure to
+    the beginning.
+
+<<Delete CP button>>
+    Click this button to delete all the control points.
+ 
+<<Go button>>
+    Click this button to display an animation tool that shows
+    the images as they morph from one to the other.
+
+<<Frames droplist>>
+    Select the number of images to be created as intermediate
+    steps in the morphing process. The larger the number of
+    images used, the smoother the morph will look, and that
+    longer the process will take.

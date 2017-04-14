@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/13/04 16:59:53" />
+  <title>Driver Requirements</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp571979"> </a><h1 class="pNewHTMLPageNoNum">
+Driver Requirements
+</h1>
+<hr /><a name="wp571980"> </a><p class="pBody">
+This section provides the system requirements for using the Oracle driver on both Windows and UNIX.
+</p>
+<a name="wp571984"> </a><h3 class="pHeading2">
+</h3><div align="left"><img src="images/iconwini.gif" height="24" width="27" border="0" hspace="0" vspace="0"/></div><h3 class="pHeading2">Windows
+</h3>
+<a name="wp609118"> </a><p class="pBody">
+IMPORTANT: You must have <em class="cEmphasis">all</em> components of the Oracle client software installed; otherwise, the driver will not operate properly.
+</p>
+<a name="wp609119"> </a><p class="pBody">
+Although an earlier version of a client can access a later version of a database, for example, client 8.1.6 to server 9.0.1, to insure that you have access to all of the features of a particular database version, you should use the client that matches the database version, for example, client 10<em class="cEmphasis">g</em> to server 10<em class="cEmphasis">g</em>. 
+</p>
+<a name="wp609281"> </a><p class="pBody">
+The Oracle 10<em class="cEmphasis">g </em>R1 (10.1) client is supported only on the following Windows platforms:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp609282"> </a><div class="pSmartList1"><li>NT Server 4.0 with Service Pack 6a (not Workstation)</li></div><a name="wp609283"> </a><div class="pSmartList1"><li>2000 with Service Pack 1 or higher</li></div><a name="wp609284"> </a><div class="pSmartList1"><li>Server 2003</li></div><a name="wp609285"> </a><div class="pSmartList1"><li>XP Professional</li></div></ul></div>
+<a name="wp609286"> </a><p class="pBody">
+The appropriate DLLs for the Oracle client software must be on your path.
+</p>
+<a name="wp582893"> </a><p class="pBody">
+ 
+</p>
+<a name="wp571999"> </a><h3 class="pHeading2">
+</h3><div align="left"><img src="images/iconunixb3.gif" height="28" width="27" border="0" hspace="0" vspace="0"/></div><h3 class="pHeading2">UNIX
+</h3>
+<a name="wp612399"> </a><p class="pBody">
+IMPORTANT: You must have <em class="cEmphasis">all</em> components of the Oracle client software installed; otherwise, the driver will not operate properly. You must have the appropriate shared libraries and objects on your path.
+</p>
+<a name="wp612400"> </a><p class="pBody">
+Although an earlier version of a client can access a later version of a database, for example, client 8.1.6 to server 9.0.1, to insure that you have access to all of the features of a particular database version, you should use the client that matches the database version, for example, client 10<em class="cEmphasis">g</em> to server 10<em class="cEmphasis">g</em>. 
+</p>
+<a name="wp612563"> </a><p class="pBody">
+The Oracle 10<em class="cEmphasis">g</em> R1 (10.1) client is supported only on the following UNIX platforms:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp612564"> </a><div class="pSmartList1"><li>AIX 5.2 Maintenance Level 1 or higher</li></div><a name="wp612565"> </a><div class="pSmartList1"><li>HP-UX 11i PA-RISC Quality Pack June 2003 or later</li></div><a name="wp612566"> </a><div class="pSmartList1"><li>Red Hat Linux Advanced Server 2.1 Update 3; 3.0 Update 1</li></div><a name="wp612567"> </a><div class="pSmartList1"><li>Solaris 8 and 9</li></div><a name="wp612568"> </a><div class="pSmartList1"><li>SuSE Linux Enterprise Server 8 with Service Pack 3 or higher</li></div></ul></div>
+<a name="wp612569"> </a><p class="pBody">
+Before you can use the Oracle driver, you must have a supported Oracle client installed on your workstation in the $ORACLE_HOME source tree. ORACLE_HOME is an environment variable created by the Oracle installation process that identifies the location of your Oracle client components. 
+</p>
+<a name="wp612570"> </a><p class="pBody">
+Set the environment variable ORACLE_HOME to the directory where you installed the Oracle client. For example, for C-shell users, the following syntax is valid:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+setenv ORACLE_HOME /databases/oracle<a name="wp612571"> </a>
+</pre></div>
+<a name="wp612572"> </a><p class="pBody">
+For Bourne- or Korn-shell users, the following syntax is valid:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+ORACLE_HOME=/databases/oracle;export ORACLE_HOME<a name="wp612573"> </a>
+</pre></div>
+<a name="wp612574"> </a><h5 class="pHeading4">
+Building the Required Oracle Net8 Shared Library on HP-UX 11
+</h5>
+<a name="wp612575"> </a><p class="pBody">
+A one-time site linking to build a replacement Oracle Net8 shared library is required for Oracle Net8 Client 8.1.6 on HP-UX 11.
+</p>
+<a name="wp612576"> </a><p class="pBody">
+This site linking binds your unique Oracle Net8 configuration into the file, which is used by the Oracle driver to access local and remote Oracle databases.
+</p>
+<a name="wp612577"> </a><p class="pBody">
+The Oracle driver requires the shared library libclntsh.sl, which is built by the Oracle script genclntsh. The genclntsh script provided by Oracle causes errors resulting from undefined symbols. Users running Oracle8 on specific platforms with certain versions of Oracle client software (as documented below) must therefore use the genclntsh816 script provided with the DataDirect Connect <font size="1"><em>for</em></font> <font size="1">ODBC</font> Oracle client-based driver to build a replacement libclntsh.sl. This script, in the src/oracle directory, places the new libclntsh.sl in ../../lib, which is your $ODBC_HOME/lib directory; it does not overwrite the original libclntsh.sl in the $ORACLE_HOME/lib directory.
+</p>
+<a name="wp612578"> </a><p class="pBody">
+Before you build the Oracle Net8 shared library, install Oracle and set the environment variable ORACLE_HOME to the directory where you installed Oracle.
+</p>
+<a name="wp612579"> </a><p class="pBody">
+For Oracle Net8 Client 8.1.6 on HP-UX 11, the following commands build the Oracle Net8 shared library:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+cd ${ODBC_HOME}/src/oracle<a name="wp612580"> </a>
+genclntsh816<a name="wp612581"> </a>
+</pre></div>
+<a name="wp612584"> </a><h5 class="pHeading4">
+Connecting to Oracle 8.1.7 from HP-UX
+</h5>
+<a name="wp612590"> </a><p class="pBody">
+To connect to Oracle 8.1.7 from HP-UX, you must have the HP patch PHSS_22514 incorporated into the operating system, and you must set the LD_PRELOAD system variable to the absolute path of the libjava.sl library.
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

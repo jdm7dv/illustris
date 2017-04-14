@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<introContent>
+  <!-- Extension to the SDK Tutorials Page. -->
+  <extensionContent id="org.eclipse.team" name="Team/CVS" alt-style="css/tutorials.properties" style="css/tutorials.css" path="tutorials/@">
+    <group label="Группа/CVS" id="team" style-id="content-group">
+      <link url="http://org.eclipse.ui.intro/showStandby?partId=org.eclipse.platform.cheatsheet&amp;input=org.eclipse.platform.cvs.checkout" label="Изъять проект CVS" id="cvs_checkout" style-id="content-link">
+        <text>Сведения о том, как подключиться к хранилищу CVS и изъять проект.</text>
+      </link>
+      <link url="http://org.eclipse.ui.intro/showStandby?partId=org.eclipse.platform.cheatsheet&amp;input=org.eclipse.platform.cvs.merge" label="Объединить ветви CVS" id="cvs_merge" style-id="content-link">
+        <text>Действия по переносу изменений из одной ветви CVS в другую.</text>
+      </link>
+    </group>
+  </extensionContent>
+</introContent>

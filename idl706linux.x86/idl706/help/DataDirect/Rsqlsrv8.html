@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="GENERATOR" content="Quadralay WebWorks Publisher Professional Edition 7.0.5.1025" />
+  <meta name="TEMPLATEBASE" content="WWH 3.0 Help Template" />
+  <meta name="LASTUPDATED" content="05/12/04 18:15:48" />
+  <title>Configuring Connection Failover</title>
+  <link rel="StyleSheet" href="document.css" type="text/css" />
+  <link rel="StyleSheet" href="catalog.css" type="text/css" />
+<script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = WWHGetWWHFrame("");
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHUpdate();">
+
+ <blockquote>
+<a name="wp617096"> </a><h1 class="pNewHTMLPageNoNum">
+Configuring Connection Failover
+</h1>
+<hr /><a name="wp623765"> </a><p class="pBody">
+</p><div align="left"><img src="images/iconunixe11.gif" height="33" width="27" border="0" hspace="0" vspace="0"/></div><p class="pBody">Only the SQL Server Wire Protocol driver on UNIX supports this feature.
+</p>
+<a name="wp623825"> </a><p class="pBody">
+<em class="cEmphasis">Connection failover</em> allows an application to connect to an alternate, or backup, database server if the primary database server is unavailable, for example, because of a hardware failure or traffic overload. Connection failover ensures that the data on which your critical ODBC applications depend is always available. Refer to <a  href="Rstart4.html#wp583803"><a  href="Rstart4.html#wp583803">&quot;Using Connection Failover&quot;</a></a> for more information.
+</p>
+<a name="wp623830"> </a><p class="pBody">
+To configure connection failover, you <b class="cBold">must</b> specify a list of alternate database servers that are tried at connection time if the primary server is not accepting connections. To do this, use the Alternate Servers (AlternateServers) connection option. Connection attempts continue until a connection is successfully established or until all the database servers in the list have been tried once (the default). 
+</p>
+<a name="wp623831"> </a><p class="pBody">
+Optionally, you can specify the following additional connection failover features:
+</p>
+<div class="pSmartList1"><ul class="pSmartList1">
+<a name="wp623832"> </a><div class="pSmartList1"><li>The number of times the driver attempts to connect to the primary and alternate database servers after the initial unsuccessful connection attempt. By default, the driver does not retry. To set this feature, use the Connection Retry Count (ConnectionRetryCount) connection option. See <a  href="Rstart6.html#wp592469"><a  href="Rstart6.html#wp592469">&quot;Using Connection Retry&quot;</a></a> for more information.</li></div><a name="wp623837"> </a><div class="pSmartList1"><li>The wait interval, in seconds, between attempts to connect to the primary and alternate database servers. The default interval is 3 seconds. To set this feature, use the Connection Retry Delay (ConnectionRetryDelay) connection option.</li></div><a name="wp623838"> </a><div class="pSmartList1"><li>Whether the driver will use client load balancing in its attempts to connect to primary and alternate database servers. If load balancing is enabled, the driver uses a random pattern instead of a sequential pattern in its attempts to connect. The default value is not to use load balancing. To set this feature, use the Load Balancing (LoadBalancing) connection option. See <a  href="Rstart5.html#wp583520"><a  href="Rstart5.html#wp583520">&quot;Using Client Load Balancing&quot;</a></a> for more information.</li></div></ul></div>
+<a name="wp623783"> </a><p class="pBody">
+&#160;&#160;
+</p>
+<a name="wp623667"> </a><p class="pBody">
+You can configure a data source to use connection failover by modifying your system information file (odbc.ini). See <a  href="Runixenv4.html#wp527615">&quot;The System Information File (odbc.ini)&quot;</a>. Also, you can use a connection string to direct the driver to use connection failover. See the UNIX section of <a  href="Rsqlsrv5.html#wp601463">&quot;Connecting to a Data Source Using a Connection String&quot;</a>.
+</p>
+<a name="wp617018"> </a><h4 class="pHeading3">
+A Connection String Example
+</h4>
+<a name="wp617019"> </a><p class="pBody">
+The following connection string configures the SQL Server Wire Protocol driver on UNIX to use connection failover in conjunction with all of its optional features&#8212;load balancing, connection retry, and connection retry delay.
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+DSN=AcctMSSQLServer;
+AlternateServers=(Address=\\MySQLServer\Instance1, 
+Address=\\MySQLServer2\Instance1);LoadBalancing=1; 
+ConnectionRetryCount=4;ConnectionRetryDelay=5<a name="wp617020"> </a>
+</pre></div>
+<a name="wp617021"> </a><p class="pBody">
+Specifically, this connection string configures the driver to use two alternate servers as connection failover servers, to attempt to connect four additional times if the initial attempt fails, to wait five seconds between attempts, and to try the primary and alternate servers in a random order. The additional connection information required for the alternate servers is specified in the data source AcctMSSQLServer.
+</p>
+<a name="wp617022"> </a><h4 class="pHeading3">
+An odbc.ini File Example
+</h4>
+<a name="wp617023"> </a><p class="pBody">
+To configure the SQL Server Wire Protocol driver on UNIX to use connection failover in conjunction with some of its optional features in your odbc.ini file, you could set the following connection string attributes:
+</p>
+<div class="pPreformatted"><pre class="pPreformatted">
+Driver=ODBCHOME/lib/ivmsss20.so<a name="wp617152"> </a>
+Description=DataDirect 5.0 SQL Server Wire Protocol<a name="wp617153"> </a>
+...<a name="wp617025"> </a>
+AlternateServers=(Address=\\MySQLServer\Instance1, 
+Address=\\MySQLServer2\Instance1)<a name="wp617026"> </a>
+...<a name="wp617027"> </a>
+ConnectionRetryCount=4<a name="wp617028"> </a>
+ConnectionRetryDelay=5<a name="wp617029"> </a>
+...<a name="wp617030"> </a>
+LoadBalancing=0
+...<a name="wp617031"> </a>
+</pre></div>
+<a name="wp617032"> </a><p class="pBody">
+Specifically, this odbc.ini configuration tells the driver to use two alternate servers as connection failover servers, to attempt to connect four additional times if the initial attempt fails, to wait five seconds between attempts, and to try the primary and alternate servers in sequential order (do not use load balancing).
+</p>
+ </blockquote>
+
+ <hr />
+
+<script type="text/javascript" language="JavaScript1.2">
+   <!--
+    document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag());
+   // -->
+  </script>
+
+ </body>
+</html>

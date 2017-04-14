@@ -1,0 +1,154 @@
+
+
+
+       WELCOME TO THE FLY THROUGH DEMO
+
+
+   This demonstrates draping a texture map (image) on
+   a surface as well as interactive and automated
+   exploration of the resulting visualization. In this
+   example, the texture map is a satellite image
+   acquired in the vicinity of Los Angeles,
+   California. The surface is a digital elevation
+   model (DEM or DTM) of the associated
+   topography. You can directly manipulate the
+   visualization with your mouse, navigate through a
+   simulated fly-through session, and record your
+   flightpath for later playback. Not limited to the
+   Earth Sciences, texture draped surface
+   visualizations are useful for exploring many types
+   of multidimensional data.  In addition, your own
+   data may be displayed instead of the default scene.
+   See the example at the end of this file for details.
+
+   IDL's advanced graphics system is built to provide
+   maximum performance and flexibility for complex
+   visualizations such as this. For enhanced
+   interactive performance, this system supports
+   OpenGL-based hardware rendering.
+
+
+
+   MENU OPTIONS
+   ------------
+   File Menu:
+      Select Quit to exit the Flyby Demo and return 
+      to the demo system.
+
+   About Menu:
+      Select "About Flythrough" for information 
+      about the Flythrough demo (this file).
+
+
+   FEATURES
+   --------
+
+   <<START>> button
+      Initiates the flythrough. Movement is simulated
+      by translating the surface object towards the eye.
+      The user can direct the movement by positioning
+      the cursor over the view.  Up/down movement with the
+      cursor controls pitch, left/right movement simulates
+      banked turns.  Note that the middle mouse button (or
+      an emulated middle mouse button, for those with two
+      buttons) can be used to start and stop the flythrough.
+      See the "Running IDL" section of "Using IDL" for details
+      on middle mouse button emulation.
+
+      The translations and rotations which make up each step
+      of the interactive flight sequence are stored as
+      transformation matrices.  The transformations for each
+      flight are appended to form a saved path which can be
+      replayed.  See the "Replay Path" and "Clear Path" buttons
+      below.
+
+   <<Stop>> button
+      Stops the flythrough by stopping the translations of the
+      model towards the eye.  The flythrough can be resumed by
+      selecting Start or by clicking the middle mouse button
+      (or emulated middle button).  This is useful if you want
+      to change several of the controls during a flythrough.
+
+   <<Reset>> button
+      Resets the orientation to the initial location by setting
+      the model transformations to the original transformations.
+
+   <<Replay Path>> button
+      Steps through the model transformation of the last flight
+      or flights since startup or the last use of the "Clear Path"
+      button. Note that this is not an animation of static images.
+      The transformations matrices of a flight are stored during
+      the flight and used to manipulate the surface object again
+      to replay the flight.  If the last path ended with a crash
+      the path can be replayed, but the replay will cycle
+      continuously rather than stopping at the crash.
+
+   <<Clear Path>> button
+      Clears the saved path.  The transformations of the next
+      flight will become the beginning of a new path which can
+      be replayed. 
+
+   <<Airspeed>> slider
+      Regulates the speed by altering the amount of translation
+      toward the eye position.
+
+   <<Pitch Sensitivity>> slider
+      Regulates the amount of pitch change for the same amount of
+      cursor movement in the Y direction.
+
+   <<Roll Sensitivity>> slider
+      Regulates the amount of roll change for the same amount of
+      cursor movement in the X direction.
+
+   <<Ignore Crashes>> check box
+      When checked this setting prevents the flight from stopping
+      when the flight passes through the surface.  The default is
+      to stop the flight when passing through the surface.
+
+   Joystick display
+      This small display is a visual aide which represents a
+      top-down view of a joystick which is controlling the flight.
+      The position of the joystick is controlled by the position
+      of the cursor within the main display.
+
+   <<Surface Controls>> button
+      Displays a floating control panel with optional settings for
+      the display of the surface.  The controls are described below.
+
+   <<Texture Map>> check box
+      If checked the display will show an image draped on the digital
+      elevation model.  If not checked the display will show the
+      shaded surface and surface paths.
+
+   <<Bilinear Interp.>> check box
+      If checked, the texture map will use Bilinear sampling.
+      If not checked, the texture map will use nearest neighbor
+      sampling.
+
+   <<Grid at Z=0>> check box
+      If selected, display a referece grid at Z=0.
+
+   <<Center Box>> check box
+      If selected, display a reference box at the center of the screen.
+      Note that if the cursor is near this box the flight will continue
+      forward.  Moving the cursor away from this box during flight will
+      change the pitch or initiate banked turns.
+
+   <<Vertical Exag.>> slider
+      Alters the vertical exaggeration of the Z dimension of the surface.
+
+   <<Done>> button
+      Closes the Surface Controls control panel.
+
+
+
+   Run this demo from the command line to supply your own data (surface
+   and image).  For example:
+
+   ; note that surface and image dimensions need not agree
+   ; the image is scaled to fit the surface.
+   tmpSurface=DIST(50)
+   tmpImage=BYTSCL(SIN(DIST(40)))
+   d_flythru, SURFACE=tmpSurface, IMAGE=tmpImage
+
+
